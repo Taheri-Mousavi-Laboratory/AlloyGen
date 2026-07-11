@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alloygen"
+version = "0.1.0"
+description = "Physics-grounded self-adaptive multi-agent framework for alloy design workflows."
+readme = "README.md"
+requires-python = ">=3.12"
+
+[tool.setuptools.packages.find]
+include = ["alloygen*"]
+
+[tool.setuptools.package-data]
+"alloygen.groupagent" = [
+    "tools/*.md",
+    "tools/*.txt",
+    "tools/*.tsv",
+    "tools/**/*.py",
+]
