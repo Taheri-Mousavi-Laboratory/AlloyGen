@@ -1,0 +1,55 @@
+{
+  "pricing": {
+    "model": "gpt-4o-2024-08-06",
+    "checked_UTC_date": "2026-10-27",
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o",
+    "usage_source": "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create",
+    "currency": "USD",
+    "per_million_tokens": {
+      "input": 2.5,
+      "cached_input": 1.25,
+      "output": 10.0
+    },
+    "billing_mode": "standard synchronous text requests",
+    "qualification": "Estimated from returned usage; not an invoice. Excludes taxes, discounts, unreported usage and local compute. Provider prompt caching differs from replay of a locally cached completion."
+  },
+  "total": {
+    "prompt_tokens": 198508,
+    "completion_tokens": 2813,
+    "total_tokens": 201321,
+    "provider_cached_input_tokens": 111104,
+    "estimated_cost_usd": 0.38552000000000003,
+    "undiscounted_cost_usd": 0.5244,
+    "completed_provider_calls": 10,
+    "failed_provider_calls": 0,
+    "missing_usage_responses": 0
+  },
+  "tasks": [
+    {
+      "task": "task1",
+      "prompt_tokens": 51352,
+      "completion_tokens": 1063,
+      "total_tokens": 52415,
+      "provider_cached_input_tokens": 19968,
+      "estimated_cost_usd": 0.11405,
+      "undiscounted_cost_usd": 0.13901,
+      "completed_provider_calls": 5,
+      "failed_provider_calls": 0,
+      "missing_usage_responses": 0
+    },
+    {
+      "task": "task2",
+      "prompt_tokens": 147156,
+      "completion_tokens": 1750,
+      "total_tokens": 148906,
+      "provider_cached_input_tokens": 91136,
+      "estimated_cost_usd": 0.27147,
+      "undiscounted_cost_usd": 0.38539,
+      "completed_provider_calls": 5,
+      "failed_provider_calls": 0,
+      "missing_usage_responses": 0
+    }
+  ],
+  "local_completion_cache_hits": 0,
+  "qualification": "Returned usage only; billing for failed/unreported requests is unknown."
+}

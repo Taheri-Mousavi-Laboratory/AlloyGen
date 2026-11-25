@@ -1,0 +1,41 @@
+
+Start
+  |
+  v
+Reference retrieval + empty-batch tool check
+  |
+  v
+Initial small screening across Er/Zr branches with Ni anchors
+  |
+  +--> Coarsening J available/low? ---- no ----> retain as partial/unsuccessful evidence
+  |                                      |
+  |                                      v
+  |                                 phase qualification if otherwise promising
+  |
+  v
+Phase feasibility check at 660 C (L12 <= 1.05 mol%)
+  |
+  +--> infeasible low-J lead? keep as infeasible, not incumbent
+  |
+  v
+Establish defensible feasible incumbent with complete evidence
+  |
+  v
+Evidence -> unresolved Er/Zr tradeoff -> one new Er/Zr refinement
+  |
+  v
+Retained Er/Zr branch -> matched Ni comparison by Scheil + phase/J qualification
+  |
+  v
+Choose coarsening-first preferred candidate
+  |
+  +--> if another qualified alloy shows broader balance, label as balanced alternative with explicit J cost
+  |
+  v
+Fresh recalculation of preferred candidate + reference in new output directory
+  |
+  v
+Self-review against original requirements and saved outputs
+  |
+  v
+Final shortlist + limits

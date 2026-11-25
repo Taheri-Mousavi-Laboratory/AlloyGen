@@ -1,0 +1,84 @@
+{
+  "identity": {
+    "kind": "equilibrium",
+    "composition_percent": {
+      "Ni": 2.0,
+      "Er": 1.2,
+      "Zr": 0.6,
+      "Y": 0.0,
+      "Yb": 0.0
+    },
+    "basis": "atomic_percent",
+    "temperature_K": 623.15,
+    "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+  },
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/17eade8ea6ef27e37ae2053422f988c21106a7dc711f895c622399933164a714.json",
+  "temperature_K": 623.15,
+  "bulk_mole_fractions": {
+    "Al": 0.9619999999535038,
+    "Ni": 0.019999999999994206,
+    "Er": 0.012000000001501164,
+    "Zr": 0.005999999999999771,
+    "Y": 2.112608207851812e-11,
+    "Yb": 2.3874958303837436e-11
+  },
+  "input_condition_error": 2.3874958303837436e-11,
+  "phases": [
+    {
+      "name": "AL23NI6M4#1",
+      "mole_fraction": 0.002620542882226543,
+      "composition_mole_fraction": {
+        "Al": 0.696969696969697,
+        "Ni": 0.18181818181818182,
+        "Er": 0.12121212083473543,
+        "Zr": 0.0,
+        "Y": 3.7719871044726973e-10,
+        "Yb": 1.8706613109681888e-13
+      }
+    },
+    {
+      "name": "AL3M_L12#1",
+      "mole_fraction": 0.07071615247544533,
+      "composition_mole_fraction": {
+        "Al": 0.7500000000000001,
+        "Ni": 1.760591559218353e-05,
+        "Er": 0.165200707776283,
+        "Zr": 0.08478168570975954,
+        "Y": 2.7276115423227276e-10,
+        "Yb": 3.256041225717357e-10
+      }
+    },
+    {
+      "name": "AL3NI1#1",
+      "mole_fraction": 0.07766599403969446,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.25,
+        "Er": 0.0,
+        "Zr": 0.0,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    },
+    {
+      "name": "FCC_A1#1",
+      "mole_fraction": 0.8489973106026336,
+      "composition_mole_fraction": {
+        "Al": 0.9998700119392276,
+        "Ni": 0.00012461067180649063,
+        "Er": 1e-12,
+        "Zr": 5.377385965911469e-06,
+        "Y": 1e-12,
+        "Yb": 1e-12
+      }
+    }
+  ],
+  "checks": {
+    "phase_sum_error": 1.1102230246251565e-16,
+    "max_component_balance_error": 1.734723475976807e-18,
+    "max_phase_composition_sum_error": 2.220446049250313e-16,
+    "input_condition_error": 2.3874958303837436e-11
+  },
+  "seconds": 0.46148435585200787
+}

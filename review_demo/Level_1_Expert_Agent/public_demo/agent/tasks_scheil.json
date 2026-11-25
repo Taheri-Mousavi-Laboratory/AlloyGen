@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    {
+      "id": "task1",
+      "question": "\nTask:\nPerform a Scheil-calculation for the given alloy composition and plot the latent heat of solidification:\nFe - 1 wt-% C - 10 wt-% Cr\n\nPlease solve the task, save the result in a json file and plot it in a png file. \n"
+    },
+    {
+      "id": "task2",
+      "question": "\nTask:\n\nFind the temperature where 80% is solidified as precisely as possible for the given composition:\nFe - 1 wt-% C - 10 wt-% Cr\n\nUse the function scipy.interpolate.interp1d\n\nPlease solve the task, save the result in a json file and plot it in a png file. \n"
+    }
+  ]
+}

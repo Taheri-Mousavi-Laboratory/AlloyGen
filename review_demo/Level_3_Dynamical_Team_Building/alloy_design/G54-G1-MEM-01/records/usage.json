@@ -1,0 +1,11 @@
+{
+  "input_tokens": 3753973,
+  "output_tokens": 112148,
+  "cached_input_tokens": 1468416,
+  "web_search_calls": 0,
+  "api_requests": 176,
+  "failed_requests": 0,
+  "known_estimated_cost_usd": 7.7632165,
+  "unpriced_requests": 0,
+  "accounting_period": "revision_key_01_resumed_20261111"
+}

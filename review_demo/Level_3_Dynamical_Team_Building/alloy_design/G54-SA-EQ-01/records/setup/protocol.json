@@ -1,0 +1,18 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "max_provider_requests": 240,
+  "max_tool_calls": 200,
+  "max_distinct_candidates": 32,
+  "max_candidate_scheil": 12,
+  "max_candidate_phase_profiles": 16,
+  "phase_limit_mol_percent": 1.05,
+  "J_tie_absolute": 0.0005,
+  "max_batch_size": 3,
+  "max_completion_tokens": 12000,
+  "max_conversation_turns": 241,
+  "comparison": "G54-G1-MEM-01",
+  "run_label": "G54-SA-EQ-01",
+  "architecture": "Original equilibrium assistant / retrieval / execution proxy",
+  "numerical_allowances": "Task requirements audited from raw calls; no scientific workflow controller",
+  "verification": "Agent-initiated fresh directory, same three functions"
+}

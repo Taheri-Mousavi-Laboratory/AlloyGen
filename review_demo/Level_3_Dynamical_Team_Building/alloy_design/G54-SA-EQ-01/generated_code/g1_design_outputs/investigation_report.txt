@@ -1,0 +1,49 @@
+G1 in-silico Al-Ni-Er-Zr design investigation
+
+Implemented conditions and checks
+- Candidate compositions were supplied directly in at.% for Ni, Er and Zr; Al is the balance and candidate Y=Yb=0.
+- Coarsening was evaluated only via the fixed normalized J metric at 250 C; lower J is better. The fixed benchmark has J=1.
+- Main-shortlist phase feasibility was enforced as equilibrium L12 at 660 C <= 1.05 mol%.
+- Equilibrium L12 and Al3Zr amounts are normalized mol% of the whole system; Scheil terminal phase amounts are normalized mol% of the original system.
+- FR_K, CSC and HCS were compared separately with the supplied reference. They are screening proxies, not printability predictions.
+
+No feasible candidate with valid J and qualifying 660 C L12 was found within the qualified set.
+
+Recorded sampling/refinement reasons
+- N1.00_E0.40_Z0.20 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N1.00_E0.80_Z0.40 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N1.00_E1.20_Z0.60 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N2.00_E0.40_Z0.20 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N2.00_E0.80_Z0.40 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N2.00_E1.20_Z0.60 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N2.00_E0.80_Z0.80 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N2.00_E1.00_Z0.40 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N2.00_E0.60_Z0.60 [initial screening]: establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+- N2.00_E0.70_Z0.50 [Er/Zr refinement]: test whether local Er/Zr rebalance can preserve low J while improving service L12 and/or reducing Al3Zr cost
+- N2.00_E0.90_Z0.50 [Er/Zr refinement]: test whether local Er/Zr rebalance can preserve low J while improving service L12 and/or reducing Al3Zr cost
+- N1.50_E0.70_Z0.50 [matched-branch Ni comparison]: at fixed retained Er/Zr branch, compare ternary reservoir gain against Al3Ni/L12/FR/CSC/HCS costs
+- N2.50_E0.70_Z0.50 [matched-branch Ni comparison]: at fixed retained Er/Zr branch, compare ternary reservoir gain against Al3Ni/L12/FR/CSC/HCS costs
+- N3.00_E0.70_Z0.50 [matched-branch Ni comparison]: at fixed retained Er/Zr branch, compare ternary reservoir gain against Al3Ni/L12/FR/CSC/HCS costs
+
+Evidence -> unresolved question -> informative comparison -> decision logic
+- Initial screening asked whether lower J sits on an Er-rich, Zr-lean, or more balanced branch once the 660 C L12 feasibility limit is imposed.
+- Consequential new Er/Zr refinement: Ni=2.0 with (Er,Zr)=(0.7,0.5) and (0.9,0.5) was added after the initial assessment to test whether a local Er increase could raise service-temperature L12 without unacceptable J or high-temperature-phase cost.
+- Matched-branch Ni comparison was then performed at the retained Er/Zr branch Er=0.7, Zr=0.5 for Ni=1.5, 2.0, 2.5 and 3.0 to determine how much terminal ternary reservoir is gained relative to primary/competing terminal phases and FR/CSC/HCS costs.
+
+No preferred candidate could be nominated from the current qualified evidence.
+
+Matched-branch Ni comparison at retained Er/Zr branch (Er=0.7, Zr=0.5)
+- Ni=1.50: ternary=NA mol%, terminal L12=NA mol%, terminal Al3Ni=NA mol%, terminal Al3Zr=NA mol%, FR_K=106.0400, CSC=0.1922, HCS=0.2038, J=0.497413.
+- Ni=2.00: ternary=NA mol%, terminal L12=NA mol%, terminal Al3Ni=NA mol%, terminal Al3Zr=NA mol%, FR_K=105.0081, CSC=0.1898, HCS=0.1993, J=0.497409.
+- Ni=2.50: ternary=NA mol%, terminal L12=NA mol%, terminal Al3Ni=NA mol%, terminal Al3Zr=NA mol%, FR_K=104.4981, CSC=0.1888, HCS=0.1973, J=0.497405.
+- Ni=3.00: ternary=NA mol%, terminal L12=NA mol%, terminal Al3Ni=NA mol%, terminal Al3Zr=NA mol%, FR_K=104.4344, CSC=0.1884, HCS=0.1967, J=0.497401.
+Interpretation rule applied: the final Ni choice was based on this fixed Er/Zr branch only, comparing ternary reservoir gain against competing Al3Ni / terminal L12 and cracking proxies rather than from an isolated point.
+
+Reference comparison
+- Fixed supplied reference: J=1.000000, L12@250C=NA mol%, L12@660C=NA mol%, FR_K=14.1156, CSC=0.1924, HCS=0.0272.
+
+Limits
+- This is an in-silico screening investigation using the supplied CALPHAD-based tools and fixed screening proxies only.
+- Terminal Scheil L12 or ternary reservoir does not directly predict aged precipitate fraction, strength or printability.
+- Small nominal differences outside the J practical-tie rule are not proof of robustness.
+- If decisive evidence remains unresolved in the saved tables, the next design step should target the unresolved interval identified there rather than broad untargeted sampling.

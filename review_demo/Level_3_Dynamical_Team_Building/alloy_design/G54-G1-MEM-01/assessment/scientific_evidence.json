@@ -1,0 +1,1569 @@
+{
+  "candidates": {
+    "C001": {
+      "composition_at_percent": {
+        "Ni": 1.5,
+        "Er": 0.4,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 3.1990436089735828,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 0.8923485574934417,
+          "Al3Zr_660_mol_percent": 0.9968651939905895,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 945.3125000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 943.7500000000001,
+                "upper_C": 946.8750000000001,
+                "temperature_C": 945.3125000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/0aa91a4d8eec56c19f3ed6b33dadaf7409477cdba20da6d816e2c7716d442222.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/9a96aabd3a09f225428dcd4dc0383da6fc5ef562c0a024de15811275eaa3bb83.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/58c5d4fa411141ad9e52089e74f4318e/boundary_578cb4878f45.json"
+          ],
+          "evidence_id": "B001:C001:phase_stability"
+        },
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.3052704942407164,
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/0aa91a4d8eec56c19f3ed6b33dadaf7409477cdba20da6d816e2c7716d442222.json"
+          ],
+          "evidence_id": "B002:C001:coarsening"
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8559912000001,
+          "terminal_solid_mol_percent": 99.99999999999304,
+          "ternary_mol_percent": 3.1551824611524517,
+          "L12_mol_percent": 0.15927458123159977,
+          "Al3Ni_mol_percent": 3.3170750587487516,
+          "Al3Zr_mol_percent": 1.4529790160225757,
+          "FR_K": 9.98812,
+          "CSC": 0.19185,
+          "HCS": 0.01916220822,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.4426384736907567,
+            "vulnerable": 0.08492150140904153
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/3f92e3d9b09eba03453a6696fb743ce9570c21b721fecf213aabeabcdc025bdb.json"
+          ],
+          "evidence_id": "B008:C001:solidification",
+          "FR_interval": {
+            "start_temperature_C": 648.8441162,
+            "start_solid_mole_fraction": 0.020842223914690684,
+            "terminal_temperature_C": 638.8559912000001
+          }
+        }
+      }
+    },
+    "C002": {
+      "composition_at_percent": {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.8,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 6.399109214980142,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 4.793125590093793,
+          "Al3Zr_660_mol_percent": 0.34193439895921385,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1042.1875,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1040.625,
+                "upper_C": 1043.75,
+                "temperature_C": 1042.1875,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/1e13f9f721423b90132763bd6ee7f394bc7588a627c1886b83f157da3bfc4a89.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/3d9343d912fbdb7eb0f16b27ed33447b96176f97b75791e856d2f66f15486fba.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/58c5d4fa411141ad9e52089e74f4318e/boundary_74122fd09f44.json"
+          ],
+          "evidence_id": "B001:C002:phase_stability"
+        }
+      }
+    },
+    "C003": {
+      "composition_at_percent": {
+        "Ni": 1.5,
+        "Er": 0.4,
+        "Zr": 1.2,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 1.2,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 3.310623672307652,
+          "Al3Zr_250_mol_percent": 3.0883286636031673,
+          "L12_660_mol_percent": 0.9862468578662985,
+          "Al3Zr_660_mol_percent": 4.145856925602474,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1101.5625,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1100.0,
+                "upper_C": 1103.125,
+                "temperature_C": 1101.5625,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/743c6cd422a530861f1f72a40ba509c7c140520fc8b5daa9770a598f9f2f3a0f.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/f918d3c5c41eab567589284b0d2d255b1535a53e2cb7694d7688e65b6dd8cbf4.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/58c5d4fa411141ad9e52089e74f4318e/boundary_f20cd1ee147d.json"
+          ],
+          "evidence_id": "B001:C003:phase_stability"
+        },
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 1.2,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.27804518493703073,
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/f918d3c5c41eab567589284b0d2d255b1535a53e2cb7694d7688e65b6dd8cbf4.json"
+          ],
+          "evidence_id": "B002:C003:coarsening"
+        }
+      }
+    },
+    "C004": {
+      "composition_at_percent": {
+        "Ni": 1.5,
+        "Er": 0.4,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 3.3106236725471097,
+          "Al3Zr_250_mol_percent": 1.4883089342399525,
+          "L12_660_mol_percent": 0.9392845531138507,
+          "Al3Zr_660_mol_percent": 2.5713684747343364,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1039.0625,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1037.5,
+                "upper_C": 1040.625,
+                "temperature_C": 1039.0625,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/021f5ba6e2b16f2e959edffbba23488e7abff45630f1a790dd541d6b735c4e80.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/832e55ffc62986a9c46378e2ae8ff24ef7959e317dde38b163c2b692c7d6c3eb.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/ea8b9d96c2a0432da4f7c8ab4228e173/boundary_2e4b2e7c925e.json"
+          ],
+          "evidence_id": "B003:C004:phase_stability"
+        },
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.27804518508374554,
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/832e55ffc62986a9c46378e2ae8ff24ef7959e317dde38b163c2b692c7d6c3eb.json"
+          ],
+          "evidence_id": "B004:C004:coarsening"
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8447022,
+          "terminal_solid_mol_percent": 99.99999999999423,
+          "ternary_mol_percent": 3.147752611366376,
+          "L12_mol_percent": 0.16713156899192472,
+          "Al3Ni_mol_percent": 3.3268069681600134,
+          "Al3Zr_mol_percent": 3.0509730532349226,
+          "FR_K": 273.43437,
+          "CSC": 0.18679,
+          "HCS": 0.5107480597230001,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.39580534786800403,
+            "vulnerable": 0.0739333739347603
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/96cf91a537275787f31b92ff889533b4abec5a8747265d45125b5239818a3228.json"
+          ],
+          "evidence_id": "B007:C004:solidification",
+          "FR_interval": {
+            "start_temperature_C": 912.279077,
+            "start_solid_mole_fraction": 0.02001716235672091,
+            "terminal_temperature_C": 638.8447022
+          }
+        }
+      }
+    },
+    "C005": {
+      "composition_at_percent": {
+        "Ni": 1.0,
+        "Er": 0.4,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.0,
+            "Er": 0.4,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.2780451852670357,
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a7d008db36f769bad88e4189b164e441aacf17fcb44943ef1795a452e824ede6.json"
+          ],
+          "evidence_id": "B005:C005:coarsening"
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.0,
+            "Er": 0.4,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 3.310623672846295,
+          "Al3Zr_250_mol_percent": 1.48828427253575,
+          "L12_660_mol_percent": 0.9688025394017767,
+          "Al3Zr_660_mol_percent": 2.5493239758995703,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1035.9375,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1034.375,
+                "upper_C": 1037.5,
+                "temperature_C": 1035.9375,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/54fcbde8483fe6cc12edb0f3736affdc138b2901a56fd77b0beb6cae10c1c850.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a7d008db36f769bad88e4189b164e441aacf17fcb44943ef1795a452e824ede6.json",
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/a69615f3f94f4eb6a2a50d6e458f33e7/boundary_88ea41df03a9.json"
+          ],
+          "evidence_id": "B006:C005:phase_stability"
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 1.0,
+            "Er": 0.4,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8469137000001,
+          "terminal_solid_mol_percent": 100.00000000000267,
+          "ternary_mol_percent": 3.140411170021904,
+          "L12_mol_percent": 0.1755769230844952,
+          "Al3Ni_mol_percent": 1.3943980755583592,
+          "Al3Zr_mol_percent": 3.039659280781794,
+          "FR_K": 269.6775,
+          "CSC": 0.18679,
+          "HCS": 0.50373060225,
+          "max_phase_sum_error": 2.220446049250313e-16,
+          "CSC_intervals": {
+            "relaxation": 0.40009631868284923,
+            "vulnerable": 0.07473242535376112
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/549041c41e82485d05420df375c58c914a89c28eefc412eeeee5b00ae0e0685a.json"
+          ],
+          "evidence_id": "B007:C005:solidification",
+          "FR_interval": {
+            "start_temperature_C": 908.5244140000001,
+            "start_solid_mole_fraction": 0.01998490997630837,
+            "terminal_temperature_C": 638.8469137000001
+          }
+        }
+      }
+    }
+  },
+  "reference": {
+    "phase_stability": {
+      "composition_percent": {
+        "Ni": 2.14,
+        "Er": 1.35,
+        "Zr": 1.15,
+        "Y": 0.25,
+        "Yb": 0.73
+      },
+      "basis": "mass_percent",
+      "status": "complete",
+      "L12_250_mol_percent": 2.3601150618584725,
+      "Al3Zr_250_mol_percent": 0.6716765913525093,
+      "L12_660_mol_percent": 0.7765127393367864,
+      "Al3Zr_660_mol_percent": 0.953743045178244,
+      "Al3Zr_boundary": {
+        "status": "bracketed",
+        "upper_temperature_C": 929.6875000000001,
+        "precision_K": 5.0,
+        "liquid_at_upper_boundary": true,
+        "disappearance_intervals": [
+          {
+            "lower_C": 928.1250000000001,
+            "upper_C": 931.2500000000001,
+            "temperature_C": 929.6875000000001,
+            "liquid_present": true
+          }
+        ]
+      },
+      "records": [
+        "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/65400d5b07d712d528fb8805733e2c79be42627f996134d515745a2d51117f93.json",
+        "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/9665c23cd04b6f99c37767f1ec5d9aacb6720b0775d11949401adbeaf9b4d1c0.json",
+        "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/a69615f3f94f4eb6a2a50d6e458f33e7/boundary_7c01bceb0938.json"
+      ],
+      "evidence_id": "B006:reference:phase_stability"
+    },
+    "coarsening": {
+      "composition_percent": {
+        "Ni": 2.14,
+        "Er": 1.35,
+        "Zr": 1.15,
+        "Y": 0.25,
+        "Yb": 0.73
+      },
+      "basis": "mass_percent",
+      "status": "complete",
+      "J": 1.0,
+      "records": [
+        "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/65400d5b07d712d528fb8805733e2c79be42627f996134d515745a2d51117f93.json"
+      ],
+      "evidence_id": "B005:reference:coarsening"
+    },
+    "solidification": {
+      "composition_percent": {
+        "Ni": 2.14,
+        "Er": 1.35,
+        "Zr": 1.15,
+        "Y": 0.25,
+        "Yb": 0.73
+      },
+      "basis": "mass_percent",
+      "status": "complete",
+      "terminal_temperature_C": 637.2288752000001,
+      "terminal_solid_mol_percent": 99.87708189840544,
+      "ternary_mol_percent": 1.0357840503607434,
+      "L12_mol_percent": 1.310962362629209,
+      "Al3Ni_mol_percent": 2.9896542755178457,
+      "Al3Zr_mol_percent": 1.2631515013883756,
+      "FR_K": 14.11562,
+      "CSC": 0.19238,
+      "HCS": 0.027155629755999996,
+      "max_phase_sum_error": 1.1102230246251565e-16,
+      "CSC_intervals": {
+        "relaxation": 0.45987522311756984,
+        "vulnerable": 0.08847292166883836
+      },
+      "records": [
+        "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/be312d12fa284a83121c194d7b31309c82af3ebc80bc42d52808e13f8c87343a.json"
+      ],
+      "evidence_id": "B008:reference:solidification",
+      "FR_interval": {
+        "start_temperature_C": 651.3445002,
+        "start_solid_mole_fraction": 0.015894000827155037,
+        "terminal_temperature_C": 637.2288752000001
+      }
+    }
+  },
+  "calls": [
+    {
+      "id": "B001",
+      "kind": "phase_stability",
+      "compositions": [
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.4,
+          "Y": 0.0,
+          "Yb": 0.0
+        },
+        {
+          "Ni": 1.5,
+          "Er": 0.8,
+          "Zr": 0.8,
+          "Y": 0.0,
+          "Yb": 0.0
+        },
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 1.2,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C001",
+        "C002",
+        "C003"
+      ],
+      "new_candidate_ids": [
+        "C001",
+        "C002",
+        "C003"
+      ],
+      "reason": "Execute recorded initial fixed-Ni=1.5 at.% Er/Zr phase-stability batch exactly as saved; return L12 and Al3Zr at 250/660 C and Al3Zr upper disappearance boundary with liquid flag for the three exact compositions.",
+      "status": "complete",
+      "response_file": "B001.json",
+      "usage": {
+        "equilibrium_calls": 76,
+        "scheil_calls": 0,
+        "cache_hits": 4,
+        "paid_model_calls": 0
+      },
+      "seconds": 45.43603326566517,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    },
+    {
+      "id": "B002",
+      "kind": "coarsening",
+      "compositions": [
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.4,
+          "Y": 0.0,
+          "Yb": 0.0
+        },
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 1.2,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C001",
+        "C003"
+      ],
+      "new_candidate_ids": [],
+      "reason": "Execute the recorded coarsening comparison for the two phase-feasible branches C001 and C003 only, to determine exact J values and whether their difference exceeds the 0.0005 tie tolerance.",
+      "status": "complete",
+      "response_file": "B002.json",
+      "usage": {
+        "equilibrium_calls": 0,
+        "scheil_calls": 0,
+        "cache_hits": 4,
+        "paid_model_calls": 0
+      },
+      "seconds": 0.038099052384495735,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    },
+    {
+      "id": "B003",
+      "kind": "phase_stability",
+      "compositions": [
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.8,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C004"
+      ],
+      "new_candidate_ids": [
+        "C004"
+      ],
+      "reason": "Execute recorded R5 Er/Zr refinement action exactly as planned at fixed Ni=1.5 and Er=0.4 to determine whether midpoint Zr=0.8 materially reduces C003 competing-phase burden while remaining 660 C-feasible before any matched-branch Ni comparison.",
+      "status": "complete",
+      "response_file": "B003.json",
+      "usage": {
+        "equilibrium_calls": 19,
+        "scheil_calls": 0,
+        "cache_hits": 21,
+        "paid_model_calls": 0
+      },
+      "seconds": 21.890369027853012,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    },
+    {
+      "id": "B004",
+      "kind": "coarsening",
+      "compositions": [
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.8,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C004"
+      ],
+      "new_candidate_ids": [],
+      "reason": "Execute the recorded ready action exactly for C004 to resolve whether its 250C coarsening J changes retained Er/Zr branch selection versus C003 before any matched-branch Ni comparison.",
+      "status": "complete",
+      "response_file": "B004.json",
+      "usage": {
+        "equilibrium_calls": 0,
+        "scheil_calls": 0,
+        "cache_hits": 3,
+        "paid_model_calls": 0
+      },
+      "seconds": 0.03694060817360878,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    },
+    {
+      "id": "B005",
+      "kind": "coarsening",
+      "compositions": [
+        {
+          "Ni": 1.0,
+          "Er": 0.4,
+          "Zr": 0.8,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C005"
+      ],
+      "new_candidate_ids": [
+        "C005"
+      ],
+      "reason": "Recorded execute action R0010: controlled matched-branch Ni comparison on retained C004 branch to test whether lowering Ni from 1.5 to 1.0 at.% at fixed Er 0.4, Zr 0.8 preserves coarsening competitiveness within the 0.0005 tie band before phase-stability and Scheil follow-up.",
+      "status": "complete",
+      "response_file": "B005.json",
+      "usage": {
+        "equilibrium_calls": 1,
+        "scheil_calls": 0,
+        "cache_hits": 2,
+        "paid_model_calls": 0
+      },
+      "seconds": 12.4368068985641,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    },
+    {
+      "id": "B006",
+      "kind": "phase_stability",
+      "compositions": [
+        {
+          "Ni": 1.0,
+          "Er": 0.4,
+          "Zr": 0.8,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C005"
+      ],
+      "new_candidate_ids": [],
+      "reason": "Execute recorded action for exact candidate C005 on retained Er 0.4, Zr 0.8 branch: determine whether lowering Ni from 1.5 to 1.0 at.% preserves R2 feasibility (L12 at 660 C <= 1.05 mol%) and quantify the exact equilibrium L12/Al3Zr tradeoff versus phase-qualified incumbent C004 before any Scheil spend.",
+      "status": "complete",
+      "response_file": "B006.json",
+      "usage": {
+        "equilibrium_calls": 18,
+        "scheil_calls": 0,
+        "cache_hits": 22,
+        "paid_model_calls": 0
+      },
+      "seconds": 20.769851816818118,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    },
+    {
+      "id": "B007",
+      "kind": "solidification",
+      "compositions": [
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.8,
+          "Y": 0.0,
+          "Yb": 0.0
+        },
+        {
+          "Ni": 1.0,
+          "Er": 0.4,
+          "Zr": 0.8,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C004",
+        "C005"
+      ],
+      "new_candidate_ids": [],
+      "reason": "Execute recorded matched-branch Ni Scheil comparison under R3-R4 at fixed Er 0.4, Zr 0.8 for C004 vs C005; return terminal Al23Ni6M4, L12, Al3Ni, Al3Zr, FR_K, CSC, HCS, terminal_solid_mol_percent, terminal_temperature_C, and reference.",
+      "status": "complete",
+      "response_file": "B007.json",
+      "usage": {
+        "equilibrium_calls": 0,
+        "scheil_calls": 3,
+        "cache_hits": 0,
+        "paid_model_calls": 0
+      },
+      "seconds": 80.18922253511846,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    },
+    {
+      "id": "B008",
+      "kind": "solidification",
+      "compositions": [
+        {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.4,
+          "Y": 0.0,
+          "Yb": 0.0
+        }
+      ],
+      "candidate_ids": [
+        "C001"
+      ],
+      "new_candidate_ids": [],
+      "reason": "Execute recorded plan_version 8 exactly: obtain the missing terminal Scheil solidification record for C001 (Ni 1.5, Er 0.4, Zr 0.4 at.%) to test whether this lower-Zr but non-tied worse-J branch has enough FR/HCS or phase-balance relief versus saved C005 to justify only an explicitly labeled balanced alternative.",
+      "status": "complete",
+      "response_file": "B008.json",
+      "usage": {
+        "equilibrium_calls": 0,
+        "scheil_calls": 1,
+        "cache_hits": 1,
+        "paid_model_calls": 0
+      },
+      "seconds": 33.28321536630392,
+      "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+    }
+  ],
+  "plan": [
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | Need coarsening results on fixed-Ni Er/Zr contrasts, then qualify/retain lowest feasible J branch and compare ties with phase/solidification costs | coarsening calculation later after branch screen/qualification\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | First numerical screen should be fixed-Ni Er/Zr phase profiles to establish feasibility and branch cost before Ni tuning | phase_stability now\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | Defer Ni series until one Er/Zr branch is retained from initial assessment; then compare at least two Ni levels on that exact branch | solidification later, plus coarsening/phase completion at exact Ni points as needed\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | After a feasible branch/incumbent exists, calculate solidification on that branch and on matched-branch Ni variants; use penalties as tradeoffs, not automatic rejection | solidification later\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | Use initial fixed-Ni screen to identify whether an intermediate-Zr or other Er/Zr refinement could change selection; preserve incumbent if refinement is unfavorable | future refinement after first results\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Use staged workflow: initial Er/Zr screen -> complete evidence on incumbent -> measured Er/Zr refinement -> matched-branch Ni comparison -> shortlist -> fresh verification | planner recording now and throughout",
+      "workflow_mermaid": "flowchart TD\nA[Start: no measured candidates] --> B[Initial fixed-Ni Er/Zr phase screen\\n3 compositions, both Er and Zr present]\nB --> C{Any 660 C-feasible branch\\nL12_660 <= 1.05?}\nC -- no --> D[Revise Er/Zr branch from measured direction\\nDo not start Ni optimization]\nC -- yes --> E[Retain provisional feasible incumbent branch]\nE --> F[Calculate coarsening J on retained and competing feasible branches]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Keep lowest-J feasible incumbent]\nG -- tie --> I[Use L12_250 and phase/solidification costs to break tie\\nPossible balanced-alternative branch]\nH --> J[Complete missing evidence at exact incumbent composition]\nI --> J\nJ --> K[Plan one new Er/Zr refinement motivated by measured tradeoff]\nK --> L{Refinement changes shortlist?}\nL -- yes --> M[Update incumbent/alternative, preserve prior incumbent if needed]\nL -- no --> N[Retain incumbent with evidence-based reason]\nM --> O[Matched-branch Ni comparison on retained Er/Zr branch]\nN --> O\nO --> P[Compare Scheil ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS\\nDo not transfer Ni optimum across branches]\nP --> Q[Record recommendation: coarsening-first preferred + justified balanced alternative if warranted]\nQ --> R[Fresh verification/review at exact recommended composition(s)]",
+      "assignments": "Method guidance and specialist reports agree that the first batch must establish an initial Er/Zr assessment at fixed interior Ni rather than substitute the later R3 Ni study. I therefore record a 3-point fixed-Ni Er/Zr screen with independent contrasts: low balanced loading (1.5/0.4/0.4), interior balanced anchor (1.5/0.8/0.8), and Zr-richer branch (1.5/0.4/1.2), all in at.%. This preserves J-first ranking while first testing phase feasibility on branches that keep both Er and Zr present and span lower to higher Zr cost. Determining observations required from the returned phase evidence are L12 at 250 C, L12 at 660 C relative to the <=1.05 mol% feasibility limit, Al3Zr at 250/660 C, and Al3Zr upper disappearance behavior with liquid flag. Favorable outcomes that would set the next step: if one branch passes 660 C with clearly stronger 250 C L12 and manageable Al3Zr cost, retain that branch for later matched-branch Ni comparison; if the lower-Zr point passes and the higher-Zr point fails or shows sharply larger Al3Zr cost, plan an intermediate-Zr Er/Zr refinement at this same Ni; if all pass and useful L12 rises toward the Zr-richer side, coarsening and solidification should then decide whether to refine further toward that side or hold the balanced point as incumbent. Unfavorable outcome logic: if all three fail 660 C or all show weak 250 C L12, do not proceed to Ni optimization; instead shift the Er/Zr branch. This batch can establish a defensible incumbent branch first; it does not claim to resolve the later matched-branch Ni effect.",
+      "next_action": {
+        "question": "At a fixed interior Ni level, which initial Er/Zr branch can establish a defensible incumbent by combining a valid low-J coarsening result with 660 C phase feasibility and acceptable early solidification costs, and does a higher-Zr shift expose a consequential tradeoff that would motivate the next Er/Zr refinement before any matched-branch Ni comparison?",
+        "tool": "evaluate_phase_stability",
+        "compositions": [
+          {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.4
+          },
+          {
+            "Ni": 1.5,
+            "Er": 0.8,
+            "Zr": 0.8
+          },
+          {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 1.2
+          }
+        ],
+        "decision": "Method guidance and specialist reports agree that the first batch must establish an initial Er/Zr assessment at fixed interior Ni rather than substitute the later R3 Ni study. I therefore record a 3-point fixed-Ni Er/Zr screen with independent contrasts: low balanced loading (1.5/0.4/0.4), interior balanced anchor (1.5/0.8/0.8), and Zr-richer branch (1.5/0.4/1.2), all in at.%. This preserves J-first ranking while first testing phase feasibility on branches that keep both Er and Zr present and span lower to higher Zr cost. Determining observations required from the returned phase evidence are L12 at 250 C, L12 at 660 C relative to the <=1.05 mol% feasibility limit, Al3Zr at 250/660 C, and Al3Zr upper disappearance behavior with liquid flag. Favorable outcomes that would set the next step: if one branch passes 660 C with clearly stronger 250 C L12 and manageable Al3Zr cost, retain that branch for later matched-branch Ni comparison; if the lower-Zr point passes and the higher-Zr point fails or shows sharply larger Al3Zr cost, plan an intermediate-Zr Er/Zr refinement at this same Ni; if all pass and useful L12 rises toward the Zr-richer side, coarsening and solidification should then decide whether to refine further toward that side or hold the balanced point as incumbent. Unfavorable outcome logic: if all three fail 660 C or all show weak 250 C L12, do not proceed to Ni optimization; instead shift the Er/Zr branch. This batch can establish a defensible incumbent branch first; it does not claim to resolve the later matched-branch Ni effect.",
+        "comparison_ids": [],
+        "fixed_inputs": {
+          "Ni": 1.5
+        },
+        "varied_inputs": [
+          "Er",
+          "Zr"
+        ],
+        "expected_outputs": [
+          "L12_250_mol_percent",
+          "L12_660_mol_percent",
+          "Al3Zr_250_mol_percent",
+          "Al3Zr_660_mol_percent",
+          "Al3Zr_boundary"
+        ]
+      },
+      "after_batches": 0
+    },
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | Need coarsening results on fixed-Ni Er/Zr contrasts, then qualify/retain lowest feasible J branch and compare ties with phase/solidification costs | coarsening calculation later after branch screen/qualification\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | First numerical screen should be fixed-Ni Er/Zr phase profiles to establish feasibility and branch cost before Ni tuning | phase_stability now\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | Defer Ni series until one Er/Zr branch is retained from initial assessment; then compare at least two Ni levels on that exact branch | solidification later, plus coarsening/phase completion at exact Ni points as needed\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | After a feasible branch/incumbent exists, calculate solidification on that branch and on matched-branch Ni variants; use penalties as tradeoffs, not automatic rejection | solidification later\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | Use initial fixed-Ni screen to identify whether an intermediate-Zr or other Er/Zr refinement could change selection; preserve incumbent if refinement is unfavorable | future refinement after first results\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Use staged workflow: initial Er/Zr screen -> complete evidence on incumbent -> measured Er/Zr refinement -> matched-branch Ni comparison -> shortlist -> fresh verification | planner recording now and throughout",
+      "workflow_mermaid": "flowchart TD\nA[Start: no measured candidates] --> B[Initial fixed-Ni Er/Zr phase screen\\n3 compositions, both Er and Zr present]\nB --> C{Any 660 C-feasible branch\\nL12_660 <= 1.05?}\nC -- no --> D[Revise Er/Zr branch from measured direction\\nDo not start Ni optimization]\nC -- yes --> E[Retain provisional feasible incumbent branch]\nE --> F[Calculate coarsening J on retained and competing feasible branches]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Keep lowest-J feasible incumbent]\nG -- tie --> I[Use L12_250 and phase/solidification costs to break tie\\nPossible balanced-alternative branch]\nH --> J[Complete missing evidence at exact incumbent composition]\nI --> J\nJ --> K[Plan one new Er/Zr refinement motivated by measured tradeoff]\nK --> L{Refinement changes shortlist?}\nL -- yes --> M[Update incumbent/alternative, preserve prior incumbent if needed]\nL -- no --> N[Retain incumbent with evidence-based reason]\nM --> O[Matched-branch Ni comparison on retained Er/Zr branch]\nN --> O\nO --> P[Compare Scheil ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS\\nDo not transfer Ni optimum across branches]\nP --> Q[Record recommendation: coarsening-first preferred + justified balanced alternative if warranted]\nQ --> R[Fresh verification/review at exact recommended composition(s)]",
+      "assignments": "Determining saved phase evidence already isolates the only ready J comparison pair. C001 (Ni 1.5, Er 0.4, Zr 0.4 at.%) from B001:C001:phase_stability is phase-feasible with L12_250=3.1990436089735828 mol%, L12_660=0.8923485574934417 mol%, Al3Zr_250=0 mol%, Al3Zr_660=0.9968651939905895 mol%, and bracketed Al3Zr upper disappearance at 945.3125000000001 C with liquid involvement. C003 (Ni 1.5, Er 0.4, Zr 1.2 at.%) from B001:C003:phase_stability is also phase-feasible with L12_250=3.310623672307652 mol%, L12_660=0.9862468578662985 mol%, Al3Zr_250=3.0883286636031673 mol%, Al3Zr_660=4.145856925602474 mol%, and bracketed upper disappearance at 1101.5625 C with liquid involvement. C002 is excluded from this coarsening-first comparison because B001:C002:phase_stability fails the hard 660 C limit with L12_660=4.793125590093793 mol%. The unresolved issue is that J is still unavailable for both passing branches, so no scientifically supported coarsening-first incumbent exists yet. This next action therefore requests evaluate_coarsening on C001 and C003 only. Returned evidence that resolves this assignment is a valid J for each candidate relative to reference, with result status, and whether |J(C001)-J(C003)| exceeds or falls within 0.0005. Favorable/unfavorable outcome logic: if C003 has meaningfully lower valid J than C001 by more than 0.0005, retain the higher-Zr branch provisionally on the primary objective despite its already measured severe Al3Zr penalty, and carry that tradeoff forward to motivate the later R5 Er/Zr refinement toward lower/intermediate Zr at fixed Ni=1.5 and Er=0.4. If C001 has the lower J, or if the two J values are tied within 0.0005, retain C001 provisionally because current phase evidence shows only a slight L12_250 increase for C003 but a large Al3Zr cost and reduced 660 C margin. This plan intentionally does not add Ni tuning, solidification, or nomination; those remain downstream of this J-resolving step.",
+      "next_action": {
+        "question": "Between the two measured phase-feasible branches C001 and C003, which exact composition has the lower valid normalized L12 coarsening rate J at 250 C, and is any J difference larger than the task tie tolerance of 0.0005 so that one branch can be retained provisionally as the coarsening-first incumbent before the required later Er/Zr refinement under R5?",
+        "tool": "evaluate_coarsening",
+        "candidate_ids": [
+          "C001",
+          "C003"
+        ],
+        "comparison_ids": [
+          "C001",
+          "C003"
+        ],
+        "decision": "Determining saved phase evidence already isolates the only ready J comparison pair. C001 (Ni 1.5, Er 0.4, Zr 0.4 at.%) from B001:C001:phase_stability is phase-feasible with L12_250=3.1990436089735828 mol%, L12_660=0.8923485574934417 mol%, Al3Zr_250=0 mol%, Al3Zr_660=0.9968651939905895 mol%, and bracketed Al3Zr upper disappearance at 945.3125000000001 C with liquid involvement. C003 (Ni 1.5, Er 0.4, Zr 1.2 at.%) from B001:C003:phase_stability is also phase-feasible with L12_250=3.310623672307652 mol%, L12_660=0.9862468578662985 mol%, Al3Zr_250=3.0883286636031673 mol%, Al3Zr_660=4.145856925602474 mol%, and bracketed upper disappearance at 1101.5625 C with liquid involvement. C002 is excluded from this coarsening-first comparison because B001:C002:phase_stability fails the hard 660 C limit with L12_660=4.793125590093793 mol%. The unresolved issue is that J is still unavailable for both passing branches, so no scientifically supported coarsening-first incumbent exists yet. This next action therefore requests evaluate_coarsening on C001 and C003 only. Returned evidence that resolves this assignment is a valid J for each candidate relative to reference, with result status, and whether |J(C001)-J(C003)| exceeds or falls within 0.0005. Favorable/unfavorable outcome logic: if C003 has meaningfully lower valid J than C001 by more than 0.0005, retain the higher-Zr branch provisionally on the primary objective despite its already measured severe Al3Zr penalty, and carry that tradeoff forward to motivate the later R5 Er/Zr refinement toward lower/intermediate Zr at fixed Ni=1.5 and Er=0.4. If C001 has the lower J, or if the two J values are tied within 0.0005, retain C001 provisionally because current phase evidence shows only a slight L12_250 increase for C003 but a large Al3Zr cost and reduced 660 C margin. This plan intentionally does not add Ni tuning, solidification, or nomination; those remain downstream of this J-resolving step.",
+        "fixed_inputs": {
+          "Ni": 1.5,
+          "Er": 0.4
+        },
+        "varied_inputs": [
+          "Zr"
+        ],
+        "expected_outputs": [
+          "J"
+        ]
+      },
+      "after_batches": 1
+    },
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | Need coarsening results on fixed-Ni Er/Zr contrasts, then qualify/retain lowest feasible J branch and compare ties with phase/solidification costs | coarsening calculation later after branch screen/qualification\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | First numerical screen should be fixed-Ni Er/Zr phase profiles to establish feasibility and branch cost before Ni tuning | phase_stability now\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | Defer Ni series until one Er/Zr branch is retained from initial assessment; then compare at least two Ni levels on that exact branch | solidification later, plus coarsening/phase completion at exact Ni points as needed\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | After a feasible branch/incumbent exists, calculate solidification on that branch and on matched-branch Ni variants; use penalties as tradeoffs, not automatic rejection | solidification later\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | Use initial fixed-Ni screen to identify whether an intermediate-Zr or other Er/Zr refinement could change selection; preserve incumbent if refinement is unfavorable | future refinement after first results\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Use staged workflow: initial Er/Zr screen -> complete evidence on incumbent -> measured Er/Zr refinement -> matched-branch Ni comparison -> shortlist -> fresh verification | planner recording now and throughout",
+      "workflow_mermaid": "flowchart TD\nA[Start: no measured candidates] --> B[Initial fixed-Ni Er/Zr phase screen\\n3 compositions, both Er and Zr present]\nB --> C{Any 660 C-feasible branch\\nL12_660 <= 1.05?}\nC -- no --> D[Revise Er/Zr branch from measured direction\\nDo not start Ni optimization]\nC -- yes --> E[Retain provisional feasible incumbent branch]\nE --> F[Calculate coarsening J on retained and competing feasible branches]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Keep lowest-J feasible incumbent]\nG -- tie --> I[Use L12_250 and phase/solidification costs to break tie\\nPossible balanced-alternative branch]\nH --> J[Complete missing evidence at exact incumbent composition]\nI --> J\nJ --> K[Plan one new Er/Zr refinement motivated by measured tradeoff]\nK --> L{Refinement changes shortlist?}\nL -- yes --> M[Update incumbent/alternative, preserve prior incumbent if needed]\nL -- no --> N[Retain incumbent with evidence-based reason]\nM --> O[Matched-branch Ni comparison on retained Er/Zr branch]\nN --> O\nO --> P[Compare Scheil ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS\\nDo not transfer Ni optimum across branches]\nP --> Q[Record recommendation: coarsening-first preferred + justified balanced alternative if warranted]\nQ --> R[Fresh verification/review at exact recommended composition(s)]",
+      "assignments": "Method guidance supports one midpoint-style Er/Zr refinement after a measured compromise, with phase stability first because feasibility and competing-phase burden determine whether a new J measurement would matter scientifically. Determining evidence: B002:C001:coarsening gives J=0.3052704942407164 and B002:C003:coarsening gives J=0.27804518493703073, so C003 has a real J advantage over C001 by 0.02722530930368566, well above the 0.0005 tie tolerance. The matching controlled phase pair at fixed Ni=1.5 and Er=0.4 shows only a small service-phase gain when Zr rises from 0.4 to 1.2 at.%: B001:C001:phase_stability has L12_250=3.1990436089735828 mol%, L12_660=0.8923485574934417 mol%, Al3Zr_250=0 mol%, Al3Zr_660=0.9968651939905895 mol%, Al3Zr_boundary=945.3125000000001 C; B001:C003:phase_stability has L12_250=3.310623672307652 mol%, L12_660=0.9862468578662985 mol%, Al3Zr_250=3.0883286636031673 mol%, Al3Zr_660=4.145856925602474 mol%, Al3Zr_boundary=1101.5625 C; liquid_at_upper_boundary=true for both upper boundaries. This controlled C001↔C003 contrast is the determining saved tradeoff and could change the shortlist because a midpoint Zr may keep C003 alive only if it materially reduces Al3Zr cost and preserves 660 C feasibility while remaining plausible for a later competitive J measurement; otherwise the branch either stays at C003 on J-first grounds or reverts toward C001 for lower phase cost. Favorable vs unfavorable outcome logic for this first phase step: favorable for shifting toward the refinement is that the new point passes L12_660<=1.05 and shows materially lower Al3Zr_250, Al3Zr_660, and less unfavorable upper-boundary persistence than C003, indicating enough reduced phase cost to justify coarsening measurement there; unfavorable for the refinement is that its phase burden stays near C003 or feasibility/margin worsen unexpectedly, which strengthens keeping C003 provisionally for later matched-branch Ni comparison on the J-first branch. If the refinement instead collapses phase cost toward C001 while remaining feasible, that creates a realistic pathway to revert toward the lower-Zr side if later J at the refinement proves noncompetitive. The unresolved issue after this planned action is still the unmeasured J at the new midpoint and the absence of any solidification evidence on C001/C003/refinement, so this phase step does not itself choose the shortlist. Requested deliverable: one exact phase-stability result for Ni 1.5, Er 0.4, Zr 0.8 at.% reporting L12_250, L12_660, Al3Zr_250, Al3Zr_660, and Al3Zr upper disappearance behavior with liquid flag. Returned evidence that resolves this planning assignment is a complete phase profile at that exact composition showing whether the midpoint materially relaxes C003’s phase penalty while staying within the 660 C limit, thereby determining whether the next action should be coarsening at the midpoint, retention of C003, or reversion toward C001 before any Ni comparison.",
+      "next_action": {
+        "question": "At fixed Ni=1.5 at.% and Er=0.4 at.%, can an intermediate Zr refinement at Zr=0.8 at.% materially reduce the severe competing-phase burden seen at C003 while preserving enough of C003’s coarsening advantage to remain a credible coarsening-first branch before any matched-branch Ni comparison or nomination?",
+        "tool": "evaluate_phase_stability",
+        "compositions": [
+          {
+            "Ni": 1.5,
+            "Er": 0.4,
+            "Zr": 0.8
+          }
+        ],
+        "comparison_ids": [
+          "C001",
+          "C003"
+        ],
+        "decision": "Method guidance supports one midpoint-style Er/Zr refinement after a measured compromise, with phase stability first because feasibility and competing-phase burden determine whether a new J measurement would matter scientifically. Determining evidence: B002:C001:coarsening gives J=0.3052704942407164 and B002:C003:coarsening gives J=0.27804518493703073, so C003 has a real J advantage over C001 by 0.02722530930368566, well above the 0.0005 tie tolerance. The matching controlled phase pair at fixed Ni=1.5 and Er=0.4 shows only a small service-phase gain when Zr rises from 0.4 to 1.2 at.%: B001:C001:phase_stability has L12_250=3.1990436089735828 mol%, L12_660=0.8923485574934417 mol%, Al3Zr_250=0 mol%, Al3Zr_660=0.9968651939905895 mol%, Al3Zr_boundary=945.3125000000001 C; B001:C003:phase_stability has L12_250=3.310623672307652 mol%, L12_660=0.9862468578662985 mol%, Al3Zr_250=3.0883286636031673 mol%, Al3Zr_660=4.145856925602474 mol%, Al3Zr_boundary=1101.5625 C; liquid_at_upper_boundary=true for both upper boundaries. This controlled C001↔C003 contrast is the determining saved tradeoff and could change the shortlist because a midpoint Zr may keep C003 alive only if it materially reduces Al3Zr cost and preserves 660 C feasibility while remaining plausible for a later competitive J measurement; otherwise the branch either stays at C003 on J-first grounds or reverts toward C001 for lower phase cost. Favorable vs unfavorable outcome logic for this first phase step: favorable for shifting toward the refinement is that the new point passes L12_660<=1.05 and shows materially lower Al3Zr_250, Al3Zr_660, and less unfavorable upper-boundary persistence than C003, indicating enough reduced phase cost to justify coarsening measurement there; unfavorable for the refinement is that its phase burden stays near C003 or feasibility/margin worsen unexpectedly, which strengthens keeping C003 provisionally for later matched-branch Ni comparison on the J-first branch. If the refinement instead collapses phase cost toward C001 while remaining feasible, that creates a realistic pathway to revert toward the lower-Zr side if later J at the refinement proves noncompetitive. The unresolved issue after this planned action is still the unmeasured J at the new midpoint and the absence of any solidification evidence on C001/C003/refinement, so this phase step does not itself choose the shortlist. Requested deliverable: one exact phase-stability result for Ni 1.5, Er 0.4, Zr 0.8 at.% reporting L12_250, L12_660, Al3Zr_250, Al3Zr_660, and Al3Zr upper disappearance behavior with liquid flag. Returned evidence that resolves this planning assignment is a complete phase profile at that exact composition showing whether the midpoint materially relaxes C003’s phase penalty while staying within the 660 C limit, thereby determining whether the next action should be coarsening at the midpoint, retention of C003, or reversion toward C001 before any Ni comparison.",
+        "fixed_inputs": {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.8
+        },
+        "varied_inputs": [],
+        "expected_outputs": [
+          "L12_250_mol_percent",
+          "L12_660_mol_percent",
+          "Al3Zr_250_mol_percent",
+          "Al3Zr_660_mol_percent",
+          "Al3Zr_boundary"
+        ]
+      },
+      "after_batches": 2
+    },
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | B002:C001:coarsening J=0.3052704942407164; B002:C003:coarsening J=0.27804518493703073; C004 phase-feasible but J missing, so qualifying its exact J is the current branch-retention discriminator before Ni tuning | coarsening now\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | B001:C001:phase_stability, B001:C003:phase_stability, and B003:C004:phase_stability all provide complete usable point quantities; C001/C003/C004 pass L12_660 <=1.05 while C004 materially reduces C003 Al3Zr burden at near-identical L12_250 | saved phase evidence supports current J qualification step\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | No matched-branch Ni comparison exists yet; must defer until the retained Er/Zr branch is decided by R1/R5 evidence | future solidification/coarsening/phase completion on retained branch\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | No Scheil evidence yet; obtain only after the retained branch is known so printability/terminal-phase tradeoffs are interpreted on the exact retained branch | solidification later\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | The required new Er/Zr refinement has been executed at C004 (Ni 1.5, Er 0.4, Zr 0.8) with B003:C004:phase_stability; the remaining consequence question is whether C004 J is competitive enough to alter branch retention | coarsening now at C004\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Preserve staged workflow and update only the current ready action; retain C001/C003/C004 comparisons and any unfavorable refinement as evidence, not silent rejection | planner recording now and throughout",
+      "workflow_mermaid": "flowchart TD\nA[Start from measured Er/Zr screen at fixed Ni] --> B[Check 660 C feasibility and service L12/Al3Zr tradeoffs]\nB --> C{Any feasible branches?}\nC -- no --> D[Plan evidence-based Er/Zr revision]\nC -- yes --> E[Retain provisional feasible incumbent]\nE --> F[Measure/compare coarsening J on feasible contenders]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Keep provisional J-first incumbent]\nG -- tie --> I[Use phase and later solidification costs within tie band]\nH --> J[Complete exact qualification for promising incumbent/challenger]\nI --> J\nJ --> K[Perform one measured Er/Zr refinement motivated by tradeoff]\nK --> L{Refinement phase-feasible and branch-changing potential?}\nL -- yes, J missing --> M[Qualify exact coarsening at refinement before Ni tuning]\nL -- no --> N[Retain incumbent with evidence-based reason]\nM --> O{Refinement J within 0.0005 of best valid J?}\nO -- yes --> P[Retain refinement as coarsening tie/challenger; then matched-branch Ni comparison]\nO -- no --> Q[Retain lower-J incumbent; then matched-branch Ni comparison on that branch]\nN --> R[Matched-branch Ni comparison on retained Er/Zr branch]\nP --> R\nQ --> R\nR --> S[Compare Scheil ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS]\nS --> T[Record recommendation: coarsening-first preferred plus justified balanced alternative if warranted]\nT --> U[Fresh exact verification/review]",
+      "assignments": "Codebook implication: with feasible leads and a measured Er/Zr refinement, the next single calculation should resolve the primary-objective uncertainty before secondary Ni tuning; missing qualification of a promising lead calls for qualification, and a midpoint must not be judged by inferred monotonicity. Current J-first baseline: B002:C003:coarsening gives C003 J=0.27804518493703073, lower than B002:C001:coarsening for C001 J=0.3052704942407164 by 0.02722530930368566, which exceeds the 0.0005 practical tie tolerance, so C003 is the provisional lowest measured valid J branch. Phase evidence from the exact R5 refinement shows C004 is a scientifically credible challenger that already passes the hard 660 C point constraint: B003:C004:phase_stability has L12_250=3.3106236725471097 mol%, L12_660=0.9392845531138507 mol%, Al3Zr_250=1.4883089342399525 mol%, Al3Zr_660=2.5713684747343364 mol%, Al3Zr_boundary=1039.0625 C with liquid_at_upper_boundary=true. Relative to B001:C003:phase_stability, C004 preserves essentially the same saved L12_250 (3.3106236725471097 vs 3.310623672307652) while materially reducing Al3Zr burden from 3.0883286636031673 to 1.4883089342399525 mol% at 250 C, from 4.145856925602474 to 2.5713684747343364 mol% at 660 C, and lowering the upper disappearance boundary from 1101.5625 to 1039.0625 C; all three C001/C003/C004 phase profiles remain feasible at 660 C. Evidence/interpretation: this controlled Zr comparison at fixed Ni and Er supports C004 as the most consequential unresolved branch point, but phase data alone cannot answer R1 because J remains unknown and no other missing result can decide whether C004 should replace or tie the provisional J-first branch. Another phase run would not resolve the primary ranking, and a solidification run now would tune a branch before knowing whether that branch is retained. Unresolved issue: C004 J is unmeasured, so we cannot determine whether C004 is within the 0.0005 tie band of the current lowest measured valid J or is meaningfully worse and therefore only a phase-cost-reduction experiment that failed the J-first criterion. Requested deliverable: one exact saved coarsening result for C004. Returned evidence that resolves this planning assignment is a valid J for C004 with its evidence ID, interpreted against C003 J=0.27804518493703073 and the 0.0005 tie rule: if C004 J <=0.2785451849370307, C004 becomes a practical coarsening tie with materially lower phase cost and merits retention/possible downstream qualification; if C004 J is meaningfully above that band, retain C003 as the coarsening-first branch and defer Ni comparison to C003 rather than C004. This uses one existing candidate and preserves allowances efficiently (4/32 candidates used; no Scheil runs yet).",
+      "next_action": {
+        "question": "After the completed R5 midpoint phase result at fixed Ni=1.5 at.% and Er=0.4 at.%, does C004 (Zr=0.8 at.%) retain a coarsening J competitive enough with the current lowest measured valid J branch to change Er/Zr branch retention before any matched-branch Ni comparison?",
+        "tool": "evaluate_coarsening",
+        "candidate_ids": [
+          "C004"
+        ],
+        "comparison_ids": [
+          "C001",
+          "C003"
+        ],
+        "decision": "Codebook implication: with feasible leads and a measured Er/Zr refinement, the next single calculation should resolve the primary-objective uncertainty before secondary Ni tuning; missing qualification of a promising lead calls for qualification, and a midpoint must not be judged by inferred monotonicity. Current J-first baseline: B002:C003:coarsening gives C003 J=0.27804518493703073, lower than B002:C001:coarsening for C001 J=0.3052704942407164 by 0.02722530930368566, which exceeds the 0.0005 practical tie tolerance, so C003 is the provisional lowest measured valid J branch. Phase evidence from the exact R5 refinement shows C004 is a scientifically credible challenger that already passes the hard 660 C point constraint: B003:C004:phase_stability has L12_250=3.3106236725471097 mol%, L12_660=0.9392845531138507 mol%, Al3Zr_250=1.4883089342399525 mol%, Al3Zr_660=2.5713684747343364 mol%, Al3Zr_boundary=1039.0625 C with liquid_at_upper_boundary=true. Relative to B001:C003:phase_stability, C004 preserves essentially the same saved L12_250 (3.3106236725471097 vs 3.310623672307652) while materially reducing Al3Zr burden from 3.0883286636031673 to 1.4883089342399525 mol% at 250 C, from 4.145856925602474 to 2.5713684747343364 mol% at 660 C, and lowering the upper disappearance boundary from 1101.5625 to 1039.0625 C; all three C001/C003/C004 phase profiles remain feasible at 660 C. Evidence/interpretation: this controlled Zr comparison at fixed Ni and Er supports C004 as the most consequential unresolved branch point, but phase data alone cannot answer R1 because J remains unknown and no other missing result can decide whether C004 should replace or tie the provisional J-first branch. Another phase run would not resolve the primary ranking, and a solidification run now would tune a branch before knowing whether that branch is retained. Unresolved issue: C004 J is unmeasured, so we cannot determine whether C004 is within the 0.0005 tie band of the current lowest measured valid J or is meaningfully worse and therefore only a phase-cost-reduction experiment that failed the J-first criterion. Requested deliverable: one exact saved coarsening result for C004. Returned evidence that resolves this planning assignment is a valid J for C004 with its evidence ID, interpreted against C003 J=0.27804518493703073 and the 0.0005 tie rule: if C004 J <=0.2785451849370307, C004 becomes a practical coarsening tie with materially lower phase cost and merits retention/possible downstream qualification; if C004 J is meaningfully above that band, retain C003 as the coarsening-first branch and defer Ni comparison to C003 rather than C004. This uses one existing candidate and preserves allowances efficiently (4/32 candidates used; no Scheil runs yet).",
+        "fixed_inputs": {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.8
+        },
+        "varied_inputs": [],
+        "expected_outputs": [
+          "J"
+        ]
+      },
+      "after_batches": 3
+    },
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | B002:C001:coarsening J=0.3052704942407164; B002:C003:coarsening J=0.27804518493703073; C004 phase-feasible but J missing, so qualifying its exact J is the current branch-retention discriminator before Ni tuning | coarsening now\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | B001:C001:phase_stability, B001:C003:phase_stability, and B003:C004:phase_stability all provide complete usable point quantities; C001/C003/C004 pass L12_660 <=1.05 while C004 materially reduces C003 Al3Zr burden at near-identical L12_250 | saved phase evidence supports current J qualification step\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | No matched-branch Ni comparison exists yet; must defer until the retained Er/Zr branch is decided by R1/R5 evidence | future solidification/coarsening/phase completion on retained branch\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | No Scheil evidence yet; obtain only after the retained branch is known so printability/terminal-phase tradeoffs are interpreted on the exact retained branch | solidification later\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | The required new Er/Zr refinement has been executed at C004 (Ni 1.5, Er 0.4, Zr 0.8) with B003:C004:phase_stability; the remaining consequence question is whether C004 J is competitive enough to alter branch retention | coarsening now at C004\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Preserve staged workflow and update only the current ready action; retain C001/C003/C004 comparisons and any unfavorable refinement as evidence, not silent rejection | planner recording now and throughout",
+      "workflow_mermaid": "flowchart TD\nA[Start from measured Er/Zr screen at fixed Ni] --> B[Check 660 C feasibility and service L12/Al3Zr tradeoffs]\nB --> C{Any feasible branches?}\nC -- no --> D[Plan evidence-based Er/Zr revision]\nC -- yes --> E[Retain provisional feasible incumbent]\nE --> F[Measure/compare coarsening J on feasible contenders]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Keep provisional J-first incumbent]\nG -- tie --> I[Use phase and later solidification costs within tie band]\nH --> J[Complete exact qualification for promising incumbent/challenger]\nI --> J\nJ --> K[Perform one measured Er/Zr refinement motivated by tradeoff]\nK --> L{Refinement phase-feasible and branch-changing potential?}\nL -- yes, J missing --> M[Qualify exact coarsening at refinement before Ni tuning]\nL -- no --> N[Retain incumbent with evidence-based reason]\nM --> O{Refinement J within 0.0005 of best valid J?}\nO -- yes --> P[Retain refinement as coarsening tie/challenger; then matched-branch Ni comparison]\nO -- no --> Q[Retain lower-J incumbent; then matched-branch Ni comparison on that branch]\nN --> R[Matched-branch Ni comparison on retained Er/Zr branch]\nP --> R\nQ --> R\nR --> S[Compare Scheil ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS]\nS --> T[Record recommendation: coarsening-first preferred plus justified balanced alternative if warranted]\nT --> U[Fresh exact verification/review]",
+      "assignments": "Current question/building_task: Given the exact C004/C003 J tie, which Er/Zr branch should be retained for matched-branch Ni tuning, and what single controlled Ni comparison should be measured next without wasting allowances? Determining evidence: B002:C003:coarsening gives C003 J=0.27804518493703073; B004:C004:coarsening gives C004 J=0.27804518508374554, so |ΔJ|=1.4671480636896225e-10, far inside the R1 tie tolerance 0.0005. Phase comparison on that tied-J pair favors C004 over C003: B001:C003:phase_stability has L12_250=3.310623672307652, L12_660=0.9862468578662985, Al3Zr_250=3.0883286636031673, Al3Zr_660=4.145856925602474, Al3Zr_boundary=1101.5625 C, liquid_at_upper_boundary=true; B003:C004:phase_stability has L12_250=3.3106236725471097, L12_660=0.9392845531138507, Al3Zr_250=1.4883089342399525, Al3Zr_660=2.5713684747343364, Al3Zr_boundary=1039.0625 C, liquid_at_upper_boundary=true. Thus C004 retains essentially the same saved service-temperature L12, still passes the 660 C limit with a larger margin (1.05-0.9392845531138507=0.11071544688614939), and materially lowers competing-phase burden. Relative to the lower-Zr endpoint C001, B002:C001:coarsening J=0.3052704942407164 and B001:C001:phase_stability L12_250=3.1990436089735828, L12_660=0.8923485574934417 show C004 remains the better measured compromise on this Ni=1.5, Er=0.4 slice. Interpretation: under the J-first tie rule, retain C004 over C003 for downstream Ni tuning because J does not distinguish them but phase burden does. Unresolved issue: R3 still lacks any controlled Ni comparison on the retained Er/Zr branch, and no solidification evidence exists anywhere. Requested deliverable/execution_task: one exact saved coarsening result for a new matched-branch Ni point, Ni 1.0, Er 0.4, Zr 0.8 at.%, to test whether moving to lower Ni preserves J competitiveness before spending phase/Scheil allowance on that direction. Why this point: codebook guidance supports an informative small controlled Ni comparison on the retained branch and allows deferring extra families until the branch-direction is screened. The specialists agree Ni is now the unresolved variable; the phase specialist specifically notes only 0.11071544688614939 mol% margin at 660 C for C004, so a lower-Ni side test is the lower-risk first perturbation. What returned evidence would resolve this assignment: a valid J for Ni 1.0/Er 0.4/Zr 0.8, compared directly to B004:C004:coarsening. Favorable outcome: J <= 0.27854518508374553 (within 0.0005 of C004) or lower would keep this lower-Ni branchlet on the shortlist for immediate matched-branch phase_stability and solidification follow-up, because it could improve Ni-related phase-balance/solidification costs without surrendering coarsening-first status. Unfavorable outcome: J > 0.27854518508374553 would indicate a meaningful coarsening penalty versus retained C004, so shortlist focus should stay with C004 itself for subsequent phase_stability/solidification completion and any higher-Ni or alternative-Ni exploration would need a stronger non-coarsening justification. This records only the minimum next family needed now, preserving phase-profile and Scheil allowances while making the branch-retention and Ni-direction hypothesis explicit.",
+      "next_action": {
+        "question": "On the retained C004 branch (Ni 1.5, Er 0.4, Zr 0.8 at.% baseline), does lowering Ni to 1.0 at.% at fixed Er 0.4 and Zr 0.8 preserve competitive coarsening while opening a more favorable matched-branch Ni interpretation for later phase/solidification shortlist selection?",
+        "tool": "evaluate_coarsening",
+        "compositions": [
+          {
+            "Ni": 1.0,
+            "Er": 0.4,
+            "Zr": 0.8
+          }
+        ],
+        "comparison_ids": [
+          "C004"
+        ],
+        "decision": "Current question/building_task: Given the exact C004/C003 J tie, which Er/Zr branch should be retained for matched-branch Ni tuning, and what single controlled Ni comparison should be measured next without wasting allowances? Determining evidence: B002:C003:coarsening gives C003 J=0.27804518493703073; B004:C004:coarsening gives C004 J=0.27804518508374554, so |ΔJ|=1.4671480636896225e-10, far inside the R1 tie tolerance 0.0005. Phase comparison on that tied-J pair favors C004 over C003: B001:C003:phase_stability has L12_250=3.310623672307652, L12_660=0.9862468578662985, Al3Zr_250=3.0883286636031673, Al3Zr_660=4.145856925602474, Al3Zr_boundary=1101.5625 C, liquid_at_upper_boundary=true; B003:C004:phase_stability has L12_250=3.3106236725471097, L12_660=0.9392845531138507, Al3Zr_250=1.4883089342399525, Al3Zr_660=2.5713684747343364, Al3Zr_boundary=1039.0625 C, liquid_at_upper_boundary=true. Thus C004 retains essentially the same saved service-temperature L12, still passes the 660 C limit with a larger margin (1.05-0.9392845531138507=0.11071544688614939), and materially lowers competing-phase burden. Relative to the lower-Zr endpoint C001, B002:C001:coarsening J=0.3052704942407164 and B001:C001:phase_stability L12_250=3.1990436089735828, L12_660=0.8923485574934417 show C004 remains the better measured compromise on this Ni=1.5, Er=0.4 slice. Interpretation: under the J-first tie rule, retain C004 over C003 for downstream Ni tuning because J does not distinguish them but phase burden does. Unresolved issue: R3 still lacks any controlled Ni comparison on the retained Er/Zr branch, and no solidification evidence exists anywhere. Requested deliverable/execution_task: one exact saved coarsening result for a new matched-branch Ni point, Ni 1.0, Er 0.4, Zr 0.8 at.%, to test whether moving to lower Ni preserves J competitiveness before spending phase/Scheil allowance on that direction. Why this point: codebook guidance supports an informative small controlled Ni comparison on the retained branch and allows deferring extra families until the branch-direction is screened. The specialists agree Ni is now the unresolved variable; the phase specialist specifically notes only 0.11071544688614939 mol% margin at 660 C for C004, so a lower-Ni side test is the lower-risk first perturbation. What returned evidence would resolve this assignment: a valid J for Ni 1.0/Er 0.4/Zr 0.8, compared directly to B004:C004:coarsening. Favorable outcome: J <= 0.27854518508374553 (within 0.0005 of C004) or lower would keep this lower-Ni branchlet on the shortlist for immediate matched-branch phase_stability and solidification follow-up, because it could improve Ni-related phase-balance/solidification costs without surrendering coarsening-first status. Unfavorable outcome: J > 0.27854518508374553 would indicate a meaningful coarsening penalty versus retained C004, so shortlist focus should stay with C004 itself for subsequent phase_stability/solidification completion and any higher-Ni or alternative-Ni exploration would need a stronger non-coarsening justification. This records only the minimum next family needed now, preserving phase-profile and Scheil allowances while making the branch-retention and Ni-direction hypothesis explicit.",
+        "fixed_inputs": {
+          "Ni": 1.0,
+          "Er": 0.4,
+          "Zr": 0.8
+        },
+        "varied_inputs": [],
+        "expected_outputs": [
+          "J"
+        ]
+      },
+      "after_batches": 4
+    },
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | B002:C001:coarsening J=0.3052704942407164; B002:C003:coarsening J=0.27804518493703073; B004:C004:coarsening J=0.27804518508374554; B005:C005:coarsening J=0.2780451852670357. C003/C004/C005 are practical ties by the 0.0005 rule, but C005 lacks phase feasibility and cannot yet join the feasible J set | coarsening evidence now; phase qualification next for C005\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | B001:C001:phase_stability, B001:C003:phase_stability, and B003:C004:phase_stability show C001/C003/C004 pass the 660 C limit; C002 fails; C005 is unchecked and therefore cannot be used for shortlist Ni choice until exact phase stability is measured | phase_stability now at C005\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | Controlled Ni coarsening comparison now exists on retained Er 0.4, Zr 0.8 branch: B004:C004:coarsening vs B005:C005:coarsening is a practical J tie. But exact branch-level Ni choice is incomplete because C005 lacks phase and all Scheil evidence | complete phase qualification first, then matched-branch Scheil\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | No Scheil evidence yet for any candidate. Obtain Scheil only after the exact Ni branch candidate is phase-feasible so the solidification spend informs shortlist selection rather than an infeasible point | solidification deferred pending C005 feasibility\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | The required new Er/Zr refinement has already been executed at C004 (Ni 1.5, Er 0.4, Zr 0.8) with B003:C004:phase_stability and B004:C004:coarsening, showing a practical J tie to C003 with materially lower Al3Zr burden. Remaining work is the separate required matched-branch Ni comparison and later shortlist completion | refinement satisfied; Ni follow-up now\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Preserve staged workflow and retain C001/C002/C003/C004/C005 evidence including unfavorable points. Update only the next decisive action and use later batches to complete comparison table and recommendation | planner recording now and throughout",
+      "workflow_mermaid": "flowchart TD\nA[Initial fixed-Ni Er/Zr phase screen] --> B[Check L12 at 660 C feasibility and service L12/Al3Zr tradeoffs]\nB --> C{Any feasible branches?}\nC -- no --> D[Plan evidence-based Er/Zr revision]\nC -- yes --> E[Keep feasible incumbent(s)]\nE --> F[Measure coarsening J on feasible branches]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Retain J-first incumbent]\nG -- tie --> I[Use phase costs within J tie band]\nH --> J[Complete exact qualification of promising branch]\nI --> J\nJ --> K[Perform one measured Er/Zr refinement motivated by tradeoff]\nK --> L{Refinement feasible and competitive in J?}\nL -- no --> M[Retain incumbent with evidence-based reason]\nL -- yes --> N[Retain refinement branch for downstream tuning]\nM --> O[Controlled Ni comparison at fixed retained Er/Zr]\nN --> O\nO --> P{Lower/changed Ni still phase-feasible at exact composition?}\nP -- no --> Q[Stop Ni branchlet and keep feasible incumbent]\nP -- yes --> R[Run matched-branch Scheil comparison]\nR --> S[Compare ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS]\nS --> T[Record coarsening-first preferred candidate and justified balanced alternative if warranted]\nT --> U[Fresh exact verification/review]",
+      "assignments": "Current question: after the controlled coarsening tie on the retained Er 0.4, Zr 0.8 branch, should the next calculation be C005 phase stability or direct Scheil on C004/C005? Determining evidence IDs/values: B004:C004:coarsening gives C004 J=0.27804518508374554; B005:C005:coarsening gives C005 J=0.2780451852670357; the exact difference is +1.8329017242706432e-10, far inside the R1 practical tie tolerance 0.0005, so coarsening does not distinguish the Ni levels. The retained branch baseline is fully phase-qualified at B003:C004:phase_stability with L12_250=3.3106236725471097 mol%, L12_660=0.9392845531138507 mol%, Al3Zr_250=1.4883089342399525 mol%, Al3Zr_660=2.5713684747343364 mol%, and Al3Zr_boundary=1039.0625 C with liquid_at_upper_boundary=true. C005 currently has no phase-stability record, so its L12_250, L12_660, Al3Zr_250, Al3Zr_660, and Al3Zr upper disappearance behavior are unknown. Unresolved issue: R2 requires exact shortlisted compositions to satisfy L12 at 660 C <=1.05 mol%, and C005 is presently unchecked for that hard feasibility gate. Because no solidification evidence exists anywhere, spending Scheil first on C005 would risk using allowance on a branchlet that could immediately fail the main shortlist phase condition or carry an unfavorable Al3Zr phase burden. Requested deliverable: one exact phase-stability calculation for C005 = Ni 1.0, Er 0.4, Zr 0.8 at.% to complete the controlled Ni comparison at fixed Er/Zr. Exactly what returned evidence would resolve this assignment: a saved usable C005 phase record containing L12_250_mol_percent, L12_660_mol_percent, Al3Zr_250_mol_percent, Al3Zr_660_mol_percent, and if available Al3Zr_boundary plus liquid_at_upper_boundary. Favorable outcome: C005 passes L12_660 <=1.05 and shows a competitive or improved service-temperature/Al3Zr balance versus C004, making a matched-branch Scheil comparison decision-relevant next. Unfavorable outcome: C005 fails the 660 C limit or shows clearly worse competing-phase cost without compensating service-temperature benefit, supporting retention of C004 for downstream Scheil instead. This follows the method guidance to qualify a promising exact challenger before spending secondary-allocation solidification work.",
+      "next_action": {
+        "question": "On the retained matched branch Er 0.4, Zr 0.8 at.%, does the lower-Ni candidate C005 (Ni 1.0) satisfy the R2 feasibility condition and what phase-balance cost/benefit does it introduce relative to the incumbent C004 (Ni 1.5), so that a Scheil Ni comparison is scientifically worth spending next?",
+        "tool": "evaluate_phase_stability",
+        "candidate_ids": [
+          "C005"
+        ],
+        "comparison_ids": [
+          "C004"
+        ],
+        "decision": "Current question: after the controlled coarsening tie on the retained Er 0.4, Zr 0.8 branch, should the next calculation be C005 phase stability or direct Scheil on C004/C005? Determining evidence IDs/values: B004:C004:coarsening gives C004 J=0.27804518508374554; B005:C005:coarsening gives C005 J=0.2780451852670357; the exact difference is +1.8329017242706432e-10, far inside the R1 practical tie tolerance 0.0005, so coarsening does not distinguish the Ni levels. The retained branch baseline is fully phase-qualified at B003:C004:phase_stability with L12_250=3.3106236725471097 mol%, L12_660=0.9392845531138507 mol%, Al3Zr_250=1.4883089342399525 mol%, Al3Zr_660=2.5713684747343364 mol%, and Al3Zr_boundary=1039.0625 C with liquid_at_upper_boundary=true. C005 currently has no phase-stability record, so its L12_250, L12_660, Al3Zr_250, Al3Zr_660, and Al3Zr upper disappearance behavior are unknown. Unresolved issue: R2 requires exact shortlisted compositions to satisfy L12 at 660 C <=1.05 mol%, and C005 is presently unchecked for that hard feasibility gate. Because no solidification evidence exists anywhere, spending Scheil first on C005 would risk using allowance on a branchlet that could immediately fail the main shortlist phase condition or carry an unfavorable Al3Zr phase burden. Requested deliverable: one exact phase-stability calculation for C005 = Ni 1.0, Er 0.4, Zr 0.8 at.% to complete the controlled Ni comparison at fixed Er/Zr. Exactly what returned evidence would resolve this assignment: a saved usable C005 phase record containing L12_250_mol_percent, L12_660_mol_percent, Al3Zr_250_mol_percent, Al3Zr_660_mol_percent, and if available Al3Zr_boundary plus liquid_at_upper_boundary. Favorable outcome: C005 passes L12_660 <=1.05 and shows a competitive or improved service-temperature/Al3Zr balance versus C004, making a matched-branch Scheil comparison decision-relevant next. Unfavorable outcome: C005 fails the 660 C limit or shows clearly worse competing-phase cost without compensating service-temperature benefit, supporting retention of C004 for downstream Scheil instead. This follows the method guidance to qualify a promising exact challenger before spending secondary-allocation solidification work.",
+        "fixed_inputs": {
+          "Ni": 1.0,
+          "Er": 0.4,
+          "Zr": 0.8
+        },
+        "varied_inputs": [],
+        "expected_outputs": [
+          "L12_250_mol_percent",
+          "L12_660_mol_percent",
+          "Al3Zr_250_mol_percent",
+          "Al3Zr_660_mol_percent",
+          "Al3Zr_boundary"
+        ]
+      },
+      "after_batches": 5
+    },
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | B002:C001:coarsening J=0.3052704942407164; B002:C003:coarsening J=0.27804518493703073; B004:C004:coarsening J=0.27804518508374554; B005:C005:coarsening J=0.2780451852670357. C003/C004/C005 are practical ties by the 0.0005 rule; C004 and C005 are matched-branch Ni ties with exact ΔJ=+1.8329017242706432e-10 | coarsening evidence complete for these points; use Scheil/phase costs only within the J tie band\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | B001:C001:phase_stability passes with L12_660=0.8923485574934417; B001:C002:phase_stability fails with L12_660=4.793125590093793; B001:C003:phase_stability passes with L12_660=0.9862468578662985; B003:C004:phase_stability passes with L12_660=0.9392845531138507; B006:C005:phase_stability passes with L12_660=0.9688025394017767. Within the retained J tie, C004/C005 have essentially equal L12_250 and similar Al3Zr burden | phase evidence complete for retained branch; no new Er/Zr question reopened here\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | Controlled Ni comparison now exists at fixed Er=0.4, Zr=0.8 through B004:C004:coarsening, B005:C005:coarsening, B003:C004:phase_stability, and B006:C005:phase_stability. The remaining missing family is matched-branch Scheil for C004 and C005; no solidification evidence exists yet for either exact point | evaluate_solidification now for C004 and C005 together\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | No candidate or reference Scheil evidence has been measured yet. The next informative action must return FR_K, CSC, HCS together with terminal phase products so the Ni choice can be explained as a reservoir/competing-phase/cracking-proxy tradeoff rather than by a single indicator | solidification now\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | The required new Er/Zr refinement was executed at C004 (Ni 1.5, Er 0.4, Zr 0.8) with B003:C004:phase_stability and B004:C004:coarsening, showing a practical J tie to C003 with materially lower Al3Zr burden. The current action is the separate matched-branch Ni comparison required after that refinement | refinement satisfied; Ni/Scheil comparison now\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Preserve the staged workflow and retain all measured evidence including C002 failure and C003 higher-Al3Zr cost. This delegation records the exact next decisive action only; later work must add comparison table, shortlist, nomination, and fresh verification | planner recording now",
+      "workflow_mermaid": "flowchart TD\nA[Initial fixed-Ni Er/Zr phase screen] --> B[Check L12 at 660 C feasibility and service L12/Al3Zr tradeoffs]\nB --> C{Any feasible branches?}\nC -- no --> D[Plan evidence-based Er/Zr revision]\nC -- yes --> E[Keep feasible incumbent(s)]\nE --> F[Measure coarsening J on feasible branches]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Retain J-first incumbent]\nG -- tie --> I[Use phase costs within J tie band]\nH --> J[Complete exact qualification of promising branch]\nI --> J\nJ --> K[Perform one measured Er/Zr refinement motivated by tradeoff]\nK --> L{Refinement feasible and competitive in J?}\nL -- no --> M[Retain incumbent with evidence-based reason]\nL -- yes --> N[Retain refinement branch for downstream tuning]\nM --> O[Controlled Ni comparison at fixed retained Er/Zr]\nN --> O\nO --> P{Changed Ni still phase-feasible at exact composition?}\nP -- no --> Q[Stop Ni branchlet and keep feasible incumbent]\nP -- yes --> R[Run matched-branch Scheil comparison]\nR --> S[Compare ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS with reference]\nS --> T[Record coarsening-first preferred candidate and justified balanced alternative if warranted]\nT --> U[Fresh exact verification/review]",
+      "assignments": "Current question: with C005 now phase-qualified and still tied in J with C004 on the retained Er 0.4, Zr 0.8 branch, which exact solidification comparison should be executed next to complete the branch-level Ni decision and support a shortlist? Determining evidence IDs/values: B004:C004:coarsening gives J=0.27804518508374554 and B005:C005:coarsening gives J=0.2780451852670357, so lowering Ni 1.5->1.0 at.% changes J by only +1.8329017242706432e-10, far inside the R1 practical tie tolerance of 0.0005. B003:C004:phase_stability gives L12_250=3.3106236725471097 mol%, L12_660=0.9392845531138507 mol%, Al3Zr_250=1.4883089342399525 mol%, Al3Zr_660=2.5713684747343364 mol%, Al3Zr_boundary=1039.0625 C with liquid_at_upper_boundary=true. B006:C005:phase_stability gives L12_250=3.310623672846295 mol%, L12_660=0.9688025394017767 mol%, Al3Zr_250=1.48828427253575 mol%, Al3Zr_660=2.5493239758995703 mol%, Al3Zr_boundary=1035.9375 C with liquid_at_upper_boundary=true. Interpretation from the measured branch-matched comparison: Er and Zr are fixed at 0.4/0.8 at.% and only Ni changes, so coarsening and equilibrium phase feasibility no longer distinguish C004 and C005. What remains uncertain is the required R3/R4 solidification tradeoff: whether lower Ni preserves enough terminal ternary Al23Ni6M4 reservoir and whether it improves or worsens terminal Al3Ni, terminal primary L12, terminal Al3Zr, and FR_K/CSC/HCS relative to C004 and the tool-returned reference. Requested deliverable: one exact matched-branch Scheil action containing both C004 and C005. Including both calculations in one recorded action is necessary now because R3 requires a controlled Ni comparison at fixed Er/Zr; an isolated Scheil point would not resolve the Ni effect and would likely force an immediate second Scheil spend. Exactly what returned evidence would resolve this assignment: saved solidification records for C004 and C005, plus the returned reference row, containing terminal ternary Al23Ni6M4 mol%, terminal L12 mol%, terminal Al3Ni mol%, terminal Al3Zr mol%, FR_K, CSC, HCS, terminal_solid_mol_percent, and terminal_temperature_C. Favorable to lower Ni would be comparable reservoir with reduced competing phases and/or lower FR/CSC/HCS; unfavorable would be clear reservoir loss without compensating solidification benefit, supporting retention of C004 for shortlist consideration.",
+      "next_action": {
+        "question": "On the retained matched branch Er 0.4, Zr 0.8 at.%, how does lowering Ni from 1.5 (C004) to 1.0 (C005) change the terminal Scheil phase balance and cracking proxies required by R3–R4, now that both exact candidates are phase-feasible and practical ties in J?",
+        "tool": "evaluate_solidification",
+        "candidate_ids": [
+          "C004",
+          "C005"
+        ],
+        "comparison_ids": [
+          "C004",
+          "C005"
+        ],
+        "decision": "Current question: with C005 now phase-qualified and still tied in J with C004 on the retained Er 0.4, Zr 0.8 branch, which exact solidification comparison should be executed next to complete the branch-level Ni decision and support a shortlist? Determining evidence IDs/values: B004:C004:coarsening gives J=0.27804518508374554 and B005:C005:coarsening gives J=0.2780451852670357, so lowering Ni 1.5->1.0 at.% changes J by only +1.8329017242706432e-10, far inside the R1 practical tie tolerance of 0.0005. B003:C004:phase_stability gives L12_250=3.3106236725471097 mol%, L12_660=0.9392845531138507 mol%, Al3Zr_250=1.4883089342399525 mol%, Al3Zr_660=2.5713684747343364 mol%, Al3Zr_boundary=1039.0625 C with liquid_at_upper_boundary=true. B006:C005:phase_stability gives L12_250=3.310623672846295 mol%, L12_660=0.9688025394017767 mol%, Al3Zr_250=1.48828427253575 mol%, Al3Zr_660=2.5493239758995703 mol%, Al3Zr_boundary=1035.9375 C with liquid_at_upper_boundary=true. Interpretation from the measured branch-matched comparison: Er and Zr are fixed at 0.4/0.8 at.% and only Ni changes, so coarsening and equilibrium phase feasibility no longer distinguish C004 and C005. What remains uncertain is the required R3/R4 solidification tradeoff: whether lower Ni preserves enough terminal ternary Al23Ni6M4 reservoir and whether it improves or worsens terminal Al3Ni, terminal primary L12, terminal Al3Zr, and FR_K/CSC/HCS relative to C004 and the tool-returned reference. Requested deliverable: one exact matched-branch Scheil action containing both C004 and C005. Including both calculations in one recorded action is necessary now because R3 requires a controlled Ni comparison at fixed Er/Zr; an isolated Scheil point would not resolve the Ni effect and would likely force an immediate second Scheil spend. Exactly what returned evidence would resolve this assignment: saved solidification records for C004 and C005, plus the returned reference row, containing terminal ternary Al23Ni6M4 mol%, terminal L12 mol%, terminal Al3Ni mol%, terminal Al3Zr mol%, FR_K, CSC, HCS, terminal_solid_mol_percent, and terminal_temperature_C. Favorable to lower Ni would be comparable reservoir with reduced competing phases and/or lower FR/CSC/HCS; unfavorable would be clear reservoir loss without compensating solidification benefit, supporting retention of C004 for shortlist consideration.",
+        "fixed_inputs": {
+          "Er": 0.4,
+          "Zr": 0.8
+        },
+        "varied_inputs": [
+          "Ni"
+        ],
+        "expected_outputs": [
+          "terminal_solid_mol_percent",
+          "ternary_mol_percent",
+          "L12_mol_percent",
+          "Al3Ni_mol_percent",
+          "Al3Zr_mol_percent",
+          "FR_K",
+          "CSC",
+          "HCS"
+        ]
+      },
+      "after_batches": 6
+    },
+    {
+      "requirements_map": "R1 | Minimize valid J at 250 C among phase-feasible measured candidates; practical ties are |ΔJ|<0.0005 to the lowest measured valid J | B002:C001:coarsening J=0.3052704942407164; B002:C003:coarsening J=0.27804518493703073; B004:C004:coarsening J=0.27804518508374554; B005:C005:coarsening J=0.2780451852670357. C003/C004/C005 are practical ties by the 0.0005 rule; C001 is not, because |0.3052704942407164-0.2780451852670357|=0.02722530897368071 >> 0.0005 | coarsening evidence complete for these points; use solidification only to assess whether a non-tied worse-J branch can be justified as a balanced alternative\nR2 | Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <=1.05 mol%; use Al3Zr amounts/boundary to explain Zr cost, not as a universal cutoff | B001:C001:phase_stability passes with L12_250=3.1990436089735828 and L12_660=0.8923485574934417; B001:C002:phase_stability fails with L12_660=4.793125590093793; B001:C003:phase_stability passes with L12_660=0.9862468578662985; B003:C004:phase_stability passes with L12_660=0.9392845531138507; B006:C005:phase_stability passes with L12_660=0.9688025394017767. C001 has lower Al3Zr burden than C005 at equilibrium: B001:C001 Al3Zr_250=0 and Al3Zr_660=0.9968651939905895 versus B006:C005 Al3Zr_250=1.48828427253575 and Al3Zr_660=2.5493239758995703 | phase feasibility established for C001, C003, C004, C005; C001 solidification remains missing\nR3 | Explain final Ni choice using a controlled matched-branch Ni comparison on the retained Er/Zr branch; seek useful Scheil ternary reservoir with limited competing phases | Controlled Ni comparison exists at fixed Er=0.4, Zr=0.8 through C004/C005 and already identified C005 as the better branch-level Ni point by solidification tradeoff. Current action is not a new Ni comparison; it tests whether a different Er/Zr branch with worse J can still merit a balanced-alternative place through Scheil relief | evaluate_solidification now for C001 only\nR4 | Compare FR, CSC, HCS with reference and alternatives; lower preferred, no hard threshold, explain tradeoffs | B007:C005:solidification gives FR_K=269.6775, CSC=0.18679, HCS=0.50373060225; B007:reference:solidification gives FR_K=14.11562, CSC=0.19238, HCS=0.027155629755999996. No Scheil result exists yet for C001, so balanced-alternative status is unresolved | solidification now for C001 versus saved C005 and reference\nR5 | Before final nomination, perform at least one new Er/Zr composition refinement motivated by measured tradeoff; qualification or initial Ni series does not replace it | The required new Er/Zr refinement was executed at C004 with B003:C004:phase_stability and B004:C004:coarsening, followed by matched-branch Ni comparison and Scheil on C004/C005. The present action is a final decision-relevant test of whether previously sampled lower-Zr branch C001 deserves shortlist revival as a balanced alternative | refinement requirement already satisfied; C001 Scheil now resolves shortlist breadth\nR6 | Record workflow, sampling reasons, retained unsuccessful calculations, and final shortlist/recommendation with limits | Preserve the staged workflow and retain all measured evidence including C002 failure, C003 higher-Al3Zr cost, and the fully qualified C004/C005 branch. This delegation records the exact next decisive action only; later work must add the final comparison table, shortlist recommendation, and review | planner recording now",
+      "workflow_mermaid": "flowchart TD\nA[Initial fixed-Ni Er/Zr phase screen] --> B[Check L12 at 660 C feasibility and service L12/Al3Zr tradeoffs]\nB --> C{Any feasible branches?}\nC -- no --> D[Plan evidence-based Er/Zr revision]\nC -- yes --> E[Keep feasible incumbent(s)]\nE --> F[Measure coarsening J on feasible branches]\nF --> G{Lowest valid J unique by >0.0005?}\nG -- yes --> H[Retain J-first incumbent]\nG -- tie --> I[Use phase costs within J tie band]\nH --> J[Complete exact qualification of promising branch]\nI --> J\nJ --> K[Perform one measured Er/Zr refinement motivated by tradeoff]\nK --> L{Refinement feasible and competitive in J?}\nL -- no --> M[Retain incumbent with evidence-based reason]\nL -- yes --> N[Retain refinement branch for downstream tuning]\nM --> O[Controlled Ni comparison at fixed retained Er/Zr]\nN --> O\nO --> P{Changed Ni still phase-feasible at exact composition?}\nP -- no --> Q[Stop Ni branchlet and keep feasible incumbent]\nP -- yes --> R[Run matched-branch Scheil comparison]\nR --> S[Compare ternary reservoir, Al3Ni/Al3Zr, FR/CSC/HCS with reference]\nS --> T{Any non-tied worse-J branch still has decision-relevant unmeasured Scheil relief?}\nT -- yes --> U[Measure exact Scheil at that branch to test balanced-alternative status only]\nT -- no --> V[Record coarsening-first preferred candidate and justified balanced alternative if warranted]\nU --> V\nV --> W[Fresh exact verification/review]",
+      "assignments": "Codebook implication: because C001 has a meaningful J disadvantage, it cannot replace the coarsening-first preferred branch on R1; the correct use of one-sample Scheil here is to test balanced-alternative eligibility explicitly against the existing coarsening-first candidate, with the consequence of a favorable or unfavorable result stated in advance. Determining evidence: B002:C001:coarsening gives J=0.3052704942407164, while B005:C005:coarsening gives J=0.2780451852670357; the absolute difference is 0.02722530897368071, far outside the 0.0005 practical tie tolerance, so C001 is not a coarsening tie contender. B001:C001:phase_stability shows C001 is still phase-feasible with L12_250=3.1990436089735828 mol%, L12_660=0.8923485574934417 mol%, Al3Zr_250=0 mol%, Al3Zr_660=0.9968651939905895 mol%, Al3Zr_boundary=945.3125000000001 C, liquid_at_upper_boundary=true. Comparator B007:C005:solidification gives ternary=3.140411170021904 mol%, L12=0.1755769230844952 mol%, Al3Ni=1.3943980755583592 mol%, Al3Zr=3.039659280781794 mol%, FR_K=269.6775 K, CSC=0.18679, HCS=0.50373060225; reference B007:reference:solidification gives ternary=1.0357840503607434 mol%, L12=1.310962362629209 mol%, Al3Ni=2.9896542755178457 mol%, Al3Zr=1.2631515013883756 mol%, FR_K=14.11562 K, CSC=0.19238, HCS=0.027155629755999996. Interpretation: the unresolved issue is that C001 has no saved solidification record, so the shortlist-impacting question is whether the lower-Zr feasible branch materially lowers FR_K and/or HCS, and preferably terminal Al3Zr, enough to justify a balanced alternative despite worse J, while retaining a still useful terminal ternary reservoir and avoiding an excessive Al3Ni penalty. Requested deliverable: one exact evaluate_solidification result for C001 returning terminal ternary Al23Ni6M4 mol%, terminal L12 mol%, terminal Al3Ni mol%, terminal Al3Zr mol%, FR_K, CSC, HCS, terminal_solid_mol_percent, and terminal_temperature_C. Exactly what returned evidence would resolve this assignment: a complete saved C001 solidification record with those quantities, interpretable directly against B007:C005:solidification and B007:reference:solidification. Favorable C001 outcome meaning for shortlist structure: if C001 shows materially lower FR_K and/or HCS than C005, with preferably lower terminal Al3Zr and still useful ternary without an excessive Al3Ni cost, then C001 should be revived only as an explicitly labeled balanced alternative with stated J disadvantage, while C005 remains the coarsening-first preferred candidate. Unfavorable C001 outcome meaning for shortlist structure: if C001 shows no meaningful FR/HCS relief versus C005, or any relief is offset by unhelpful terminal phase balance such as large reservoir loss and/or unfavorable competing phases, then there is no support to revive C001 and the shortlist should remain centered on C005 alone rather than adding a balanced alternative.",
+      "next_action": {
+        "question": "Can C001 = Ni 1.5, Er 0.4, Zr 0.4 at.% provide enough terminal Scheil solidification relief to justify revival as an explicitly labeled balanced alternative, despite its non-tied worse J than coarsening-first contender C005?",
+        "tool": "evaluate_solidification",
+        "candidate_ids": [
+          "C001"
+        ],
+        "comparison_ids": [
+          "C005"
+        ],
+        "decision": "Codebook implication: because C001 has a meaningful J disadvantage, it cannot replace the coarsening-first preferred branch on R1; the correct use of one-sample Scheil here is to test balanced-alternative eligibility explicitly against the existing coarsening-first candidate, with the consequence of a favorable or unfavorable result stated in advance. Determining evidence: B002:C001:coarsening gives J=0.3052704942407164, while B005:C005:coarsening gives J=0.2780451852670357; the absolute difference is 0.02722530897368071, far outside the 0.0005 practical tie tolerance, so C001 is not a coarsening tie contender. B001:C001:phase_stability shows C001 is still phase-feasible with L12_250=3.1990436089735828 mol%, L12_660=0.8923485574934417 mol%, Al3Zr_250=0 mol%, Al3Zr_660=0.9968651939905895 mol%, Al3Zr_boundary=945.3125000000001 C, liquid_at_upper_boundary=true. Comparator B007:C005:solidification gives ternary=3.140411170021904 mol%, L12=0.1755769230844952 mol%, Al3Ni=1.3943980755583592 mol%, Al3Zr=3.039659280781794 mol%, FR_K=269.6775 K, CSC=0.18679, HCS=0.50373060225; reference B007:reference:solidification gives ternary=1.0357840503607434 mol%, L12=1.310962362629209 mol%, Al3Ni=2.9896542755178457 mol%, Al3Zr=1.2631515013883756 mol%, FR_K=14.11562 K, CSC=0.19238, HCS=0.027155629755999996. Interpretation: the unresolved issue is that C001 has no saved solidification record, so the shortlist-impacting question is whether the lower-Zr feasible branch materially lowers FR_K and/or HCS, and preferably terminal Al3Zr, enough to justify a balanced alternative despite worse J, while retaining a still useful terminal ternary reservoir and avoiding an excessive Al3Ni penalty. Requested deliverable: one exact evaluate_solidification result for C001 returning terminal ternary Al23Ni6M4 mol%, terminal L12 mol%, terminal Al3Ni mol%, terminal Al3Zr mol%, FR_K, CSC, HCS, terminal_solid_mol_percent, and terminal_temperature_C. Exactly what returned evidence would resolve this assignment: a complete saved C001 solidification record with those quantities, interpretable directly against B007:C005:solidification and B007:reference:solidification. Favorable C001 outcome meaning for shortlist structure: if C001 shows materially lower FR_K and/or HCS than C005, with preferably lower terminal Al3Zr and still useful ternary without an excessive Al3Ni cost, then C001 should be revived only as an explicitly labeled balanced alternative with stated J disadvantage, while C005 remains the coarsening-first preferred candidate. Unfavorable C001 outcome meaning for shortlist structure: if C001 shows no meaningful FR/HCS relief versus C005, or any relief is offset by unhelpful terminal phase balance such as large reservoir loss and/or unfavorable competing phases, then there is no support to revive C001 and the shortlist should remain centered on C005 alone rather than adding a balanced alternative.",
+        "fixed_inputs": {
+          "Ni": 1.5,
+          "Er": 0.4,
+          "Zr": 0.4
+        },
+        "varied_inputs": [],
+        "expected_outputs": [
+          "terminal_solid_mol_percent",
+          "ternary_mol_percent",
+          "L12_mol_percent",
+          "Al3Ni_mol_percent",
+          "Al3Zr_mol_percent",
+          "FR_K",
+          "CSC",
+          "HCS"
+        ]
+      },
+      "after_batches": 7
+    }
+  ],
+  "recommendations": [
+    {
+      "candidate_ids": [
+        "C005",
+        "C001"
+      ],
+      "rationale": "Preferred candidate C005 (Ni 1.0, Er 0.4, Zr 0.8 at.%) is recorded on the task’s J-first basis. Exact coarsening evidence B005:C005:coarsening gives J=0.2780451852670357. This is a practical tie with C004 at B004:C004:coarsening J=0.27804518508374554 and with C003 at B002:C003:coarsening J=0.27804518493703073 because all |ΔJ| are far below the 0.0005 rule, while C001 is meaningfully worse at B002:C001:coarsening J=0.3052704942407164, a disadvantage of 0.02722530897368071. Within that tied low-J set, C005 is preferred over C004 and C003 by measured secondary tradeoffs, not by a hidden score: versus C004 on the controlled fixed-Er=0.4, fixed-Zr=0.8 branch, B006:C005:phase_stability and B003:C004:phase_stability show both pass L12_660<=1.05 with C005 L12_660=0.9688025394017767 and C004 L12_660=0.9392845531138507, while L12_250 is essentially unchanged (3.310623672846295 vs 3.3106236725471097). On the same matched branch, B007:C005:solidification versus B007:C004:solidification shows nearly unchanged terminal ternary reservoir (3.140411170021904 vs 3.147752611366376 mol%) but much lower Al3Ni for C005 (1.3943980755583592 vs 3.3268069681600134 mol%) and slightly lower FR_K/HCS (269.6775 vs 273.43437 K; 0.50373060225 vs 0.5107480597230001) with identical CSC=0.18679. Versus C003, B001:C003:phase_stability shows essentially the same L12_250 but much higher competing Al3Zr burden than C005: Al3Zr_250=3.0883286636031673 and Al3Zr_660=4.145856925602474 for C003 versus 1.48828427253575 and 2.5493239758995703 for C005, and a higher Al3Zr upper disappearance boundary 1101.5625 C versus 1035.9375 C. All cited upper boundaries have liquid_at_upper_boundary=true, so they are reported only as liquid-involved upper disappearance behavior, not solid-state solvus values.\n\nBalanced alternative C001 (Ni 1.5, Er 0.4, Zr 0.4 at.%) is justified explicitly as a worse-J tradeoff alloy, not as a coarsening-first contender. B001:C001:phase_stability shows it is feasible with L12_250=3.1990436089735828, L12_660=0.8923485574934417, Al3Zr_250=0, Al3Zr_660=0.9968651939905895, boundary=945.3125000000001 C and liquid_at_upper_boundary=true. B008:C001:solidification shows why it merits shortlist status despite worse J: terminal ternary remains essentially the same as C005 (3.1551824611524517 vs 3.140411170021904 mol%), while terminal Al3Zr is much lower (1.4529790160225757 vs 3.039659280781794 mol%), FR_K is dramatically lower (9.98812 vs 269.6775 K), and HCS is dramatically lower (0.01916220822 vs 0.50373060225), although CSC is slightly worse than C005 (0.19185 vs 0.18679) and terminal Al3Ni is higher (3.3170750587487516 vs 1.3943980755583592). C001 therefore fits only as a balanced alternative emphasizing far better solidification proxies and lower equilibrium/terminal Al3Zr burden at the cost of a meaningful J penalty and some Al3Ni increase. It is not supported for preferred status because its Er/Zr branch lacks the required controlled Ni comparison: only Ni=1.5 has been measured on the Er=0.4, Zr=0.4 branch, so R3 branch-specific Ni support exists for C004/C005 but not for elevating C001 above the coarsening-first branch.\n\nAccordingly, record shortlist structure as: preferred C005 for coarsening-first selection among measured phase-feasible candidates, and balanced alternative C001 for users prioritizing substantially better FR/HCS and lower Al3Zr burden while accepting worse J and higher Al3Ni.",
+      "eligible": true,
+      "checks": {
+        "C005": {
+          "eligible": true,
+          "issues": [],
+          "L12_660_mol_percent": 0.9688025394017767,
+          "qualifications": {
+            "coarsening": {
+              "usable": true,
+              "interpretation": "complete"
+            },
+            "phase_stability": {
+              "usable": true,
+              "interpretation": "complete",
+              "required_points_complete": true,
+              "available_point_quantities": {
+                "L12_250_mol_percent": 3.310623672846295,
+                "L12_660_mol_percent": 0.9688025394017767,
+                "Al3Zr_250_mol_percent": 1.48828427253575,
+                "Al3Zr_660_mol_percent": 2.5493239758995703
+              },
+              "missing_or_invalid_point_quantities": [],
+              "boundary_status": "bracketed"
+            },
+            "solidification": {
+              "usable": true,
+              "interpretation": "complete"
+            }
+          },
+          "limit_mol_percent": 1.05
+        },
+        "C001": {
+          "eligible": true,
+          "issues": [],
+          "L12_660_mol_percent": 0.8923485574934417,
+          "qualifications": {
+            "coarsening": {
+              "usable": true,
+              "interpretation": "complete"
+            },
+            "phase_stability": {
+              "usable": true,
+              "interpretation": "complete",
+              "required_points_complete": true,
+              "available_point_quantities": {
+                "L12_250_mol_percent": 3.1990436089735828,
+                "L12_660_mol_percent": 0.8923485574934417,
+                "Al3Zr_250_mol_percent": 0,
+                "Al3Zr_660_mol_percent": 0.9968651939905895
+              },
+              "missing_or_invalid_point_quantities": [],
+              "boundary_status": "bracketed"
+            },
+            "solidification": {
+              "usable": true,
+              "interpretation": "complete"
+            }
+          },
+          "limit_mol_percent": 1.05
+        }
+      }
+    }
+  ],
+  "verification": {
+    "candidate_id": "C005",
+    "input_fingerprint": "3cae676204b69bd7cfb93ee074e549e46a3a78f5ad3303e9ae99ca14b6179399",
+    "status": "matched",
+    "comparisons": [
+      {
+        "candidate_id": "C005",
+        "kind": "coarsening",
+        "passed": true,
+        "differences": [
+          {
+            "metric": "J",
+            "original": 0.2780451852670357,
+            "fresh": 0.2780451852670357,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          }
+        ],
+        "original_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "fresh_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "boundary_assessment_matches": true
+      },
+      {
+        "candidate_id": "reference",
+        "kind": "coarsening",
+        "passed": true,
+        "differences": [
+          {
+            "metric": "J",
+            "original": 1.0,
+            "fresh": 1.0,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          }
+        ],
+        "original_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "fresh_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "boundary_assessment_matches": true
+      },
+      {
+        "candidate_id": "C005",
+        "kind": "phase_stability",
+        "passed": true,
+        "differences": [
+          {
+            "metric": "Al3Zr_250_mol_percent",
+            "original": 1.48828427253575,
+            "fresh": 1.48828427253575,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_660_mol_percent",
+            "original": 2.5493239758995703,
+            "fresh": 2.5493239758995703,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_boundary.precision_K",
+            "original": 5.0,
+            "fresh": 5.0,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_boundary.upper_temperature_C",
+            "original": 1035.9375,
+            "fresh": 1035.9375,
+            "absolute_difference": 0.0,
+            "tolerance": 5.0,
+            "passed": true
+          },
+          {
+            "metric": "L12_250_mol_percent",
+            "original": 3.310623672846295,
+            "fresh": 3.310623672846295,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "L12_660_mol_percent",
+            "original": 0.9688025394017767,
+            "fresh": 0.9688025394017767,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          }
+        ],
+        "original_qualification": {
+          "usable": true,
+          "interpretation": "complete",
+          "required_points_complete": true,
+          "available_point_quantities": {
+            "L12_250_mol_percent": 3.310623672846295,
+            "L12_660_mol_percent": 0.9688025394017767,
+            "Al3Zr_250_mol_percent": 1.48828427253575,
+            "Al3Zr_660_mol_percent": 2.5493239758995703
+          },
+          "missing_or_invalid_point_quantities": [],
+          "boundary_status": "bracketed"
+        },
+        "fresh_qualification": {
+          "usable": true,
+          "interpretation": "complete",
+          "required_points_complete": true,
+          "available_point_quantities": {
+            "L12_250_mol_percent": 3.310623672846295,
+            "L12_660_mol_percent": 0.9688025394017767,
+            "Al3Zr_250_mol_percent": 1.48828427253575,
+            "Al3Zr_660_mol_percent": 2.5493239758995703
+          },
+          "missing_or_invalid_point_quantities": [],
+          "boundary_status": "bracketed"
+        },
+        "boundary_assessment_matches": true
+      },
+      {
+        "candidate_id": "reference",
+        "kind": "phase_stability",
+        "passed": true,
+        "differences": [
+          {
+            "metric": "Al3Zr_250_mol_percent",
+            "original": 0.6716765913525093,
+            "fresh": 0.6716765913525093,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_660_mol_percent",
+            "original": 0.953743045178244,
+            "fresh": 0.953743045178244,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_boundary.precision_K",
+            "original": 5.0,
+            "fresh": 5.0,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_boundary.upper_temperature_C",
+            "original": 929.6875000000001,
+            "fresh": 929.6875000000001,
+            "absolute_difference": 0.0,
+            "tolerance": 5.0,
+            "passed": true
+          },
+          {
+            "metric": "L12_250_mol_percent",
+            "original": 2.3601150618584725,
+            "fresh": 2.3601150618584725,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "L12_660_mol_percent",
+            "original": 0.7765127393367864,
+            "fresh": 0.7765127393367864,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          }
+        ],
+        "original_qualification": {
+          "usable": true,
+          "interpretation": "complete",
+          "required_points_complete": true,
+          "available_point_quantities": {
+            "L12_250_mol_percent": 2.3601150618584725,
+            "L12_660_mol_percent": 0.7765127393367864,
+            "Al3Zr_250_mol_percent": 0.6716765913525093,
+            "Al3Zr_660_mol_percent": 0.953743045178244
+          },
+          "missing_or_invalid_point_quantities": [],
+          "boundary_status": "bracketed"
+        },
+        "fresh_qualification": {
+          "usable": true,
+          "interpretation": "complete",
+          "required_points_complete": true,
+          "available_point_quantities": {
+            "L12_250_mol_percent": 2.3601150618584725,
+            "L12_660_mol_percent": 0.7765127393367864,
+            "Al3Zr_250_mol_percent": 0.6716765913525093,
+            "Al3Zr_660_mol_percent": 0.953743045178244
+          },
+          "missing_or_invalid_point_quantities": [],
+          "boundary_status": "bracketed"
+        },
+        "boundary_assessment_matches": true
+      },
+      {
+        "candidate_id": "C005",
+        "kind": "solidification",
+        "passed": true,
+        "differences": [
+          {
+            "metric": "Al3Ni_mol_percent",
+            "original": 1.3943980755583592,
+            "fresh": 1.3943980755583592,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_mol_percent",
+            "original": 3.039659280781794,
+            "fresh": 3.039659280781794,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "CSC",
+            "original": 0.18679,
+            "fresh": 0.18679,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "CSC_intervals.relaxation",
+            "original": 0.40009631868284923,
+            "fresh": 0.40009631868284923,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "CSC_intervals.vulnerable",
+            "original": 0.07473242535376112,
+            "fresh": 0.07473242535376112,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "FR_K",
+            "original": 269.6775,
+            "fresh": 269.6775,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "HCS",
+            "original": 0.50373060225,
+            "fresh": 0.50373060225,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "L12_mol_percent",
+            "original": 0.1755769230844952,
+            "fresh": 0.1755769230844952,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "max_phase_sum_error",
+            "original": 2.220446049250313e-16,
+            "fresh": 2.220446049250313e-16,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "terminal_solid_mol_percent",
+            "original": 100.00000000000267,
+            "fresh": 100.00000000000267,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "terminal_temperature_C",
+            "original": 638.8469137000001,
+            "fresh": 638.8469137000001,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "ternary_mol_percent",
+            "original": 3.140411170021904,
+            "fresh": 3.140411170021904,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          }
+        ],
+        "original_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "fresh_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "boundary_assessment_matches": true
+      },
+      {
+        "candidate_id": "reference",
+        "kind": "solidification",
+        "passed": true,
+        "differences": [
+          {
+            "metric": "Al3Ni_mol_percent",
+            "original": 2.9896542755178457,
+            "fresh": 2.9896542755178457,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "Al3Zr_mol_percent",
+            "original": 1.2631515013883756,
+            "fresh": 1.2631515013883756,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "CSC",
+            "original": 0.19238,
+            "fresh": 0.19238,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "CSC_intervals.relaxation",
+            "original": 0.45987522311756984,
+            "fresh": 0.45987522311756984,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "CSC_intervals.vulnerable",
+            "original": 0.08847292166883836,
+            "fresh": 0.08847292166883836,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "FR_K",
+            "original": 14.11562,
+            "fresh": 14.11562,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "HCS",
+            "original": 0.027155629755999996,
+            "fresh": 0.027155629755999996,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "L12_mol_percent",
+            "original": 1.310962362629209,
+            "fresh": 1.310962362629209,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "max_phase_sum_error",
+            "original": 1.1102230246251565e-16,
+            "fresh": 1.1102230246251565e-16,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "terminal_solid_mol_percent",
+            "original": 99.87708189840544,
+            "fresh": 99.87708189840544,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "terminal_temperature_C",
+            "original": 637.2288752000001,
+            "fresh": 637.2288752000001,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          },
+          {
+            "metric": "ternary_mol_percent",
+            "original": 1.0357840503607434,
+            "fresh": 1.0357840503607434,
+            "absolute_difference": 0.0,
+            "tolerance": 1e-05,
+            "passed": true
+          }
+        ],
+        "original_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "fresh_qualification": {
+          "usable": true,
+          "interpretation": "complete"
+        },
+        "boundary_assessment_matches": true
+      }
+    ],
+    "responses": [
+      {
+        "kind": "coarsening",
+        "status": "complete",
+        "record": "verification_coarsening.json",
+        "usage": {
+          "equilibrium_calls": 2,
+          "scheil_calls": 0,
+          "cache_hits": 1,
+          "paid_model_calls": 0
+        },
+        "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+      },
+      {
+        "kind": "phase_stability",
+        "status": "complete",
+        "record": "verification_phase_stability.json",
+        "usage": {
+          "equilibrium_calls": 36,
+          "scheil_calls": 0,
+          "cache_hits": 4,
+          "paid_model_calls": 0
+        },
+        "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+      },
+      {
+        "kind": "solidification",
+        "status": "complete",
+        "record": "verification_solidification.json",
+        "usage": {
+          "equilibrium_calls": 0,
+          "scheil_calls": 2,
+          "cache_hits": 0,
+          "paid_model_calls": 0
+        },
+        "fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+      }
+    ]
+  }
+}

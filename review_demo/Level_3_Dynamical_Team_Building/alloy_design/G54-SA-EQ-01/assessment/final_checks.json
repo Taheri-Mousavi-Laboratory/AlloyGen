@@ -1,0 +1,35 @@
+{
+  "served_models": [
+    "gpt-5.4-2026-03-05"
+  ],
+  "same_four_tools_in_all_nine_requests": true,
+  "all_scientific_calls_complete": true,
+  "all_batches_at_most_three": true,
+  "native_call_limit_respected": true,
+  "scientific_call_count_including_python": 35,
+  "phase_profiles": 16,
+  "candidate_scheil": 11,
+  "raw_feasible_candidate": "Ni2_Er0.4_Zr0.6",
+  "agent_final_phase_rows_populated": 0,
+  "agent_final_terminal_ternary_rows_populated": 0,
+  "generated_script_exit_codes": [
+    0,
+    1,
+    1,
+    1,
+    0
+  ],
+  "raw_notebook_code_cells": 5,
+  "new_author_model_or_solver_calls": 0,
+  "frozen_input_count": 30,
+  "protected_prior_file_count": 2740,
+  "generated_script_imports": [
+    "collections",
+    "json",
+    "math",
+    "matplotlib.pyplot",
+    "pandas",
+    "pathlib",
+    "science_api"
+  ]
+}

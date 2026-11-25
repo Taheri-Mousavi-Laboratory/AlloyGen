@@ -1,0 +1,10 @@
+.env.local
+.env.*.local
+!*.example
+runtime/
+.tc/
+__pycache__/
+.ipynb_checkpoints/
+
+# Recorded execution evidence is intentionally included.
+!outputs/**/*.log

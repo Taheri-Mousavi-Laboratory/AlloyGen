@@ -1,0 +1,9 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "per_million_tokens": {
+    "input": 2.5,
+    "cached_input": 0.25,
+    "output": 15
+  },
+  "basis": "Same recorded estimate schedule as MEM-01; not a billing invoice"
+}

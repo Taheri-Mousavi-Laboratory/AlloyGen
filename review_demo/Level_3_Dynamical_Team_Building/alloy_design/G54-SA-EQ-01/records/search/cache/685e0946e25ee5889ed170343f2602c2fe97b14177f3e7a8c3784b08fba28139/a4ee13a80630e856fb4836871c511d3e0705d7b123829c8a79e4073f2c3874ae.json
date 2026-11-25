@@ -1,0 +1,72 @@
+{
+  "identity": {
+    "kind": "equilibrium",
+    "composition_percent": {
+      "Ni": 1.5,
+      "Er": 0.6,
+      "Zr": 0.6,
+      "Y": 0.0,
+      "Yb": 0.0
+    },
+    "basis": "atomic_percent",
+    "temperature_K": 623.15,
+    "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+  },
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a4ee13a80630e856fb4836871c511d3e0705d7b123829c8a79e4073f2c3874ae.json",
+  "temperature_K": 623.15,
+  "bulk_mole_fractions": {
+    "Al": 0.9729999999529231,
+    "Ni": 0.014999999999994131,
+    "Er": 0.00600000000238518,
+    "Zr": 0.005999999999999115,
+    "Y": 2.1205471059169392e-11,
+    "Yb": 2.3492996957579534e-11
+  },
+  "input_condition_error": 2.3492996957579534e-11,
+  "phases": [
+    {
+      "name": "AL3M_L12#1",
+      "mole_fraction": 0.047935678726649736,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 1.5602959155379786e-05,
+        "Er": 0.12516772810722676,
+        "Zr": 0.12481666803838816,
+        "Y": 4.237544874973512e-10,
+        "Yb": 4.714752241005527e-10
+      }
+    },
+    {
+      "name": "AL3NI1#1",
+      "mole_fraction": 0.0595522337530979,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.25,
+        "Er": 0.0,
+        "Zr": 0.0,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    },
+    {
+      "name": "FCC_A1#1",
+      "mole_fraction": 0.8925120875202524,
+      "composition_mole_fraction": {
+        "Al": 0.9998565600075001,
+        "Ni": 0.00012458500544383397,
+        "Er": 1e-12,
+        "Zr": 1.8854984056077485e-05,
+        "Y": 1e-12,
+        "Yb": 1e-12
+      }
+    }
+  ],
+  "checks": {
+    "phase_sum_error": 0.0,
+    "max_component_balance_error": 3.2311742677852644e-27,
+    "max_phase_composition_sum_error": 0.0,
+    "input_condition_error": 2.3492996957579534e-11
+  },
+  "seconds": 0.47723663225769997
+}

@@ -1,0 +1,7 @@
+Requirement,Interpretation,Workflow step
+R1,Find lowest valid J among measured feasible candidates; identify practical ties within 0.0005; keep J-first priority explicit,Initial broad Er/Zr/Ni screening -> feasible incumbent -> refined Er/Zr test -> matched-branch Ni comparison -> final tie/tradeoff review
+R2,Favor substantial equilibrium L12 at 250 C; require L12 at 660 C <= 1.05 mol% for main shortlist; explain Al3Zr cost,Phase-stability qualification of every shortlisted exact composition and key screening points; interpret Al3Zr amounts and disappearance behavior
+R3,"Investigate Ni effect on terminal ternary, primary L12, Al3Ni using matched Er/Zr branch",Scheil calculations at fixed retained Er/Zr branch for multiple Ni levels; compare ternary reservoir vs competing phases and cracking proxies
+R4,"Compare FR, CSC, HCS with reference and alternatives; no universal acceptance threshold",Scheil calculations on shortlisted and comparator alloys; explicit indicator-by-indicator comparison and tradeoff discussion
+R5,Add at least one new Er/Zr refinement after initial assessment and before final nomination; recalc preferred candidate and reference freshly,Evidence-triggered refinement composition -> full qualification -> fresh verification in new output dir for preferred candidate and reference
+R6,"Provide workflow map, flow diagram, sampling/refinement reasons, comparison table with evidence IDs, retain partial/unsuccessful calculations","Save markdown/text/json/csv/png artifacts, raw records, statuses, and an investigation log"

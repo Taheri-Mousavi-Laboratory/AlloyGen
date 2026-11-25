@@ -1,0 +1,16 @@
+{
+  "source_records": [
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/65400d5b07d712d528fb8805733e2c79be42627f996134d515745a2d51117f93.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/832e55ffc62986a9c46378e2ae8ff24ef7959e317dde38b163c2b692c7d6c3eb.json"
+  ],
+  "source_sha256": {
+    "experiments/management_alloy_design/scientific_tools/settings.json": "44b538d63eca6f7f6274cd9cca47259b2c45bc81c709189743b75c13e1a4cb67",
+    "experiments/management_alloy_design/scientific_tools/metrics.py": "c13e20b555bf15b15a34d87b85fe5e7eeed97303d635755c5aca4befe2c2165b",
+    "experiments/management_alloy_design/scientific_tools/worker.py": "e532f16b0ecd47b476f92ddc6766c306855ce8d824608dd75cd2a7b480531d1d",
+    "experiments/management_alloy_design/scientific_tools/tools.py": "a821be1f608e6cfc4dadc5b6fe5ca44150f7a0a300de84092f595f9554f8b34b",
+    "experiments/management_alloy_design/scientific_calculator.py": "e6e1f5a7f281dd6bc46eb0e5654745115b55e5afb179822877353094959c0312",
+    "experiments/management_alloy_design/solvus_validation_20261107/solvus.py": "cb912431f3b76d4065f92943edd5a96c4bfa290daca42d1faa38f03bbef731d7",
+    "experiments/management_alloy_design/ni_comparison/historical_functions.py": "904ef4df1e1ae4449f44c3fb4fc3189e487c28d7a07e27ee0db0429ee7594266",
+    "experiments/management_alloy_design/ni_comparison/run_ni_comparison.py": "0a5604b4d1c2d4e2cb2673756dfb7c44f75ea73333c7a5eefa10ce9e375e1aa9"
+  }
+}

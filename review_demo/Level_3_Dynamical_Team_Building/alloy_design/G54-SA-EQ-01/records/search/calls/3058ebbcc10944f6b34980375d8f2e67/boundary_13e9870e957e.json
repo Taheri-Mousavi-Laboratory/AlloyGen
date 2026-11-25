@@ -1,0 +1,152 @@
+{
+  "phase": "AL3M_D023",
+  "phase_tolerance": 1e-08,
+  "precision_K": 5.0,
+  "sampled_brackets_K": [
+    [
+      1223.15,
+      1323.15
+    ]
+  ],
+  "temperature_K": 1277.8375,
+  "status": "bracketed",
+  "bracket_K": [
+    1276.275,
+    1279.4
+  ],
+  "selection": "highest sampled disappearance boundary",
+  "disappearance_intervals": [
+    {
+      "bracket_K": [
+        1276.275,
+        1279.4
+      ],
+      "temperature_K": 1277.8375,
+      "liquid_at_boundary": true
+    }
+  ],
+  "multiple_intervals": false,
+  "below": {
+    "temperature_K": 1276.275,
+    "target_mole_fraction": 5.0118265749587385e-05,
+    "liquid_mole_fraction": 0.9999498817342505
+  },
+  "above": {
+    "temperature_K": 1279.4,
+    "target_mole_fraction": 0,
+    "liquid_mole_fraction": 0.9999999999999999
+  },
+  "liquid_at_boundary": true,
+  "samples": [
+    {
+      "temperature_K": 523.15,
+      "target_mole_fraction": 0.006883237312623841,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 623.15,
+      "target_mole_fraction": 0.0056242908564948235,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 723.15,
+      "target_mole_fraction": 0.004150614988291265,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 823.15,
+      "target_mole_fraction": 0.0022058780037526623,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 923.15,
+      "target_mole_fraction": 0.017048280696570845,
+      "liquid_mole_fraction": 0.9721377890618776
+    },
+    {
+      "temperature_K": 1023.15,
+      "target_mole_fraction": 0.021582371675974602,
+      "liquid_mole_fraction": 0.9784176283240255
+    },
+    {
+      "temperature_K": 1123.15,
+      "target_mole_fraction": 0.01728624794145057,
+      "liquid_mole_fraction": 0.9827137520585495
+    },
+    {
+      "temperature_K": 1223.15,
+      "target_mole_fraction": 0.008097714552868271,
+      "liquid_mole_fraction": 0.9919022854471315
+    },
+    {
+      "temperature_K": 1273.15,
+      "target_mole_fraction": 0.0006020224792307922,
+      "liquid_mole_fraction": 0.9993979775207691
+    },
+    {
+      "temperature_K": 1276.275,
+      "target_mole_fraction": 5.0118265749587385e-05,
+      "liquid_mole_fraction": 0.9999498817342505
+    },
+    {
+      "temperature_K": 1279.4,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 0.9999999999999999
+    },
+    {
+      "temperature_K": 1285.65,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1298.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1323.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 0.9999999999999998
+    },
+    {
+      "temperature_K": 1423.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1523.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1623.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1673.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    }
+  ],
+  "source_records": [
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/0e32e1dd122ca6ab8096c991da29a949e78aeb78ce2f61dbde3fed1a5cc4824b.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/11e0f89c4c8122d141a2ab13a0075218719f9bc11cab400a25118b6680a963f1.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/122f8d4f9d611a9db4e7749a0b40491667a1a0bc3ec128391bb18bfb675a354e.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/1d6e8ef6bd50cb60a0cd22cd18131f4a0e59d34425ba39e151de1bc62fc5aae1.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/2ede2325a3f7f7426b9e7f2cd7078cb62244daea808fa4f3a3b586abc174dc6d.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/39aeae5da22aafb703bbafd156ac204246f91a7757ffa44c2a97534818ebb19d.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/463dd961c9799eec59badc79f78032f8fe79f8dc2f2e8fac31b4fa89d0eebad2.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/597a96db24c02a73b9ef3066f48207f76147bd9c12da5a803322598bc9b9e513.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/5f38f30320367cca627c9adbf7291e130fcbfd74b05cb1f3d426ae14281c2863.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/77752490b601fd2a652183206b18cabd4962518948a1f81bb0cbdccbc777451a.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a94b01c75b4e61aba1ac9c16130d922cfe1fc2e2a8a4e2792b7a908c7c9de3d1.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a9a09184e7b8e8784cbb95f0e66192d8d2f751916430840519d626ea655e24f8.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a9bf81bd7a0fb848e3901594b2a4dd2eb385777f36f3a7e7d493ba1c11b8db91.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/aec872b8c49bd29cccce265d22a059cba0bfefd945dd8207a4e099d93283af95.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/b40061399ac07ceb3692081496ca9ebfd98f74b0d3840bac9823b9b80426f961.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/b5f45767c97e8fbe8dc96de1c82702b3b23c0b0e4e98e647b3bafa1fecfe41e1.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/c5065f134b64e7bbbd5a354d64b7717a86beee61288b36bdf2785f935ed93202.json",
+    "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/e796ab7239371254a486201ccfce6df111dec285a5e5e0aef11a1ab35a7a756e.json"
+  ]
+}

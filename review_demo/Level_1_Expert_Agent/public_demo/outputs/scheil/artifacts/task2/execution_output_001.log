@@ -1,0 +1,711 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=[local-path] -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+
+01:25:29,187 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+01:25:31,339 [Thread-1] INFO  CalculationEngine: Opening database::FEDEMO::
+
+01:25:31,527 [Thread-1] INFO  JavaWrapper: *** Invoking Gibbs Energy System v6 ***
+
+01:25:31,574 [Thread-1] INFO  CalculationEngine:  Creating a new composition set FCC_A1#2
+
+01:25:31,574 [Thread-1] INFO  CalculationEngine: New CS: FCC_A1#2
+
+01:25:31,679 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, Thermo-Calc Software AB, Sweden, 2006; Molar volumes'
+
+01:25:31,679 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, M. Selleby and B. Sundman, CALPHAD, 29, 2005, 68-89; Molar
+
+01:25:31,679 [Thread-1] INFO  CalculationEngine:        volumes'
+
+01:25:31,679 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 627-636 TRITA 0207 (1986); C
+
+01:25:31,679 [Thread-1] INFO  CalculationEngine:        -CR-FE'
+
+01:25:31,679 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson and B. Sundman, CALPHAD, 11 (1987) 83-92; TRITA 0270
+
+01:25:31,679 [Thread-1] INFO  CalculationEngine:        (1986); CR-FE'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 11 (1987) 271-276; TRITA 0314; C-CR'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'A.T. Dinsdale, SGTE Data for Pure Elements, CALPHAD, 15 (1991) 317-425'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Scan. J. Metall., 14 (1985) 259-267; TRITA 0237 (1984); C-FE'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, C. Broeckmann, CALPHAD, 46, 24-33(2014); Cr-Fe-C'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'P. Franke, estimated parameter within SGTE, 2007; Fe-C, Ni-C, Mo-C, C-Mn'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; THCD and ELRS of steels'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'H-L Chen, in TCAL7.0, Evaluation and modeling of electrical resistivity
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:         thermal conductivity'
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Optimized ELRS
+
+01:25:31,680 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Estimation of ELRS
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; ELRS/THCD'
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, Volume data updated for
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:        TCFE9 database (TCFE v9.0, Jan, 2017).'
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, Metall. Trans. A, 24A (1993) 1017-1025; Fe-Cr-Mn-C'
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:    'W. Huang, Metall. Trans. A, 21A (1990) 2115-2123; TRITA-MAC 411 (Rev
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:        1989); C-FE-MN'
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:    'P. Villars, L.D. Calvert. Pearsons handbook of crystallographic data for
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:        intermetallic phases, Metals park, Ohio 1985: American society for
+
+01:25:31,681 [Thread-1] INFO  CalculationEngine:        metals'
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:    'B. Hallstedt, D. Djurovic, J. von Appen, R. Dronskowski, A. Dick, F.
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:        Koermann, T. Hickel, J. Neugebauer, CALPHAD, 34, 129-33(2010); Fe-C'
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 16 (1992) 121-149; C-Cr-Fe-Ni'
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; Default values for
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:        ELRS/THCD'
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, TRITA-MAC 354 (1987); C-Cr-Fe-Mo-W'
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 1385-1394; TRITA 0322 (1986);
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:         CR-FE-MO'
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for electrical resistivity'
+
+01:25:31,682 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for thermal conductivity'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2023; Diamond Volume'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'A. Markstrom, Swerea KIMAB, Sweden; Molar volumes'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2016; FCC Fe-Cr-C and C-Cr-Ni'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'J. Bratberg, Z. Metallkd., 96 (2005) 335-344; Fe-Cr-Mo-C'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'B. Uhrenius, Int. J. Refract. Met. Hard Mater. 12 (1994) 121-127; Molar
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:        volumes'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'K. Frisk, Metall. Trans. A, 21A (1990) 2477-2488; TRITA 0409 (1989); CR
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:        -FE-N'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Metall. Trans. A, 19A (1988) 2547-2554; TRITA-MAC 348,
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:        (1987); C-CR-FE-W'
+
+01:25:31,683 [Thread-1] INFO  CalculationEngine:    'C. Qui, ISIJ International, 32 (1992), 1117-1127; Trita-MAC 482 (1992)
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:        Revision; C-Cr-Fe-Mo'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'H. Gohring, O. Fabrichnaya, A. Leineweber, E.J. Mittemeijer, Metall.
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:        Mater. Trans. A, 47A, 6173-86(2016); FE-N, and Fe-C-N'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 12 (1988) 9-23; TRITA 0321 (1986); C-FE-MO'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'Same or similar interaction as in the corresponding stable phase'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2019; Cr-Fe-Nb'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'N. Saunders, COST 507 Report (1998); Cr-Ti'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, unpublished work at KTH (1999); update of steel database'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'L.F.S. Dumitrescu, M. Hillert and N. Saunders, J. Phase Equilib., 19
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:        (1998) 441-448; Fe-Ti'
+
+01:25:31,684 [Thread-1] INFO  CalculationEngine:    'M. Ghasemi, Thermo-Calc Software AB, Sweden, 2020; Unifying liquid volume
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:        database'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'Y. Tang, in TCCU2, Thermo-Calc Software AB, Stockholm, Sweden'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, K. Chang, CALPHAD, 39, 54-61(2012); C-Cr-Nb'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 17 (1993) 251-268; revision of Fe-Cr and Fe-Ni liquid'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software, 2020: ELRS/THCD of liquid'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB: assessing the viscosity of metallic
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:        liquid, 2019'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'M J Assael, J Phys Chem Ref Data 35 (2006) 285; Fe, Al'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'R. Zhang, Thermo-Calc Software AB, Sweden 2023; Reassessment of surface
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:        tension using RK rule'
+
+01:25:31,685 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB (2020): assessing the surface tension
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:        of metallic liquid'
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:    'D. Djurovic, B. Hallstedt, J. von Appen, R. Dronskowski, Calphad 35.4
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:        (2011) 479-491; Fe-Mn-C'
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; Cr3C2 Volume'
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:    'B. Sundman et al., Report EUR 20315, Contract No 7210-PR/050, 2002; New
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:        Sigma model'
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Assessment of ELRS
+
+01:25:31,686 [Thread-1] INFO  CalculationEngine:         THCD in TCAL8.'
+
+01:25:32,133 [pool-4-thread-1] INFO  CalculationEngine:   T=2500, P=100000, N=1, W(C)=1E-2, W(CR)=0.1
+
+01:25:32,134 [pool-4-thread-1] INFO  CalculationEngine:   DEGREES OF FREEDOM 0
+
+01:25:32,135 [pool-4-thread-1] INFO  CalculationEngine:   COMPONENT               STATUS    REF. STATE     T(K)           P(Pa)
+
+01:25:32,135 [pool-4-thread-1] INFO  CalculationEngine:   VA                      ENTERED   SER
+
+01:25:32,135 [pool-4-thread-1] INFO  CalculationEngine:   C                       ENTERED   SER
+
+01:25:32,135 [pool-4-thread-1] INFO  CalculationEngine:   CR                      ENTERED   SER
+
+01:25:32,135 [pool-4-thread-1] INFO  CalculationEngine:   FE                      ENTERED   SER
+
+01:25:33,013 [pool-4-thread-1] INFO  CalculationEngine:   You must release one of these conditions
+
+01:25:33,013 [pool-4-thread-1] INFO  CalculationEngine:   T=2500, P=100000, N=1, W(C)=1E-2, W(CR)=0.1    DEGREES OF FREEDOM 0
+
+01:25:34,612 [pool-4-thread-1] INFO  CalculationEngine:   PHASE CHANGE AT 1715.05468488
+
+01:25:34,612 [pool-4-thread-1] INFO  CalculationEngine:  FCC_A1#1 forms
+
+01:25:34,613 [pool-4-thread-1] INFO  CalculationEngine: Testing POLY result by global minimization procedure
+
+01:25:34,672 [pool-4-thread-1] INFO  CalculationEngine: Calculated         20164 grid points in             0 s
+
+01:25:34,844 [pool-4-thread-1] INFO  CalculationEngine:    CALCULATING SCHEIL SOLIDFICATION
+
+01:25:34,868 [pool-4-thread-1] INFO  CalculationEngine:       T(C)      fraction solid
+
+01:25:34,869 [pool-4-thread-1] INFO  CalculationEngine:     1441.995       0.000000
+
+01:25:35,303 [pool-4-thread-1] INFO  CalculationEngine:   PHASE REGION:LIQUID + FCC_A1#1
+
+01:25:35,303 [pool-4-thread-1] INFO  CalculationEngine:       T(C)      fraction solid
+
+01:25:35,303 [pool-4-thread-1] INFO  CalculationEngine:     1441.899      0.1329731E-03
+
+01:25:35,305 [pool-4-thread-1] INFO  CalculationEngine:     1440.899      0.2342648E-01
+
+01:25:35,307 [pool-4-thread-1] INFO  CalculationEngine:     1439.899      0.4585868E-01
+
+01:25:35,309 [pool-4-thread-1] INFO  CalculationEngine:     1438.899      0.6747203E-01
+
+01:25:35,311 [pool-4-thread-1] INFO  CalculationEngine:     1437.899      0.8830639E-01
+
+01:25:35,313 [pool-4-thread-1] INFO  CalculationEngine:     1436.899      0.1083992
+
+01:25:35,315 [pool-4-thread-1] INFO  CalculationEngine:     1435.899      0.1277858
+
+01:25:35,317 [pool-4-thread-1] INFO  CalculationEngine:     1434.899      0.1464992
+
+01:25:35,319 [pool-4-thread-1] INFO  CalculationEngine:     1433.899      0.1645706
+
+01:25:35,321 [pool-4-thread-1] INFO  CalculationEngine:     1432.899      0.1820296
+
+01:25:35,394 [pool-4-thread-1] INFO  CalculationEngine:     1431.899      0.1989038
+
+01:25:35,397 [pool-4-thread-1] INFO  CalculationEngine:     1430.899      0.2152194
+
+01:25:35,399 [pool-4-thread-1] INFO  CalculationEngine:     1429.899      0.2310011
+
+01:25:35,401 [pool-4-thread-1] INFO  CalculationEngine:     1428.899      0.2462724
+
+01:25:35,403 [pool-4-thread-1] INFO  CalculationEngine:     1427.899      0.2610553
+
+01:25:35,405 [pool-4-thread-1] INFO  CalculationEngine:     1426.899      0.2753707
+
+01:25:35,407 [pool-4-thread-1] INFO  CalculationEngine:     1425.899      0.2892384
+
+01:25:35,409 [pool-4-thread-1] INFO  CalculationEngine:     1424.899      0.3026772
+
+01:25:35,411 [pool-4-thread-1] INFO  CalculationEngine:     1423.899      0.3157048
+
+01:25:35,413 [pool-4-thread-1] INFO  CalculationEngine:     1422.899      0.3283381
+
+01:25:35,482 [pool-4-thread-1] INFO  CalculationEngine:     1421.899      0.3405930
+
+01:25:35,484 [pool-4-thread-1] INFO  CalculationEngine:     1420.899      0.3524849
+
+01:25:35,486 [pool-4-thread-1] INFO  CalculationEngine:     1419.899      0.3640281
+
+01:25:35,488 [pool-4-thread-1] INFO  CalculationEngine:     1418.899      0.3752363
+
+01:25:35,490 [pool-4-thread-1] INFO  CalculationEngine:     1417.899      0.3861225
+
+01:25:35,492 [pool-4-thread-1] INFO  CalculationEngine:     1416.899      0.3966992
+
+01:25:35,496 [pool-4-thread-1] INFO  CalculationEngine:     1415.899      0.4069782
+
+01:25:35,498 [pool-4-thread-1] INFO  CalculationEngine:     1414.899      0.4169707
+
+01:25:35,500 [pool-4-thread-1] INFO  CalculationEngine:     1413.899      0.4266874
+
+01:25:35,502 [pool-4-thread-1] INFO  CalculationEngine:     1412.899      0.4361386
+
+01:25:35,581 [pool-4-thread-1] INFO  CalculationEngine:     1411.899      0.4453340
+
+01:25:35,583 [pool-4-thread-1] INFO  CalculationEngine:     1410.899      0.4542829
+
+01:25:35,585 [pool-4-thread-1] INFO  CalculationEngine:     1409.899      0.4629942
+
+01:25:35,587 [pool-4-thread-1] INFO  CalculationEngine:     1408.899      0.4714764
+
+01:25:35,589 [pool-4-thread-1] INFO  CalculationEngine:     1407.899      0.4797375
+
+01:25:35,591 [pool-4-thread-1] INFO  CalculationEngine:     1406.899      0.4877852
+
+01:25:35,593 [pool-4-thread-1] INFO  CalculationEngine:     1405.899      0.4956271
+
+01:25:35,595 [pool-4-thread-1] INFO  CalculationEngine:     1404.899      0.5032702
+
+01:25:35,597 [pool-4-thread-1] INFO  CalculationEngine:     1403.899      0.5107212
+
+01:25:35,599 [pool-4-thread-1] INFO  CalculationEngine:     1402.899      0.5179866
+
+01:25:35,667 [pool-4-thread-1] INFO  CalculationEngine:     1401.899      0.5250727
+
+01:25:35,669 [pool-4-thread-1] INFO  CalculationEngine:     1400.899      0.5319854
+
+01:25:35,671 [pool-4-thread-1] INFO  CalculationEngine:     1399.899      0.5387303
+
+01:25:35,673 [pool-4-thread-1] INFO  CalculationEngine:     1398.899      0.5453131
+
+01:25:35,675 [pool-4-thread-1] INFO  CalculationEngine:     1397.899      0.5517388
+
+01:25:35,677 [pool-4-thread-1] INFO  CalculationEngine:     1396.899      0.5580126
+
+01:25:35,679 [pool-4-thread-1] INFO  CalculationEngine:     1395.899      0.5641393
+
+01:25:35,681 [pool-4-thread-1] INFO  CalculationEngine:     1394.899      0.5701234
+
+01:25:35,682 [pool-4-thread-1] INFO  CalculationEngine:     1393.899      0.5759696
+
+01:25:35,684 [pool-4-thread-1] INFO  CalculationEngine:     1392.899      0.5816819
+
+01:25:35,751 [pool-4-thread-1] INFO  CalculationEngine:     1391.899      0.5872647
+
+01:25:35,753 [pool-4-thread-1] INFO  CalculationEngine:     1390.899      0.5927217
+
+01:25:35,755 [pool-4-thread-1] INFO  CalculationEngine:     1389.899      0.5980568
+
+01:25:35,757 [pool-4-thread-1] INFO  CalculationEngine:     1388.899      0.6032737
+
+01:25:35,759 [pool-4-thread-1] INFO  CalculationEngine:     1387.899      0.6083758
+
+01:25:35,761 [pool-4-thread-1] INFO  CalculationEngine:     1386.899      0.6133667
+
+01:25:35,762 [pool-4-thread-1] INFO  CalculationEngine:     1385.899      0.6182494
+
+01:25:35,764 [pool-4-thread-1] INFO  CalculationEngine:     1384.899      0.6230272
+
+01:25:35,766 [pool-4-thread-1] INFO  CalculationEngine:     1383.899      0.6277031
+
+01:25:35,768 [pool-4-thread-1] INFO  CalculationEngine:     1382.899      0.6322801
+
+01:25:35,836 [pool-4-thread-1] INFO  CalculationEngine:     1381.899      0.6367608
+
+01:25:35,837 [pool-4-thread-1] INFO  CalculationEngine:     1380.899      0.6411480
+
+01:25:35,839 [pool-4-thread-1] INFO  CalculationEngine:     1379.899      0.6454444
+
+01:25:35,841 [pool-4-thread-1] INFO  CalculationEngine:     1378.899      0.6496525
+
+01:25:35,843 [pool-4-thread-1] INFO  CalculationEngine:     1377.899      0.6537746
+
+01:25:35,845 [pool-4-thread-1] INFO  CalculationEngine:     1376.899      0.6578132
+
+01:25:35,847 [pool-4-thread-1] INFO  CalculationEngine:     1375.899      0.6617705
+
+01:25:35,848 [pool-4-thread-1] INFO  CalculationEngine:     1374.899      0.6656487
+
+01:25:35,850 [pool-4-thread-1] INFO  CalculationEngine:     1373.899      0.6694500
+
+01:25:35,852 [pool-4-thread-1] INFO  CalculationEngine:     1372.899      0.6731762
+
+01:25:35,923 [pool-4-thread-1] INFO  CalculationEngine:     1371.899      0.6768295
+
+01:25:35,925 [pool-4-thread-1] INFO  CalculationEngine:     1370.899      0.6804118
+
+01:25:35,927 [pool-4-thread-1] INFO  CalculationEngine:     1369.899      0.6839248
+
+01:25:35,929 [pool-4-thread-1] INFO  CalculationEngine:     1368.899      0.6873704
+
+01:25:35,931 [pool-4-thread-1] INFO  CalculationEngine:     1367.899      0.6907503
+
+01:25:35,933 [pool-4-thread-1] INFO  CalculationEngine:     1366.899      0.6940662
+
+01:25:35,935 [pool-4-thread-1] INFO  CalculationEngine:     1365.899      0.6973196
+
+01:25:35,936 [pool-4-thread-1] INFO  CalculationEngine:     1364.899      0.7005122
+
+01:25:35,938 [pool-4-thread-1] INFO  CalculationEngine:     1363.899      0.7036455
+
+01:25:35,941 [pool-4-thread-1] INFO  CalculationEngine:     1362.899      0.7067209
+
+01:25:36,027 [pool-4-thread-1] INFO  CalculationEngine:     1361.899      0.7097399
+
+01:25:36,029 [pool-4-thread-1] INFO  CalculationEngine:     1360.899      0.7127038
+
+01:25:36,032 [pool-4-thread-1] INFO  CalculationEngine:     1359.899      0.7156140
+
+01:25:36,035 [pool-4-thread-1] INFO  CalculationEngine:     1358.899      0.7184717
+
+01:25:36,036 [pool-4-thread-1] INFO  CalculationEngine:     1357.899      0.7212783
+
+01:25:36,038 [pool-4-thread-1] INFO  CalculationEngine:     1356.899      0.7240349
+
+01:25:36,040 [pool-4-thread-1] INFO  CalculationEngine:     1355.899      0.7267427
+
+01:25:36,042 [pool-4-thread-1] INFO  CalculationEngine:     1354.899      0.7294029
+
+01:25:36,044 [pool-4-thread-1] INFO  CalculationEngine:     1353.899      0.7320166
+
+01:25:36,046 [pool-4-thread-1] INFO  CalculationEngine:     1352.899      0.7345848
+
+01:25:36,117 [pool-4-thread-1] INFO  CalculationEngine:     1351.899      0.7371085
+
+01:25:36,119 [pool-4-thread-1] INFO  CalculationEngine:     1350.899      0.7395890
+
+01:25:36,121 [pool-4-thread-1] INFO  CalculationEngine:     1349.899      0.7420270
+
+01:25:36,123 [pool-4-thread-1] INFO  CalculationEngine:     1348.899      0.7444235
+
+01:25:36,125 [pool-4-thread-1] INFO  CalculationEngine:     1347.899      0.7467796
+
+01:25:36,127 [pool-4-thread-1] INFO  CalculationEngine:     1346.899      0.7490960
+
+01:25:36,129 [pool-4-thread-1] INFO  CalculationEngine:     1345.899      0.7513737
+
+01:25:36,130 [pool-4-thread-1] INFO  CalculationEngine:     1344.899      0.7536136
+
+01:25:36,132 [pool-4-thread-1] INFO  CalculationEngine:     1343.899      0.7558163
+
+01:25:36,134 [pool-4-thread-1] INFO  CalculationEngine:     1342.899      0.7579829
+
+01:25:36,204 [pool-4-thread-1] INFO  CalculationEngine:     1341.899      0.7601140
+
+01:25:36,205 [pool-4-thread-1] INFO  CalculationEngine:     1340.899      0.7622104
+
+01:25:36,207 [pool-4-thread-1] INFO  CalculationEngine:     1339.899      0.7642728
+
+01:25:36,209 [pool-4-thread-1] INFO  CalculationEngine:     1338.899      0.7663021
+
+01:25:36,211 [pool-4-thread-1] INFO  CalculationEngine:     1337.899      0.7682988
+
+01:25:36,213 [pool-4-thread-1] INFO  CalculationEngine:     1336.899      0.7702636
+
+01:25:36,215 [pool-4-thread-1] INFO  CalculationEngine:     1335.899      0.7721973
+
+01:25:36,217 [pool-4-thread-1] INFO  CalculationEngine:     1334.899      0.7741005
+
+01:25:36,219 [pool-4-thread-1] INFO  CalculationEngine:     1333.899      0.7759738
+
+01:25:36,221 [pool-4-thread-1] INFO  CalculationEngine:     1332.899      0.7778178
+
+01:25:36,288 [pool-4-thread-1] INFO  CalculationEngine:     1331.899      0.7796331
+
+01:25:36,290 [pool-4-thread-1] INFO  CalculationEngine:     1330.899      0.7814204
+
+01:25:36,292 [pool-4-thread-1] INFO  CalculationEngine:     1329.899      0.7831801
+
+01:25:36,293 [pool-4-thread-1] INFO  CalculationEngine:     1328.899      0.7849129
+
+01:25:36,295 [pool-4-thread-1] INFO  CalculationEngine:     1327.899      0.7866192
+
+01:25:36,297 [pool-4-thread-1] INFO  CalculationEngine:     1326.899      0.7882996
+
+01:25:36,299 [pool-4-thread-1] INFO  CalculationEngine:     1325.899      0.7899547
+
+01:25:36,301 [pool-4-thread-1] INFO  CalculationEngine:     1324.899      0.7915848
+
+01:25:36,303 [pool-4-thread-1] INFO  CalculationEngine:     1323.899      0.7931906
+
+01:25:36,304 [pool-4-thread-1] INFO  CalculationEngine:     1322.899      0.7947724
+
+01:25:36,373 [pool-4-thread-1] INFO  CalculationEngine:     1321.899      0.7963308
+
+01:25:36,375 [pool-4-thread-1] INFO  CalculationEngine:     1320.899      0.7978662
+
+01:25:36,377 [pool-4-thread-1] INFO  CalculationEngine:     1319.899      0.7993790
+
+01:25:36,379 [pool-4-thread-1] INFO  CalculationEngine:     1318.899      0.8008697
+
+01:25:36,380 [pool-4-thread-1] INFO  CalculationEngine:     1317.899      0.8023387
+
+01:25:36,382 [pool-4-thread-1] INFO  CalculationEngine:     1316.899      0.8037865
+
+01:25:36,384 [pool-4-thread-1] INFO  CalculationEngine:     1315.899      0.8052133
+
+01:25:36,386 [pool-4-thread-1] INFO  CalculationEngine:     1314.899      0.8066196
+
+01:25:36,388 [pool-4-thread-1] INFO  CalculationEngine:     1313.899      0.8080059
+
+01:25:36,390 [pool-4-thread-1] INFO  CalculationEngine:     1312.899      0.8093724
+
+01:25:36,456 [pool-4-thread-1] INFO  CalculationEngine:     1311.899      0.8107195
+
+01:25:36,458 [pool-4-thread-1] INFO  CalculationEngine:     1310.899      0.8120476
+
+01:25:36,459 [pool-4-thread-1] INFO  CalculationEngine:     1309.899      0.8133570
+
+01:25:36,461 [pool-4-thread-1] INFO  CalculationEngine:     1308.899      0.8146482
+
+01:25:36,463 [pool-4-thread-1] INFO  CalculationEngine:     1307.899      0.8159213
+
+01:25:36,465 [pool-4-thread-1] INFO  CalculationEngine:     1306.899      0.8171768
+
+01:25:36,467 [pool-4-thread-1] INFO  CalculationEngine:     1305.899      0.8184150
+
+01:25:36,469 [pool-4-thread-1] INFO  CalculationEngine:     1304.899      0.8196361
+
+01:25:36,470 [pool-4-thread-1] INFO  CalculationEngine:     1303.899      0.8208405
+
+01:25:36,472 [pool-4-thread-1] INFO  CalculationEngine:     1302.899      0.8220285
+
+01:25:36,541 [pool-4-thread-1] INFO  CalculationEngine:     1301.899      0.8232004
+
+01:25:36,543 [pool-4-thread-1] INFO  CalculationEngine:     1300.899      0.8243564
+
+01:25:36,545 [pool-4-thread-1] INFO  CalculationEngine:     1299.899      0.8254969
+
+01:25:36,547 [pool-4-thread-1] INFO  CalculationEngine:     1298.899      0.8266221
+
+01:25:36,548 [pool-4-thread-1] INFO  CalculationEngine:     1297.899      0.8277323
+
+01:25:36,550 [pool-4-thread-1] INFO  CalculationEngine:     1296.899      0.8288277
+
+01:25:36,552 [pool-4-thread-1] INFO  CalculationEngine:     1295.899      0.8299086
+
+01:25:36,554 [pool-4-thread-1] INFO  CalculationEngine:     1294.899      0.8309753
+
+01:25:36,556 [pool-4-thread-1] INFO  CalculationEngine:     1293.899      0.8320279
+
+01:25:36,558 [pool-4-thread-1] INFO  CalculationEngine:     1292.899      0.8330668
+
+01:25:36,624 [pool-4-thread-1] INFO  CalculationEngine:     1291.899      0.8340922
+
+01:25:36,626 [pool-4-thread-1] INFO  CalculationEngine:     1290.899      0.8351043
+
+01:25:36,628 [pool-4-thread-1] INFO  CalculationEngine:     1289.899      0.8361033
+
+01:25:36,630 [pool-4-thread-1] INFO  CalculationEngine:     1288.899      0.8370895
+
+01:25:36,632 [pool-4-thread-1] INFO  CalculationEngine:     1287.899      0.8380631
+
+01:25:36,635 [pool-4-thread-1] INFO  CalculationEngine:     1286.899      0.8390242
+
+01:25:36,636 [pool-4-thread-1] INFO  CalculationEngine:     1285.899      0.8399732
+
+01:25:36,638 [pool-4-thread-1] INFO  CalculationEngine:     1284.899      0.8409101
+
+01:25:36,640 [pool-4-thread-1] INFO  CalculationEngine:     1283.899      0.8418353
+
+01:25:36,642 [pool-4-thread-1] INFO  CalculationEngine:     1282.899      0.8427488
+
+01:25:36,709 [pool-4-thread-1] INFO  CalculationEngine:     1281.899      0.8436510
+
+01:25:36,711 [pool-4-thread-1] INFO  CalculationEngine:     1280.899      0.8445419
+
+01:25:36,713 [pool-4-thread-1] INFO  CalculationEngine:     1279.899      0.8454218
+
+01:25:36,715 [pool-4-thread-1] INFO  CalculationEngine:     1278.899      0.8462908
+
+01:25:36,716 [pool-4-thread-1] INFO  CalculationEngine:     1277.899      0.8471492
+
+01:25:36,718 [pool-4-thread-1] INFO  CalculationEngine:     1276.899      0.8479971
+
+01:25:36,720 [pool-4-thread-1] INFO  CalculationEngine:     1275.899      0.8488346
+
+01:25:36,722 [pool-4-thread-1] INFO  CalculationEngine:     1274.899      0.8496620
+
+01:25:36,724 [pool-4-thread-1] INFO  CalculationEngine:     1273.899      0.8504794
+
+01:25:36,725 [pool-4-thread-1] INFO  CalculationEngine:     1272.899      0.8512869
+
+01:25:36,791 [pool-4-thread-1] INFO  CalculationEngine:     1271.899      0.8520848
+
+01:25:36,793 [pool-4-thread-1] INFO  CalculationEngine:     1270.899      0.8528732
+
+01:25:36,795 [pool-4-thread-1] INFO  CalculationEngine:     1269.899      0.8536522
+
+01:25:36,796 [pool-4-thread-1] INFO  CalculationEngine:     1268.899      0.8544220
+
+01:25:36,798 [pool-4-thread-1] INFO  CalculationEngine:     1267.899      0.8551827
+
+01:25:37,208 [pool-4-thread-1] INFO  CalculationEngine:     1267.548      0.8554471
+
+01:25:37,623 [pool-4-thread-1] INFO  CalculationEngine:   PHASE REGION:LIQUID + FCC_A1#1 + M7C3
+
+01:25:37,623 [pool-4-thread-1] INFO  CalculationEngine:       T(C)      fraction solid
+
+01:25:37,624 [pool-4-thread-1] INFO  CalculationEngine:     1267.517      0.8556564
+
+01:25:37,625 [pool-4-thread-1] INFO  CalculationEngine:     1266.517      0.8680204
+
+01:25:37,628 [pool-4-thread-1] INFO  CalculationEngine:     1265.517      0.8787645
+
+01:25:37,629 [pool-4-thread-1] INFO  CalculationEngine:     1264.517      0.8881678
+
+01:25:37,631 [pool-4-thread-1] INFO  CalculationEngine:     1263.517      0.8964509
+
+01:25:37,633 [pool-4-thread-1] INFO  CalculationEngine:     1262.517      0.9037903
+
+01:25:37,635 [pool-4-thread-1] INFO  CalculationEngine:     1261.517      0.9103282
+
+01:25:37,637 [pool-4-thread-1] INFO  CalculationEngine:     1260.517      0.9161808
+
+01:25:37,639 [pool-4-thread-1] INFO  CalculationEngine:     1259.517      0.9214436
+
+01:25:37,641 [pool-4-thread-1] INFO  CalculationEngine:     1258.517      0.9261957
+
+01:25:37,707 [pool-4-thread-1] INFO  CalculationEngine:     1257.517      0.9305032
+
+01:25:37,709 [pool-4-thread-1] INFO  CalculationEngine:     1256.517      0.9344216
+
+01:25:37,711 [pool-4-thread-1] INFO  CalculationEngine:     1255.517      0.9379979
+
+01:25:37,713 [pool-4-thread-1] INFO  CalculationEngine:     1254.517      0.9412722
+
+01:25:37,715 [pool-4-thread-1] INFO  CalculationEngine:     1253.517      0.9442785
+
+01:25:37,717 [pool-4-thread-1] INFO  CalculationEngine:     1252.517      0.9470463
+
+01:25:37,719 [pool-4-thread-1] INFO  CalculationEngine:     1251.517      0.9496011
+
+01:25:37,721 [pool-4-thread-1] INFO  CalculationEngine:     1250.517      0.9519649
+
+01:25:37,723 [pool-4-thread-1] INFO  CalculationEngine:     1249.517      0.9541569
+
+01:25:37,725 [pool-4-thread-1] INFO  CalculationEngine:     1248.517      0.9561939
+
+01:25:37,791 [pool-4-thread-1] INFO  CalculationEngine:     1247.517      0.9580907
+
+01:25:37,793 [pool-4-thread-1] INFO  CalculationEngine:     1246.517      0.9598604
+
+01:25:37,795 [pool-4-thread-1] INFO  CalculationEngine:     1245.517      0.9615144
+
+01:25:37,797 [pool-4-thread-1] INFO  CalculationEngine:     1244.517      0.9630630
+
+01:25:37,799 [pool-4-thread-1] INFO  CalculationEngine:     1243.517      0.9645153
+
+01:25:37,801 [pool-4-thread-1] INFO  CalculationEngine:     1242.517      0.9658794
+
+01:25:37,803 [pool-4-thread-1] INFO  CalculationEngine:     1241.517      0.9671625
+
+01:25:37,805 [pool-4-thread-1] INFO  CalculationEngine:     1240.517      0.9683712
+
+01:25:37,807 [pool-4-thread-1] INFO  CalculationEngine:     1239.517      0.9695113
+
+01:25:37,809 [pool-4-thread-1] INFO  CalculationEngine:     1238.517      0.9705881
+
+01:25:37,875 [pool-4-thread-1] INFO  CalculationEngine:     1237.517      0.9716065
+
+01:25:37,877 [pool-4-thread-1] INFO  CalculationEngine:     1236.517      0.9725706
+
+01:25:37,879 [pool-4-thread-1] INFO  CalculationEngine:     1235.517      0.9734845
+
+01:25:37,881 [pool-4-thread-1] INFO  CalculationEngine:     1234.517      0.9743516
+
+01:25:37,883 [pool-4-thread-1] INFO  CalculationEngine:     1233.517      0.9751754
+
+01:25:37,885 [pool-4-thread-1] INFO  CalculationEngine:     1232.517      0.9759587
+
+01:25:37,887 [pool-4-thread-1] INFO  CalculationEngine:     1231.517      0.9767042
+
+01:25:37,889 [pool-4-thread-1] INFO  CalculationEngine:     1230.517      0.9774144
+
+01:25:37,891 [pool-4-thread-1] INFO  CalculationEngine:     1229.517      0.9780917
+
+01:25:37,893 [pool-4-thread-1] INFO  CalculationEngine:     1228.517      0.9787380
+
+01:25:37,965 [pool-4-thread-1] INFO  CalculationEngine:     1227.517      0.9793555
+
+01:25:37,967 [pool-4-thread-1] INFO  CalculationEngine:     1226.517      0.9799457
+
+01:25:37,969 [pool-4-thread-1] INFO  CalculationEngine:     1225.517      0.9805103
+
+01:25:37,971 [pool-4-thread-1] INFO  CalculationEngine:     1224.517      0.9810510
+
+01:25:37,973 [pool-4-thread-1] INFO  CalculationEngine:     1223.517      0.9815690
+
+01:25:37,975 [pool-4-thread-1] INFO  CalculationEngine:     1222.517      0.9820657
+
+01:25:37,977 [pool-4-thread-1] INFO  CalculationEngine:     1221.517      0.9825423
+
+01:25:37,979 [pool-4-thread-1] INFO  CalculationEngine:     1220.517      0.9829999
+
+01:25:37,981 [pool-4-thread-1] INFO  CalculationEngine:     1219.517      0.9834395
+
+01:25:37,983 [pool-4-thread-1] INFO  CalculationEngine:     1218.517      0.9838622
+
+01:25:38,052 [pool-4-thread-1] INFO  CalculationEngine:     1217.517      0.9842688
+
+01:25:38,054 [pool-4-thread-1] INFO  CalculationEngine:     1216.517      0.9846601
+
+01:25:38,056 [pool-4-thread-1] INFO  CalculationEngine:     1215.517      0.9850370
+
+01:25:38,058 [pool-4-thread-1] INFO  CalculationEngine:     1214.517      0.9854002
+
+01:25:38,060 [pool-4-thread-1] INFO  CalculationEngine:     1213.517      0.9857504
+
+01:25:38,062 [pool-4-thread-1] INFO  CalculationEngine:     1212.517      0.9860882
+
+01:25:38,064 [pool-4-thread-1] INFO  CalculationEngine:     1211.517      0.9864142
+
+01:25:38,066 [pool-4-thread-1] INFO  CalculationEngine:     1210.517      0.9867291
+
+01:25:38,068 [pool-4-thread-1] INFO  CalculationEngine:     1209.517      0.9870333
+
+01:25:38,070 [pool-4-thread-1] INFO  CalculationEngine:     1208.517      0.9873273
+
+01:25:38,140 [pool-4-thread-1] INFO  CalculationEngine:     1207.517      0.9876116
+
+01:25:38,142 [pool-4-thread-1] INFO  CalculationEngine:     1206.517      0.9878867
+
+01:25:38,144 [pool-4-thread-1] INFO  CalculationEngine:     1205.517      0.9881530
+
+01:25:38,146 [pool-4-thread-1] INFO  CalculationEngine:     1204.517      0.9884108
+
+01:25:38,148 [pool-4-thread-1] INFO  CalculationEngine:     1203.517      0.9886606
+
+01:25:38,150 [pool-4-thread-1] INFO  CalculationEngine:     1202.517      0.9889027
+
+01:25:38,152 [pool-4-thread-1] INFO  CalculationEngine:     1201.517      0.9891375
+
+01:25:38,154 [pool-4-thread-1] INFO  CalculationEngine:     1200.517      0.9893652
+
+01:25:38,156 [pool-4-thread-1] INFO  CalculationEngine:     1199.517      0.9895861
+
+01:25:38,158 [pool-4-thread-1] INFO  CalculationEngine:     1198.517      0.9898005
+
+01:25:38,226 [pool-4-thread-1] INFO  CalculationEngine:     1197.517      0.9900088
+
+01:25:38,240 [pool-4-thread-1] INFO  CalculationEngine:   Calculating properties ...
+
+01:25:39,682 [pool-4-thread-1] INFO  CalculationEngine:  Liquidus temperature: 1715.055 K
+
+01:25:39,720 [Thread-1] INFO  CalculationEngine:    POSTPROCESSOR VERSION 3.2
+
+Results saved to scheil_results.json and plot saved to latent_heat_plot.png.

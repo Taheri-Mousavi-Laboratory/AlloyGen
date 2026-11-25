@@ -1,0 +1,12 @@
+{
+  "kind": "solidification",
+  "compositions": [
+    {
+      "Ni": 2.0,
+      "Er": 0.9,
+      "Zr": 0.5,
+      "Y": 0.0,
+      "Yb": 0.0
+    }
+  ]
+}

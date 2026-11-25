@@ -1,0 +1,27 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "temperature": null,
+  "cache_seed": null,
+  "assistant_timeout_seconds": 300,
+  "code_timeout_seconds": 1800,
+  "user_proxy_max_consecutive_auto_reply": 241,
+  "executor_feedback_character_limit": null,
+  "embedding_snapshot": "c9745ed1d9f207416be6d2e6f8de32d1f16199bf",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "prompt": "alloy_design",
+  "corpus": "mem01_scientific_methods",
+  "prompt_path": "agent/prompts/alloy_design.txt",
+  "corpus_paths": [
+    "agent/knowledge/coarsening_methods.md",
+    "agent/knowledge/design_strategy.md",
+    "agent/knowledge/experiment_review.md",
+    "agent/knowledge/final_review.md",
+    "agent/knowledge/indicator_definitions.md",
+    "agent/knowledge/phase_methods.md",
+    "agent/knowledge/planning_methods.md",
+    "agent/knowledge/quantity_review.md",
+    "agent/knowledge/review_principles.md",
+    "agent/knowledge/solidification_methods.md",
+    "agent/knowledge/tool_usage.md"
+  ]
+}

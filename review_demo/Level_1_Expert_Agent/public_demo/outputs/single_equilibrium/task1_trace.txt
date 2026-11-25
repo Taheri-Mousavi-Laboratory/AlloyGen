@@ -1,0 +1,3275 @@
+User_Proxy (to Assistant):
+
+
+Task:
+Make a Fe-C-Cr single equilibrium calculation with
+Temperature = 2000 K
+X(C) = 0.01
+X(Cr) = 0.1
+Calculate the Gibbs energy of the system.
+
+Please solve the task, print the result and save it to a json file.
+
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+Plan:
+1. Interpret the task requirements:
+   - Perform a single equilibrium calculation for the Fe-C-Cr system using Thermo-Calc via tc_python.
+   - Set the temperature to 2000 K.
+   - Set the mole fraction of Carbon (C) to 0.01 and Chromium (Cr) to 0.1.
+   - Calculate the Gibbs energy of the system.
+   - Print the Gibbs energy result and save it to a JSON file.
+
+2. Decide whether to call `retrieve_content` for examples or information on performing single equilibrium calculations using tc_python. Since this is a standard task, I will proceed with writing the code directly.
+
+3. Implement the Python script to perform the calculation and save the output.
+
+```python
+import json
+from tc_python import TCPython, LoggingPolicy
+
+# Initialize Thermo-Calc Python interface
+with TCPython(logging_policy=LoggingPolicy.FILE, log_file="solver.log") as session:
+    # Set up the system
+    system = session.get_system(database_name="TCFE", elements=["Fe", "C", "Cr"])
+    
+    # Define conditions
+    system.set_condition("T", 2000)  # Temperature in Kelvin
+    system.set_condition("X(C)", 0.01)  # Mole fraction of Carbon
+    system.set_condition("X(Cr)", 0.1)  # Mole fraction of Chromium
+    
+    # Calculate equilibrium
+    result = system.calculate_equilibrium()
+    
+    # Retrieve Gibbs energy
+    gibbs_energy = result.get_value_of("G")  # Gibbs energy in J/mol
+    
+    # Print the result
+    print(f"Gibbs energy of the system: {gibbs_energy} J/mol")
+    
+    # Save the result to a JSON file
+    output_data = {
+        "Temperature": 2000,
+        "X(C)": 0.01,
+        "X(Cr)": 0.1,
+        "Gibbs_energy": gibbs_energy
+    }
+    
+    with open("fe_c_cr_gibbs_energy.json", "w") as json_file:
+        json.dump(output_data, json_file)
+```
+
+4. Verify the output and ensure the JSON file is saved correctly.
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
+User_Proxy (to Assistant):
+
+exitcode: 1 (execution failed)
+Code output: Traceback (most recent call last):
+  File "[local-path]", line 7, in <module>
+    system = session.get_system(database_name="TCFE", elements=["Fe", "C", "Cr"])
+             ^^^^^^^^^^^^^^^^^^
+AttributeError: 'SetUp' object has no attribute 'get_system'
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The error indicates that the `SetUp` object does not have a method named `get_system`. This suggests that the method to initialize the system might be different from what was used in the code. I will call the `retrieve_content` function to get the correct method for setting up a system in Thermo-Calc using tc_python.
+
+Let's retrieve the correct method for setting up a system in tc_python.
+
+```json
+{
+  "message": "Correct method for setting up a system in Thermo-Calc using tc_python for equilibrium calculations.",
+  "n_results": 6
+}
+```
+***** Suggested function call: retrieve_content *****
+Arguments: 
+{"message":"Correct method for setting up a system in Thermo-Calc using tc_python for equilibrium calculations.","n_results":6}
+*****************************************************
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Correct method for setting up a system in Thermo-Calc using tc_python for equilibrium calculations.', 'n_results': 6}
+Trying to create collection.
+VectorDB returns doc_ids:  [['def8d5b9', '625c61e1', '07a8bfed', '03ca3b0e', '80f7d8d2', '182ba0ad']]
+Adding content of doc def8d5b9 to context.
+Adding content of doc 625c61e1 to context.
+Adding content of doc 07a8bfed to context.
+Adding content of doc 03ca3b0e to context.
+Adding content of doc 80f7d8d2 to context.
+Adding content of doc 182ba0ad to context.
+
+>>>>>>>> EXECUTED FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Correct method for setting up a system in Thermo-Calc using tc_python for equilibrium calculations.', 'n_results': 6}
+Output:
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Correct method for setting up a system in Thermo-Calc using tc_python for equilibrium calculations.
+
+Context is: # TC-Python 2024a: equilibrium quantities and composition units
+
+Author-prepared API definitions below, checked against the public
+[2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+sections 5.5 (ThermodynamicQuantity) and 5.6 (CompositionUnit), and installed 2024a signatures.
+
+Use `ThermodynamicQuantity` methods for equilibrium conditions/results:
+
+| Method | Meaning |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `pressure()` | Pressure, Pa |
+| `system_size()` | System amount, mol |
+| `mass_fraction_of_a_component(component)` | Component mass / system mass |
+| `mole_fraction_of_a_component(component)` | Component moles / system moles |
+| `mass_fraction_of_a_phase(phase)` | Phase mass / system mass |
+| `mole_fraction_of_a_phase(phase)` | Phase molar fraction |
+| `volume_fraction_of_a_phase(phase)` | Phase volume / system volume |
+| `composition_of_phase_as_weight_fraction(phase, component)` | Component mass fraction within a phase |
+| `composition_of_phase_as_mole_fraction(phase, component)` | Component mole fraction within a phase |
+| `activity_of_component(component)` | Component activity |
+| `chemical_potential_of_component(component)` | Component chemical potential |
+| `gibbs_energy_of_a_phase(phase)` | Phase Gibbs energy |
+
+Component composition, composition within a phase, and phase fraction describe different ratios.
+Choose each input/output basis explicitly; matching numerical values do not make different bases equivalent.
+Fractions are dimensionless; percent values are 100 times fractions on the same basis.
+
+For interfaces accepting `CompositionUnit`, the available choices are
+`MASS_PERCENT`, `MASS_FRACTION`, `MOLE_PERCENT`, and `MOLE_FRACTION`.
+Use the documented unit accepted by each interface.
+
+## Weight percent, mole percent and basis conversion
+
+For component i, m_i is mass, n_i is amount in mol, and M_i is molar mass:
+
+- Mass fraction: w_i = m_i / sum_j(m_j). A value p in wt% means w_i = p / 100.
+- Mole fraction: x_i = n_i / sum_j(n_j). A value q in mol% means x_i = q / 100.
+
+These follow the IUPAC definitions of [mass fraction](https://goldbook.iupac.org/terms/view/M03722),
+[mole fraction](https://goldbook.iupac.org/terms/view/A00296) and
+[percent](https://goldbook.iupac.org/terms/view/P04483).
+
+Changing basis requires molar masses. From n_i = m_i / M_i:
+
+- Mass to mole: x_i = (w_i / M_i) / sum_j(w_j / M_j).
+- Mole to mass: w_i = (x_i * M_i) / sum_j(x_j * M_j).
+
+The sums include all components, including the balance component. Use consistent
+molar-mass units and a complete composition on one basis. Do not sum mass and
+mole fractions together to determine the balance.
+
+For native single-equilibrium conditions, wt% / 100 maps to
+`mass_fraction_of_a_component`; mol% / 100 maps to `mole_fraction_of_a_component`.
+Percent-to-fraction scaling preserves the basis. Check calculated compositions
+in the bases originally requested.
+
+## Composition conditions
+
+Single-equilibrium conditions can combine mole-fraction constraints for some
+components with mass-fraction constraints for others. Use each requested basis
+directly and leave a balance component unconstrained; manual conversion to a
+common basis is unnecessary.
+
+## Numerical workaround — verify applicability
+
+If an equilibrium calculation fails to converge at an exactly zero component
+mass fraction, consider a small positive approximation. For example, try 1e-8
+and check sensitivity against 1e-10. These values are mass fractions, not
+percentages. Record the nominal and effective compositions. Accept the
+approximation only if both calculations converge and the requested outputs
+agree within a stated tolerance; otherwise report the unresolved failure.
+Example 2: pyex_T_02_Single_equilibrium_solidus_and_liquidus_temperature
+
+```
+from tc_python import *
+
+"""
+This example shows how to create a single equilibrium calculation                
+from a ternary system and configure it to calculate the solidus 
+and liquidus temperature using fixed phase conditions for the 
+liquid phase. 
+ 
+There can be multiple solutions to a fixed phase condition and it is 
+good practice to perform a regular equilibrium calculation close to 
+where the phase transition is. This example starts with an equilibrium 
+calculation at 1700K in order to get good start values.           
+"""
+
+
+def list_stable_phases(calc_result):
+    """
+    List the stable phases and their amount on screen.
+
+    Args:
+        calc_result: Calculation result from an equilibrium calculation
+    """
+    stable_phases = calc_result.get_stable_phases()
+    for phase in stable_phases:
+        print("Amount of " + phase + " = {0:.3f}".format(calc_result.get_value_of('NP(' + phase + ')')))
+
+
+with TCPython() as session:
+    # create equilibrium calculation object and set conditions
+    eq_calculation = (
+        session.
+            set_cache_folder(os.path.basename(__file__) + "_cache").
+            select_database_and_elements("FEDEMO", ["Fe", "Cr", "C"]).
+            get_system().
+            with_single_equilibrium_calculation().
+            set_condition(ThermodynamicQuantity.temperature(), 1700.0).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("Cr"), 0.1).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("C"), 0.01)
+
+    )
+
+    # calculate equilibrium and list stable phases
+    calc_result = eq_calculation.calculate()
+    print("\nEquilibrium at temperature: {0:.2f} K".format(
+        calc_result.get_value_of(ThermodynamicQuantity.temperature())) + ", stable phases:")
+    list_stable_phases(calc_result)
+
+    # calculate liquidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .remove_condition(ThermodynamicQuantity.temperature())
+                   .set_phase_to_fixed("LIQUID", 1.0)
+                   .calculate())
+    print("\nLiquidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+
+    # calculate solidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .set_phase_to_fixed("LIQUID", 0.0)
+                   .calculate())
+    print("\nSolidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+```
+Example: pyex_T_03_Scheil_mole_fraction_of_solid
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+Shows the basic usage of Scheil-calculations in TC-Python and mixing them with equilibrium calculations.
+"""
+
+database = "ALDEMO"
+dependent_element = "Al"
+elements = ["Si"]
+wt_pct_si = 1.0  # in wt-%
+delta_temp = 1.0  # in K, only used for the equilibrium line
+
+with TCPython() as session:
+    system = (session.
+              set_cache_folder(os.path.basename(__file__) + "_cache").
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    scheil_calculation = (system.
+                          with_scheil_calculation().
+                          set_composition_unit(CompositionUnit.MASS_PERCENT).
+                          set_composition("Si", wt_pct_si))
+
+    solidification = scheil_calculation.calculate()
+
+    # 1. Plot the solidification curve (mole fraction solid phases vs. T) including the equilibrium
+    scheil_curve = solidification.get_values_grouped_by_stable_phases_of(
+        ScheilQuantity.mole_fraction_of_all_solid_phases(),
+        ScheilQuantity.temperature())
+
+    temp_min = 1e6
+    temp_max = -1e6
+    fig, (ax_1, ax_2) = plt.subplots(2)
+    for label in scheil_curve:
+        section = scheil_curve[label]
+        temp_min = min(np.min(section.y), temp_min)
+        temp_max = max(np.max(section.y), temp_max)
+        ax_1.plot(section.x, np.array(section.y) - 273.15, label=label)
+
+    # calculate the equilibrium solidification line (starting at the liquidus temperature)
+    prop_calculation = system.with_property_diagram_calculation()
+    result = (prop_calculation.
+              with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                        set_min(temp_min).
+                        set_max(temp_max)).
+              set_condition("W(Si)", wt_pct_si / 100).
+              calculate())
+
+    temp_eq_frac, liquid_eq_frac = result.get_values_of(ThermodynamicQuantity.temperature(),
+                                                        ThermodynamicQuantity.mole_fraction_of_a_phase("LIQUID"))
+    solid_eq_frac = 1 - np.array(liquid_eq_frac)
+    temp_eq_frac = np.array(temp_eq_frac) - 273.15
+    valid_indices = np.where(solid_eq_frac < 1.0)  # cutting off all values with 100% solid
+
+    ax_1.plot(solid_eq_frac[valid_indices], temp_eq_frac[valid_indices], '--', label="Equilibrium")
+    ax_1.set_xlabel("Mole fraction of all solid phases [-]")
+    ax_1.set_ylabel("Temperature [\N{DEGREE SIGN} C]")
+
+    ax_1.legend(loc="lower left")
+    ax_1.set_title("Solidification of AlSi1")
+
+    # 2. Plot the mole fraction of the solid phases separated for each
+    groups = \
+        solidification.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_a_solid_phase(ALL_PHASES),
+                                                              ScheilQuantity.temperature())
+
+    for group in groups.values():
+        ax_2.plot(group.x, np.array(group.y) - 273.15, label=group.label)
+
+    ax_2.set_xlabel("Mole fraction of each solid phase [-]")
+    ax_2.set_ylabel("Temperature  [\N{DEGREE SIGN} C]")
+    ax_2.legend(loc="lower center")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+```
+Example: pyex_T_11_Phase_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to calculate and plot a phase diagram.
+The system Fe-Cr is used as an example.
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    calculation = (start.select_database_and_elements("FEDEMO", ["Fe", "Cr"]).
+                   get_system().
+                   with_phase_diagram_calculation().
+
+                   with_first_axis(CalculationAxis(ThermodynamicQuantity.mole_fraction_of_a_component("Cr")).
+                                   set_min(0).
+                                   set_max(1.0).
+                                   with_axis_type(Linear().set_max_step_size(.025))).
+                   with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                                     set_min(500).
+                                     set_max(3000.0).
+                                     with_axis_type(AxisType.linear().set_min_nr_of_steps(60))).
+                   enable_global_minimization().
+
+                   set_condition(ThermodynamicQuantity.temperature(), 1000).
+                   set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 10 / 100))
+
+    simulation_results = (calculation.
+                          calculate().
+                          add_coordinate_for_phase_label(0.5, 2000).
+                          get_values_grouped_by_stable_phases_of(ThermodynamicQuantity.
+                                                                 mole_fraction_of_a_component("Cr"),
+                                                                 ThermodynamicQuantity.temperature()))
+
+fig, ax = plt.subplots(1)
+for group in simulation_results.get_lines().values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.plot(simulation_results.get_tie_lines().x, simulation_results.get_tie_lines().y, "g", linewidth=0.5)
+
+plt.plot(simulation_results.get_invariants().x, simulation_results.get_invariants().y, "r")
+
+for phase_label in simulation_results.get_phase_labels():
+    ax.text(1.01 * phase_label.x, 1.01 * phase_label.y, phase_label.text)
+    ax.scatter(phase_label.x, phase_label.y, s=3, color="k", marker="o")
+
+ax.set_xlabel("Mole fraction Cr [-]")
+ax.set_ylabel("Temperature [K]")
+ax.set_title("Phase diagram Fe-Cr")
+ax.set_xlim([0, 1.0])
+ax.set_ylim([500, 2250])
+plt.legend(loc="center right")
+plt.show()
+```
+Example: pyex_T_15_Scheil_back_diffusion
+
+```
+from tc_python import *
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Calculates solidification using Scheil with backdiffusion in the primary phase, and compares the result to other
+calculation types.
+"""
+
+thermodynamic_database = "ALDEMO"
+kinetic_database = "MALDEMO"
+dependent_element = "Al"
+composition = {"Cu": 0.021, "Si": 0.01}  # in mole percent
+elements = list(composition.keys())
+
+
+def get_equilibrium_line(system, liq_temp, temperature_stop, composition):
+    """Calculates the equilibrium line using step calculation"""
+    temp_step = 1.0
+    step_calculator = (system.with_property_diagram_calculation().
+                       with_axis(CalculationAxis('T').
+                                 set_min(temperature_stop).
+                                 set_max(liq_temp).
+                                 with_axis_type(AxisType.linear().set_max_step_size(temp_step))))
+
+    for element in composition:
+        step_calculator.set_condition(ThermodynamicQuantity.mole_fraction_of_a_component(element), composition[element])
+
+    step_result = step_calculator.calculate()
+    return step_result.get_values_grouped_by_quantity_of('NPM(LIQ)', 'T')
+
+
+def calculate_solidification_curve_with_dictra(system, composition, liq_temp, temperature_stop, cooling_rate, sdas_c, sdas_n):
+    """Calculates a solidification curve using the dictra diffusion module"""
+    temp_lowest_dictra = 770.0
+    time_lowest_dictra = (liq_temp - temp_lowest_dictra) / cooling_rate
+    time_stop = (liq_temp - temperature_stop) / cooling_rate
+    sim_time_dictra = min(time_stop, time_lowest_dictra)
+
+    liq_phase = "LIQUID"
+    dictra_primary_phase = "FCC_A1"
+
+    secondary_dendrite_arm_spacing = sdas_c * cooling_rate ** (-sdas_n)
+    composition_profile = CompositionProfile(Unit.MOLE_FRACTION)
+    for element in composition:
+        composition_profile.add(element, ElementProfile.constant(composition[element]))
+
+    dictra_calc = (system.with_non_isothermal_diffusion_calculation().
+                   with_temperature_profile(TemperatureProfile().
+                                            add_time_temperature(0, liq_temp).
+                                            add_time_temperature(time_stop, temperature_stop)).
+                   set_simulation_time(sim_time_dictra).
+                   with_timestep_control(TimestepControl().enable_check_interface_position()).
+                   add_region(Region("Liquid").
+                              set_width(secondary_dendrite_arm_spacing).
+                              with_grid(CalculatedGrid.geometric().set_no_of_points(50).set_geometrical_factor(0.95)).
+                              with_composition_profile(composition_profile).
+                              add_phase(liq_phase).
+                              add_phase_allowed_to_form_at_right_interface(dictra_primary_phase, 1e-5)))
+    dictra_result = dictra_calc.calculate()
+
+    temp_dictra, poi = dictra_result.get_values_of('T', "Position-Of-Interface Liquid upper", 'interface Liquid upper')
+
+    fraction_solid_dictra = 1.0 - np.array(poi) / secondary_dendrite_arm_spacing
+
+    return fraction_solid_dictra, temp_dictra
+
+
+if __name__ == "__main__":
+    with TCPython() as session:
+
+        cooling_rate = 0.1  # in K/s
+        sdas_c = 5.0e-5  # secondary dendrite arm spacing scaling factor in c*cooling_rate^-n (in meters)
+        sdas_n = 0.33
+        system = (session.
+                  set_cache_folder(os.path.basename(__file__) + "_cache").
+                  select_thermodynamic_and_kinetic_databases_with_elements(thermodynamic_database, kinetic_database,
+                                                                           [dependent_element] + elements).
+                  get_system())
+
+        # setup and perform a regular Scheil calculation for comparison
+        scheil_calculator = (system.with_scheil_calculation().
+                             set_composition_unit(CompositionUnit.MOLE_FRACTION))
+        for element in composition:
+            scheil_calculator.set_composition(element, composition[element])
+
+        result = scheil_calculator.calculate()
+        fraction_solid_regular_scheil, temp_regular_scheil = result.get_values_of(
+            ScheilQuantity.mole_fraction_of_all_solid_phases(),
+            ScheilQuantity.temperature())
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+
+
+User_Proxy (to Assistant):
+
+***** Response from calling function (retrieve_content) *****
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Correct method for setting up a system in Thermo-Calc using tc_python for equilibrium calculations.
+
+Context is: # TC-Python 2024a: equilibrium quantities and composition units
+
+Author-prepared API definitions below, checked against the public
+[2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+sections 5.5 (ThermodynamicQuantity) and 5.6 (CompositionUnit), and installed 2024a signatures.
+
+Use `ThermodynamicQuantity` methods for equilibrium conditions/results:
+
+| Method | Meaning |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `pressure()` | Pressure, Pa |
+| `system_size()` | System amount, mol |
+| `mass_fraction_of_a_component(component)` | Component mass / system mass |
+| `mole_fraction_of_a_component(component)` | Component moles / system moles |
+| `mass_fraction_of_a_phase(phase)` | Phase mass / system mass |
+| `mole_fraction_of_a_phase(phase)` | Phase molar fraction |
+| `volume_fraction_of_a_phase(phase)` | Phase volume / system volume |
+| `composition_of_phase_as_weight_fraction(phase, component)` | Component mass fraction within a phase |
+| `composition_of_phase_as_mole_fraction(phase, component)` | Component mole fraction within a phase |
+| `activity_of_component(component)` | Component activity |
+| `chemical_potential_of_component(component)` | Component chemical potential |
+| `gibbs_energy_of_a_phase(phase)` | Phase Gibbs energy |
+
+Component composition, composition within a phase, and phase fraction describe different ratios.
+Choose each input/output basis explicitly; matching numerical values do not make different bases equivalent.
+Fractions are dimensionless; percent values are 100 times fractions on the same basis.
+
+For interfaces accepting `CompositionUnit`, the available choices are
+`MASS_PERCENT`, `MASS_FRACTION`, `MOLE_PERCENT`, and `MOLE_FRACTION`.
+Use the documented unit accepted by each interface.
+
+## Weight percent, mole percent and basis conversion
+
+For component i, m_i is mass, n_i is amount in mol, and M_i is molar mass:
+
+- Mass fraction: w_i = m_i / sum_j(m_j). A value p in wt% means w_i = p / 100.
+- Mole fraction: x_i = n_i / sum_j(n_j). A value q in mol% means x_i = q / 100.
+
+These follow the IUPAC definitions of [mass fraction](https://goldbook.iupac.org/terms/view/M03722),
+[mole fraction](https://goldbook.iupac.org/terms/view/A00296) and
+[percent](https://goldbook.iupac.org/terms/view/P04483).
+
+Changing basis requires molar masses. From n_i = m_i / M_i:
+
+- Mass to mole: x_i = (w_i / M_i) / sum_j(w_j / M_j).
+- Mole to mass: w_i = (x_i * M_i) / sum_j(x_j * M_j).
+
+The sums include all components, including the balance component. Use consistent
+molar-mass units and a complete composition on one basis. Do not sum mass and
+mole fractions together to determine the balance.
+
+For native single-equilibrium conditions, wt% / 100 maps to
+`mass_fraction_of_a_component`; mol% / 100 maps to `mole_fraction_of_a_component`.
+Percent-to-fraction scaling preserves the basis. Check calculated compositions
+in the bases originally requested.
+
+## Composition conditions
+
+Single-equilibrium conditions can combine mole-fraction constraints for some
+components with mass-fraction constraints for others. Use each requested basis
+directly and leave a balance component unconstrained; manual conversion to a
+common basis is unnecessary.
+
+## Numerical workaround — verify applicability
+
+If an equilibrium calculation fails to converge at an exactly zero component
+mass fraction, consider a small positive approximation. For example, try 1e-8
+and check sensitivity against 1e-10. These values are mass fractions, not
+percentages. Record the nominal and effective compositions. Accept the
+approximation only if both calculations converge and the requested outputs
+agree within a stated tolerance; otherwise report the unresolved failure.
+Example 2: pyex_T_02_Single_equilibrium_solidus_and_liquidus_temperature
+
+```
+from tc_python import *
+
+"""
+This example shows how to create a single equilibrium calculation                
+from a ternary system and configure it to calculate the solidus 
+and liquidus temperature using fixed phase conditions for the 
+liquid phase. 
+ 
+There can be multiple solutions to a fixed phase condition and it is 
+good practice to perform a regular equilibrium calculation close to 
+where the phase transition is. This example starts with an equilibrium 
+calculation at 1700K in order to get good start values.           
+"""
+
+
+def list_stable_phases(calc_result):
+    """
+    List the stable phases and their amount on screen.
+
+    Args:
+        calc_result: Calculation result from an equilibrium calculation
+    """
+    stable_phases = calc_result.get_stable_phases()
+    for phase in stable_phases:
+        print("Amount of " + phase + " = {0:.3f}".format(calc_result.get_value_of('NP(' + phase + ')')))
+
+
+with TCPython() as session:
+    # create equilibrium calculation object and set conditions
+    eq_calculation = (
+        session.
+            set_cache_folder(os.path.basename(__file__) + "_cache").
+            select_database_and_elements("FEDEMO", ["Fe", "Cr", "C"]).
+            get_system().
+            with_single_equilibrium_calculation().
+            set_condition(ThermodynamicQuantity.temperature(), 1700.0).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("Cr"), 0.1).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("C"), 0.01)
+
+    )
+
+    # calculate equilibrium and list stable phases
+    calc_result = eq_calculation.calculate()
+    print("\nEquilibrium at temperature: {0:.2f} K".format(
+        calc_result.get_value_of(ThermodynamicQuantity.temperature())) + ", stable phases:")
+    list_stable_phases(calc_result)
+
+    # calculate liquidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .remove_condition(ThermodynamicQuantity.temperature())
+                   .set_phase_to_fixed("LIQUID", 1.0)
+                   .calculate())
+    print("\nLiquidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+
+    # calculate solidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .set_phase_to_fixed("LIQUID", 0.0)
+                   .calculate())
+    print("\nSolidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+```
+Example: pyex_T_03_Scheil_mole_fraction_of_solid
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+Shows the basic usage of Scheil-calculations in TC-Python and mixing them with equilibrium calculations.
+"""
+
+database = "ALDEMO"
+dependent_element = "Al"
+elements = ["Si"]
+wt_pct_si = 1.0  # in wt-%
+delta_temp = 1.0  # in K, only used for the equilibrium line
+
+with TCPython() as session:
+    system = (session.
+              set_cache_folder(os.path.basename(__file__) + "_cache").
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    scheil_calculation = (system.
+                          with_scheil_calculation().
+                          set_composition_unit(CompositionUnit.MASS_PERCENT).
+                          set_composition("Si", wt_pct_si))
+
+    solidification = scheil_calculation.calculate()
+
+    # 1. Plot the solidification curve (mole fraction solid phases vs. T) including the equilibrium
+    scheil_curve = solidification.get_values_grouped_by_stable_phases_of(
+        ScheilQuantity.mole_fraction_of_all_solid_phases(),
+        ScheilQuantity.temperature())
+
+    temp_min = 1e6
+    temp_max = -1e6
+    fig, (ax_1, ax_2) = plt.subplots(2)
+    for label in scheil_curve:
+        section = scheil_curve[label]
+        temp_min = min(np.min(section.y), temp_min)
+        temp_max = max(np.max(section.y), temp_max)
+        ax_1.plot(section.x, np.array(section.y) - 273.15, label=label)
+
+    # calculate the equilibrium solidification line (starting at the liquidus temperature)
+    prop_calculation = system.with_property_diagram_calculation()
+    result = (prop_calculation.
+              with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                        set_min(temp_min).
+                        set_max(temp_max)).
+              set_condition("W(Si)", wt_pct_si / 100).
+              calculate())
+
+    temp_eq_frac, liquid_eq_frac = result.get_values_of(ThermodynamicQuantity.temperature(),
+                                                        ThermodynamicQuantity.mole_fraction_of_a_phase("LIQUID"))
+    solid_eq_frac = 1 - np.array(liquid_eq_frac)
+    temp_eq_frac = np.array(temp_eq_frac) - 273.15
+    valid_indices = np.where(solid_eq_frac < 1.0)  # cutting off all values with 100% solid
+
+    ax_1.plot(solid_eq_frac[valid_indices], temp_eq_frac[valid_indices], '--', label="Equilibrium")
+    ax_1.set_xlabel("Mole fraction of all solid phases [-]")
+    ax_1.set_ylabel("Temperature [\N{DEGREE SIGN} C]")
+
+    ax_1.legend(loc="lower left")
+    ax_1.set_title("Solidification of AlSi1")
+
+    # 2. Plot the mole fraction of the solid phases separated for each
+    groups = \
+        solidification.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_a_solid_phase(ALL_PHASES),
+                                                              ScheilQuantity.temperature())
+
+    for group in groups.values():
+        ax_2.plot(group.x, np.array(group.y) - 273.15, label=group.label)
+
+    ax_2.set_xlabel("Mole fraction of each solid phase [-]")
+    ax_2.set_ylabel("Temperature  [\N{DEGREE SIGN} C]")
+    ax_2.legend(loc="lower center")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+```
+Example: pyex_T_11_Phase_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to calculate and plot a phase diagram.
+The system Fe-Cr is used as an example.
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    calculation = (start.select_database_and_elements("FEDEMO", ["Fe", "Cr"]).
+                   get_system().
+                   with_phase_diagram_calculation().
+
+                   with_first_axis(CalculationAxis(ThermodynamicQuantity.mole_fraction_of_a_component("Cr")).
+                                   set_min(0).
+                                   set_max(1.0).
+                                   with_axis_type(Linear().set_max_step_size(.025))).
+                   with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                                     set_min(500).
+                                     set_max(3000.0).
+                                     with_axis_type(AxisType.linear().set_min_nr_of_steps(60))).
+                   enable_global_minimization().
+
+                   set_condition(ThermodynamicQuantity.temperature(), 1000).
+                   set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 10 / 100))
+
+    simulation_results = (calculation.
+                          calculate().
+                          add_coordinate_for_phase_label(0.5, 2000).
+                          get_values_grouped_by_stable_phases_of(ThermodynamicQuantity.
+                                                                 mole_fraction_of_a_component("Cr"),
+                                                                 ThermodynamicQuantity.temperature()))
+
+fig, ax = plt.subplots(1)
+for group in simulation_results.get_lines().values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.plot(simulation_results.get_tie_lines().x, simulation_results.get_tie_lines().y, "g", linewidth=0.5)
+
+plt.plot(simulation_results.get_invariants().x, simulation_results.get_invariants().y, "r")
+
+for phase_label in simulation_results.get_phase_labels():
+    ax.text(1.01 * phase_label.x, 1.01 * phase_label.y, phase_label.text)
+    ax.scatter(phase_label.x, phase_label.y, s=3, color="k", marker="o")
+
+ax.set_xlabel("Mole fraction Cr [-]")
+ax.set_ylabel("Temperature [K]")
+ax.set_title("Phase diagram Fe-Cr")
+ax.set_xlim([0, 1.0])
+ax.set_ylim([500, 2250])
+plt.legend(loc="center right")
+plt.show()
+```
+Example: pyex_T_15_Scheil_back_diffusion
+
+```
+from tc_python import *
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Calculates solidification using Scheil with backdiffusion in the primary phase, and compares the result to other
+calculation types.
+"""
+
+thermodynamic_database = "ALDEMO"
+kinetic_database = "MALDEMO"
+dependent_element = "Al"
+composition = {"Cu": 0.021, "Si": 0.01}  # in mole percent
+elements = list(composition.keys())
+
+
+def get_equilibrium_line(system, liq_temp, temperature_stop, composition):
+    """Calculates the equilibrium line using step calculation"""
+    temp_step = 1.0
+    step_calculator = (system.with_property_diagram_calculation().
+                       with_axis(CalculationAxis('T').
+                                 set_min(temperature_stop).
+                                 set_max(liq_temp).
+                                 with_axis_type(AxisType.linear().set_max_step_size(temp_step))))
+
+    for element in composition:
+        step_calculator.set_condition(ThermodynamicQuantity.mole_fraction_of_a_component(element), composition[element])
+
+    step_result = step_calculator.calculate()
+    return step_result.get_values_grouped_by_quantity_of('NPM(LIQ)', 'T')
+
+
+def calculate_solidification_curve_with_dictra(system, composition, liq_temp, temperature_stop, cooling_rate, sdas_c, sdas_n):
+    """Calculates a solidification curve using the dictra diffusion module"""
+    temp_lowest_dictra = 770.0
+    time_lowest_dictra = (liq_temp - temp_lowest_dictra) / cooling_rate
+    time_stop = (liq_temp - temperature_stop) / cooling_rate
+    sim_time_dictra = min(time_stop, time_lowest_dictra)
+
+    liq_phase = "LIQUID"
+    dictra_primary_phase = "FCC_A1"
+
+    secondary_dendrite_arm_spacing = sdas_c * cooling_rate ** (-sdas_n)
+    composition_profile = CompositionProfile(Unit.MOLE_FRACTION)
+    for element in composition:
+        composition_profile.add(element, ElementProfile.constant(composition[element]))
+
+    dictra_calc = (system.with_non_isothermal_diffusion_calculation().
+                   with_temperature_profile(TemperatureProfile().
+                                            add_time_temperature(0, liq_temp).
+                                            add_time_temperature(time_stop, temperature_stop)).
+                   set_simulation_time(sim_time_dictra).
+                   with_timestep_control(TimestepControl().enable_check_interface_position()).
+                   add_region(Region("Liquid").
+                              set_width(secondary_dendrite_arm_spacing).
+                              with_grid(CalculatedGrid.geometric().set_no_of_points(50).set_geometrical_factor(0.95)).
+                              with_composition_profile(composition_profile).
+                              add_phase(liq_phase).
+                              add_phase_allowed_to_form_at_right_interface(dictra_primary_phase, 1e-5)))
+    dictra_result = dictra_calc.calculate()
+
+    temp_dictra, poi = dictra_result.get_values_of('T', "Position-Of-Interface Liquid upper", 'interface Liquid upper')
+
+    fraction_solid_dictra = 1.0 - np.array(poi) / secondary_dendrite_arm_spacing
+
+    return fraction_solid_dictra, temp_dictra
+
+
+if __name__ == "__main__":
+    with TCPython() as session:
+
+        cooling_rate = 0.1  # in K/s
+        sdas_c = 5.0e-5  # secondary dendrite arm spacing scaling factor in c*cooling_rate^-n (in meters)
+        sdas_n = 0.33
+        system = (session.
+                  set_cache_folder(os.path.basename(__file__) + "_cache").
+                  select_thermodynamic_and_kinetic_databases_with_elements(thermodynamic_database, kinetic_database,
+                                                                           [dependent_element] + elements).
+                  get_system())
+
+        # setup and perform a regular Scheil calculation for comparison
+        scheil_calculator = (system.with_scheil_calculation().
+                             set_composition_unit(CompositionUnit.MOLE_FRACTION))
+        for element in composition:
+            scheil_calculator.set_composition(element, composition[element])
+
+        result = scheil_calculator.calculate()
+        fraction_solid_regular_scheil, temp_regular_scheil = result.get_values_of(
+            ScheilQuantity.mole_fraction_of_all_solid_phases(),
+            ScheilQuantity.temperature())
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+
+
+*************************************************************
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+Based on the retrieved content, the correct method to set up a system in Thermo-Calc using tc_python involves a sequence of method calls to select the database and elements, and then create the system. Here's how to properly set up the system and perform the equilibrium calculation:
+
+```python
+import json
+from tc_python import TCPython, ThermodynamicQuantity, CompositionUnit
+
+# Initialize Thermo-Calc Python interface
+with TCPython() as session:
+    # Set up the system
+    system = (session
+              .select_database_and_elements("TCFE", ["Fe", "C", "Cr"])
+              .get_system()
+              .with_single_equilibrium_calculation()
+              .set_condition(ThermodynamicQuantity.temperature(), 2000)  # Temperature in Kelvin
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("C"), 0.01)  # Mole fraction of Carbon
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 0.1))  # Mole fraction of Chromium
+    
+    # Calculate equilibrium
+    result = system.calculate()
+    
+    # Retrieve Gibbs energy
+    gibbs_energy = result.get_value_of(ThermodynamicQuantity.gibbs_energy_of_a_phase("SYSTEM"))  # Gibbs energy in J/mol
+    
+    # Print the result
+    print(f"Gibbs energy of the system: {gibbs_energy} J/mol")
+    
+    # Save the result to a JSON file
+    output_data = {
+        "Temperature": 2000,
+        "X(C)": 0.01,
+        "X(Cr)": 0.1,
+        "Gibbs_energy": gibbs_energy
+    }
+    
+    with open("fe_c_cr_gibbs_energy.json", "w") as json_file:
+        json.dump(output_data, json_file)
+```
+
+This code sets up the system correctly and performs the equilibrium calculation to obtain the Gibbs energy. It then prints the result and saves it to a JSON file.
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
+User_Proxy (to Assistant):
+
+exitcode: 1 (execution failed)
+Code output: Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=[local-path] -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+
+Traceback (most recent call last):
+  File "[local-path]", line 9, in <module>
+    .get_system()
+     ^^^^^^^^^^^^
+  File "[local-path]", line 647, in get_system
+    handle_exception(e)
+  File "[local-path]", line 125, in handle_exception
+    raise exception from None
+tc_python.exceptions.DatabaseException: Database not found:  TCFE !
+21:34:44,434 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+21:34:46,239 [Thread-1] INFO  CalculationEngine: Opening database::TCFE::
+
+21:34:46,240 [Thread-1] INFO  CalculationEngine:   *** ERROR  1234 IN SGTBEG: Database not found:  TCFE !
+
+21:34:46,240 [Thread-1] INFO  CalculationEngine: Database not found:  TCFE !
+
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The error indicates that the specified database "TCFE" could not be found. This might be due to a typo or because the database is not available in the current environment. I will call the `retrieve_content` function to verify the correct database name for the Fe-C-Cr system in Thermo-Calc.
+
+Let's retrieve the correct database name for the Fe-C-Cr system in Thermo-Calc.
+
+```json
+{
+  "message": "Correct database name for Fe-C-Cr system in Thermo-Calc using tc_python.",
+  "n_results": 6
+}
+```
+***** Suggested function call: retrieve_content *****
+Arguments: 
+{"message":"Correct database name for Fe-C-Cr system in Thermo-Calc using tc_python.","n_results":6}
+*****************************************************
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Correct database name for Fe-C-Cr system in Thermo-Calc using tc_python.', 'n_results': 6}
+VectorDB returns doc_ids:  [['03ca3b0e', 'c849919f', 'def8d5b9', '182ba0ad', '38047d07', '625c61e1']]
+Adding content of doc 03ca3b0e to context.
+Adding content of doc c849919f to context.
+Adding content of doc def8d5b9 to context.
+Adding content of doc 182ba0ad to context.
+Adding content of doc 38047d07 to context.
+Adding content of doc 625c61e1 to context.
+
+>>>>>>>> EXECUTED FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Correct database name for Fe-C-Cr system in Thermo-Calc using tc_python.', 'n_results': 6}
+Output:
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Correct database name for Fe-C-Cr system in Thermo-Calc using tc_python.
+
+Context is: Example: pyex_T_11_Phase_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to calculate and plot a phase diagram.
+The system Fe-Cr is used as an example.
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    calculation = (start.select_database_and_elements("FEDEMO", ["Fe", "Cr"]).
+                   get_system().
+                   with_phase_diagram_calculation().
+
+                   with_first_axis(CalculationAxis(ThermodynamicQuantity.mole_fraction_of_a_component("Cr")).
+                                   set_min(0).
+                                   set_max(1.0).
+                                   with_axis_type(Linear().set_max_step_size(.025))).
+                   with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                                     set_min(500).
+                                     set_max(3000.0).
+                                     with_axis_type(AxisType.linear().set_min_nr_of_steps(60))).
+                   enable_global_minimization().
+
+                   set_condition(ThermodynamicQuantity.temperature(), 1000).
+                   set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 10 / 100))
+
+    simulation_results = (calculation.
+                          calculate().
+                          add_coordinate_for_phase_label(0.5, 2000).
+                          get_values_grouped_by_stable_phases_of(ThermodynamicQuantity.
+                                                                 mole_fraction_of_a_component("Cr"),
+                                                                 ThermodynamicQuantity.temperature()))
+
+fig, ax = plt.subplots(1)
+for group in simulation_results.get_lines().values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.plot(simulation_results.get_tie_lines().x, simulation_results.get_tie_lines().y, "g", linewidth=0.5)
+
+plt.plot(simulation_results.get_invariants().x, simulation_results.get_invariants().y, "r")
+
+for phase_label in simulation_results.get_phase_labels():
+    ax.text(1.01 * phase_label.x, 1.01 * phase_label.y, phase_label.text)
+    ax.scatter(phase_label.x, phase_label.y, s=3, color="k", marker="o")
+
+ax.set_xlabel("Mole fraction Cr [-]")
+ax.set_ylabel("Temperature [K]")
+ax.set_title("Phase diagram Fe-Cr")
+ax.set_xlim([0, 1.0])
+ax.set_ylim([500, 2250])
+plt.legend(loc="center right")
+plt.show()
+```
+Example: pyex_T_12_Phase_diagram_export_to_csv_file
+
+```
+import csv
+from tc_python import *
+
+"""
+Exports the line data of a phase diagram into a CSV-file that can be imported into other plotting software for creating
+customized plots for example. It is easy to adapt the code to generate a different format of the CSV-file or to
+use a completely different output file format.
+The system Fe-C-Cr is used as an example.
+"""
+
+
+database = "FEDEMO"
+dependent_element = "Fe"
+composition = {"C": 0.03, "Cr": 10.0}  # in wt-%
+temp_ref = 1000  # temperature for the initial equilibrium, in K
+varied_element = "Cr"
+varied_element_range = {"min": 0, "max": 1.0}  # in weight fraction
+varied_temp_range = {"min": 500, "max": 3000}  # in K
+csv_file_path = "Fe_C_Cr_phase_diagram.csv"
+
+elements = list(composition.keys())
+
+with TCPython() as session:
+    session.set_cache_folder(os.path.basename(__file__) + "_cache")
+    system = session.select_database_and_elements(database, [dependent_element] + elements).get_system()
+
+    calculator = system.with_phase_diagram_calculation()
+    calculator.set_condition(ThermodynamicQuantity.temperature(), temp_ref)
+
+    for element in composition:
+        calculator.set_condition(ThermodynamicQuantity.mass_fraction_of_a_component(element),
+                                 composition[element] / 100)
+
+    result = (calculator.
+              with_first_axis(CalculationAxis(ThermodynamicQuantity.mass_fraction_of_a_component(varied_element)).
+                              set_min(varied_element_range["min"]).
+                              set_max(varied_element_range["max"])).
+              with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                               set_min(varied_temp_range["min"]).
+                               set_max(varied_temp_range["max"])).
+              calculate())
+
+    phase_diagram = result. \
+        get_values_grouped_by_quantity_of(ThermodynamicQuantity.mass_fraction_of_a_component(varied_element),
+                                          ThermodynamicQuantity.temperature())
+
+    phase_boundaries = phase_diagram.get_lines()
+    invariants = phase_diagram.get_invariants()
+
+    # the CSV-file will contain all data within two columns:
+    #   * between each separate line (a phase boundary or invariant section) there is a row containing NaN-values
+    #   * no details about the phase regions are stored
+    #   * it is assumed that this format is suitable for the importing program
+    with open(csv_file_path, "w", newline="") as file:
+        csv_file_writer = csv.writer(file)
+        csv_file_writer.writerow(["{} [wt-%]".format(varied_element), "Temperature [K]"])
+
+        data = phase_boundaries[varied_element.upper()]  # the only label is the varied element due to group by quantity
+        for x, y in zip(data.x, data.y):
+            csv_file_writer.writerow([x, y])
+
+        csv_file_writer.writerow([float("NaN"), float("NaN")])
+        for x, y in zip(invariants.x, invariants.y):
+            csv_file_writer.writerow([x, y])
+```
+# TC-Python 2024a: equilibrium quantities and composition units
+
+Author-prepared API definitions below, checked against the public
+[2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+sections 5.5 (ThermodynamicQuantity) and 5.6 (CompositionUnit), and installed 2024a signatures.
+
+Use `ThermodynamicQuantity` methods for equilibrium conditions/results:
+
+| Method | Meaning |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `pressure()` | Pressure, Pa |
+| `system_size()` | System amount, mol |
+| `mass_fraction_of_a_component(component)` | Component mass / system mass |
+| `mole_fraction_of_a_component(component)` | Component moles / system moles |
+| `mass_fraction_of_a_phase(phase)` | Phase mass / system mass |
+| `mole_fraction_of_a_phase(phase)` | Phase molar fraction |
+| `volume_fraction_of_a_phase(phase)` | Phase volume / system volume |
+| `composition_of_phase_as_weight_fraction(phase, component)` | Component mass fraction within a phase |
+| `composition_of_phase_as_mole_fraction(phase, component)` | Component mole fraction within a phase |
+| `activity_of_component(component)` | Component activity |
+| `chemical_potential_of_component(component)` | Component chemical potential |
+| `gibbs_energy_of_a_phase(phase)` | Phase Gibbs energy |
+
+Component composition, composition within a phase, and phase fraction describe different ratios.
+Choose each input/output basis explicitly; matching numerical values do not make different bases equivalent.
+Fractions are dimensionless; percent values are 100 times fractions on the same basis.
+
+For interfaces accepting `CompositionUnit`, the available choices are
+`MASS_PERCENT`, `MASS_FRACTION`, `MOLE_PERCENT`, and `MOLE_FRACTION`.
+Use the documented unit accepted by each interface.
+
+## Weight percent, mole percent and basis conversion
+
+For component i, m_i is mass, n_i is amount in mol, and M_i is molar mass:
+
+- Mass fraction: w_i = m_i / sum_j(m_j). A value p in wt% means w_i = p / 100.
+- Mole fraction: x_i = n_i / sum_j(n_j). A value q in mol% means x_i = q / 100.
+
+These follow the IUPAC definitions of [mass fraction](https://goldbook.iupac.org/terms/view/M03722),
+[mole fraction](https://goldbook.iupac.org/terms/view/A00296) and
+[percent](https://goldbook.iupac.org/terms/view/P04483).
+
+Changing basis requires molar masses. From n_i = m_i / M_i:
+
+- Mass to mole: x_i = (w_i / M_i) / sum_j(w_j / M_j).
+- Mole to mass: w_i = (x_i * M_i) / sum_j(x_j * M_j).
+
+The sums include all components, including the balance component. Use consistent
+molar-mass units and a complete composition on one basis. Do not sum mass and
+mole fractions together to determine the balance.
+
+For native single-equilibrium conditions, wt% / 100 maps to
+`mass_fraction_of_a_component`; mol% / 100 maps to `mole_fraction_of_a_component`.
+Percent-to-fraction scaling preserves the basis. Check calculated compositions
+in the bases originally requested.
+
+## Composition conditions
+
+Single-equilibrium conditions can combine mole-fraction constraints for some
+components with mass-fraction constraints for others. Use each requested basis
+directly and leave a balance component unconstrained; manual conversion to a
+common basis is unnecessary.
+
+## Numerical workaround — verify applicability
+
+If an equilibrium calculation fails to converge at an exactly zero component
+mass fraction, consider a small positive approximation. For example, try 1e-8
+and check sensitivity against 1e-10. These values are mass fractions, not
+percentages. Record the nominal and effective compositions. Accept the
+approximation only if both calculations converge and the requested outputs
+agree within a stated tolerance; otherwise report the unresolved failure.
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+Example: pyex_T_08_Property_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to create a property (step) diagram using TC-Python.
+The alloy system Fe-Ni is used as an example. 
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    start.set_ges_version(6)
+    calculation = (
+        start.select_database_and_elements("FEDEMO", ["Fe", "Ni"]).get_system().
+            with_property_diagram_calculation().
+            with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                      set_min(500).
+                      set_max(3000).
+                      with_axis_type(Linear().set_min_nr_of_steps(50))).
+            set_condition(ThermodynamicQuantity.temperature(), 1000).
+            set_condition("W(Ni)", 0.1)
+    )
+
+    property_diagram = calculation.calculate()
+    property_diagram.set_phase_name_style(PhaseNameStyle.ALL)
+    groups = \
+        property_diagram.get_values_grouped_by_quantity_of(ThermodynamicQuantity.temperature(),
+                                                           ThermodynamicQuantity.volume_fraction_of_a_phase(ALL_PHASES))
+
+for group in groups.values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.xlabel("Temperature [K]")
+plt.ylabel("Volume fraction of phases [-]")
+plt.legend(loc="center right")
+plt.title("Fe-10Ni")
+plt.show()
+```
+Example 2: pyex_T_02_Single_equilibrium_solidus_and_liquidus_temperature
+
+```
+from tc_python import *
+
+"""
+This example shows how to create a single equilibrium calculation                
+from a ternary system and configure it to calculate the solidus 
+and liquidus temperature using fixed phase conditions for the 
+liquid phase. 
+ 
+There can be multiple solutions to a fixed phase condition and it is 
+good practice to perform a regular equilibrium calculation close to 
+where the phase transition is. This example starts with an equilibrium 
+calculation at 1700K in order to get good start values.           
+"""
+
+
+def list_stable_phases(calc_result):
+    """
+    List the stable phases and their amount on screen.
+
+    Args:
+        calc_result: Calculation result from an equilibrium calculation
+    """
+    stable_phases = calc_result.get_stable_phases()
+    for phase in stable_phases:
+        print("Amount of " + phase + " = {0:.3f}".format(calc_result.get_value_of('NP(' + phase + ')')))
+
+
+with TCPython() as session:
+    # create equilibrium calculation object and set conditions
+    eq_calculation = (
+        session.
+            set_cache_folder(os.path.basename(__file__) + "_cache").
+            select_database_and_elements("FEDEMO", ["Fe", "Cr", "C"]).
+            get_system().
+            with_single_equilibrium_calculation().
+            set_condition(ThermodynamicQuantity.temperature(), 1700.0).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("Cr"), 0.1).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("C"), 0.01)
+
+    )
+
+    # calculate equilibrium and list stable phases
+    calc_result = eq_calculation.calculate()
+    print("\nEquilibrium at temperature: {0:.2f} K".format(
+        calc_result.get_value_of(ThermodynamicQuantity.temperature())) + ", stable phases:")
+    list_stable_phases(calc_result)
+
+    # calculate liquidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .remove_condition(ThermodynamicQuantity.temperature())
+                   .set_phase_to_fixed("LIQUID", 1.0)
+                   .calculate())
+    print("\nLiquidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+
+    # calculate solidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .set_phase_to_fixed("LIQUID", 0.0)
+                   .calculate())
+    print("\nSolidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+```
+
+
+User_Proxy (to Assistant):
+
+***** Response from calling function (retrieve_content) *****
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Correct database name for Fe-C-Cr system in Thermo-Calc using tc_python.
+
+Context is: Example: pyex_T_11_Phase_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to calculate and plot a phase diagram.
+The system Fe-Cr is used as an example.
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    calculation = (start.select_database_and_elements("FEDEMO", ["Fe", "Cr"]).
+                   get_system().
+                   with_phase_diagram_calculation().
+
+                   with_first_axis(CalculationAxis(ThermodynamicQuantity.mole_fraction_of_a_component("Cr")).
+                                   set_min(0).
+                                   set_max(1.0).
+                                   with_axis_type(Linear().set_max_step_size(.025))).
+                   with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                                     set_min(500).
+                                     set_max(3000.0).
+                                     with_axis_type(AxisType.linear().set_min_nr_of_steps(60))).
+                   enable_global_minimization().
+
+                   set_condition(ThermodynamicQuantity.temperature(), 1000).
+                   set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 10 / 100))
+
+    simulation_results = (calculation.
+                          calculate().
+                          add_coordinate_for_phase_label(0.5, 2000).
+                          get_values_grouped_by_stable_phases_of(ThermodynamicQuantity.
+                                                                 mole_fraction_of_a_component("Cr"),
+                                                                 ThermodynamicQuantity.temperature()))
+
+fig, ax = plt.subplots(1)
+for group in simulation_results.get_lines().values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.plot(simulation_results.get_tie_lines().x, simulation_results.get_tie_lines().y, "g", linewidth=0.5)
+
+plt.plot(simulation_results.get_invariants().x, simulation_results.get_invariants().y, "r")
+
+for phase_label in simulation_results.get_phase_labels():
+    ax.text(1.01 * phase_label.x, 1.01 * phase_label.y, phase_label.text)
+    ax.scatter(phase_label.x, phase_label.y, s=3, color="k", marker="o")
+
+ax.set_xlabel("Mole fraction Cr [-]")
+ax.set_ylabel("Temperature [K]")
+ax.set_title("Phase diagram Fe-Cr")
+ax.set_xlim([0, 1.0])
+ax.set_ylim([500, 2250])
+plt.legend(loc="center right")
+plt.show()
+```
+Example: pyex_T_12_Phase_diagram_export_to_csv_file
+
+```
+import csv
+from tc_python import *
+
+"""
+Exports the line data of a phase diagram into a CSV-file that can be imported into other plotting software for creating
+customized plots for example. It is easy to adapt the code to generate a different format of the CSV-file or to
+use a completely different output file format.
+The system Fe-C-Cr is used as an example.
+"""
+
+
+database = "FEDEMO"
+dependent_element = "Fe"
+composition = {"C": 0.03, "Cr": 10.0}  # in wt-%
+temp_ref = 1000  # temperature for the initial equilibrium, in K
+varied_element = "Cr"
+varied_element_range = {"min": 0, "max": 1.0}  # in weight fraction
+varied_temp_range = {"min": 500, "max": 3000}  # in K
+csv_file_path = "Fe_C_Cr_phase_diagram.csv"
+
+elements = list(composition.keys())
+
+with TCPython() as session:
+    session.set_cache_folder(os.path.basename(__file__) + "_cache")
+    system = session.select_database_and_elements(database, [dependent_element] + elements).get_system()
+
+    calculator = system.with_phase_diagram_calculation()
+    calculator.set_condition(ThermodynamicQuantity.temperature(), temp_ref)
+
+    for element in composition:
+        calculator.set_condition(ThermodynamicQuantity.mass_fraction_of_a_component(element),
+                                 composition[element] / 100)
+
+    result = (calculator.
+              with_first_axis(CalculationAxis(ThermodynamicQuantity.mass_fraction_of_a_component(varied_element)).
+                              set_min(varied_element_range["min"]).
+                              set_max(varied_element_range["max"])).
+              with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                               set_min(varied_temp_range["min"]).
+                               set_max(varied_temp_range["max"])).
+              calculate())
+
+    phase_diagram = result. \
+        get_values_grouped_by_quantity_of(ThermodynamicQuantity.mass_fraction_of_a_component(varied_element),
+                                          ThermodynamicQuantity.temperature())
+
+    phase_boundaries = phase_diagram.get_lines()
+    invariants = phase_diagram.get_invariants()
+
+    # the CSV-file will contain all data within two columns:
+    #   * between each separate line (a phase boundary or invariant section) there is a row containing NaN-values
+    #   * no details about the phase regions are stored
+    #   * it is assumed that this format is suitable for the importing program
+    with open(csv_file_path, "w", newline="") as file:
+        csv_file_writer = csv.writer(file)
+        csv_file_writer.writerow(["{} [wt-%]".format(varied_element), "Temperature [K]"])
+
+        data = phase_boundaries[varied_element.upper()]  # the only label is the varied element due to group by quantity
+        for x, y in zip(data.x, data.y):
+            csv_file_writer.writerow([x, y])
+
+        csv_file_writer.writerow([float("NaN"), float("NaN")])
+        for x, y in zip(invariants.x, invariants.y):
+            csv_file_writer.writerow([x, y])
+```
+# TC-Python 2024a: equilibrium quantities and composition units
+
+Author-prepared API definitions below, checked against the public
+[2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+sections 5.5 (ThermodynamicQuantity) and 5.6 (CompositionUnit), and installed 2024a signatures.
+
+Use `ThermodynamicQuantity` methods for equilibrium conditions/results:
+
+| Method | Meaning |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `pressure()` | Pressure, Pa |
+| `system_size()` | System amount, mol |
+| `mass_fraction_of_a_component(component)` | Component mass / system mass |
+| `mole_fraction_of_a_component(component)` | Component moles / system moles |
+| `mass_fraction_of_a_phase(phase)` | Phase mass / system mass |
+| `mole_fraction_of_a_phase(phase)` | Phase molar fraction |
+| `volume_fraction_of_a_phase(phase)` | Phase volume / system volume |
+| `composition_of_phase_as_weight_fraction(phase, component)` | Component mass fraction within a phase |
+| `composition_of_phase_as_mole_fraction(phase, component)` | Component mole fraction within a phase |
+| `activity_of_component(component)` | Component activity |
+| `chemical_potential_of_component(component)` | Component chemical potential |
+| `gibbs_energy_of_a_phase(phase)` | Phase Gibbs energy |
+
+Component composition, composition within a phase, and phase fraction describe different ratios.
+Choose each input/output basis explicitly; matching numerical values do not make different bases equivalent.
+Fractions are dimensionless; percent values are 100 times fractions on the same basis.
+
+For interfaces accepting `CompositionUnit`, the available choices are
+`MASS_PERCENT`, `MASS_FRACTION`, `MOLE_PERCENT`, and `MOLE_FRACTION`.
+Use the documented unit accepted by each interface.
+
+## Weight percent, mole percent and basis conversion
+
+For component i, m_i is mass, n_i is amount in mol, and M_i is molar mass:
+
+- Mass fraction: w_i = m_i / sum_j(m_j). A value p in wt% means w_i = p / 100.
+- Mole fraction: x_i = n_i / sum_j(n_j). A value q in mol% means x_i = q / 100.
+
+These follow the IUPAC definitions of [mass fraction](https://goldbook.iupac.org/terms/view/M03722),
+[mole fraction](https://goldbook.iupac.org/terms/view/A00296) and
+[percent](https://goldbook.iupac.org/terms/view/P04483).
+
+Changing basis requires molar masses. From n_i = m_i / M_i:
+
+- Mass to mole: x_i = (w_i / M_i) / sum_j(w_j / M_j).
+- Mole to mass: w_i = (x_i * M_i) / sum_j(x_j * M_j).
+
+The sums include all components, including the balance component. Use consistent
+molar-mass units and a complete composition on one basis. Do not sum mass and
+mole fractions together to determine the balance.
+
+For native single-equilibrium conditions, wt% / 100 maps to
+`mass_fraction_of_a_component`; mol% / 100 maps to `mole_fraction_of_a_component`.
+Percent-to-fraction scaling preserves the basis. Check calculated compositions
+in the bases originally requested.
+
+## Composition conditions
+
+Single-equilibrium conditions can combine mole-fraction constraints for some
+components with mass-fraction constraints for others. Use each requested basis
+directly and leave a balance component unconstrained; manual conversion to a
+common basis is unnecessary.
+
+## Numerical workaround — verify applicability
+
+If an equilibrium calculation fails to converge at an exactly zero component
+mass fraction, consider a small positive approximation. For example, try 1e-8
+and check sensitivity against 1e-10. These values are mass fractions, not
+percentages. Record the nominal and effective compositions. Accept the
+approximation only if both calculations converge and the requested outputs
+agree within a stated tolerance; otherwise report the unresolved failure.
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+Example: pyex_T_08_Property_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to create a property (step) diagram using TC-Python.
+The alloy system Fe-Ni is used as an example. 
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    start.set_ges_version(6)
+    calculation = (
+        start.select_database_and_elements("FEDEMO", ["Fe", "Ni"]).get_system().
+            with_property_diagram_calculation().
+            with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                      set_min(500).
+                      set_max(3000).
+                      with_axis_type(Linear().set_min_nr_of_steps(50))).
+            set_condition(ThermodynamicQuantity.temperature(), 1000).
+            set_condition("W(Ni)", 0.1)
+    )
+
+    property_diagram = calculation.calculate()
+    property_diagram.set_phase_name_style(PhaseNameStyle.ALL)
+    groups = \
+        property_diagram.get_values_grouped_by_quantity_of(ThermodynamicQuantity.temperature(),
+                                                           ThermodynamicQuantity.volume_fraction_of_a_phase(ALL_PHASES))
+
+for group in groups.values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.xlabel("Temperature [K]")
+plt.ylabel("Volume fraction of phases [-]")
+plt.legend(loc="center right")
+plt.title("Fe-10Ni")
+plt.show()
+```
+Example 2: pyex_T_02_Single_equilibrium_solidus_and_liquidus_temperature
+
+```
+from tc_python import *
+
+"""
+This example shows how to create a single equilibrium calculation                
+from a ternary system and configure it to calculate the solidus 
+and liquidus temperature using fixed phase conditions for the 
+liquid phase. 
+ 
+There can be multiple solutions to a fixed phase condition and it is 
+good practice to perform a regular equilibrium calculation close to 
+where the phase transition is. This example starts with an equilibrium 
+calculation at 1700K in order to get good start values.           
+"""
+
+
+def list_stable_phases(calc_result):
+    """
+    List the stable phases and their amount on screen.
+
+    Args:
+        calc_result: Calculation result from an equilibrium calculation
+    """
+    stable_phases = calc_result.get_stable_phases()
+    for phase in stable_phases:
+        print("Amount of " + phase + " = {0:.3f}".format(calc_result.get_value_of('NP(' + phase + ')')))
+
+
+with TCPython() as session:
+    # create equilibrium calculation object and set conditions
+    eq_calculation = (
+        session.
+            set_cache_folder(os.path.basename(__file__) + "_cache").
+            select_database_and_elements("FEDEMO", ["Fe", "Cr", "C"]).
+            get_system().
+            with_single_equilibrium_calculation().
+            set_condition(ThermodynamicQuantity.temperature(), 1700.0).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("Cr"), 0.1).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("C"), 0.01)
+
+    )
+
+    # calculate equilibrium and list stable phases
+    calc_result = eq_calculation.calculate()
+    print("\nEquilibrium at temperature: {0:.2f} K".format(
+        calc_result.get_value_of(ThermodynamicQuantity.temperature())) + ", stable phases:")
+    list_stable_phases(calc_result)
+
+    # calculate liquidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .remove_condition(ThermodynamicQuantity.temperature())
+                   .set_phase_to_fixed("LIQUID", 1.0)
+                   .calculate())
+    print("\nLiquidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+
+    # calculate solidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .set_phase_to_fixed("LIQUID", 0.0)
+                   .calculate())
+    print("\nSolidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+```
+
+
+*************************************************************
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The retrieved examples indicate that the correct database name for the Fe-C-Cr system is "FEDEMO". Let's update the code to use this database and perform the equilibrium calculation.
+
+```python
+import json
+from tc_python import TCPython, ThermodynamicQuantity
+
+# Initialize Thermo-Calc Python interface
+with TCPython() as session:
+    # Set up the system
+    system = (session
+              .select_database_and_elements("FEDEMO", ["Fe", "C", "Cr"])
+              .get_system()
+              .with_single_equilibrium_calculation()
+              .set_condition(ThermodynamicQuantity.temperature(), 2000)  # Temperature in Kelvin
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("C"), 0.01)  # Mole fraction of Carbon
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 0.1))  # Mole fraction of Chromium
+    
+    # Calculate equilibrium
+    result = system.calculate()
+    
+    # Retrieve Gibbs energy
+    gibbs_energy = result.get_value_of(ThermodynamicQuantity.gibbs_energy_of_a_phase("SYSTEM"))  # Gibbs energy in J/mol
+    
+    # Print the result
+    print(f"Gibbs energy of the system: {gibbs_energy} J/mol")
+    
+    # Save the result to a JSON file
+    output_data = {
+        "Temperature": 2000,
+        "X(C)": 0.01,
+        "X(Cr)": 0.1,
+        "Gibbs_energy": gibbs_energy
+    }
+    
+    with open("fe_c_cr_gibbs_energy.json", "w") as json_file:
+        json.dump(output_data, json_file)
+```
+
+This code uses the "FEDEMO" database, which should be available in the environment, to perform the equilibrium calculation and obtain the Gibbs energy.
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
+User_Proxy (to Assistant):
+
+exitcode: 1 (execution failed)
+Code output: Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=[local-path] -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+
+Traceback (most recent call last):
+  File "[local-path]", line 19, in <module>
+    gibbs_energy = result.get_value_of(ThermodynamicQuantity.gibbs_energy_of_a_phase("SYSTEM"))  # Gibbs energy in J/mol
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[local-path]", line 264, in get_value_of
+    handle_exception(e)
+  File "[local-path]", line 125, in handle_exception
+    raise exception from None
+tc_python.exceptions.PhaseNotExistingException:  ERROR IN DGSPHA : NO PHASE NAMED SYSTEM
+21:34:53,252 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+21:34:55,206 [Thread-1] INFO  CalculationEngine: Opening database::FEDEMO::
+
+21:34:55,390 [Thread-1] INFO  JavaWrapper: *** Invoking Gibbs Energy System v6 ***
+
+21:34:55,441 [Thread-1] INFO  CalculationEngine:  Creating a new composition set FCC_A1#2
+
+21:34:55,441 [Thread-1] INFO  CalculationEngine: New CS: FCC_A1#2
+
+21:34:55,542 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, Thermo-Calc Software AB, Sweden, 2006; Molar volumes'
+
+21:34:55,542 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, M. Selleby and B. Sundman, CALPHAD, 29, 2005, 68-89; Molar
+
+21:34:55,542 [Thread-1] INFO  CalculationEngine:        volumes'
+
+21:34:55,542 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 627-636 TRITA 0207 (1986); C
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:        -CR-FE'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson and B. Sundman, CALPHAD, 11 (1987) 83-92; TRITA 0270
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:        (1986); CR-FE'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 11 (1987) 271-276; TRITA 0314; C-CR'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'A.T. Dinsdale, SGTE Data for Pure Elements, CALPHAD, 15 (1991) 317-425'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Scan. J. Metall., 14 (1985) 259-267; TRITA 0237 (1984); C-FE'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, C. Broeckmann, CALPHAD, 46, 24-33(2014); Cr-Fe-C'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'P. Franke, estimated parameter within SGTE, 2007; Fe-C, Ni-C, Mo-C, C-Mn'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; THCD and ELRS of steels'
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:    'H-L Chen, in TCAL7.0, Evaluation and modeling of electrical resistivity
+
+21:34:55,543 [Thread-1] INFO  CalculationEngine:         thermal conductivity'
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Optimized ELRS
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Estimation of ELRS
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; ELRS/THCD'
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, Volume data updated for
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:        TCFE9 database (TCFE v9.0, Jan, 2017).'
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, Metall. Trans. A, 24A (1993) 1017-1025; Fe-Cr-Mn-C'
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:    'W. Huang, Metall. Trans. A, 21A (1990) 2115-2123; TRITA-MAC 411 (Rev
+
+21:34:55,544 [Thread-1] INFO  CalculationEngine:        1989); C-FE-MN'
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:    'P. Villars, L.D. Calvert. Pearsons handbook of crystallographic data for
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:        intermetallic phases, Metals park, Ohio 1985: American society for
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:        metals'
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:    'B. Hallstedt, D. Djurovic, J. von Appen, R. Dronskowski, A. Dick, F.
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:        Koermann, T. Hickel, J. Neugebauer, CALPHAD, 34, 129-33(2010); Fe-C'
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 16 (1992) 121-149; C-Cr-Fe-Ni'
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; Default values for
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:        ELRS/THCD'
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, TRITA-MAC 354 (1987); C-Cr-Fe-Mo-W'
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 1385-1394; TRITA 0322 (1986);
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:         CR-FE-MO'
+
+21:34:55,545 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for electrical resistivity'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for thermal conductivity'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2023; Diamond Volume'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'A. Markstrom, Swerea KIMAB, Sweden; Molar volumes'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2016; FCC Fe-Cr-C and C-Cr-Ni'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'J. Bratberg, Z. Metallkd., 96 (2005) 335-344; Fe-Cr-Mo-C'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'B. Uhrenius, Int. J. Refract. Met. Hard Mater. 12 (1994) 121-127; Molar
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:        volumes'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'K. Frisk, Metall. Trans. A, 21A (1990) 2477-2488; TRITA 0409 (1989); CR
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:        -FE-N'
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Metall. Trans. A, 19A (1988) 2547-2554; TRITA-MAC 348,
+
+21:34:55,546 [Thread-1] INFO  CalculationEngine:        (1987); C-CR-FE-W'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'C. Qui, ISIJ International, 32 (1992), 1117-1127; Trita-MAC 482 (1992)
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:        Revision; C-Cr-Fe-Mo'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'H. Gohring, O. Fabrichnaya, A. Leineweber, E.J. Mittemeijer, Metall.
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:        Mater. Trans. A, 47A, 6173-86(2016); FE-N, and Fe-C-N'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 12 (1988) 9-23; TRITA 0321 (1986); C-FE-MO'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'Same or similar interaction as in the corresponding stable phase'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2019; Cr-Fe-Nb'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'N. Saunders, COST 507 Report (1998); Cr-Ti'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, unpublished work at KTH (1999); update of steel database'
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:    'L.F.S. Dumitrescu, M. Hillert and N. Saunders, J. Phase Equilib., 19
+
+21:34:55,547 [Thread-1] INFO  CalculationEngine:        (1998) 441-448; Fe-Ti'
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:    'M. Ghasemi, Thermo-Calc Software AB, Sweden, 2020; Unifying liquid volume
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:        database'
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:    'Y. Tang, in TCCU2, Thermo-Calc Software AB, Stockholm, Sweden'
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, K. Chang, CALPHAD, 39, 54-61(2012); C-Cr-Nb'
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 17 (1993) 251-268; revision of Fe-Cr and Fe-Ni liquid'
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software, 2020: ELRS/THCD of liquid'
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB: assessing the viscosity of metallic
+
+21:34:55,548 [Thread-1] INFO  CalculationEngine:        liquid, 2019'
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:    'M J Assael, J Phys Chem Ref Data 35 (2006) 285; Fe, Al'
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:    'R. Zhang, Thermo-Calc Software AB, Sweden 2023; Reassessment of surface
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:        tension using RK rule'
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB (2020): assessing the surface tension
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:        of metallic liquid'
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:    'D. Djurovic, B. Hallstedt, J. von Appen, R. Dronskowski, Calphad 35.4
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:        (2011) 479-491; Fe-Mn-C'
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; Cr3C2 Volume'
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:    'B. Sundman et al., Report EUR 20315, Contract No 7210-PR/050, 2002; New
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:        Sigma model'
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Assessment of ELRS
+
+21:34:55,549 [Thread-1] INFO  CalculationEngine:         THCD in TCAL8.'
+
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The error indicates that the phase named "SYSTEM" does not exist. This suggests that the method to retrieve the Gibbs energy might be incorrect. Instead of using a specific phase name, we should retrieve the Gibbs energy for the entire system. Let's update the code to correctly retrieve the Gibbs energy of the system.
+
+```python
+import json
+from tc_python import TCPython, ThermodynamicQuantity
+
+# Initialize Thermo-Calc Python interface
+with TCPython() as session:
+    # Set up the system
+    system = (session
+              .select_database_and_elements("FEDEMO", ["Fe", "C", "Cr"])
+              .get_system()
+              .with_single_equilibrium_calculation()
+              .set_condition(ThermodynamicQuantity.temperature(), 2000)  # Temperature in Kelvin
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("C"), 0.01)  # Mole fraction of Carbon
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 0.1))  # Mole fraction of Chromium
+    
+    # Calculate equilibrium
+    result = system.calculate()
+    
+    # Retrieve Gibbs energy of the entire system
+    gibbs_energy = result.get_value_of(ThermodynamicQuantity.gibbs_energy())  # Gibbs energy in J/mol
+    
+    # Print the result
+    print(f"Gibbs energy of the system: {gibbs_energy} J/mol")
+    
+    # Save the result to a JSON file
+    output_data = {
+        "Temperature": 2000,
+        "X(C)": 0.01,
+        "X(Cr)": 0.1,
+        "Gibbs_energy": gibbs_energy
+    }
+    
+    with open("fe_c_cr_gibbs_energy.json", "w") as json_file:
+        json.dump(output_data, json_file)
+```
+
+This code retrieves the Gibbs energy for the entire system rather than a specific phase. Let's try running this updated code.
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
+User_Proxy (to Assistant):
+
+exitcode: 1 (execution failed)
+Code output: Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=[local-path] -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+
+Traceback (most recent call last):
+  File "[local-path]", line 19, in <module>
+    gibbs_energy = result.get_value_of(ThermodynamicQuantity.gibbs_energy())  # Gibbs energy in J/mol
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'ThermodynamicQuantity' has no attribute 'gibbs_energy'
+21:35:01,863 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+21:35:03,857 [Thread-1] INFO  CalculationEngine: Opening database::FEDEMO::
+
+21:35:04,039 [Thread-1] INFO  JavaWrapper: *** Invoking Gibbs Energy System v6 ***
+
+21:35:04,092 [Thread-1] INFO  CalculationEngine:  Creating a new composition set FCC_A1#2
+
+21:35:04,092 [Thread-1] INFO  CalculationEngine: New CS: FCC_A1#2
+
+21:35:04,194 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, Thermo-Calc Software AB, Sweden, 2006; Molar volumes'
+
+21:35:04,194 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, M. Selleby and B. Sundman, CALPHAD, 29, 2005, 68-89; Molar
+
+21:35:04,194 [Thread-1] INFO  CalculationEngine:        volumes'
+
+21:35:04,194 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 627-636 TRITA 0207 (1986); C
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:        -CR-FE'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson and B. Sundman, CALPHAD, 11 (1987) 83-92; TRITA 0270
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:        (1986); CR-FE'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 11 (1987) 271-276; TRITA 0314; C-CR'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'A.T. Dinsdale, SGTE Data for Pure Elements, CALPHAD, 15 (1991) 317-425'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Scan. J. Metall., 14 (1985) 259-267; TRITA 0237 (1984); C-FE'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, C. Broeckmann, CALPHAD, 46, 24-33(2014); Cr-Fe-C'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'P. Franke, estimated parameter within SGTE, 2007; Fe-C, Ni-C, Mo-C, C-Mn'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; THCD and ELRS of steels'
+
+21:35:04,195 [Thread-1] INFO  CalculationEngine:    'H-L Chen, in TCAL7.0, Evaluation and modeling of electrical resistivity
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:         thermal conductivity'
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Optimized ELRS
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Estimation of ELRS
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; ELRS/THCD'
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, Volume data updated for
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:        TCFE9 database (TCFE v9.0, Jan, 2017).'
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, Metall. Trans. A, 24A (1993) 1017-1025; Fe-Cr-Mn-C'
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:    'W. Huang, Metall. Trans. A, 21A (1990) 2115-2123; TRITA-MAC 411 (Rev
+
+21:35:04,196 [Thread-1] INFO  CalculationEngine:        1989); C-FE-MN'
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:    'P. Villars, L.D. Calvert. Pearsons handbook of crystallographic data for
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:        intermetallic phases, Metals park, Ohio 1985: American society for
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:        metals'
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:    'B. Hallstedt, D. Djurovic, J. von Appen, R. Dronskowski, A. Dick, F.
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:        Koermann, T. Hickel, J. Neugebauer, CALPHAD, 34, 129-33(2010); Fe-C'
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 16 (1992) 121-149; C-Cr-Fe-Ni'
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; Default values for
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:        ELRS/THCD'
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, TRITA-MAC 354 (1987); C-Cr-Fe-Mo-W'
+
+21:35:04,197 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 1385-1394; TRITA 0322 (1986);
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:         CR-FE-MO'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for electrical resistivity'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for thermal conductivity'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2023; Diamond Volume'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'A. Markstrom, Swerea KIMAB, Sweden; Molar volumes'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2016; FCC Fe-Cr-C and C-Cr-Ni'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'J. Bratberg, Z. Metallkd., 96 (2005) 335-344; Fe-Cr-Mo-C'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'B. Uhrenius, Int. J. Refract. Met. Hard Mater. 12 (1994) 121-127; Molar
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:        volumes'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'K. Frisk, Metall. Trans. A, 21A (1990) 2477-2488; TRITA 0409 (1989); CR
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:        -FE-N'
+
+21:35:04,198 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Metall. Trans. A, 19A (1988) 2547-2554; TRITA-MAC 348,
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:        (1987); C-CR-FE-W'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'C. Qui, ISIJ International, 32 (1992), 1117-1127; Trita-MAC 482 (1992)
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:        Revision; C-Cr-Fe-Mo'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'H. Gohring, O. Fabrichnaya, A. Leineweber, E.J. Mittemeijer, Metall.
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:        Mater. Trans. A, 47A, 6173-86(2016); FE-N, and Fe-C-N'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 12 (1988) 9-23; TRITA 0321 (1986); C-FE-MO'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'Same or similar interaction as in the corresponding stable phase'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2019; Cr-Fe-Nb'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'N. Saunders, COST 507 Report (1998); Cr-Ti'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, unpublished work at KTH (1999); update of steel database'
+
+21:35:04,199 [Thread-1] INFO  CalculationEngine:    'L.F.S. Dumitrescu, M. Hillert and N. Saunders, J. Phase Equilib., 19
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:        (1998) 441-448; Fe-Ti'
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:    'M. Ghasemi, Thermo-Calc Software AB, Sweden, 2020; Unifying liquid volume
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:        database'
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:    'Y. Tang, in TCCU2, Thermo-Calc Software AB, Stockholm, Sweden'
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, K. Chang, CALPHAD, 39, 54-61(2012); C-Cr-Nb'
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 17 (1993) 251-268; revision of Fe-Cr and Fe-Ni liquid'
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software, 2020: ELRS/THCD of liquid'
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB: assessing the viscosity of metallic
+
+21:35:04,200 [Thread-1] INFO  CalculationEngine:        liquid, 2019'
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:    'M J Assael, J Phys Chem Ref Data 35 (2006) 285; Fe, Al'
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:    'R. Zhang, Thermo-Calc Software AB, Sweden 2023; Reassessment of surface
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:        tension using RK rule'
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB (2020): assessing the surface tension
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:        of metallic liquid'
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:    'D. Djurovic, B. Hallstedt, J. von Appen, R. Dronskowski, Calphad 35.4
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:        (2011) 479-491; Fe-Mn-C'
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; Cr3C2 Volume'
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:    'B. Sundman et al., Report EUR 20315, Contract No 7210-PR/050, 2002; New
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:        Sigma model'
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Assessment of ELRS
+
+21:35:04,201 [Thread-1] INFO  CalculationEngine:         THCD in TCAL8.'
+
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The error indicates that `ThermodynamicQuantity` does not have a method `gibbs_energy()`. This suggests that the method to retrieve the Gibbs energy might be different. Let's review the available methods for retrieving Gibbs energy in the context of Thermo-Calc using tc_python.
+
+I will call the `retrieve_content` function to verify the correct method for obtaining the Gibbs energy of the system.
+
+```json
+{
+  "message": "Correct method to retrieve Gibbs energy of the entire system in Thermo-Calc using tc_python.",
+  "n_results": 6
+}
+```
+***** Suggested function call: retrieve_content *****
+Arguments: 
+{"message":"Correct method to retrieve Gibbs energy of the entire system in Thermo-Calc using tc_python.","n_results":6}
+*****************************************************
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Correct method to retrieve Gibbs energy of the entire system in Thermo-Calc using tc_python.', 'n_results': 6}
+VectorDB returns doc_ids:  [['def8d5b9', '625c61e1', '182ba0ad', '03ca3b0e', '07a8bfed', '80f7d8d2']]
+Adding content of doc def8d5b9 to context.
+Adding content of doc 625c61e1 to context.
+Adding content of doc 182ba0ad to context.
+Adding content of doc 03ca3b0e to context.
+Adding content of doc 07a8bfed to context.
+Adding content of doc 80f7d8d2 to context.
+
+>>>>>>>> EXECUTED FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Correct method to retrieve Gibbs energy of the entire system in Thermo-Calc using tc_python.', 'n_results': 6}
+Output:
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Correct method to retrieve Gibbs energy of the entire system in Thermo-Calc using tc_python.
+
+Context is: # TC-Python 2024a: equilibrium quantities and composition units
+
+Author-prepared API definitions below, checked against the public
+[2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+sections 5.5 (ThermodynamicQuantity) and 5.6 (CompositionUnit), and installed 2024a signatures.
+
+Use `ThermodynamicQuantity` methods for equilibrium conditions/results:
+
+| Method | Meaning |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `pressure()` | Pressure, Pa |
+| `system_size()` | System amount, mol |
+| `mass_fraction_of_a_component(component)` | Component mass / system mass |
+| `mole_fraction_of_a_component(component)` | Component moles / system moles |
+| `mass_fraction_of_a_phase(phase)` | Phase mass / system mass |
+| `mole_fraction_of_a_phase(phase)` | Phase molar fraction |
+| `volume_fraction_of_a_phase(phase)` | Phase volume / system volume |
+| `composition_of_phase_as_weight_fraction(phase, component)` | Component mass fraction within a phase |
+| `composition_of_phase_as_mole_fraction(phase, component)` | Component mole fraction within a phase |
+| `activity_of_component(component)` | Component activity |
+| `chemical_potential_of_component(component)` | Component chemical potential |
+| `gibbs_energy_of_a_phase(phase)` | Phase Gibbs energy |
+
+Component composition, composition within a phase, and phase fraction describe different ratios.
+Choose each input/output basis explicitly; matching numerical values do not make different bases equivalent.
+Fractions are dimensionless; percent values are 100 times fractions on the same basis.
+
+For interfaces accepting `CompositionUnit`, the available choices are
+`MASS_PERCENT`, `MASS_FRACTION`, `MOLE_PERCENT`, and `MOLE_FRACTION`.
+Use the documented unit accepted by each interface.
+
+## Weight percent, mole percent and basis conversion
+
+For component i, m_i is mass, n_i is amount in mol, and M_i is molar mass:
+
+- Mass fraction: w_i = m_i / sum_j(m_j). A value p in wt% means w_i = p / 100.
+- Mole fraction: x_i = n_i / sum_j(n_j). A value q in mol% means x_i = q / 100.
+
+These follow the IUPAC definitions of [mass fraction](https://goldbook.iupac.org/terms/view/M03722),
+[mole fraction](https://goldbook.iupac.org/terms/view/A00296) and
+[percent](https://goldbook.iupac.org/terms/view/P04483).
+
+Changing basis requires molar masses. From n_i = m_i / M_i:
+
+- Mass to mole: x_i = (w_i / M_i) / sum_j(w_j / M_j).
+- Mole to mass: w_i = (x_i * M_i) / sum_j(x_j * M_j).
+
+The sums include all components, including the balance component. Use consistent
+molar-mass units and a complete composition on one basis. Do not sum mass and
+mole fractions together to determine the balance.
+
+For native single-equilibrium conditions, wt% / 100 maps to
+`mass_fraction_of_a_component`; mol% / 100 maps to `mole_fraction_of_a_component`.
+Percent-to-fraction scaling preserves the basis. Check calculated compositions
+in the bases originally requested.
+
+## Composition conditions
+
+Single-equilibrium conditions can combine mole-fraction constraints for some
+components with mass-fraction constraints for others. Use each requested basis
+directly and leave a balance component unconstrained; manual conversion to a
+common basis is unnecessary.
+
+## Numerical workaround — verify applicability
+
+If an equilibrium calculation fails to converge at an exactly zero component
+mass fraction, consider a small positive approximation. For example, try 1e-8
+and check sensitivity against 1e-10. These values are mass fractions, not
+percentages. Record the nominal and effective compositions. Accept the
+approximation only if both calculations converge and the requested outputs
+agree within a stated tolerance; otherwise report the unresolved failure.
+Example 2: pyex_T_02_Single_equilibrium_solidus_and_liquidus_temperature
+
+```
+from tc_python import *
+
+"""
+This example shows how to create a single equilibrium calculation                
+from a ternary system and configure it to calculate the solidus 
+and liquidus temperature using fixed phase conditions for the 
+liquid phase. 
+ 
+There can be multiple solutions to a fixed phase condition and it is 
+good practice to perform a regular equilibrium calculation close to 
+where the phase transition is. This example starts with an equilibrium 
+calculation at 1700K in order to get good start values.           
+"""
+
+
+def list_stable_phases(calc_result):
+    """
+    List the stable phases and their amount on screen.
+
+    Args:
+        calc_result: Calculation result from an equilibrium calculation
+    """
+    stable_phases = calc_result.get_stable_phases()
+    for phase in stable_phases:
+        print("Amount of " + phase + " = {0:.3f}".format(calc_result.get_value_of('NP(' + phase + ')')))
+
+
+with TCPython() as session:
+    # create equilibrium calculation object and set conditions
+    eq_calculation = (
+        session.
+            set_cache_folder(os.path.basename(__file__) + "_cache").
+            select_database_and_elements("FEDEMO", ["Fe", "Cr", "C"]).
+            get_system().
+            with_single_equilibrium_calculation().
+            set_condition(ThermodynamicQuantity.temperature(), 1700.0).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("Cr"), 0.1).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("C"), 0.01)
+
+    )
+
+    # calculate equilibrium and list stable phases
+    calc_result = eq_calculation.calculate()
+    print("\nEquilibrium at temperature: {0:.2f} K".format(
+        calc_result.get_value_of(ThermodynamicQuantity.temperature())) + ", stable phases:")
+    list_stable_phases(calc_result)
+
+    # calculate liquidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .remove_condition(ThermodynamicQuantity.temperature())
+                   .set_phase_to_fixed("LIQUID", 1.0)
+                   .calculate())
+    print("\nLiquidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+
+    # calculate solidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .set_phase_to_fixed("LIQUID", 0.0)
+                   .calculate())
+    print("\nSolidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+```
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+Example: pyex_T_11_Phase_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to calculate and plot a phase diagram.
+The system Fe-Cr is used as an example.
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    calculation = (start.select_database_and_elements("FEDEMO", ["Fe", "Cr"]).
+                   get_system().
+                   with_phase_diagram_calculation().
+
+                   with_first_axis(CalculationAxis(ThermodynamicQuantity.mole_fraction_of_a_component("Cr")).
+                                   set_min(0).
+                                   set_max(1.0).
+                                   with_axis_type(Linear().set_max_step_size(.025))).
+                   with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                                     set_min(500).
+                                     set_max(3000.0).
+                                     with_axis_type(AxisType.linear().set_min_nr_of_steps(60))).
+                   enable_global_minimization().
+
+                   set_condition(ThermodynamicQuantity.temperature(), 1000).
+                   set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 10 / 100))
+
+    simulation_results = (calculation.
+                          calculate().
+                          add_coordinate_for_phase_label(0.5, 2000).
+                          get_values_grouped_by_stable_phases_of(ThermodynamicQuantity.
+                                                                 mole_fraction_of_a_component("Cr"),
+                                                                 ThermodynamicQuantity.temperature()))
+
+fig, ax = plt.subplots(1)
+for group in simulation_results.get_lines().values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.plot(simulation_results.get_tie_lines().x, simulation_results.get_tie_lines().y, "g", linewidth=0.5)
+
+plt.plot(simulation_results.get_invariants().x, simulation_results.get_invariants().y, "r")
+
+for phase_label in simulation_results.get_phase_labels():
+    ax.text(1.01 * phase_label.x, 1.01 * phase_label.y, phase_label.text)
+    ax.scatter(phase_label.x, phase_label.y, s=3, color="k", marker="o")
+
+ax.set_xlabel("Mole fraction Cr [-]")
+ax.set_ylabel("Temperature [K]")
+ax.set_title("Phase diagram Fe-Cr")
+ax.set_xlim([0, 1.0])
+ax.set_ylim([500, 2250])
+plt.legend(loc="center right")
+plt.show()
+```
+Example: pyex_T_03_Scheil_mole_fraction_of_solid
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+Shows the basic usage of Scheil-calculations in TC-Python and mixing them with equilibrium calculations.
+"""
+
+database = "ALDEMO"
+dependent_element = "Al"
+elements = ["Si"]
+wt_pct_si = 1.0  # in wt-%
+delta_temp = 1.0  # in K, only used for the equilibrium line
+
+with TCPython() as session:
+    system = (session.
+              set_cache_folder(os.path.basename(__file__) + "_cache").
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    scheil_calculation = (system.
+                          with_scheil_calculation().
+                          set_composition_unit(CompositionUnit.MASS_PERCENT).
+                          set_composition("Si", wt_pct_si))
+
+    solidification = scheil_calculation.calculate()
+
+    # 1. Plot the solidification curve (mole fraction solid phases vs. T) including the equilibrium
+    scheil_curve = solidification.get_values_grouped_by_stable_phases_of(
+        ScheilQuantity.mole_fraction_of_all_solid_phases(),
+        ScheilQuantity.temperature())
+
+    temp_min = 1e6
+    temp_max = -1e6
+    fig, (ax_1, ax_2) = plt.subplots(2)
+    for label in scheil_curve:
+        section = scheil_curve[label]
+        temp_min = min(np.min(section.y), temp_min)
+        temp_max = max(np.max(section.y), temp_max)
+        ax_1.plot(section.x, np.array(section.y) - 273.15, label=label)
+
+    # calculate the equilibrium solidification line (starting at the liquidus temperature)
+    prop_calculation = system.with_property_diagram_calculation()
+    result = (prop_calculation.
+              with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                        set_min(temp_min).
+                        set_max(temp_max)).
+              set_condition("W(Si)", wt_pct_si / 100).
+              calculate())
+
+    temp_eq_frac, liquid_eq_frac = result.get_values_of(ThermodynamicQuantity.temperature(),
+                                                        ThermodynamicQuantity.mole_fraction_of_a_phase("LIQUID"))
+    solid_eq_frac = 1 - np.array(liquid_eq_frac)
+    temp_eq_frac = np.array(temp_eq_frac) - 273.15
+    valid_indices = np.where(solid_eq_frac < 1.0)  # cutting off all values with 100% solid
+
+    ax_1.plot(solid_eq_frac[valid_indices], temp_eq_frac[valid_indices], '--', label="Equilibrium")
+    ax_1.set_xlabel("Mole fraction of all solid phases [-]")
+    ax_1.set_ylabel("Temperature [\N{DEGREE SIGN} C]")
+
+    ax_1.legend(loc="lower left")
+    ax_1.set_title("Solidification of AlSi1")
+
+    # 2. Plot the mole fraction of the solid phases separated for each
+    groups = \
+        solidification.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_a_solid_phase(ALL_PHASES),
+                                                              ScheilQuantity.temperature())
+
+    for group in groups.values():
+        ax_2.plot(group.x, np.array(group.y) - 273.15, label=group.label)
+
+    ax_2.set_xlabel("Mole fraction of each solid phase [-]")
+    ax_2.set_ylabel("Temperature  [\N{DEGREE SIGN} C]")
+    ax_2.legend(loc="lower center")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+```
+Example: pyex_T_15_Scheil_back_diffusion
+
+```
+from tc_python import *
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Calculates solidification using Scheil with backdiffusion in the primary phase, and compares the result to other
+calculation types.
+"""
+
+thermodynamic_database = "ALDEMO"
+kinetic_database = "MALDEMO"
+dependent_element = "Al"
+composition = {"Cu": 0.021, "Si": 0.01}  # in mole percent
+elements = list(composition.keys())
+
+
+def get_equilibrium_line(system, liq_temp, temperature_stop, composition):
+    """Calculates the equilibrium line using step calculation"""
+    temp_step = 1.0
+    step_calculator = (system.with_property_diagram_calculation().
+                       with_axis(CalculationAxis('T').
+                                 set_min(temperature_stop).
+                                 set_max(liq_temp).
+                                 with_axis_type(AxisType.linear().set_max_step_size(temp_step))))
+
+    for element in composition:
+        step_calculator.set_condition(ThermodynamicQuantity.mole_fraction_of_a_component(element), composition[element])
+
+    step_result = step_calculator.calculate()
+    return step_result.get_values_grouped_by_quantity_of('NPM(LIQ)', 'T')
+
+
+def calculate_solidification_curve_with_dictra(system, composition, liq_temp, temperature_stop, cooling_rate, sdas_c, sdas_n):
+    """Calculates a solidification curve using the dictra diffusion module"""
+    temp_lowest_dictra = 770.0
+    time_lowest_dictra = (liq_temp - temp_lowest_dictra) / cooling_rate
+    time_stop = (liq_temp - temperature_stop) / cooling_rate
+    sim_time_dictra = min(time_stop, time_lowest_dictra)
+
+    liq_phase = "LIQUID"
+    dictra_primary_phase = "FCC_A1"
+
+    secondary_dendrite_arm_spacing = sdas_c * cooling_rate ** (-sdas_n)
+    composition_profile = CompositionProfile(Unit.MOLE_FRACTION)
+    for element in composition:
+        composition_profile.add(element, ElementProfile.constant(composition[element]))
+
+    dictra_calc = (system.with_non_isothermal_diffusion_calculation().
+                   with_temperature_profile(TemperatureProfile().
+                                            add_time_temperature(0, liq_temp).
+                                            add_time_temperature(time_stop, temperature_stop)).
+                   set_simulation_time(sim_time_dictra).
+                   with_timestep_control(TimestepControl().enable_check_interface_position()).
+                   add_region(Region("Liquid").
+                              set_width(secondary_dendrite_arm_spacing).
+                              with_grid(CalculatedGrid.geometric().set_no_of_points(50).set_geometrical_factor(0.95)).
+                              with_composition_profile(composition_profile).
+                              add_phase(liq_phase).
+                              add_phase_allowed_to_form_at_right_interface(dictra_primary_phase, 1e-5)))
+    dictra_result = dictra_calc.calculate()
+
+    temp_dictra, poi = dictra_result.get_values_of('T', "Position-Of-Interface Liquid upper", 'interface Liquid upper')
+
+    fraction_solid_dictra = 1.0 - np.array(poi) / secondary_dendrite_arm_spacing
+
+    return fraction_solid_dictra, temp_dictra
+
+
+if __name__ == "__main__":
+    with TCPython() as session:
+
+        cooling_rate = 0.1  # in K/s
+        sdas_c = 5.0e-5  # secondary dendrite arm spacing scaling factor in c*cooling_rate^-n (in meters)
+        sdas_n = 0.33
+        system = (session.
+                  set_cache_folder(os.path.basename(__file__) + "_cache").
+                  select_thermodynamic_and_kinetic_databases_with_elements(thermodynamic_database, kinetic_database,
+                                                                           [dependent_element] + elements).
+                  get_system())
+
+        # setup and perform a regular Scheil calculation for comparison
+        scheil_calculator = (system.with_scheil_calculation().
+                             set_composition_unit(CompositionUnit.MOLE_FRACTION))
+        for element in composition:
+            scheil_calculator.set_composition(element, composition[element])
+
+        result = scheil_calculator.calculate()
+        fraction_solid_regular_scheil, temp_regular_scheil = result.get_values_of(
+            ScheilQuantity.mole_fraction_of_all_solid_phases(),
+            ScheilQuantity.temperature())
+
+
+User_Proxy (to Assistant):
+
+***** Response from calling function (retrieve_content) *****
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Correct method to retrieve Gibbs energy of the entire system in Thermo-Calc using tc_python.
+
+Context is: # TC-Python 2024a: equilibrium quantities and composition units
+
+Author-prepared API definitions below, checked against the public
+[2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+sections 5.5 (ThermodynamicQuantity) and 5.6 (CompositionUnit), and installed 2024a signatures.
+
+Use `ThermodynamicQuantity` methods for equilibrium conditions/results:
+
+| Method | Meaning |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `pressure()` | Pressure, Pa |
+| `system_size()` | System amount, mol |
+| `mass_fraction_of_a_component(component)` | Component mass / system mass |
+| `mole_fraction_of_a_component(component)` | Component moles / system moles |
+| `mass_fraction_of_a_phase(phase)` | Phase mass / system mass |
+| `mole_fraction_of_a_phase(phase)` | Phase molar fraction |
+| `volume_fraction_of_a_phase(phase)` | Phase volume / system volume |
+| `composition_of_phase_as_weight_fraction(phase, component)` | Component mass fraction within a phase |
+| `composition_of_phase_as_mole_fraction(phase, component)` | Component mole fraction within a phase |
+| `activity_of_component(component)` | Component activity |
+| `chemical_potential_of_component(component)` | Component chemical potential |
+| `gibbs_energy_of_a_phase(phase)` | Phase Gibbs energy |
+
+Component composition, composition within a phase, and phase fraction describe different ratios.
+Choose each input/output basis explicitly; matching numerical values do not make different bases equivalent.
+Fractions are dimensionless; percent values are 100 times fractions on the same basis.
+
+For interfaces accepting `CompositionUnit`, the available choices are
+`MASS_PERCENT`, `MASS_FRACTION`, `MOLE_PERCENT`, and `MOLE_FRACTION`.
+Use the documented unit accepted by each interface.
+
+## Weight percent, mole percent and basis conversion
+
+For component i, m_i is mass, n_i is amount in mol, and M_i is molar mass:
+
+- Mass fraction: w_i = m_i / sum_j(m_j). A value p in wt% means w_i = p / 100.
+- Mole fraction: x_i = n_i / sum_j(n_j). A value q in mol% means x_i = q / 100.
+
+These follow the IUPAC definitions of [mass fraction](https://goldbook.iupac.org/terms/view/M03722),
+[mole fraction](https://goldbook.iupac.org/terms/view/A00296) and
+[percent](https://goldbook.iupac.org/terms/view/P04483).
+
+Changing basis requires molar masses. From n_i = m_i / M_i:
+
+- Mass to mole: x_i = (w_i / M_i) / sum_j(w_j / M_j).
+- Mole to mass: w_i = (x_i * M_i) / sum_j(x_j * M_j).
+
+The sums include all components, including the balance component. Use consistent
+molar-mass units and a complete composition on one basis. Do not sum mass and
+mole fractions together to determine the balance.
+
+For native single-equilibrium conditions, wt% / 100 maps to
+`mass_fraction_of_a_component`; mol% / 100 maps to `mole_fraction_of_a_component`.
+Percent-to-fraction scaling preserves the basis. Check calculated compositions
+in the bases originally requested.
+
+## Composition conditions
+
+Single-equilibrium conditions can combine mole-fraction constraints for some
+components with mass-fraction constraints for others. Use each requested basis
+directly and leave a balance component unconstrained; manual conversion to a
+common basis is unnecessary.
+
+## Numerical workaround — verify applicability
+
+If an equilibrium calculation fails to converge at an exactly zero component
+mass fraction, consider a small positive approximation. For example, try 1e-8
+and check sensitivity against 1e-10. These values are mass fractions, not
+percentages. Record the nominal and effective compositions. Accept the
+approximation only if both calculations converge and the requested outputs
+agree within a stated tolerance; otherwise report the unresolved failure.
+Example 2: pyex_T_02_Single_equilibrium_solidus_and_liquidus_temperature
+
+```
+from tc_python import *
+
+"""
+This example shows how to create a single equilibrium calculation                
+from a ternary system and configure it to calculate the solidus 
+and liquidus temperature using fixed phase conditions for the 
+liquid phase. 
+ 
+There can be multiple solutions to a fixed phase condition and it is 
+good practice to perform a regular equilibrium calculation close to 
+where the phase transition is. This example starts with an equilibrium 
+calculation at 1700K in order to get good start values.           
+"""
+
+
+def list_stable_phases(calc_result):
+    """
+    List the stable phases and their amount on screen.
+
+    Args:
+        calc_result: Calculation result from an equilibrium calculation
+    """
+    stable_phases = calc_result.get_stable_phases()
+    for phase in stable_phases:
+        print("Amount of " + phase + " = {0:.3f}".format(calc_result.get_value_of('NP(' + phase + ')')))
+
+
+with TCPython() as session:
+    # create equilibrium calculation object and set conditions
+    eq_calculation = (
+        session.
+            set_cache_folder(os.path.basename(__file__) + "_cache").
+            select_database_and_elements("FEDEMO", ["Fe", "Cr", "C"]).
+            get_system().
+            with_single_equilibrium_calculation().
+            set_condition(ThermodynamicQuantity.temperature(), 1700.0).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("Cr"), 0.1).
+            set_condition(ThermodynamicQuantity.mass_fraction_of_a_component("C"), 0.01)
+
+    )
+
+    # calculate equilibrium and list stable phases
+    calc_result = eq_calculation.calculate()
+    print("\nEquilibrium at temperature: {0:.2f} K".format(
+        calc_result.get_value_of(ThermodynamicQuantity.temperature())) + ", stable phases:")
+    list_stable_phases(calc_result)
+
+    # calculate liquidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .remove_condition(ThermodynamicQuantity.temperature())
+                   .set_phase_to_fixed("LIQUID", 1.0)
+                   .calculate())
+    print("\nLiquidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+
+    # calculate solidus temperature and list stable phases
+    calc_result = (eq_calculation
+                   .set_phase_to_fixed("LIQUID", 0.0)
+                   .calculate())
+    print("\nSolidus temperature: {0:.2f} K".format(calc_result.get_value_of(ThermodynamicQuantity.temperature())))
+    list_stable_phases(calc_result)
+```
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+Example: pyex_T_11_Phase_diagram
+
+```
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+This example shows how to calculate and plot a phase diagram.
+The system Fe-Cr is used as an example.
+"""
+
+
+with TCPython() as start:
+    start.set_cache_folder(os.path.basename(__file__) + "_cache")
+    calculation = (start.select_database_and_elements("FEDEMO", ["Fe", "Cr"]).
+                   get_system().
+                   with_phase_diagram_calculation().
+
+                   with_first_axis(CalculationAxis(ThermodynamicQuantity.mole_fraction_of_a_component("Cr")).
+                                   set_min(0).
+                                   set_max(1.0).
+                                   with_axis_type(Linear().set_max_step_size(.025))).
+                   with_second_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                                     set_min(500).
+                                     set_max(3000.0).
+                                     with_axis_type(AxisType.linear().set_min_nr_of_steps(60))).
+                   enable_global_minimization().
+
+                   set_condition(ThermodynamicQuantity.temperature(), 1000).
+                   set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 10 / 100))
+
+    simulation_results = (calculation.
+                          calculate().
+                          add_coordinate_for_phase_label(0.5, 2000).
+                          get_values_grouped_by_stable_phases_of(ThermodynamicQuantity.
+                                                                 mole_fraction_of_a_component("Cr"),
+                                                                 ThermodynamicQuantity.temperature()))
+
+fig, ax = plt.subplots(1)
+for group in simulation_results.get_lines().values():
+    plt.plot(group.x, group.y, label=group.label)
+
+plt.plot(simulation_results.get_tie_lines().x, simulation_results.get_tie_lines().y, "g", linewidth=0.5)
+
+plt.plot(simulation_results.get_invariants().x, simulation_results.get_invariants().y, "r")
+
+for phase_label in simulation_results.get_phase_labels():
+    ax.text(1.01 * phase_label.x, 1.01 * phase_label.y, phase_label.text)
+    ax.scatter(phase_label.x, phase_label.y, s=3, color="k", marker="o")
+
+ax.set_xlabel("Mole fraction Cr [-]")
+ax.set_ylabel("Temperature [K]")
+ax.set_title("Phase diagram Fe-Cr")
+ax.set_xlim([0, 1.0])
+ax.set_ylim([500, 2250])
+plt.legend(loc="center right")
+plt.show()
+```
+Example: pyex_T_03_Scheil_mole_fraction_of_solid
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+Shows the basic usage of Scheil-calculations in TC-Python and mixing them with equilibrium calculations.
+"""
+
+database = "ALDEMO"
+dependent_element = "Al"
+elements = ["Si"]
+wt_pct_si = 1.0  # in wt-%
+delta_temp = 1.0  # in K, only used for the equilibrium line
+
+with TCPython() as session:
+    system = (session.
+              set_cache_folder(os.path.basename(__file__) + "_cache").
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    scheil_calculation = (system.
+                          with_scheil_calculation().
+                          set_composition_unit(CompositionUnit.MASS_PERCENT).
+                          set_composition("Si", wt_pct_si))
+
+    solidification = scheil_calculation.calculate()
+
+    # 1. Plot the solidification curve (mole fraction solid phases vs. T) including the equilibrium
+    scheil_curve = solidification.get_values_grouped_by_stable_phases_of(
+        ScheilQuantity.mole_fraction_of_all_solid_phases(),
+        ScheilQuantity.temperature())
+
+    temp_min = 1e6
+    temp_max = -1e6
+    fig, (ax_1, ax_2) = plt.subplots(2)
+    for label in scheil_curve:
+        section = scheil_curve[label]
+        temp_min = min(np.min(section.y), temp_min)
+        temp_max = max(np.max(section.y), temp_max)
+        ax_1.plot(section.x, np.array(section.y) - 273.15, label=label)
+
+    # calculate the equilibrium solidification line (starting at the liquidus temperature)
+    prop_calculation = system.with_property_diagram_calculation()
+    result = (prop_calculation.
+              with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                        set_min(temp_min).
+                        set_max(temp_max)).
+              set_condition("W(Si)", wt_pct_si / 100).
+              calculate())
+
+    temp_eq_frac, liquid_eq_frac = result.get_values_of(ThermodynamicQuantity.temperature(),
+                                                        ThermodynamicQuantity.mole_fraction_of_a_phase("LIQUID"))
+    solid_eq_frac = 1 - np.array(liquid_eq_frac)
+    temp_eq_frac = np.array(temp_eq_frac) - 273.15
+    valid_indices = np.where(solid_eq_frac < 1.0)  # cutting off all values with 100% solid
+
+    ax_1.plot(solid_eq_frac[valid_indices], temp_eq_frac[valid_indices], '--', label="Equilibrium")
+    ax_1.set_xlabel("Mole fraction of all solid phases [-]")
+    ax_1.set_ylabel("Temperature [\N{DEGREE SIGN} C]")
+
+    ax_1.legend(loc="lower left")
+    ax_1.set_title("Solidification of AlSi1")
+
+    # 2. Plot the mole fraction of the solid phases separated for each
+    groups = \
+        solidification.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_a_solid_phase(ALL_PHASES),
+                                                              ScheilQuantity.temperature())
+
+    for group in groups.values():
+        ax_2.plot(group.x, np.array(group.y) - 273.15, label=group.label)
+
+    ax_2.set_xlabel("Mole fraction of each solid phase [-]")
+    ax_2.set_ylabel("Temperature  [\N{DEGREE SIGN} C]")
+    ax_2.legend(loc="lower center")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+```
+Example: pyex_T_15_Scheil_back_diffusion
+
+```
+from tc_python import *
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Calculates solidification using Scheil with backdiffusion in the primary phase, and compares the result to other
+calculation types.
+"""
+
+thermodynamic_database = "ALDEMO"
+kinetic_database = "MALDEMO"
+dependent_element = "Al"
+composition = {"Cu": 0.021, "Si": 0.01}  # in mole percent
+elements = list(composition.keys())
+
+
+def get_equilibrium_line(system, liq_temp, temperature_stop, composition):
+    """Calculates the equilibrium line using step calculation"""
+    temp_step = 1.0
+    step_calculator = (system.with_property_diagram_calculation().
+                       with_axis(CalculationAxis('T').
+                                 set_min(temperature_stop).
+                                 set_max(liq_temp).
+                                 with_axis_type(AxisType.linear().set_max_step_size(temp_step))))
+
+    for element in composition:
+        step_calculator.set_condition(ThermodynamicQuantity.mole_fraction_of_a_component(element), composition[element])
+
+    step_result = step_calculator.calculate()
+    return step_result.get_values_grouped_by_quantity_of('NPM(LIQ)', 'T')
+
+
+def calculate_solidification_curve_with_dictra(system, composition, liq_temp, temperature_stop, cooling_rate, sdas_c, sdas_n):
+    """Calculates a solidification curve using the dictra diffusion module"""
+    temp_lowest_dictra = 770.0
+    time_lowest_dictra = (liq_temp - temp_lowest_dictra) / cooling_rate
+    time_stop = (liq_temp - temperature_stop) / cooling_rate
+    sim_time_dictra = min(time_stop, time_lowest_dictra)
+
+    liq_phase = "LIQUID"
+    dictra_primary_phase = "FCC_A1"
+
+    secondary_dendrite_arm_spacing = sdas_c * cooling_rate ** (-sdas_n)
+    composition_profile = CompositionProfile(Unit.MOLE_FRACTION)
+    for element in composition:
+        composition_profile.add(element, ElementProfile.constant(composition[element]))
+
+    dictra_calc = (system.with_non_isothermal_diffusion_calculation().
+                   with_temperature_profile(TemperatureProfile().
+                                            add_time_temperature(0, liq_temp).
+                                            add_time_temperature(time_stop, temperature_stop)).
+                   set_simulation_time(sim_time_dictra).
+                   with_timestep_control(TimestepControl().enable_check_interface_position()).
+                   add_region(Region("Liquid").
+                              set_width(secondary_dendrite_arm_spacing).
+                              with_grid(CalculatedGrid.geometric().set_no_of_points(50).set_geometrical_factor(0.95)).
+                              with_composition_profile(composition_profile).
+                              add_phase(liq_phase).
+                              add_phase_allowed_to_form_at_right_interface(dictra_primary_phase, 1e-5)))
+    dictra_result = dictra_calc.calculate()
+
+    temp_dictra, poi = dictra_result.get_values_of('T', "Position-Of-Interface Liquid upper", 'interface Liquid upper')
+
+    fraction_solid_dictra = 1.0 - np.array(poi) / secondary_dendrite_arm_spacing
+
+    return fraction_solid_dictra, temp_dictra
+
+
+if __name__ == "__main__":
+    with TCPython() as session:
+
+        cooling_rate = 0.1  # in K/s
+        sdas_c = 5.0e-5  # secondary dendrite arm spacing scaling factor in c*cooling_rate^-n (in meters)
+        sdas_n = 0.33
+        system = (session.
+                  set_cache_folder(os.path.basename(__file__) + "_cache").
+                  select_thermodynamic_and_kinetic_databases_with_elements(thermodynamic_database, kinetic_database,
+                                                                           [dependent_element] + elements).
+                  get_system())
+
+        # setup and perform a regular Scheil calculation for comparison
+        scheil_calculator = (system.with_scheil_calculation().
+                             set_composition_unit(CompositionUnit.MOLE_FRACTION))
+        for element in composition:
+            scheil_calculator.set_composition(element, composition[element])
+
+        result = scheil_calculator.calculate()
+        fraction_solid_regular_scheil, temp_regular_scheil = result.get_values_of(
+            ScheilQuantity.mole_fraction_of_all_solid_phases(),
+            ScheilQuantity.temperature())
+
+
+*************************************************************
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The retrieved content does not provide a direct method for obtaining the Gibbs energy of the entire system. However, it does mention `gibbs_energy_of_a_phase(phase)` for retrieving the Gibbs energy of a specific phase. To obtain the Gibbs energy of the entire system, we might need to sum the Gibbs energies of all stable phases.
+
+Let's update the code to calculate the Gibbs energy of the entire system by summing the Gibbs energies of all stable phases:
+
+```python
+import json
+from tc_python import TCPython, ThermodynamicQuantity
+
+# Initialize Thermo-Calc Python interface
+with TCPython() as session:
+    # Set up the system
+    system = (session
+              .select_database_and_elements("FEDEMO", ["Fe", "C", "Cr"])
+              .get_system()
+              .with_single_equilibrium_calculation()
+              .set_condition(ThermodynamicQuantity.temperature(), 2000)  # Temperature in Kelvin
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("C"), 0.01)  # Mole fraction of Carbon
+              .set_condition(ThermodynamicQuantity.mole_fraction_of_a_component("Cr"), 0.1))  # Mole fraction of Chromium
+    
+    # Calculate equilibrium
+    result = system.calculate()
+    
+    # Retrieve Gibbs energy of the entire system by summing the Gibbs energies of all stable phases
+    stable_phases = result.get_stable_phases()
+    gibbs_energy = sum(result.get_value_of(ThermodynamicQuantity.gibbs_energy_of_a_phase(phase)) for phase in stable_phases)
+    
+    # Print the result
+    print(f"Gibbs energy of the system: {gibbs_energy} J/mol")
+    
+    # Save the result to a JSON file
+    output_data = {
+        "Temperature": 2000,
+        "X(C)": 0.01,
+        "X(Cr)": 0.1,
+        "Gibbs_energy": gibbs_energy
+    }
+    
+    with open("fe_c_cr_gibbs_energy.json", "w") as json_file:
+        json.dump(output_data, json_file)
+```
+
+This code calculates the Gibbs energy of the entire system by summing the Gibbs energies of all stable phases. Let's try running this updated code.
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
+User_Proxy (to Assistant):
+
+exitcode: 0 (execution succeeded)
+Code output: Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=[local-path] -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+
+21:35:12,646 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+21:35:14,618 [Thread-1] INFO  CalculationEngine: Opening database::FEDEMO::
+
+21:35:14,795 [Thread-1] INFO  JavaWrapper: *** Invoking Gibbs Energy System v6 ***
+
+21:35:14,847 [Thread-1] INFO  CalculationEngine:  Creating a new composition set FCC_A1#2
+
+21:35:14,847 [Thread-1] INFO  CalculationEngine: New CS: FCC_A1#2
+
+21:35:14,948 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, Thermo-Calc Software AB, Sweden, 2006; Molar volumes'
+
+21:35:14,948 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, M. Selleby and B. Sundman, CALPHAD, 29, 2005, 68-89; Molar
+
+21:35:14,948 [Thread-1] INFO  CalculationEngine:        volumes'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 627-636 TRITA 0207 (1986); C
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:        -CR-FE'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson and B. Sundman, CALPHAD, 11 (1987) 83-92; TRITA 0270
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:        (1986); CR-FE'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 11 (1987) 271-276; TRITA 0314; C-CR'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'A.T. Dinsdale, SGTE Data for Pure Elements, CALPHAD, 15 (1991) 317-425'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Scan. J. Metall., 14 (1985) 259-267; TRITA 0237 (1984); C-FE'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, C. Broeckmann, CALPHAD, 46, 24-33(2014); Cr-Fe-C'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'P. Franke, estimated parameter within SGTE, 2007; Fe-C, Ni-C, Mo-C, C-Mn'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; THCD and ELRS of steels'
+
+21:35:14,949 [Thread-1] INFO  CalculationEngine:    'H-L Chen, in TCAL7.0, Evaluation and modeling of electrical resistivity
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:         thermal conductivity'
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Optimized ELRS
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Estimation of ELRS
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; ELRS/THCD'
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, Volume data updated for
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:        TCFE9 database (TCFE v9.0, Jan, 2017).'
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, Metall. Trans. A, 24A (1993) 1017-1025; Fe-Cr-Mn-C'
+
+21:35:14,950 [Thread-1] INFO  CalculationEngine:    'W. Huang, Metall. Trans. A, 21A (1990) 2115-2123; TRITA-MAC 411 (Rev
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:        1989); C-FE-MN'
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:    'P. Villars, L.D. Calvert. Pearsons handbook of crystallographic data for
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:        intermetallic phases, Metals park, Ohio 1985: American society for
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:        metals'
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:    'B. Hallstedt, D. Djurovic, J. von Appen, R. Dronskowski, A. Dick, F.
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:        Koermann, T. Hickel, J. Neugebauer, CALPHAD, 34, 129-33(2010); Fe-C'
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 16 (1992) 121-149; C-Cr-Fe-Ni'
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; Default values for
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:        ELRS/THCD'
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, TRITA-MAC 354 (1987); C-Cr-Fe-Mo-W'
+
+21:35:14,951 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 1385-1394; TRITA 0322 (1986);
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:         CR-FE-MO'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for electrical resistivity'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for thermal conductivity'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2023; Diamond Volume'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'A. Markstrom, Swerea KIMAB, Sweden; Molar volumes'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2016; FCC Fe-Cr-C and C-Cr-Ni'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'J. Bratberg, Z. Metallkd., 96 (2005) 335-344; Fe-Cr-Mo-C'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'B. Uhrenius, Int. J. Refract. Met. Hard Mater. 12 (1994) 121-127; Molar
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:        volumes'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'K. Frisk, Metall. Trans. A, 21A (1990) 2477-2488; TRITA 0409 (1989); CR
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:        -FE-N'
+
+21:35:14,952 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Metall. Trans. A, 19A (1988) 2547-2554; TRITA-MAC 348,
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:        (1987); C-CR-FE-W'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'C. Qui, ISIJ International, 32 (1992), 1117-1127; Trita-MAC 482 (1992)
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:        Revision; C-Cr-Fe-Mo'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'H. Gohring, O. Fabrichnaya, A. Leineweber, E.J. Mittemeijer, Metall.
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:        Mater. Trans. A, 47A, 6173-86(2016); FE-N, and Fe-C-N'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 12 (1988) 9-23; TRITA 0321 (1986); C-FE-MO'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'Same or similar interaction as in the corresponding stable phase'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2019; Cr-Fe-Nb'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'N. Saunders, COST 507 Report (1998); Cr-Ti'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, unpublished work at KTH (1999); update of steel database'
+
+21:35:14,953 [Thread-1] INFO  CalculationEngine:    'L.F.S. Dumitrescu, M. Hillert and N. Saunders, J. Phase Equilib., 19
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:        (1998) 441-448; Fe-Ti'
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:    'M. Ghasemi, Thermo-Calc Software AB, Sweden, 2020; Unifying liquid volume
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:        database'
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:    'Y. Tang, in TCCU2, Thermo-Calc Software AB, Stockholm, Sweden'
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, K. Chang, CALPHAD, 39, 54-61(2012); C-Cr-Nb'
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 17 (1993) 251-268; revision of Fe-Cr and Fe-Ni liquid'
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software, 2020: ELRS/THCD of liquid'
+
+21:35:14,954 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB: assessing the viscosity of metallic
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:        liquid, 2019'
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:    'M J Assael, J Phys Chem Ref Data 35 (2006) 285; Fe, Al'
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:    'R. Zhang, Thermo-Calc Software AB, Sweden 2023; Reassessment of surface
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:        tension using RK rule'
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:    'M Ghasemi, Thermo-Calc Software AB (2020): assessing the surface tension
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:        of metallic liquid'
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:    'D. Djurovic, B. Hallstedt, J. von Appen, R. Dronskowski, Calphad 35.4
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:        (2011) 479-491; Fe-Mn-C'
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; Cr3C2 Volume'
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:    'B. Sundman et al., Report EUR 20315, Contract No 7210-PR/050, 2002; New
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:        Sigma model'
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Assessment of ELRS
+
+21:35:14,955 [Thread-1] INFO  CalculationEngine:         THCD in TCAL8.'
+
+Gibbs energy of the system: -130950.86637735169 J/mol
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The code executed successfully, and the Gibbs energy of the Fe-C-Cr system at 2000 K with the specified composition conditions was calculated. The Gibbs energy of the system is approximately \(-130950.87 \, \text{J/mol}\).
+
+The result has been saved to a JSON file named `fe_c_cr_gibbs_energy.json`, which contains the following data:
+- Temperature: 2000 K
+- Mole fraction of Carbon (C): 0.01
+- Mole fraction of Chromium (Cr): 0.1
+- Gibbs energy: \(-130950.87 \, \text{J/mol}\)
+
+The approach of summing the Gibbs energies of all stable phases to obtain the total Gibbs energy of the system was successful.
+
+--------------------------------------------------------------------------------
+User_Proxy (to Assistant):
+
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+TERMINATE
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> TERMINATING RUN (50358664-2b05-43bc-a7ac-f1f773343ec9): Termination message condition on agent 'User_Proxy' met

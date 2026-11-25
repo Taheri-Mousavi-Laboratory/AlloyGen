@@ -1,0 +1,12 @@
+Self-review against interpreted conditions and original request
+- Composition basis: candidate inputs kept in at.% throughout; no conversion to wt.% was applied.
+- Numerical methods: all three assigned scientific functions were used; preprocessing/postprocessing was done in Python.
+- Search boundedness: distinct search compositions = 14 (<=32).
+- Phase-profile candidate calculations = 10 (<=16).
+- Scheil candidate calculations = 7 (<=12).
+- Small batches were used (<=3 candidates per call).
+- At least one new Er/Zr refinement after the initial assessment was included: N2.00_E0.70_Z0.50, N2.00_E0.90_Z0.50.
+- Matched-branch Ni comparison was carried out at fixed Er=0.7, Zr=0.5.
+- Exact recommended compositions, if any, were checked with all three calculation families.
+- Fresh final verification was run in a new output directory for the preferred candidate and reference.
+- Saved outputs were written to files in the working directory and existence checked below.

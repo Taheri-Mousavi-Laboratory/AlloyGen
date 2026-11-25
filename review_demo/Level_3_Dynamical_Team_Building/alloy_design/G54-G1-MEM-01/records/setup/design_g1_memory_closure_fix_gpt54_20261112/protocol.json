@@ -1,0 +1,49 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "temperature": null,
+  "max_tokens": null,
+  "max_round": 64,
+  "max_provider_requests": 240,
+  "max_builder_requests": 40,
+  "max_tool_calls": 200,
+  "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+  "embedding_snapshot": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "cost_rates_per_million": {
+    "gpt-4o-2024-08-06": {
+      "input": 2.5,
+      "cached_input": 1.25,
+      "output": 10.0
+    },
+    "gpt-5.4": {
+      "input": 2.5,
+      "cached_input": 0.25,
+      "output": 15.0
+    },
+    "gpt-5.4-2026-03-05": {
+      "input": 2.5,
+      "cached_input": 0.25,
+      "output": 15.0
+    }
+  },
+  "web_search_preview_per_call_usd": 0.025,
+  "pricing_source": "https://developers.openai.com/api/docs/pricing",
+  "model_source": "https://developers.openai.com/api/docs/models/gpt-5.4",
+  "pricing_checked": "2026-11-09",
+  "limits_note": "Unchanged full-run scientific and coordination allowances. Decision rehearsals have separate smaller coordination limits; no dollar cutoff or automatic replacement.",
+  "max_equilibrium_calls": 0,
+  "max_manager_turns": 82,
+  "max_distinct_candidates": 32,
+  "max_candidate_scheil": 12,
+  "max_candidate_phase_profiles": 16,
+  "phase_limit_mol_percent": 1.05,
+  "J_tie_absolute": 0.0005,
+  "guidance_level": "G1",
+  "max_batch_size": 3,
+  "max_delegations": 40,
+  "reasoning_effort": "none",
+  "max_completion_tokens": 12000,
+  "retrieval_tokenizer_model": "gpt-4o-2024-08-06",
+  "experiment": "Optional run working memory on the unchanged final-ready G1 task; bounded diagnostics first",
+  "baseline_manager_turns_without_memory": 40,
+  "memory_turn_note": "Capacity for 40 delegation exchanges, 41 combined memory-update exchanges and one final answer; the 40-delegation and numerical allowances are unchanged. Read/repair calls also consume turns; the shared 240-provider and 200-tool ceilings still apply."
+}

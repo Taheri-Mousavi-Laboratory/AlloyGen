@@ -1,0 +1,54 @@
+{
+  "tool": "evaluate_coarsening",
+  "status": "complete",
+  "record": "experiments/management_alloy_design/author_reference/pilot_paper_assessment_20261107/fresh_paper_design/calculations/calls/f3aae84c2c9d41dc8d481a9a93e20c6f/result.json",
+  "started_UTC": "2026-11-08T03:56:50.071573+00:00",
+  "reference": {
+    "composition_percent": {
+      "Ni": 2.14,
+      "Er": 1.35,
+      "Zr": 1.15,
+      "Y": 0.25,
+      "Yb": 0.73
+    },
+    "basis": "mass_percent",
+    "status": "complete",
+    "J": 1.0,
+    "records": [
+      "experiments/management_alloy_design/author_reference/pilot_paper_assessment_20261107/fresh_paper_design/calculations/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/65400d5b07d712d528fb8805733e2c79be42627f996134d515745a2d51117f93.json"
+    ]
+  },
+  "results": [
+    {
+      "composition_percent": {
+        "Ni": 1.33,
+        "Er": 0.4,
+        "Zr": 1.0,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "basis": "atomic_percent",
+      "status": "complete",
+      "J": 0.2780451850727443,
+      "records": [
+        "experiments/management_alloy_design/author_reference/pilot_paper_assessment_20261107/fresh_paper_design/calculations/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/174dfdd11fcde7b4764be7f2179d550e745d3fb3090a720fd5911d8cb765f6fc.json"
+      ]
+    }
+  ],
+  "units": {
+    "candidate_compositions": "at.%; Al balance",
+    "reference_composition": "wt.%; Al balance",
+    "J": "m/m_reference; lower is better"
+  },
+  "method_version": "design_indicators_v1_20261107",
+  "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139",
+  "usage": {
+    "equilibrium_calls": 2,
+    "scheil_calls": 0,
+    "cache_hits": 1,
+    "paid_model_calls": 0
+  },
+  "provenance": "experiments/management_alloy_design/author_reference/pilot_paper_assessment_20261107/fresh_paper_design/calculations/calls/f3aae84c2c9d41dc8d481a9a93e20c6f/provenance.json",
+  "inputs_unchanged": true,
+  "seconds": 13.774951418861747
+}

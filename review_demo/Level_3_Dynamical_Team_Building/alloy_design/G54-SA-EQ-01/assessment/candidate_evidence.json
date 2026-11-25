@@ -1,0 +1,1548 @@
+{
+  "reference": {
+    "coarsening": {
+      "composition_percent": {
+        "Ni": 2.14,
+        "Er": 1.35,
+        "Zr": 1.15,
+        "Y": 0.25,
+        "Yb": 0.73
+      },
+      "basis": "mass_percent",
+      "status": "complete",
+      "J": 1.0,
+      "records": [
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/65400d5b07d712d528fb8805733e2c79be42627f996134d515745a2d51117f93.json"
+      ]
+    },
+    "phase_stability": {
+      "composition_percent": {
+        "Ni": 2.14,
+        "Er": 1.35,
+        "Zr": 1.15,
+        "Y": 0.25,
+        "Yb": 0.73
+      },
+      "basis": "mass_percent",
+      "status": "complete",
+      "L12_250_mol_percent": 2.3601150618584725,
+      "Al3Zr_250_mol_percent": 0.6716765913525093,
+      "L12_660_mol_percent": 0.7765127393367864,
+      "Al3Zr_660_mol_percent": 0.953743045178244,
+      "Al3Zr_boundary": {
+        "status": "bracketed",
+        "upper_temperature_C": 929.6875000000001,
+        "precision_K": 5.0,
+        "liquid_at_upper_boundary": true,
+        "disappearance_intervals": [
+          {
+            "lower_C": 928.1250000000001,
+            "upper_C": 931.2500000000001,
+            "temperature_C": 929.6875000000001,
+            "liquid_present": true
+          }
+        ]
+      },
+      "records": [
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/65400d5b07d712d528fb8805733e2c79be42627f996134d515745a2d51117f93.json",
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/9665c23cd04b6f99c37767f1ec5d9aacb6720b0775d11949401adbeaf9b4d1c0.json",
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/3058ebbcc10944f6b34980375d8f2e67/boundary_7c01bceb0938.json"
+      ]
+    },
+    "solidification": {
+      "composition_percent": {
+        "Ni": 2.14,
+        "Er": 1.35,
+        "Zr": 1.15,
+        "Y": 0.25,
+        "Yb": 0.73
+      },
+      "basis": "mass_percent",
+      "status": "complete",
+      "terminal_temperature_C": 637.2288752000001,
+      "terminal_solid_mol_percent": 99.87708189840544,
+      "ternary_mol_percent": 1.0357840503607434,
+      "L12_mol_percent": 1.310962362629209,
+      "Al3Ni_mol_percent": 2.9896542755178457,
+      "Al3Zr_mol_percent": 1.2631515013883756,
+      "FR_K": 14.11562,
+      "CSC": 0.19238,
+      "HCS": 0.027155629755999996,
+      "max_phase_sum_error": 1.1102230246251565e-16,
+      "CSC_intervals": {
+        "relaxation": 0.45987522311756984,
+        "vulnerable": 0.08847292166883836
+      },
+      "records": [
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/be312d12fa284a83121c194d7b31309c82af3ebc80bc42d52808e13f8c87343a.json"
+      ]
+    }
+  },
+  "candidates": {
+    "Ni1_Er0.4_Zr0.2": {
+      "composition": {
+        "Ni": 1.0,
+        "Er": 0.4,
+        "Zr": 0.2,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.0,
+            "Er": 0.4,
+            "Zr": 0.2,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.8679796363174231,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/1092eae497d920446caad841a87a6b7b921b1f1548c22365416708c2c6b4ef9c.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A004"
+      }
+    },
+    "Ni1_Er0.8_Zr0.4": {
+      "composition": {
+        "Ni": 1.0,
+        "Er": 0.8,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.0,
+            "Er": 0.8,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.8677729781671928,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/9fd6ef3ed7d0cca20e5715025dde535affb88e45a285196cbdbf9337844557a4.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A004"
+      }
+    },
+    "Ni1_Er1.2_Zr0.6": {
+      "composition": {
+        "Ni": 1.0,
+        "Er": 1.2,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.0,
+            "Er": 1.2,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.8677040795358681,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/4c9404ee674f2aa02f996d5725c56c82be4150d3e81e3059012b9a7c760f75d3.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.0,
+            "Er": 1.2,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 7.199863669229163,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 5.0409728044569615,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1001.5625000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1000.0000000000001,
+                "upper_C": 1003.1250000000001,
+                "temperature_C": 1001.5625000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/2342fa64a6585945b3efbadde2b77446df9fe4111d7b1e9815ad1a2fbb4baa03.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/4c9404ee674f2aa02f996d5725c56c82be4150d3e81e3059012b9a7c760f75d3.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/9e3ae86386da4a5099cc14866ab3f2c3/boundary_4ddde6ee6080.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A004",
+        "phase_stability": "A011"
+      }
+    },
+    "Ni2_Er0.4_Zr0.2": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.2,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.4,
+            "Zr": 0.2,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.8679624169630984,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/83758d33145be9ed22ba1c36ff67eba89c8dbdf83f909616cfd6636cef213c61.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A005"
+      }
+    },
+    "Ni2_Er0.8_Zr0.4": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.86776436618309,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/b959d889975ba97f2cb65e063cf1e8ca6e3c2f354b5978e0ac5af5603be4879a.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.799840174424888,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 3.0019705999085047,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 954.6875000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 953.1250000000001,
+                "upper_C": 956.2500000000001,
+                "temperature_C": 954.6875000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/b39aff3f522f8c8003bb823de360e38126260cf35d5aa9b7882f2dc14d9aeb70.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/b959d889975ba97f2cb65e063cf1e8ca6e3c2f354b5978e0ac5af5603be4879a.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/e3c3352203e3407e8722f4975fab5266/boundary_f6a0d7b3056a.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.846567,
+          "terminal_solid_mol_percent": 99.99999999999427,
+          "ternary_mol_percent": 5.674500061559718,
+          "L12_mol_percent": 0.9764751485831764,
+          "Al3Ni_mol_percent": 3.465530171830876,
+          "Al3Zr_mol_percent": 1.050746012997108,
+          "FR_K": 21.05187,
+          "CSC": 0.19157,
+          "HCS": 0.040329067359,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.4351085350198306,
+            "vulnerable": 0.08335543551286773
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/39defd57a5c11033a92ebd21c3948fc2867213cd61d7125bfe122e5cc2c33f62.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A005",
+        "phase_stability": "A012",
+        "solidification": "A014"
+      }
+    },
+    "Ni2_Er1.2_Zr0.6": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 1.2,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 1.2,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.8676983376983625,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/43337e210dce645c8847c257829029446acb864c41c33cd8717c9110105135e0.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 1.2,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 7.199873518639762,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 5.033567509376305,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1010.9375000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1009.3750000000001,
+                "upper_C": 1012.5000000000001,
+                "temperature_C": 1010.9375000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/3ec4dd97cd1c37ccb27b22505c1bce4fbd3d7e3bbfa44c56194751e5db6844e3.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/43337e210dce645c8847c257829029446acb864c41c33cd8717c9110105135e0.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/9e3ae86386da4a5099cc14866ab3f2c3/boundary_99391c1f5e03.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A005",
+        "phase_stability": "A011"
+      }
+    },
+    "Ni2_Er0.8_Zr0.8": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.30513141105188846,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/db508607dd9a592536f5f31ffd2d102652d96cc6ca96734edc1f896a936bcfa1.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 6.399130973006466,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 4.774900657847768,
+          "Al3Zr_660_mol_percent": 0.3576719810546872,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1048.4375,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1046.875,
+                "upper_C": 1050.0,
+                "temperature_C": 1048.4375,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/81c164d15f9173ff723b9aa0fd5a3ca8cd96e6ba74390ef20186a155566c71b4.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/db508607dd9a592536f5f31ffd2d102652d96cc6ca96734edc1f896a936bcfa1.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/7d83812d9fd743afb3f7dd82f2a19f61/boundary_52b248d03c19.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A006",
+        "phase_stability": "A009"
+      }
+    },
+    "Ni2_Er1_Zr0.4": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 1.0,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 1.0,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 1.2430275045890737,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/105cb2b437f84d15c8704c20b3f48beae02bb5972631df6fc813e21144de9087.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A006"
+      }
+    },
+    "Ni2_Er0.6_Zr0.6": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.30517584602511766,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/e01304db4713aa000cd74437a130c5e1d63248c84577b9018f6a3bfe4508219c.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.799098058514691,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 2.823255741776408,
+          "Al3Zr_660_mol_percent": 0.6857412083291328,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1004.6875000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1003.1250000000001,
+                "upper_C": 1006.2500000000001,
+                "temperature_C": 1004.6875000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/e01304db4713aa000cd74437a130c5e1d63248c84577b9018f6a3bfe4508219c.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/f04f9cfff7c14e6e53f221932ac2e8b8fca2898bc99eecb082ee26993271e81c.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/7d83812d9fd743afb3f7dd82f2a19f61/boundary_5b62a4049d2e.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8439846,
+          "terminal_solid_mol_percent": 99.99999999998741,
+          "ternary_mol_percent": 4.467463102927051,
+          "L12_mol_percent": 0.5130696596574008,
+          "Al3Ni_mol_percent": 4.337973961423171,
+          "Al3Zr_mol_percent": 2.0886920158414575,
+          "FR_K": 160.21938,
+          "CSC": 0.18834,
+          "HCS": 0.30175718029200005,
+          "max_phase_sum_error": 2.7755575615628914e-17,
+          "CSC_intervals": {
+            "relaxation": 0.4102277790620354,
+            "vulnerable": 0.07726270249778389
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/07f616914577025544772d74c4900385d95a03e1b182fadf5c92fc4b535896e4.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A006",
+        "phase_stability": "A009",
+        "solidification": "A014"
+      }
+    },
+    "Ni2_Er0.7_Zr0.5": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.4974089384030409,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/cab5292809a94c383ac7254f0f874af26cfff9488fc751644b484b3d0827a38b.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.799570020113973,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 3.4094578099227943,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 982.8125000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 981.2500000000001,
+                "upper_C": 984.3750000000001,
+                "temperature_C": 982.8125000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/09946b556671168b69234dbf5cdf13e5e12d2ab876ea5c4afc9c928be736f784.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/cab5292809a94c383ac7254f0f874af26cfff9488fc751644b484b3d0827a38b.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/93b702c9f8354418bda524cece04f056/boundary_8b9d8a1a11f8.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8571147,
+          "terminal_solid_mol_percent": 99.99999999999083,
+          "ternary_mol_percent": 5.083827351111283,
+          "L12_mol_percent": 0.7309060110836387,
+          "Al3Ni_mol_percent": 3.8918515341119897,
+          "Al3Zr_mol_percent": 1.5779251951622684,
+          "FR_K": 105.00813,
+          "CSC": 0.18975,
+          "HCS": 0.199252926675,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.42134040674288503,
+            "vulnerable": 0.07995104120963725
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a274145032c56aacf087cb012dfea62e4526f3bda60a648a440ddf589a799461.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A007",
+        "phase_stability": "A010",
+        "solidification": "A013"
+      }
+    },
+    "Ni2_Er0.9_Zr0.5": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.9,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.9,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.733349628992331,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8dcd82dd5281c122048fad14f9bf73ababb224d5c1f51b724a533b08fa4c52ff.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.9,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 5.599790378348763,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 3.7991133273475675,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 982.8125000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 981.2500000000001,
+                "upper_C": 984.3750000000001,
+                "temperature_C": 982.8125000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/7bec603d47375f8cc7f94a00a5f77fe1127c01550c0c428088065f533b53fb75.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8dcd82dd5281c122048fad14f9bf73ababb224d5c1f51b724a533b08fa4c52ff.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/9e3ae86386da4a5099cc14866ab3f2c3/boundary_efb476d919ce.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.9,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8670944,
+          "terminal_solid_mol_percent": 99.99999999999396,
+          "ternary_mol_percent": 6.232399501202075,
+          "L12_mol_percent": 1.2579715874975224,
+          "Al3Ni_mol_percent": 3.066656471217832,
+          "Al3Zr_mol_percent": 1.3031644035520977,
+          "FR_K": 150.53,
+          "CSC": 0.19013,
+          "HCS": 0.286202689,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.41926824318134853,
+            "vulnerable": 0.0797157211219659
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/c19d902ba1f7d3b5c66b90404c709690277b9d5efa009d703cb0d3cfd9331221.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A007",
+        "phase_stability": "A011",
+        "solidification": "A015"
+      }
+    },
+    "Ni1.5_Er0.7_Zr0.5": {
+      "composition": {
+        "Ni": 1.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.49741305442882283,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8d5196fd3cb4012bd0aceafcc80d95f1ca84fc335fb107eb1dab3fb71b87fdef.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.799559042251607,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 3.406945665642188,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 976.5625000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 975.0000000000001,
+                "upper_C": 978.1250000000001,
+                "temperature_C": 976.5625000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8d5196fd3cb4012bd0aceafcc80d95f1ca84fc335fb107eb1dab3fb71b87fdef.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/e8473cfbba190093534120e7702ac2debf105724bcb4164ab731124ddca5892e.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/93b702c9f8354418bda524cece04f056/boundary_4f71ce154d5d.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8553404,
+          "terminal_solid_mol_percent": 99.99999999999486,
+          "ternary_mol_percent": 5.04480637516457,
+          "L12_mol_percent": 0.7741570502632523,
+          "Al3Ni_mol_percent": 1.9587654486734531,
+          "Al3Zr_mol_percent": 1.5496836217400733,
+          "FR_K": 106.04,
+          "CSC": 0.1922,
+          "HCS": 0.20380888000000003,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.42249028017195234,
+            "vulnerable": 0.08120135187501465
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/226eba71d6896d8dc86da7b78eaf6396d9f1330f64424f57203e88c2024f2b84.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A007",
+        "phase_stability": "A010",
+        "solidification": "A013"
+      }
+    },
+    "Ni2.5_Er0.7_Zr0.5": {
+      "composition": {
+        "Ni": 2.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.5,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.49740482234092515,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/4ddab075527aa4a10cb0e3d5cfe5f414271b918d977d84f500734508bb4363f8.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.5,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.799580998236333,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 3.413845889330353,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 985.9375000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 984.3750000000001,
+                "upper_C": 987.5000000000001,
+                "temperature_C": 985.9375000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/4ddab075527aa4a10cb0e3d5cfe5f414271b918d977d84f500734508bb4363f8.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/63828902c879fef2589da204f72f6c21e618137b4ab906af036d57a6357727b6.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/93b702c9f8354418bda524cece04f056/boundary_5edb06a9a374.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.5,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8666452,
+          "terminal_solid_mol_percent": 100.00000000009386,
+          "ternary_mol_percent": 5.119161594662626,
+          "L12_mol_percent": 0.6916700671559138,
+          "Al3Ni_mol_percent": 5.85222987229049,
+          "Al3Zr_mol_percent": 1.6036701587303277,
+          "FR_K": 104.49812,
+          "CSC": 0.18876,
+          "HCS": 0.197250651312,
+          "max_phase_sum_error": 5.551115123125783e-17,
+          "CSC_intervals": {
+            "relaxation": 0.4185065630960083,
+            "vulnerable": 0.07899598351056847
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/f9f9f4e07bf99b40927e6be87265a7f06e7e13d7fac734d93ddb60b917522431.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A008",
+        "phase_stability": "A010",
+        "solidification": "A013"
+      }
+    },
+    "Ni3_Er0.7_Zr0.5": {
+      "composition": {
+        "Ni": 3.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 3.0,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.4974007062424537,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/32066d6bc2f4a874e903e9b53d77c97e8ab372c55bc2fca5a1612539756d3af6.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 3.0,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.7995919766186725,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 3.419846774187222,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 989.0625000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 987.5000000000001,
+                "upper_C": 990.6250000000001,
+                "temperature_C": 989.0625000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/2219b3cbe0c01a1a2c47df2c623a1d7ca48073be867fac6f3fe9fd487cc60961.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/32066d6bc2f4a874e903e9b53d77c97e8ab372c55bc2fca5a1612539756d3af6.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/7d83812d9fd743afb3f7dd82f2a19f61/boundary_684ddde76ace.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 3.0,
+            "Er": 0.7,
+            "Zr": 0.5,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8466602,
+          "terminal_solid_mol_percent": 99.99999999990405,
+          "ternary_mol_percent": 5.163909561009817,
+          "L12_mol_percent": 0.6459848893673746,
+          "Al3Ni_mol_percent": 7.823138173345831,
+          "Al3Zr_mol_percent": 1.6264773604977165,
+          "FR_K": 104.43437,
+          "CSC": 0.18836,
+          "HCS": 0.196712579332,
+          "max_phase_sum_error": 5.551115123125783e-17,
+          "CSC_intervals": {
+            "relaxation": 0.414452777503524,
+            "vulnerable": 0.07806832974922362
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/6111bb115ac8a88823239df3e1ff1994cce14314d4168d7c810f5a95fadf175c.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A008",
+        "phase_stability": "A009",
+        "solidification": "A014"
+      }
+    },
+    "Ni2_Er0.6_Zr0.8": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.2780451821674913,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/d850fd82406187aff88fcfb8b82307e5f6402387705d90503dc945949b366fec.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.965935501701543,
+          "Al3Zr_250_mol_percent": 0.6330478836992639,
+          "L12_660_mol_percent": 2.847034682492394,
+          "Al3Zr_660_mol_percent": 1.4728176797385981,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1045.3125,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 543.75,
+                "upper_C": 546.875,
+                "temperature_C": 545.3125,
+                "liquid_present": false
+              },
+              {
+                "lower_C": 1043.75,
+                "upper_C": 1046.875,
+                "temperature_C": 1045.3125,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/d850fd82406187aff88fcfb8b82307e5f6402387705d90503dc945949b366fec.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/f87484588e77e088f9fbdc3034497482366098115951d9d4d313baf7efa4b20b.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/e4097bb6a9d141cf86366cf45e3265c4/boundary_30d3052df15a.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8597384,
+          "terminal_solid_mol_percent": 99.99999999998525,
+          "ternary_mol_percent": 4.462435557951217,
+          "L12_mol_percent": 0.5181902648845305,
+          "Al3Ni_mol_percent": 4.344383487411444,
+          "Al3Zr_mol_percent": 2.8867470733382268,
+          "FR_K": 279.97625,
+          "CSC": 0.1864,
+          "HCS": 0.52187573,
+          "max_phase_sum_error": 5.551115123125783e-17,
+          "CSC_intervals": {
+            "relaxation": 0.3913853751851236,
+            "vulnerable": 0.07295290419993095
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/617f9ff3ca774729093804ec1779acf229ac84156c94beace02ee0cf09c68b9c.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A030",
+        "phase_stability": "A032",
+        "solidification": "A034"
+      }
+    },
+    "Ni1.5_Er0.8_Zr0.8": {
+      "composition": {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.8,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.3051343091458811,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/1e13f9f721423b90132763bd6ee7f394bc7588a627c1886b83f157da3bfc4a89.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.8,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 6.399109214980142,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 4.793125590093793,
+          "Al3Zr_660_mol_percent": 0.34193439895921385,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1042.1875,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1040.625,
+                "upper_C": 1043.75,
+                "temperature_C": 1042.1875,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/1e13f9f721423b90132763bd6ee7f394bc7588a627c1886b83f157da3bfc4a89.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/3d9343d912fbdb7eb0f16b27ed33447b96176f97b75791e856d2f66f15486fba.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/e4097bb6a9d141cf86366cf45e3265c4/boundary_74122fd09f44.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.8,
+            "Zr": 0.8,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8530411,
+          "terminal_solid_mol_percent": 99.99999999999154,
+          "ternary_mol_percent": 5.605666105233814,
+          "L12_mol_percent": 1.0517520538987941,
+          "Al3Ni_mol_percent": 1.5602644867026731,
+          "Al3Zr_mol_percent": 2.60659140555604,
+          "FR_K": 277.49812,
+          "CSC": 0.18851,
+          "HCS": 0.523111706012,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.3905318477366323,
+            "vulnerable": 0.07361814297500913
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/58e7adf490182d4140d8a20c3ecc53243265773d198227e79f9036d7f84bbd8a.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A030",
+        "phase_stability": "A032",
+        "solidification": "A034"
+      }
+    },
+    "Ni2_Er0.8_Zr0.6": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.46230626678406517,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/478942125e12a36b96c86a66c5e40a5926866ead382023ba9f601613486ed2dd.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 5.599529640076273,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 4.172990103661302,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1007.8125000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1006.2500000000001,
+                "upper_C": 1009.3750000000001,
+                "temperature_C": 1007.8125000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/478942125e12a36b96c86a66c5e40a5926866ead382023ba9f601613486ed2dd.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/92b95e95283d08bb8b81557baa0452bb494c7b44a0a22524601b9da9bc4a32ca.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/e4097bb6a9d141cf86366cf45e3265c4/boundary_ac5d02c3a5cb.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.8,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8657936000001,
+          "terminal_solid_mol_percent": 99.9999999999924,
+          "ternary_mol_percent": 5.6671508620349895,
+          "L12_mol_percent": 0.9840882074361776,
+          "Al3Ni_mol_percent": 3.4736817354955285,
+          "Al3Zr_mol_percent": 1.8472903815513464,
+          "FR_K": 179.73313,
+          "CSC": 0.18866,
+          "HCS": 0.33908452305799996,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.40835391965876566,
+            "vulnerable": 0.07703827916706607
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/856252a6e6cabf22ddd798b9047f263620306e0f4cf8b10c93747567fdf123a7.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A030",
+        "phase_stability": "A032",
+        "solidification": "A034"
+      }
+    },
+    "Ni2_Er0.4_Zr0.6": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.4,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.2780451849737186,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/c5065f134b64e7bbbd5a354d64b7717a86beee61288b36bdf2785f935ed93202.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.4,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 3.3106236723675173,
+          "Al3Zr_250_mol_percent": 0.6883237312623841,
+          "L12_660_mol_percent": 0.8954716968449744,
+          "Al3Zr_660_mol_percent": 1.8008504551707376,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1004.6875000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1003.1250000000001,
+                "upper_C": 1006.2500000000001,
+                "temperature_C": 1004.6875000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/3c9cf19056f79aee4a06382c3a89d3b89d7b404622e945fd420e8c109eec962e.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/c5065f134b64e7bbbd5a354d64b7717a86beee61288b36bdf2785f935ed93202.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/3058ebbcc10944f6b34980375d8f2e67/boundary_13e9870e957e.json"
+          ]
+        },
+        "solidification": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.4,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "terminal_temperature_C": 638.8701695,
+          "terminal_solid_mol_percent": 99.99999999997694,
+          "ternary_mol_percent": 3.157039893205383,
+          "L12_mol_percent": 0.15667644057129568,
+          "Al3Ni_mol_percent": 5.287510314448574,
+          "Al3Zr_mol_percent": 2.2620128674573565,
+          "FR_K": 158.53,
+          "CSC": 0.1882,
+          "HCS": 0.29835346,
+          "max_phase_sum_error": 1.1102230246251565e-16,
+          "CSC_intervals": {
+            "relaxation": 0.41159584254460074,
+            "vulnerable": 0.07746123044645858
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/b7554d43800a0ad181733c95da0e2b3e938e017bb9e314272058fa6359ec534d.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A031",
+        "phase_stability": "A033",
+        "solidification": "A035"
+      }
+    },
+    "Ni1.5_Er0.6_Zr0.6": {
+      "composition": {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.6,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.3051797096863133,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/338bf647a5b414ca21f219f003af94b5f4ec2b8124423804c8de9f5ecae9c6cc.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 1.5,
+            "Er": 0.6,
+            "Zr": 0.6,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 4.799076309150559,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 2.842690514277476,
+          "Al3Zr_660_mol_percent": 0.669420590758383,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 1001.5625000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 1000.0000000000001,
+                "upper_C": 1003.1250000000001,
+                "temperature_C": 1001.5625000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/338bf647a5b414ca21f219f003af94b5f4ec2b8124423804c8de9f5ecae9c6cc.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/34c3833824901a20a4100d888d167227643cc99740bb1d728d6a541ddd95c877.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/3058ebbcc10944f6b34980375d8f2e67/boundary_52f4cf7cbc1a.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A031",
+        "phase_stability": "A033"
+      }
+    },
+    "Ni2_Er0.6_Zr0.4": {
+      "composition": {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "methods": {
+        "coarsening": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "J": 0.5523388129210434,
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/44d252b91fa93484b93d01120236f5c577922e257e259e39f49c1ff821e69ac4.json"
+          ]
+        },
+        "phase_stability": {
+          "composition_percent": {
+            "Ni": 2.0,
+            "Er": 0.6,
+            "Zr": 0.4,
+            "Y": 0.0,
+            "Yb": 0.0
+          },
+          "basis": "atomic_percent",
+          "status": "complete",
+          "L12_250_mol_percent": 3.9996257054065447,
+          "Al3Zr_250_mol_percent": 0,
+          "L12_660_mol_percent": 2.6559149404720643,
+          "Al3Zr_660_mol_percent": 0,
+          "Al3Zr_boundary": {
+            "status": "bracketed",
+            "upper_temperature_C": 951.5625000000001,
+            "precision_K": 5.0,
+            "liquid_at_upper_boundary": true,
+            "disappearance_intervals": [
+              {
+                "lower_C": 950.0000000000001,
+                "upper_C": 953.1250000000001,
+                "temperature_C": 951.5625000000001,
+                "liquid_present": true
+              }
+            ]
+          },
+          "records": [
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/44d252b91fa93484b93d01120236f5c577922e257e259e39f49c1ff821e69ac4.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/b08993938e868bc9bde2dce778cb648dc44c0daf2e7f6ca201d9983c48a03dcd.json",
+            "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/3058ebbcc10944f6b34980375d8f2e67/boundary_abed2f7e3ce3.json"
+          ]
+        }
+      },
+      "sources": {
+        "coarsening": "A031",
+        "phase_stability": "A033"
+      }
+    }
+  }
+}

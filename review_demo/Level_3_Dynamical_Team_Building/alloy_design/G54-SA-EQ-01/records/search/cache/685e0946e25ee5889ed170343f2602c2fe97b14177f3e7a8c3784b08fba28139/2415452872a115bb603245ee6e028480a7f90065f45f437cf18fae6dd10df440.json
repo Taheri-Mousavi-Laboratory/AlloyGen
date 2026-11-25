@@ -1,0 +1,60 @@
+{
+  "identity": {
+    "kind": "equilibrium",
+    "composition_percent": {
+      "Ni": 2.0,
+      "Er": 0.9,
+      "Zr": 0.5,
+      "Y": 0.0,
+      "Yb": 0.0
+    },
+    "basis": "atomic_percent",
+    "temperature_K": 1254.4,
+    "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+  },
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/2415452872a115bb603245ee6e028480a7f90065f45f437cf18fae6dd10df440.json",
+  "temperature_K": 1254.4,
+  "bulk_mole_fractions": {
+    "Al": 0.9659999999980685,
+    "Ni": 0.019999999999959883,
+    "Er": 0.00899999999998202,
+    "Zr": 0.0049999999999901165,
+    "Y": 9.997344667197128e-13,
+    "Yb": 9.997344667197128e-13
+  },
+  "input_condition_error": 9.997344667197128e-13,
+  "phases": [
+    {
+      "name": "AL3M_D023#1",
+      "mole_fraction": 0.00026553328028688336,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.0,
+        "Er": 0.0,
+        "Zr": 0.25,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    },
+    {
+      "name": "LIQUID#1",
+      "mole_fraction": 0.999734466719713,
+      "composition_mole_fraction": {
+        "Al": 0.9660573704203664,
+        "Ni": 0.020005312076098614,
+        "Er": 0.00900239043424445,
+        "Zr": 0.00493492706729055,
+        "Y": 1e-12,
+        "Yb": 1e-12
+      }
+    }
+  ],
+  "checks": {
+    "phase_sum_error": 1.1102230246251565e-16,
+    "max_component_balance_error": 2.0194839173657902e-28,
+    "max_phase_composition_sum_error": 0.0,
+    "input_condition_error": 9.997344667197128e-13
+  },
+  "seconds": 0.43399031087756157
+}

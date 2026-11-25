@@ -1,0 +1,27 @@
+Follow-up audit and refinement summary
+
+Implemented calculation vs task statement
+- Candidate compositions were handled directly in at.% Ni/Er/Zr, with Al balance.
+- The fixed scientific methods evaluate_coarsening, evaluate_phase_stability and evaluate_solidification were used.
+- Phase feasibility was checked as equilibrium L12 at 660 C <= 1.05 mol%.
+- Saved outputs include unsuccessful/partial calculations and repaired record-based parsing.
+
+Audit outcome
+- Previous records audited: coarsening=14, phase=10, solidification=7.
+- After audit and follow-up, feasible valid-J candidates found: 0.
+- No measured candidate has yet been shown to satisfy both valid J and the 660 C L12 feasibility requirement.
+
+Follow-up candidate reasons
+- N2.00_E0.60_Z0.80: chosen to bracket the blocking 660 C feasibility boundary on the lowest-J measured branches or fill a consequential evidence gap.
+- N1.50_E0.80_Z0.80: chosen to bracket the blocking 660 C feasibility boundary on the lowest-J measured branches or fill a consequential evidence gap.
+- N2.00_E0.80_Z0.60: chosen to bracket the blocking 660 C feasibility boundary on the lowest-J measured branches or fill a consequential evidence gap.
+- N2.00_E0.40_Z0.60: chosen to bracket the blocking 660 C feasibility boundary on the lowest-J measured branches or fill a consequential evidence gap.
+- N1.50_E0.60_Z0.60: chosen to bracket the blocking 660 C feasibility boundary on the lowest-J measured branches or fill a consequential evidence gap.
+- N2.00_E0.60_Z0.40: chosen to bracket the blocking 660 C feasibility boundary on the lowest-J measured branches or fill a consequential evidence gap.
+
+No defensible shortlist recommendation yet from measured evidence; the hard 660 C L12 feasibility screen remains unresolved or unmet on the measured low-J branches.
+
+Limits
+- This is an in-silico design investigation, not an experimental strength or printability prediction.
+- Terminal Scheil phase amounts were not interpreted as aged precipitate fractions.
+- If shortlist evidence remains insufficient, the next concrete work is narrower phase-bracketing centered on the lowest-J branches in the updated comparison table.

@@ -1,0 +1,12 @@
+{
+  "kind": "phase_stability",
+  "compositions": [
+    {
+      "Ni": 1.0,
+      "Er": 0.4,
+      "Zr": 0.8,
+      "Y": 0.0,
+      "Yb": 0.0
+    }
+  ]
+}

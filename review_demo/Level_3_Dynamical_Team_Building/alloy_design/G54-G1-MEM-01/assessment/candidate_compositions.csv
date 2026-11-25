@@ -1,0 +1,6 @@
+candidate,Ni,Er,Zr,Y,Yb,methods
+C001,1.5,0.4,0.4,0.0,0.0,phase_stability;coarsening;solidification
+C002,1.5,0.8,0.8,0.0,0.0,phase_stability
+C003,1.5,0.4,1.2,0.0,0.0,phase_stability;coarsening
+C004,1.5,0.4,0.8,0.0,0.0,phase_stability;coarsening;solidification
+C005,1.0,0.4,0.8,0.0,0.0,coarsening;phase_stability;solidification

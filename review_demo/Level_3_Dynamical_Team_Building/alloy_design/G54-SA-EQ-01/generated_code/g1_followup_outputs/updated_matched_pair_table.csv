@@ -1,0 +1,4 @@
+comparison,case_A,case_B,service_L12_change_molpct,highT_L12_change_molpct,A_margin_to_limit,B_margin_to_limit,competing_phase_cost
+"Er at fixed Ni=2.0, Zr=0.5",N2.00_E0.70_Z0.50,N2.00_E0.90_Z0.50,,,,,Al3Zr@250C nan -> nan; boundary nan -> nan
+"Ni at fixed Er=0.7, Zr=0.5",N1.50_E0.70_Z0.50,N2.50_E0.70_Z0.50,,,,,Al3Zr@250C nan -> nan; boundary nan -> nan
+coupled Er/Zr at fixed Ni=2.0,N2.00_E0.80_Z0.40,N2.00_E0.60_Z0.60,,,,,Al3Zr@250C nan -> nan; boundary nan -> nan

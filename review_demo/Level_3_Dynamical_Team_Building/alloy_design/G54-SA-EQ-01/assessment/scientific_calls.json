@@ -1,0 +1,1203 @@
+[
+  {
+    "author_call_id": "A001",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:38:20.745122+00:00",
+    "seconds": 12.208002084866166,
+    "result": "outputs/G54_SA_EQ_01/search/calls/e97ae03338204123b6bd166226e39f3d/result.json",
+    "usage": {
+      "equilibrium_calls": 1,
+      "scheil_calls": 0,
+      "cache_hits": 1,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A002",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:38:34.622949+00:00",
+    "seconds": 19.0640787165612,
+    "result": "outputs/G54_SA_EQ_01/search/calls/d9b21f2fc2cf42eabbfeb3ff70733ad3/result.json",
+    "usage": {
+      "equilibrium_calls": 18,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A003",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:38:55.672662+00:00",
+    "seconds": 30.745335929095745,
+    "result": "outputs/G54_SA_EQ_01/search/calls/5e880c35e3764ee0a066a60e29602132/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 1,
+      "cache_hits": 0,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A004",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 1.0,
+        "Er": 0.4,
+        "Zr": 0.2,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.0,
+        "Er": 0.8,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.0,
+        "Er": 1.2,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:39:28.249682+00:00",
+    "seconds": 12.551396595314145,
+    "result": "outputs/G54_SA_EQ_01/search/calls/7b18776f98c243c19afb5bdbfa00e73a/result.json",
+    "usage": {
+      "equilibrium_calls": 3,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A005",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.2,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 1.2,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:39:42.448727+00:00",
+    "seconds": 12.574048474431038,
+    "result": "outputs/G54_SA_EQ_01/search/calls/56c43b46741842508ce607c6f08d155e/result.json",
+    "usage": {
+      "equilibrium_calls": 3,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A006",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 1.0,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:39:56.727819+00:00",
+    "seconds": 12.610478196293116,
+    "result": "outputs/G54_SA_EQ_01/search/calls/722b35e26d784e608d70fd1626024fc3/result.json",
+    "usage": {
+      "equilibrium_calls": 3,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A007",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.9,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:40:11.121580+00:00",
+    "seconds": 13.297196466475725,
+    "result": "outputs/G54_SA_EQ_01/search/calls/36b1f1793f004e4f98a9d44079e22908/result.json",
+    "usage": {
+      "equilibrium_calls": 3,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A008",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 3.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:40:26.117648+00:00",
+    "seconds": 12.137032851576805,
+    "result": "outputs/G54_SA_EQ_01/search/calls/1c91d2654f72423ebbcde26687989178/result.json",
+    "usage": {
+      "equilibrium_calls": 2,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A009",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 3.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:40:40.074517+00:00",
+    "seconds": 36.262150064110756,
+    "result": "outputs/G54_SA_EQ_01/search/calls/7d83812d9fd743afb3f7dd82f2a19f61/result.json",
+    "usage": {
+      "equilibrium_calls": 54,
+      "scheil_calls": 0,
+      "cache_hits": 26,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A010",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:41:18.502319+00:00",
+    "seconds": 36.08682892099023,
+    "result": "outputs/G54_SA_EQ_01/search/calls/93b702c9f8354418bda524cece04f056/result.json",
+    "usage": {
+      "equilibrium_calls": 54,
+      "scheil_calls": 0,
+      "cache_hits": 26,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A011",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.9,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 1.2,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.0,
+        "Er": 1.2,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:41:57.183064+00:00",
+    "seconds": 36.59677383489907,
+    "result": "outputs/G54_SA_EQ_01/search/calls/9e3ae86386da4a5099cc14866ab3f2c3/result.json",
+    "usage": {
+      "equilibrium_calls": 54,
+      "scheil_calls": 0,
+      "cache_hits": 26,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A012",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:42:35.830511+00:00",
+    "seconds": 19.571528719738126,
+    "result": "outputs/G54_SA_EQ_01/search/calls/e3c3352203e3407e8722f4975fab5266/result.json",
+    "usage": {
+      "equilibrium_calls": 18,
+      "scheil_calls": 0,
+      "cache_hits": 22,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A013",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [
+      {
+        "Ni": 1.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:42:57.423689+00:00",
+    "seconds": 75.48484799824655,
+    "result": "outputs/G54_SA_EQ_01/search/calls/ae9541eafd354431bb7826cc9f32e279/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 3,
+      "cache_hits": 1,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A014",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [
+      {
+        "Ni": 3.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:44:14.788929+00:00",
+    "seconds": 82.10919923894107,
+    "result": "outputs/G54_SA_EQ_01/search/calls/4b305f4142064029afe3e1ad74915e4e/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 3,
+      "cache_hits": 1,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A015",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.9,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:45:38.788508+00:00",
+    "seconds": 33.54401604831219,
+    "result": "outputs/G54_SA_EQ_01/search/calls/df3b58cfce234ed6a9535870389f6d45/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 1,
+      "cache_hits": 1,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A016",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:47:25.644776+00:00",
+    "seconds": 13.166165949776769,
+    "result": "outputs/G54_SA_EQ_01/search/calls/2ffc0c4b3f254b4e82add530646fbd13/result.json",
+    "usage": {
+      "equilibrium_calls": 3,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A017",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:47:40.501415+00:00",
+    "seconds": 12.442596059292555,
+    "result": "outputs/G54_SA_EQ_01/search/calls/5d08123fe4384bcd86d34982d9604d29/result.json",
+    "usage": {
+      "equilibrium_calls": 3,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A018",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:47:54.636570+00:00",
+    "seconds": 37.96898785606027,
+    "result": "outputs/G54_SA_EQ_01/search/calls/300ecad0b6da47a9a5a6503763c3a760/result.json",
+    "usage": {
+      "equilibrium_calls": 59,
+      "scheil_calls": 0,
+      "cache_hits": 26,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A019",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:48:34.914920+00:00",
+    "seconds": 37.18062084726989,
+    "result": "outputs/G54_SA_EQ_01/search/calls/93a7411c9c8c4cb7927af66687c3ba90/result.json",
+    "usage": {
+      "equilibrium_calls": 54,
+      "scheil_calls": 0,
+      "cache_hits": 26,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A020",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:50:15.292445+00:00",
+    "seconds": 0.03423727862536907,
+    "result": "outputs/G54_SA_EQ_01/search/calls/8e06646318ed41e186b02a179e82b9a6/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 5,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A021",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:50:15.836144+00:00",
+    "seconds": 0.03042268566787243,
+    "result": "outputs/G54_SA_EQ_01/search/calls/dfae383a3a64463ca099eab5b69fd147/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 5,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A022",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:50:16.405357+00:00",
+    "seconds": 0.1297034751623869,
+    "result": "outputs/G54_SA_EQ_01/search/calls/a841182f9a7144e19f16bbf455ec4f8e/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 85,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A023",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:50:17.056271+00:00",
+    "seconds": 0.11637785844504833,
+    "result": "outputs/G54_SA_EQ_01/search/calls/992cc002bd0e416d83d5a64c279237a6/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 80,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A024",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:51:20.745013+00:00",
+    "seconds": 0.036255184561014175,
+    "result": "outputs/G54_SA_EQ_01/search/calls/af38911923a543659c61c8d9eb727b7e/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 5,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A025",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:51:21.330307+00:00",
+    "seconds": 0.030152859166264534,
+    "result": "outputs/G54_SA_EQ_01/search/calls/3288da6866ed4b628ffb9b36fc9ebced/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 5,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A026",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:51:21.889368+00:00",
+    "seconds": 0.10190343856811523,
+    "result": "outputs/G54_SA_EQ_01/search/calls/392f5e6ae4c644749b79efd9d8b80ef9/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 85,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A027",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:51:22.519078+00:00",
+    "seconds": 0.1043545100837946,
+    "result": "outputs/G54_SA_EQ_01/search/calls/18ba9049c95a432ea2010e49b541f459/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 80,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A028",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:51:23.189331+00:00",
+    "seconds": 81.33569172397256,
+    "result": "outputs/G54_SA_EQ_01/search/calls/6406328d0f6745b3bfac6f5ef5bf6c17/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 3,
+      "cache_hits": 1,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A029",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:52:46.427069+00:00",
+    "seconds": 32.91777824983001,
+    "result": "outputs/G54_SA_EQ_01/search/calls/03acaf0baee8438cadb57c9204c2fe53/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 1,
+      "cache_hits": 1,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A030",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:54:19.755343+00:00",
+    "seconds": 0.04496566019952297,
+    "result": "outputs/G54_SA_EQ_01/search/calls/7241127699b84a52b9a754a7399e059e/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 5,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A031",
+    "group": "search",
+    "kind": "coarsening",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:54:20.376308+00:00",
+    "seconds": 0.030339689925312996,
+    "result": "outputs/G54_SA_EQ_01/search/calls/b41448ce485e4208a7b3d6d00bace431/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 5,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A032",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:54:20.956823+00:00",
+    "seconds": 0.09541372023522854,
+    "result": "outputs/G54_SA_EQ_01/search/calls/e4097bb6a9d141cf86366cf45e3265c4/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 85,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A033",
+    "group": "search",
+    "kind": "phase_stability",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.6,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:54:21.618220+00:00",
+    "seconds": 0.0919952318072319,
+    "result": "outputs/G54_SA_EQ_01/search/calls/3058ebbcc10944f6b34980375d8f2e67/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 80,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A034",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.6,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 1.5,
+        "Er": 0.8,
+        "Zr": 0.8,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      {
+        "Ni": 2.0,
+        "Er": 0.8,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:54:22.303562+00:00",
+    "seconds": 0.047167010605335236,
+    "result": "outputs/G54_SA_EQ_01/search/calls/8b59241b6ce842ee802502eef0112477/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 4,
+      "paid_model_calls": 0
+    }
+  },
+  {
+    "author_call_id": "A035",
+    "group": "search",
+    "kind": "solidification",
+    "compositions": [
+      {
+        "Ni": 2.0,
+        "Er": 0.4,
+        "Zr": 0.6,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    ],
+    "status": "complete",
+    "started_UTC": "2026-11-20T06:54:22.903676+00:00",
+    "seconds": 0.033976297825574875,
+    "result": "outputs/G54_SA_EQ_01/search/calls/33cee2d7ba394135b23354026ea44c04/result.json",
+    "usage": {
+      "equilibrium_calls": 0,
+      "scheil_calls": 0,
+      "cache_hits": 2,
+      "paid_model_calls": 0
+    }
+  }
+]

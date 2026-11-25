@@ -1,0 +1,72 @@
+{
+  "identity": {
+    "kind": "equilibrium",
+    "composition_percent": {
+      "Ni": 2.0,
+      "Er": 0.8,
+      "Zr": 0.8,
+      "Y": 0.0,
+      "Yb": 0.0
+    },
+    "basis": "atomic_percent",
+    "temperature_K": 623.15,
+    "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+  },
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/9649c80f7b43a62a7e6b06a2dc1090c3afc94e704caccc6f4df4e6e8182b8215.json",
+  "temperature_K": 623.15,
+  "bulk_mole_fractions": {
+    "Al": 0.9639999999542823,
+    "Ni": 0.0199999999999943,
+    "Er": 0.008000000002290055,
+    "Zr": 0.00799999999999913,
+    "Y": 2.0619304736540217e-11,
+    "Yb": 2.2814895319387542e-11
+  },
+  "input_condition_error": 2.2814895319387542e-11,
+  "phases": [
+    {
+      "name": "AL3M_L12#1",
+      "mole_fraction": 0.06393930952800858,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 1.56029419283353e-05,
+        "Er": 0.12511864861363833,
+        "Zr": 0.12486574779192054,
+        "Y": 3.090870604883812e-10,
+        "Yb": 3.434257263115639e-10
+      }
+    },
+    {
+      "name": "AL3NI1#1",
+      "mole_fraction": 0.07956918560069184,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.25,
+        "Er": 0.0,
+        "Zr": 0.0,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    },
+    {
+      "name": "FCC_A1#1",
+      "mole_fraction": 0.8564915048712994,
+      "composition_mole_fraction": {
+        "Al": 0.9998565353388287,
+        "Ni": 0.0001245849583807271,
+        "Er": 1e-12,
+        "Zr": 1.8879699790714972e-05,
+        "Y": 1e-12,
+        "Yb": 1e-12
+      }
+    }
+  ],
+  "checks": {
+    "phase_sum_error": 1.1102230246251565e-16,
+    "max_component_balance_error": 3.2311742677852644e-27,
+    "max_phase_composition_sum_error": 2.220446049250313e-16,
+    "input_condition_error": 2.2814895319387542e-11
+  },
+  "seconds": 0.5989162027835846
+}

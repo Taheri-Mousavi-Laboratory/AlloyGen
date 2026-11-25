@@ -1,0 +1,15 @@
+composition_id,stage,reason
+N1.00_E0.40_Z0.20,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N1.00_E0.80_Z0.40,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N1.00_E1.20_Z0.60,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N2.00_E0.40_Z0.20,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N2.00_E0.80_Z0.40,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N2.00_E1.20_Z0.60,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N2.00_E0.80_Z0.80,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N2.00_E1.00_Z0.40,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N2.00_E0.60_Z0.60,initial screening,establish feasible incumbent and expose Er/Zr balance at low/moderate Ni with small informative spread
+N2.00_E0.70_Z0.50,Er/Zr refinement,test whether local Er/Zr rebalance can preserve low J while improving service L12 and/or reducing Al3Zr cost
+N2.00_E0.90_Z0.50,Er/Zr refinement,test whether local Er/Zr rebalance can preserve low J while improving service L12 and/or reducing Al3Zr cost
+N1.50_E0.70_Z0.50,matched-branch Ni comparison,"at fixed retained Er/Zr branch, compare ternary reservoir gain against Al3Ni/L12/FR/CSC/HCS costs"
+N2.50_E0.70_Z0.50,matched-branch Ni comparison,"at fixed retained Er/Zr branch, compare ternary reservoir gain against Al3Ni/L12/FR/CSC/HCS costs"
+N3.00_E0.70_Z0.50,matched-branch Ni comparison,"at fixed retained Er/Zr branch, compare ternary reservoir gain against Al3Ni/L12/FR/CSC/HCS costs"

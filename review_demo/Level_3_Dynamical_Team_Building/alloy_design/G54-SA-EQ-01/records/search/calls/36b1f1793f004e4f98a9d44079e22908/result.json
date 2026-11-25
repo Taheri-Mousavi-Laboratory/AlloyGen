@@ -1,0 +1,84 @@
+{
+  "tool": "evaluate_coarsening",
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/36b1f1793f004e4f98a9d44079e22908/result.json",
+  "started_UTC": "2026-11-20T06:40:11.121580+00:00",
+  "reference": {
+    "composition_percent": {
+      "Ni": 2.14,
+      "Er": 1.35,
+      "Zr": 1.15,
+      "Y": 0.25,
+      "Yb": 0.73
+    },
+    "basis": "mass_percent",
+    "status": "complete",
+    "J": 1.0,
+    "records": [
+      "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/65400d5b07d712d528fb8805733e2c79be42627f996134d515745a2d51117f93.json"
+    ]
+  },
+  "results": [
+    {
+      "composition_percent": {
+        "Ni": 2.0,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "basis": "atomic_percent",
+      "status": "complete",
+      "J": 0.4974089384030409,
+      "records": [
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/cab5292809a94c383ac7254f0f874af26cfff9488fc751644b484b3d0827a38b.json"
+      ]
+    },
+    {
+      "composition_percent": {
+        "Ni": 2.0,
+        "Er": 0.9,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "basis": "atomic_percent",
+      "status": "complete",
+      "J": 0.733349628992331,
+      "records": [
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8dcd82dd5281c122048fad14f9bf73ababb224d5c1f51b724a533b08fa4c52ff.json"
+      ]
+    },
+    {
+      "composition_percent": {
+        "Ni": 1.5,
+        "Er": 0.7,
+        "Zr": 0.5,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "basis": "atomic_percent",
+      "status": "complete",
+      "J": 0.49741305442882283,
+      "records": [
+        "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8d5196fd3cb4012bd0aceafcc80d95f1ca84fc335fb107eb1dab3fb71b87fdef.json"
+      ]
+    }
+  ],
+  "units": {
+    "candidate_compositions": "at.%; Al balance",
+    "reference_composition": "wt.%; Al balance",
+    "J": "m/m_reference; lower is better"
+  },
+  "method_version": "design_indicators_v1_20261107",
+  "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139",
+  "usage": {
+    "equilibrium_calls": 3,
+    "scheil_calls": 0,
+    "cache_hits": 2,
+    "paid_model_calls": 0
+  },
+  "provenance": "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/calls/36b1f1793f004e4f98a9d44079e22908/provenance.json",
+  "inputs_unchanged": true,
+  "seconds": 13.297196466475725
+}

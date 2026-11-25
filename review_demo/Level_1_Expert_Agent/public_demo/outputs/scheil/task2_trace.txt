@@ -1,0 +1,2222 @@
+User_Proxy (to Assistant):
+
+
+Task:
+
+Find the temperature where 80% is solidified as precisely as possible for the given composition:
+Fe - 1 wt-% C - 10 wt-% Cr
+
+Use the function scipy.interpolate.interp1d
+
+Please solve the task, save the result in a json file and plot it in a png file. 
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+**Plan:**
+
+1. **Interpret the Task:**
+   - **Alloy Composition:** Fe - 1 wt-% C - 10 wt-% Cr
+   - **Objective:** Determine the temperature where 80% of the alloy is solidified.
+   - **Method:** Use `scipy.interpolate.interp1d` for precise interpolation.
+   - **Output:** Temperature at 80% solidification
+   - **Units:** Temperature in Kelvin
+
+2. **Preparation:**
+   - Use Thermo-Calc via `tc_python` to perform a Scheil calculation.
+   - Use interpolation to find the precise temperature at 80% solidification.
+
+3. **Execution:**
+   - Write Python code to perform the Scheil calculation.
+   - Use `scipy.interpolate.interp1d` to interpolate the solid fraction data.
+   - Save the result in a JSON file.
+   - Plot the solid fraction as a function of temperature and mark the 80% solidification point.
+
+4. **Verification:**
+   - Ensure the calculated temperature corresponds to 80% solidification.
+   - Validate the plotted results and saved files.
+
+5. **Completion:**
+   - Confirm all files are correctly saved and results are meaningful.
+
+Let's proceed with implementing the Python script to achieve this.
+***** Suggested function call: retrieve_content *****
+Arguments: 
+{"message":"Examples of using scipy.interpolate.interp1d to find specific solid fraction temperatures in Scheil calculations using Thermo-Calc via tc_python."}
+*****************************************************
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Examples of using scipy.interpolate.interp1d to find specific solid fraction temperatures in Scheil calculations using Thermo-Calc via tc_python.'}
+VectorDB returns doc_ids:  [['cc2be9a4', '182ba0ad', '127e8d1b', '9629bbd7', '80f7d8d2', '07a8bfed']]
+Adding content of doc cc2be9a4 to context.
+Adding content of doc 182ba0ad to context.
+Adding content of doc 127e8d1b to context.
+Adding content of doc 9629bbd7 to context.
+Adding content of doc 80f7d8d2 to context.
+Adding content of doc 07a8bfed to context.
+
+>>>>>>>> EXECUTED FUNCTION retrieve_content...
+Call ID: None
+Input arguments: {'message': 'Examples of using scipy.interpolate.interp1d to find specific solid fraction temperatures in Scheil calculations using Thermo-Calc via tc_python.'}
+Output:
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Examples of using scipy.interpolate.interp1d to find specific solid fraction temperatures in Scheil calculations using Thermo-Calc via tc_python.
+
+Context is: Example: pyex_T_04_Scheil_composition_distribution_Al_Si_Cu
+
+```
+import numpy as np
+from scipy.interpolate import interp1d
+from matplotlib import pyplot as plt
+from tc_python import *
+
+"""
+Calculates the variation of the 80% solid temperature using Scheil-solidification for random compositions
+within a specification range.
+The alloy system Al-Si-Cu is used as an example.
+"""
+
+
+num_samples = 40  # should be higher for good statistics (for example N=100)
+dependent_element = "Al"
+database = "ALDEMO"
+lower_spec_limit = {"Si": 8.0,  "Cu": 2.0}  # in wt-%
+upper_spec_limit = {"Si": 11.0, "Cu": 4.0}  # in wt-%
+required_solid_frac = 0.8   # the temperature for which the solid fraction will be evaluated
+start_temp = 650            # in degree Celsius
+final_solid_frac = 0.85     # finishing condition of the calculation (needs be higher than the required fraction)
+min_content = 1e-3          # smallest element content accepted in the distribution (in wt-%)
+
+
+def get_alloy_composition_distribution(lower_spec_limit, upper_spec_limit, num_samples):
+    """Calculate a set of compositions from the specification range assuming a multivariate normal distribution."""
+    num_dep_elements = len(lower_spec_limit)
+    elements = []
+    mean_composition = np.zeros(num_dep_elements)
+    assumed_two_sigma_interval = np.zeros(num_dep_elements)
+    for index, element in enumerate(lower_spec_limit):
+        elements.append(element)
+        mean_composition[index] = (lower_spec_limit[element] + upper_spec_limit[element]) / 2
+        assumed_two_sigma_interval[index] = (upper_spec_limit[element] - lower_spec_limit[element]) / 2
+
+    # build the covariance matrix (assuming a diagonal covariance with given 2-sigma confidence intervals)
+    covariance_matrix = np.zeros((num_dep_elements, num_dep_elements))
+    for index in np.arange(0, num_dep_elements):
+        covariance_matrix[index][index] = (assumed_two_sigma_interval[index] / 2) ** 2
+
+    composition_samples = np.random.multivariate_normal(mean_composition, covariance_matrix, num_samples)
+
+    return composition_samples, elements
+
+
+if __name__ == "__main__":
+    composition_samples, elements = get_alloy_composition_distribution(lower_spec_limit, upper_spec_limit, num_samples)
+    required_T_for_solid_frac = np.zeros(num_samples)
+
+    fig, (ax1, ax2) = plt.subplots(2, 1)
+    with TCPython() as session:
+
+        system = (session.
+                  select_database_and_elements(database, [dependent_element] + elements).
+                  get_system())
+        calculator = system.with_scheil_calculation()
+        (calculator.
+            with_options(ScheilOptions().terminate_on_fraction_of_liquid_phase(1- final_solid_frac)).
+            set_start_temperature(start_temp + 273.15).
+            set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+        for index, composition in enumerate(composition_samples):
+            for content, element in zip(composition, elements):
+                # prevent negative concentrations generated by the distribution
+                if content < min_content:  # in wt-%
+                    content = min_content
+                calculator.set_composition(element, content)
+
+            result = calculator.calculate()
+
+            solid_frac, temp = result.get_values_of(ScheilQuantity.mole_fraction_of_all_solid_phases(),
+                                                    ScheilQuantity.temperature())
+            scheil_curve = interp1d(solid_frac, temp)
+            required_T_for_solid_frac[index] = scheil_curve(required_solid_frac)
+
+            # plot the results
+            ax1.plot(np.array(temp) - 273.15, solid_frac)
+
+    ax1.set_xlabel("Temperature [\N{DEGREE SIGN} C]")
+    ax1.set_ylabel("Solid phase fraction [-]")
+    ax1.set_title("Variation of the solidification curves")
+
+    ax2.hist(np.array(required_T_for_solid_frac) - 273.15)
+    ax2.set_xlabel("Temperature with solid fraction of {} [\N{DEGREE SIGN} C]".format(required_solid_frac))
+    ax2.set_ylabel("Frequency of occurrence [-]")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+
+    print("The used random composition set is:\n {}".format(composition_samples))
+```
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+Example: pyex_T_07_Scheil_latent_heat_for_solidification_simulations
+
+```
+import csv
+import numpy as np
+from scipy.interpolate import interp1d
+from tc_python import *
+
+"""
+Calculates the characteristic properties of the solidification of a range of alloys using Scheil-solidification and
+saves the data into a CSV-file that can be imported by other software.
+Such data is typically used as an input into other simulation software, e.g. for casting simulation.
+The alloy system Al-Si-Cu is used as an example.
+"""
+
+
+database = "ALDEMO"
+dependent_element = "Al"
+composition = {"Si": 9.0, "Cu": 3.0}  # in wt-%
+varied_element = "Cu"
+variation = {"min": 1.0, "max": 5.0, "num_steps": 10}  # in wt-%
+liquid_frac_solidification_start = 0.01  # assumed start of solidification
+liquid_frac_solidification_end = 0.99  # assumed end of solidification
+liquid_frac_phase_change = 0.5  # 50% of liquid is transformed to solid (at the "phase change temperature")
+csv_file_path = "Al_Si_Cu_scheil_solidification.csv"
+
+elements = list(composition.keys())
+
+with TCPython() as session:
+    session.set_cache_folder(os.path.basename(__file__) + "_cache")
+    system = (session.
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    calculator = (system.
+                  with_scheil_calculation().
+                  set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+    calculator.enable_global_minimization()
+
+    for element in composition:
+        calculator.set_composition(element, composition[element])
+
+    # vary the composition
+    varied_composition = np.linspace(variation["min"], variation["max"], variation["num_steps"])
+
+    # open the CSV-file and keep it open
+    with open(csv_file_path, "w", newline="") as file:
+        csv_file_writer = csv.writer(file)
+        csv_file_writer.writerow(["{} [wt-%]".format(varied_element),
+                                  "Phase change temperature [K]",
+                                  "Transition interval [K]",
+                                  "Latent heat [kJ/kg]"])
+
+        for varied_element_content in varied_composition:
+            calculator.set_composition(varied_element, varied_element_content)
+
+            result = calculator.calculate()
+            t_latent_heat, latent_heat = result.get_values_of(ScheilQuantity.temperature(),
+                                                              ScheilQuantity.latent_heat_per_gram())
+            t, liquid_frac = result.get_values_of(ScheilQuantity.temperature(),
+                                                  ScheilQuantity.mole_fraction_of_all_liquid())
+
+            # determine the characteristic properties of the solidification
+            total_latent_heat = np.max(np.abs(latent_heat))
+
+            liquid_frac_curve = interp1d(liquid_frac, t)
+            phase_change_t = liquid_frac_curve(liquid_frac_phase_change)
+
+            start_t = liquid_frac_curve(liquid_frac_solidification_start)
+            end_t = liquid_frac_curve(liquid_frac_solidification_end)
+            transition_interval = end_t - start_t
+
+            # save the results to file, the data can later be imported into other simulation software
+            csv_file_writer.writerow([varied_element_content, phase_change_t, transition_interval, total_latent_heat])
+
+            print("{}-content: {} wt-%".format(varied_element, varied_element_content))
+            print("---------------------")
+            print("Phase change temperature: {} K".format(phase_change_t))
+            print("Transition interval: {} K".format(transition_interval))
+            print("Latent heat: {} kJ/kg\n".format(total_latent_heat))
+```
+Example: pyex_T_06_Scheil_eutectic_fraction_Al_Si_Cu
+
+```
+import numpy as np
+from matplotlib import pyplot as plt
+from tc_python import *
+
+"""
+Calculates the eutectic fraction using Scheil-solidification for varied alloying element content.
+The alloy system Al-Si-Cu is used as an example.
+"""
+
+dependent_element = "Al"
+database = "ALDEMO"
+reference_composition = {"Si": 9, "Cu": 3}  # in wt-%
+varied_element = "Cu"
+variation = {"min": 1.0, "max": 5.0, "num_steps": 10}  # in wt-%
+primary_solid_phase = "FCC_A1"
+liquid_phase = "LIQUID"
+t_step = 1.0  # in K, use smaller temperature steps for more accurate results
+
+with TCPython() as session:
+    session.set_cache_folder(os.path.basename(__file__) + "_cache")
+    elements = list(reference_composition.keys())
+    system = (session.
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    calculator = (system.
+                  with_scheil_calculation().
+                  with_options(ScheilOptions().set_temperature_step(t_step)).
+                  set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+    for element in reference_composition:
+        calculator.set_composition(element, reference_composition[element])
+
+    # vary the composition
+    eutectic_fracs = []
+    varied_composition = np.linspace(variation["min"], variation["max"], variation["num_steps"])
+
+    for varied_element_content in varied_composition:
+        calculator.set_composition(varied_element, varied_element_content)
+        result = calculator.calculate()
+
+        result_data = result.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_all_liquid(),
+                                                                    ScheilQuantity.temperature())
+        stable_phase_region_labels = result_data.keys()
+
+        region_with_first_eutectic = None
+        for stable_phases_str in stable_phase_region_labels:
+            # split the string which is in the format "PHASE_1 + PHASE_2 + ..."
+            stable_phases = [x.strip() for x in stable_phases_str.split("+")]
+            if liquid_phase in stable_phases and primary_solid_phase in stable_phases:
+                if len(stable_phases) - 2 == 1:
+                    # region contains liquid, primary solid and one secondary solid phase (i.e. first eutectic forming)
+                    region_with_first_eutectic = stable_phases_str
+                    break
+
+        if region_with_first_eutectic:
+            mole_fraction_of_liquid = result_data[region_with_first_eutectic].x
+            temp = result_data[region_with_first_eutectic].y
+            # the liquid fraction at the beginning of the eutectic formation is equivalent to the eutectic fraction
+            max_t_index = np.argmax(temp)
+            eutectic_fracs.append(mole_fraction_of_liquid[max_t_index])
+        else:
+            eutectic_fracs.append(float("NaN"))
+
+    # plot the results
+    plt.plot(varied_composition, eutectic_fracs)
+    plt.xlabel("{}-content [wt-%]".format(varied_element))
+    plt.ylabel("Eutectic fraction [-]")
+    plt.title("Eutectic fraction in AlSi9Cu3")
+    plt.show()
+```
+Example: pyex_T_15_Scheil_back_diffusion
+
+```
+from tc_python import *
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Calculates solidification using Scheil with backdiffusion in the primary phase, and compares the result to other
+calculation types.
+"""
+
+thermodynamic_database = "ALDEMO"
+kinetic_database = "MALDEMO"
+dependent_element = "Al"
+composition = {"Cu": 0.021, "Si": 0.01}  # in mole percent
+elements = list(composition.keys())
+
+
+def get_equilibrium_line(system, liq_temp, temperature_stop, composition):
+    """Calculates the equilibrium line using step calculation"""
+    temp_step = 1.0
+    step_calculator = (system.with_property_diagram_calculation().
+                       with_axis(CalculationAxis('T').
+                                 set_min(temperature_stop).
+                                 set_max(liq_temp).
+                                 with_axis_type(AxisType.linear().set_max_step_size(temp_step))))
+
+    for element in composition:
+        step_calculator.set_condition(ThermodynamicQuantity.mole_fraction_of_a_component(element), composition[element])
+
+    step_result = step_calculator.calculate()
+    return step_result.get_values_grouped_by_quantity_of('NPM(LIQ)', 'T')
+
+
+def calculate_solidification_curve_with_dictra(system, composition, liq_temp, temperature_stop, cooling_rate, sdas_c, sdas_n):
+    """Calculates a solidification curve using the dictra diffusion module"""
+    temp_lowest_dictra = 770.0
+    time_lowest_dictra = (liq_temp - temp_lowest_dictra) / cooling_rate
+    time_stop = (liq_temp - temperature_stop) / cooling_rate
+    sim_time_dictra = min(time_stop, time_lowest_dictra)
+
+    liq_phase = "LIQUID"
+    dictra_primary_phase = "FCC_A1"
+
+    secondary_dendrite_arm_spacing = sdas_c * cooling_rate ** (-sdas_n)
+    composition_profile = CompositionProfile(Unit.MOLE_FRACTION)
+    for element in composition:
+        composition_profile.add(element, ElementProfile.constant(composition[element]))
+
+    dictra_calc = (system.with_non_isothermal_diffusion_calculation().
+                   with_temperature_profile(TemperatureProfile().
+                                            add_time_temperature(0, liq_temp).
+                                            add_time_temperature(time_stop, temperature_stop)).
+                   set_simulation_time(sim_time_dictra).
+                   with_timestep_control(TimestepControl().enable_check_interface_position()).
+                   add_region(Region("Liquid").
+                              set_width(secondary_dendrite_arm_spacing).
+                              with_grid(CalculatedGrid.geometric().set_no_of_points(50).set_geometrical_factor(0.95)).
+                              with_composition_profile(composition_profile).
+                              add_phase(liq_phase).
+                              add_phase_allowed_to_form_at_right_interface(dictra_primary_phase, 1e-5)))
+    dictra_result = dictra_calc.calculate()
+
+    temp_dictra, poi = dictra_result.get_values_of('T', "Position-Of-Interface Liquid upper", 'interface Liquid upper')
+
+    fraction_solid_dictra = 1.0 - np.array(poi) / secondary_dendrite_arm_spacing
+
+    return fraction_solid_dictra, temp_dictra
+
+
+if __name__ == "__main__":
+    with TCPython() as session:
+
+        cooling_rate = 0.1  # in K/s
+        sdas_c = 5.0e-5  # secondary dendrite arm spacing scaling factor in c*cooling_rate^-n (in meters)
+        sdas_n = 0.33
+        system = (session.
+                  set_cache_folder(os.path.basename(__file__) + "_cache").
+                  select_thermodynamic_and_kinetic_databases_with_elements(thermodynamic_database, kinetic_database,
+                                                                           [dependent_element] + elements).
+                  get_system())
+
+        # setup and perform a regular Scheil calculation for comparison
+        scheil_calculator = (system.with_scheil_calculation().
+                             set_composition_unit(CompositionUnit.MOLE_FRACTION))
+        for element in composition:
+            scheil_calculator.set_composition(element, composition[element])
+
+        result = scheil_calculator.calculate()
+        fraction_solid_regular_scheil, temp_regular_scheil = result.get_values_of(
+            ScheilQuantity.mole_fraction_of_all_solid_phases(),
+            ScheilQuantity.temperature())
+Example: pyex_T_03_Scheil_mole_fraction_of_solid
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+Shows the basic usage of Scheil-calculations in TC-Python and mixing them with equilibrium calculations.
+"""
+
+database = "ALDEMO"
+dependent_element = "Al"
+elements = ["Si"]
+wt_pct_si = 1.0  # in wt-%
+delta_temp = 1.0  # in K, only used for the equilibrium line
+
+with TCPython() as session:
+    system = (session.
+              set_cache_folder(os.path.basename(__file__) + "_cache").
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    scheil_calculation = (system.
+                          with_scheil_calculation().
+                          set_composition_unit(CompositionUnit.MASS_PERCENT).
+                          set_composition("Si", wt_pct_si))
+
+    solidification = scheil_calculation.calculate()
+
+    # 1. Plot the solidification curve (mole fraction solid phases vs. T) including the equilibrium
+    scheil_curve = solidification.get_values_grouped_by_stable_phases_of(
+        ScheilQuantity.mole_fraction_of_all_solid_phases(),
+        ScheilQuantity.temperature())
+
+    temp_min = 1e6
+    temp_max = -1e6
+    fig, (ax_1, ax_2) = plt.subplots(2)
+    for label in scheil_curve:
+        section = scheil_curve[label]
+        temp_min = min(np.min(section.y), temp_min)
+        temp_max = max(np.max(section.y), temp_max)
+        ax_1.plot(section.x, np.array(section.y) - 273.15, label=label)
+
+    # calculate the equilibrium solidification line (starting at the liquidus temperature)
+    prop_calculation = system.with_property_diagram_calculation()
+    result = (prop_calculation.
+              with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                        set_min(temp_min).
+                        set_max(temp_max)).
+              set_condition("W(Si)", wt_pct_si / 100).
+              calculate())
+
+    temp_eq_frac, liquid_eq_frac = result.get_values_of(ThermodynamicQuantity.temperature(),
+                                                        ThermodynamicQuantity.mole_fraction_of_a_phase("LIQUID"))
+    solid_eq_frac = 1 - np.array(liquid_eq_frac)
+    temp_eq_frac = np.array(temp_eq_frac) - 273.15
+    valid_indices = np.where(solid_eq_frac < 1.0)  # cutting off all values with 100% solid
+
+    ax_1.plot(solid_eq_frac[valid_indices], temp_eq_frac[valid_indices], '--', label="Equilibrium")
+    ax_1.set_xlabel("Mole fraction of all solid phases [-]")
+    ax_1.set_ylabel("Temperature [\N{DEGREE SIGN} C]")
+
+    ax_1.legend(loc="lower left")
+    ax_1.set_title("Solidification of AlSi1")
+
+    # 2. Plot the mole fraction of the solid phases separated for each
+    groups = \
+        solidification.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_a_solid_phase(ALL_PHASES),
+                                                              ScheilQuantity.temperature())
+
+    for group in groups.values():
+        ax_2.plot(group.x, np.array(group.y) - 273.15, label=group.label)
+
+    ax_2.set_xlabel("Mole fraction of each solid phase [-]")
+    ax_2.set_ylabel("Temperature  [\N{DEGREE SIGN} C]")
+    ax_2.legend(loc="lower center")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+```
+
+
+User_Proxy (to Assistant):
+
+***** Response from calling function (retrieve_content) *****
+You're a retrieve augmented coding assistant. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+For code generation, you must obey the following rules:
+Rule 1. You MUST NOT install any packages because all the packages needed are already installed.
+Rule 2. You must follow the formats below to write your code:
+```language
+# your code
+```
+
+User's question is: Examples of using scipy.interpolate.interp1d to find specific solid fraction temperatures in Scheil calculations using Thermo-Calc via tc_python.
+
+Context is: Example: pyex_T_04_Scheil_composition_distribution_Al_Si_Cu
+
+```
+import numpy as np
+from scipy.interpolate import interp1d
+from matplotlib import pyplot as plt
+from tc_python import *
+
+"""
+Calculates the variation of the 80% solid temperature using Scheil-solidification for random compositions
+within a specification range.
+The alloy system Al-Si-Cu is used as an example.
+"""
+
+
+num_samples = 40  # should be higher for good statistics (for example N=100)
+dependent_element = "Al"
+database = "ALDEMO"
+lower_spec_limit = {"Si": 8.0,  "Cu": 2.0}  # in wt-%
+upper_spec_limit = {"Si": 11.0, "Cu": 4.0}  # in wt-%
+required_solid_frac = 0.8   # the temperature for which the solid fraction will be evaluated
+start_temp = 650            # in degree Celsius
+final_solid_frac = 0.85     # finishing condition of the calculation (needs be higher than the required fraction)
+min_content = 1e-3          # smallest element content accepted in the distribution (in wt-%)
+
+
+def get_alloy_composition_distribution(lower_spec_limit, upper_spec_limit, num_samples):
+    """Calculate a set of compositions from the specification range assuming a multivariate normal distribution."""
+    num_dep_elements = len(lower_spec_limit)
+    elements = []
+    mean_composition = np.zeros(num_dep_elements)
+    assumed_two_sigma_interval = np.zeros(num_dep_elements)
+    for index, element in enumerate(lower_spec_limit):
+        elements.append(element)
+        mean_composition[index] = (lower_spec_limit[element] + upper_spec_limit[element]) / 2
+        assumed_two_sigma_interval[index] = (upper_spec_limit[element] - lower_spec_limit[element]) / 2
+
+    # build the covariance matrix (assuming a diagonal covariance with given 2-sigma confidence intervals)
+    covariance_matrix = np.zeros((num_dep_elements, num_dep_elements))
+    for index in np.arange(0, num_dep_elements):
+        covariance_matrix[index][index] = (assumed_two_sigma_interval[index] / 2) ** 2
+
+    composition_samples = np.random.multivariate_normal(mean_composition, covariance_matrix, num_samples)
+
+    return composition_samples, elements
+
+
+if __name__ == "__main__":
+    composition_samples, elements = get_alloy_composition_distribution(lower_spec_limit, upper_spec_limit, num_samples)
+    required_T_for_solid_frac = np.zeros(num_samples)
+
+    fig, (ax1, ax2) = plt.subplots(2, 1)
+    with TCPython() as session:
+
+        system = (session.
+                  select_database_and_elements(database, [dependent_element] + elements).
+                  get_system())
+        calculator = system.with_scheil_calculation()
+        (calculator.
+            with_options(ScheilOptions().terminate_on_fraction_of_liquid_phase(1- final_solid_frac)).
+            set_start_temperature(start_temp + 273.15).
+            set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+        for index, composition in enumerate(composition_samples):
+            for content, element in zip(composition, elements):
+                # prevent negative concentrations generated by the distribution
+                if content < min_content:  # in wt-%
+                    content = min_content
+                calculator.set_composition(element, content)
+
+            result = calculator.calculate()
+
+            solid_frac, temp = result.get_values_of(ScheilQuantity.mole_fraction_of_all_solid_phases(),
+                                                    ScheilQuantity.temperature())
+            scheil_curve = interp1d(solid_frac, temp)
+            required_T_for_solid_frac[index] = scheil_curve(required_solid_frac)
+
+            # plot the results
+            ax1.plot(np.array(temp) - 273.15, solid_frac)
+
+    ax1.set_xlabel("Temperature [\N{DEGREE SIGN} C]")
+    ax1.set_ylabel("Solid phase fraction [-]")
+    ax1.set_title("Variation of the solidification curves")
+
+    ax2.hist(np.array(required_T_for_solid_frac) - 273.15)
+    ax2.set_xlabel("Temperature with solid fraction of {} [\N{DEGREE SIGN} C]".format(required_solid_frac))
+    ax2.set_ylabel("Frequency of occurrence [-]")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+
+    print("The used random composition set is:\n {}".format(composition_samples))
+```
+# TC-Python 2024a: Scheil quantities
+
+`ScheilQuantity` methods:
+
+| ScheilQuantity method | Quantity and units |
+| --- | --- |
+| `temperature()` | Temperature, K |
+| `latent_heat_per_gram()` | Cumulative latent heat per mass, J/g |
+| `latent_heat_per_mole()` | Cumulative latent heat per amount, J/mol |
+| `mole_fraction_of_all_solid_phases()` | Total molar fraction of solids |
+| `mass_fraction_of_all_solid_phases()` | Total mass fraction of solids |
+| `volume_fraction_of_all_solid_phases()` | Total volume fraction of solids |
+
+Latent heat accumulates phase-transformation heat from liquidus to the current
+temperature, excluding sensible cooling.
+
+`ScheilCalculationResult.get_values_of(x_quantity, y_quantity)` returns
+`(x_values, y_values)` as Python lists sorted by x.
+
+Source: [TC-Python 2024a guide](https://thermocalc.com/wp-content/uploads/Documentation/Archive/2020-2024/2024a/2024a-tc-python-api-programmer-guide.pdf),
+printed pp. 94, 304–306.
+Example: pyex_T_07_Scheil_latent_heat_for_solidification_simulations
+
+```
+import csv
+import numpy as np
+from scipy.interpolate import interp1d
+from tc_python import *
+
+"""
+Calculates the characteristic properties of the solidification of a range of alloys using Scheil-solidification and
+saves the data into a CSV-file that can be imported by other software.
+Such data is typically used as an input into other simulation software, e.g. for casting simulation.
+The alloy system Al-Si-Cu is used as an example.
+"""
+
+
+database = "ALDEMO"
+dependent_element = "Al"
+composition = {"Si": 9.0, "Cu": 3.0}  # in wt-%
+varied_element = "Cu"
+variation = {"min": 1.0, "max": 5.0, "num_steps": 10}  # in wt-%
+liquid_frac_solidification_start = 0.01  # assumed start of solidification
+liquid_frac_solidification_end = 0.99  # assumed end of solidification
+liquid_frac_phase_change = 0.5  # 50% of liquid is transformed to solid (at the "phase change temperature")
+csv_file_path = "Al_Si_Cu_scheil_solidification.csv"
+
+elements = list(composition.keys())
+
+with TCPython() as session:
+    session.set_cache_folder(os.path.basename(__file__) + "_cache")
+    system = (session.
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    calculator = (system.
+                  with_scheil_calculation().
+                  set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+    calculator.enable_global_minimization()
+
+    for element in composition:
+        calculator.set_composition(element, composition[element])
+
+    # vary the composition
+    varied_composition = np.linspace(variation["min"], variation["max"], variation["num_steps"])
+
+    # open the CSV-file and keep it open
+    with open(csv_file_path, "w", newline="") as file:
+        csv_file_writer = csv.writer(file)
+        csv_file_writer.writerow(["{} [wt-%]".format(varied_element),
+                                  "Phase change temperature [K]",
+                                  "Transition interval [K]",
+                                  "Latent heat [kJ/kg]"])
+
+        for varied_element_content in varied_composition:
+            calculator.set_composition(varied_element, varied_element_content)
+
+            result = calculator.calculate()
+            t_latent_heat, latent_heat = result.get_values_of(ScheilQuantity.temperature(),
+                                                              ScheilQuantity.latent_heat_per_gram())
+            t, liquid_frac = result.get_values_of(ScheilQuantity.temperature(),
+                                                  ScheilQuantity.mole_fraction_of_all_liquid())
+
+            # determine the characteristic properties of the solidification
+            total_latent_heat = np.max(np.abs(latent_heat))
+
+            liquid_frac_curve = interp1d(liquid_frac, t)
+            phase_change_t = liquid_frac_curve(liquid_frac_phase_change)
+
+            start_t = liquid_frac_curve(liquid_frac_solidification_start)
+            end_t = liquid_frac_curve(liquid_frac_solidification_end)
+            transition_interval = end_t - start_t
+
+            # save the results to file, the data can later be imported into other simulation software
+            csv_file_writer.writerow([varied_element_content, phase_change_t, transition_interval, total_latent_heat])
+
+            print("{}-content: {} wt-%".format(varied_element, varied_element_content))
+            print("---------------------")
+            print("Phase change temperature: {} K".format(phase_change_t))
+            print("Transition interval: {} K".format(transition_interval))
+            print("Latent heat: {} kJ/kg\n".format(total_latent_heat))
+```
+Example: pyex_T_06_Scheil_eutectic_fraction_Al_Si_Cu
+
+```
+import numpy as np
+from matplotlib import pyplot as plt
+from tc_python import *
+
+"""
+Calculates the eutectic fraction using Scheil-solidification for varied alloying element content.
+The alloy system Al-Si-Cu is used as an example.
+"""
+
+dependent_element = "Al"
+database = "ALDEMO"
+reference_composition = {"Si": 9, "Cu": 3}  # in wt-%
+varied_element = "Cu"
+variation = {"min": 1.0, "max": 5.0, "num_steps": 10}  # in wt-%
+primary_solid_phase = "FCC_A1"
+liquid_phase = "LIQUID"
+t_step = 1.0  # in K, use smaller temperature steps for more accurate results
+
+with TCPython() as session:
+    session.set_cache_folder(os.path.basename(__file__) + "_cache")
+    elements = list(reference_composition.keys())
+    system = (session.
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    calculator = (system.
+                  with_scheil_calculation().
+                  with_options(ScheilOptions().set_temperature_step(t_step)).
+                  set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+    for element in reference_composition:
+        calculator.set_composition(element, reference_composition[element])
+
+    # vary the composition
+    eutectic_fracs = []
+    varied_composition = np.linspace(variation["min"], variation["max"], variation["num_steps"])
+
+    for varied_element_content in varied_composition:
+        calculator.set_composition(varied_element, varied_element_content)
+        result = calculator.calculate()
+
+        result_data = result.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_all_liquid(),
+                                                                    ScheilQuantity.temperature())
+        stable_phase_region_labels = result_data.keys()
+
+        region_with_first_eutectic = None
+        for stable_phases_str in stable_phase_region_labels:
+            # split the string which is in the format "PHASE_1 + PHASE_2 + ..."
+            stable_phases = [x.strip() for x in stable_phases_str.split("+")]
+            if liquid_phase in stable_phases and primary_solid_phase in stable_phases:
+                if len(stable_phases) - 2 == 1:
+                    # region contains liquid, primary solid and one secondary solid phase (i.e. first eutectic forming)
+                    region_with_first_eutectic = stable_phases_str
+                    break
+
+        if region_with_first_eutectic:
+            mole_fraction_of_liquid = result_data[region_with_first_eutectic].x
+            temp = result_data[region_with_first_eutectic].y
+            # the liquid fraction at the beginning of the eutectic formation is equivalent to the eutectic fraction
+            max_t_index = np.argmax(temp)
+            eutectic_fracs.append(mole_fraction_of_liquid[max_t_index])
+        else:
+            eutectic_fracs.append(float("NaN"))
+
+    # plot the results
+    plt.plot(varied_composition, eutectic_fracs)
+    plt.xlabel("{}-content [wt-%]".format(varied_element))
+    plt.ylabel("Eutectic fraction [-]")
+    plt.title("Eutectic fraction in AlSi9Cu3")
+    plt.show()
+```
+Example: pyex_T_15_Scheil_back_diffusion
+
+```
+from tc_python import *
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Calculates solidification using Scheil with backdiffusion in the primary phase, and compares the result to other
+calculation types.
+"""
+
+thermodynamic_database = "ALDEMO"
+kinetic_database = "MALDEMO"
+dependent_element = "Al"
+composition = {"Cu": 0.021, "Si": 0.01}  # in mole percent
+elements = list(composition.keys())
+
+
+def get_equilibrium_line(system, liq_temp, temperature_stop, composition):
+    """Calculates the equilibrium line using step calculation"""
+    temp_step = 1.0
+    step_calculator = (system.with_property_diagram_calculation().
+                       with_axis(CalculationAxis('T').
+                                 set_min(temperature_stop).
+                                 set_max(liq_temp).
+                                 with_axis_type(AxisType.linear().set_max_step_size(temp_step))))
+
+    for element in composition:
+        step_calculator.set_condition(ThermodynamicQuantity.mole_fraction_of_a_component(element), composition[element])
+
+    step_result = step_calculator.calculate()
+    return step_result.get_values_grouped_by_quantity_of('NPM(LIQ)', 'T')
+
+
+def calculate_solidification_curve_with_dictra(system, composition, liq_temp, temperature_stop, cooling_rate, sdas_c, sdas_n):
+    """Calculates a solidification curve using the dictra diffusion module"""
+    temp_lowest_dictra = 770.0
+    time_lowest_dictra = (liq_temp - temp_lowest_dictra) / cooling_rate
+    time_stop = (liq_temp - temperature_stop) / cooling_rate
+    sim_time_dictra = min(time_stop, time_lowest_dictra)
+
+    liq_phase = "LIQUID"
+    dictra_primary_phase = "FCC_A1"
+
+    secondary_dendrite_arm_spacing = sdas_c * cooling_rate ** (-sdas_n)
+    composition_profile = CompositionProfile(Unit.MOLE_FRACTION)
+    for element in composition:
+        composition_profile.add(element, ElementProfile.constant(composition[element]))
+
+    dictra_calc = (system.with_non_isothermal_diffusion_calculation().
+                   with_temperature_profile(TemperatureProfile().
+                                            add_time_temperature(0, liq_temp).
+                                            add_time_temperature(time_stop, temperature_stop)).
+                   set_simulation_time(sim_time_dictra).
+                   with_timestep_control(TimestepControl().enable_check_interface_position()).
+                   add_region(Region("Liquid").
+                              set_width(secondary_dendrite_arm_spacing).
+                              with_grid(CalculatedGrid.geometric().set_no_of_points(50).set_geometrical_factor(0.95)).
+                              with_composition_profile(composition_profile).
+                              add_phase(liq_phase).
+                              add_phase_allowed_to_form_at_right_interface(dictra_primary_phase, 1e-5)))
+    dictra_result = dictra_calc.calculate()
+
+    temp_dictra, poi = dictra_result.get_values_of('T', "Position-Of-Interface Liquid upper", 'interface Liquid upper')
+
+    fraction_solid_dictra = 1.0 - np.array(poi) / secondary_dendrite_arm_spacing
+
+    return fraction_solid_dictra, temp_dictra
+
+
+if __name__ == "__main__":
+    with TCPython() as session:
+
+        cooling_rate = 0.1  # in K/s
+        sdas_c = 5.0e-5  # secondary dendrite arm spacing scaling factor in c*cooling_rate^-n (in meters)
+        sdas_n = 0.33
+        system = (session.
+                  set_cache_folder(os.path.basename(__file__) + "_cache").
+                  select_thermodynamic_and_kinetic_databases_with_elements(thermodynamic_database, kinetic_database,
+                                                                           [dependent_element] + elements).
+                  get_system())
+
+        # setup and perform a regular Scheil calculation for comparison
+        scheil_calculator = (system.with_scheil_calculation().
+                             set_composition_unit(CompositionUnit.MOLE_FRACTION))
+        for element in composition:
+            scheil_calculator.set_composition(element, composition[element])
+
+        result = scheil_calculator.calculate()
+        fraction_solid_regular_scheil, temp_regular_scheil = result.get_values_of(
+            ScheilQuantity.mole_fraction_of_all_solid_phases(),
+            ScheilQuantity.temperature())
+Example: pyex_T_03_Scheil_mole_fraction_of_solid
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from tc_python import *
+
+"""
+Shows the basic usage of Scheil-calculations in TC-Python and mixing them with equilibrium calculations.
+"""
+
+database = "ALDEMO"
+dependent_element = "Al"
+elements = ["Si"]
+wt_pct_si = 1.0  # in wt-%
+delta_temp = 1.0  # in K, only used for the equilibrium line
+
+with TCPython() as session:
+    system = (session.
+              set_cache_folder(os.path.basename(__file__) + "_cache").
+              select_database_and_elements(database, [dependent_element] + elements).
+              get_system())
+
+    scheil_calculation = (system.
+                          with_scheil_calculation().
+                          set_composition_unit(CompositionUnit.MASS_PERCENT).
+                          set_composition("Si", wt_pct_si))
+
+    solidification = scheil_calculation.calculate()
+
+    # 1. Plot the solidification curve (mole fraction solid phases vs. T) including the equilibrium
+    scheil_curve = solidification.get_values_grouped_by_stable_phases_of(
+        ScheilQuantity.mole_fraction_of_all_solid_phases(),
+        ScheilQuantity.temperature())
+
+    temp_min = 1e6
+    temp_max = -1e6
+    fig, (ax_1, ax_2) = plt.subplots(2)
+    for label in scheil_curve:
+        section = scheil_curve[label]
+        temp_min = min(np.min(section.y), temp_min)
+        temp_max = max(np.max(section.y), temp_max)
+        ax_1.plot(section.x, np.array(section.y) - 273.15, label=label)
+
+    # calculate the equilibrium solidification line (starting at the liquidus temperature)
+    prop_calculation = system.with_property_diagram_calculation()
+    result = (prop_calculation.
+              with_axis(CalculationAxis(ThermodynamicQuantity.temperature()).
+                        set_min(temp_min).
+                        set_max(temp_max)).
+              set_condition("W(Si)", wt_pct_si / 100).
+              calculate())
+
+    temp_eq_frac, liquid_eq_frac = result.get_values_of(ThermodynamicQuantity.temperature(),
+                                                        ThermodynamicQuantity.mole_fraction_of_a_phase("LIQUID"))
+    solid_eq_frac = 1 - np.array(liquid_eq_frac)
+    temp_eq_frac = np.array(temp_eq_frac) - 273.15
+    valid_indices = np.where(solid_eq_frac < 1.0)  # cutting off all values with 100% solid
+
+    ax_1.plot(solid_eq_frac[valid_indices], temp_eq_frac[valid_indices], '--', label="Equilibrium")
+    ax_1.set_xlabel("Mole fraction of all solid phases [-]")
+    ax_1.set_ylabel("Temperature [\N{DEGREE SIGN} C]")
+
+    ax_1.legend(loc="lower left")
+    ax_1.set_title("Solidification of AlSi1")
+
+    # 2. Plot the mole fraction of the solid phases separated for each
+    groups = \
+        solidification.get_values_grouped_by_stable_phases_of(ScheilQuantity.mole_fraction_of_a_solid_phase(ALL_PHASES),
+                                                              ScheilQuantity.temperature())
+
+    for group in groups.values():
+        ax_2.plot(group.x, np.array(group.y) - 273.15, label=group.label)
+
+    ax_2.set_xlabel("Mole fraction of each solid phase [-]")
+    ax_2.set_ylabel("Temperature  [\N{DEGREE SIGN} C]")
+    ax_2.legend(loc="lower center")
+
+    fig.set_size_inches(5, 7)
+    plt.show()
+```
+
+
+*************************************************************
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+Based on the retrieved examples, I will write a Python script to perform a Scheil calculation for the given alloy composition (Fe - 1 wt-% C - 10 wt-% Cr) using Thermo-Calc via `tc_python`. The script will use `scipy.interpolate.interp1d` to find the temperature where 80% of the alloy is solidified. The result will be saved in a JSON file, and a plot will be saved as a PNG file.
+
+```python
+import json
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+from tc_python import *
+
+# Define the alloy composition
+composition = {"C": 1.0, "Cr": 10.0}  # in wt-%
+database = "FEDEMO"  # Assuming a demo database for Fe-based alloys
+
+# File paths for saving results
+json_file_path = "solidification_temperature.json"
+png_file_path = "solidification_plot.png"
+
+with TCPython() as session:
+    # Set up the system and calculation
+    system = (session
+              .select_database_and_elements(database, ["Fe", "C", "Cr"])
+              .get_system())
+
+    scheil_calculation = (system
+                          .with_scheil_calculation()
+                          .set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+    for element, wt_pct in composition.items():
+        scheil_calculation.set_composition(element, wt_pct)
+
+    # Perform the Scheil calculation
+    result = scheil_calculation.calculate()
+
+    # Retrieve temperature and solid fraction data
+    temperature, solid_fraction = result.get_values_of(
+        ScheilQuantity.temperature(),
+        ScheilQuantity.mole_fraction_of_all_solid_phases()
+    )
+
+    # Interpolate to find the temperature at 80% solidification
+    solid_fraction_curve = interp1d(solid_fraction, temperature)
+    temperature_at_80_solid = solid_fraction_curve(0.8)
+
+    # Save the result to a JSON file
+    result_data = {"temperature_at_80_solidification_K": temperature_at_80_solid}
+    with open(json_file_path, "w") as json_file:
+        json.dump(result_data, json_file, indent=4)
+
+    # Plot the solid fraction as a function of temperature
+    plt.plot(temperature, solid_fraction, label="Solid Fraction")
+    plt.axvline(x=temperature_at_80_solid, color='r', linestyle='--', label=f"80% Solidified at {temperature_at_80_solid:.2f} K")
+    plt.xlabel("Temperature (K)")
+    plt.ylabel("Solid Fraction")
+    plt.title("Solidification Curve for Fe-1C-10Cr")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(png_file_path)
+    plt.close()
+
+# Confirm the saved files
+print(f"Temperature at 80% solidification saved to {json_file_path} and plot saved to {png_file_path}.")
+```
+
+This script performs the Scheil calculation for the specified alloy composition, interpolates the solid fraction data to find the temperature at which 80% of the alloy is solidified, saves the result in a JSON file, and plots the solidification curve with the 80% solidification point marked, saving the plot as a PNG file.
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
+User_Proxy (to Assistant):
+
+exitcode: 1 (execution failed)
+Code output: Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=[local-path] -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+
+Traceback (most recent call last):
+  File "[local-path]", line 44, in <module>
+    json.dump(result_data, json_file, indent=4)
+  File "[local-path]", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "[local-path]", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "[local-path]", line 406, in _iterencode_dict
+    yield from chunks
+  File "[local-path]", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "[local-path]", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ndarray is not JSON serializable
+01:25:56,902 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+01:25:58,702 [Thread-1] INFO  CalculationEngine: Opening database::FEDEMO::
+
+01:25:58,873 [Thread-1] INFO  JavaWrapper: *** Invoking Gibbs Energy System v6 ***
+
+01:25:58,921 [Thread-1] INFO  CalculationEngine:  Creating a new composition set FCC_A1#2
+
+01:25:58,921 [Thread-1] INFO  CalculationEngine: New CS: FCC_A1#2
+
+01:25:59,023 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, Thermo-Calc Software AB, Sweden, 2006; Molar volumes'
+
+01:25:59,023 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, M. Selleby and B. Sundman, CALPHAD, 29, 2005, 68-89; Molar
+
+01:25:59,023 [Thread-1] INFO  CalculationEngine:        volumes'
+
+01:25:59,023 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 627-636 TRITA 0207 (1986); C
+
+01:25:59,023 [Thread-1] INFO  CalculationEngine:        -CR-FE'
+
+01:25:59,023 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson and B. Sundman, CALPHAD, 11 (1987) 83-92; TRITA 0270
+
+01:25:59,023 [Thread-1] INFO  CalculationEngine:        (1986); CR-FE'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 11 (1987) 271-276; TRITA 0314; C-CR'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'A.T. Dinsdale, SGTE Data for Pure Elements, CALPHAD, 15 (1991) 317-425'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Scan. J. Metall., 14 (1985) 259-267; TRITA 0237 (1984); C-FE'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, C. Broeckmann, CALPHAD, 46, 24-33(2014); Cr-Fe-C'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'P. Franke, estimated parameter within SGTE, 2007; Fe-C, Ni-C, Mo-C, C-Mn'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; THCD and ELRS of steels'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'H-L Chen, in TCAL7.0, Evaluation and modeling of electrical resistivity
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:         thermal conductivity'
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Optimized ELRS
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+01:25:59,024 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Estimation of ELRS
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; ELRS/THCD'
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, Volume data updated for
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:        TCFE9 database (TCFE v9.0, Jan, 2017).'
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, Metall. Trans. A, 24A (1993) 1017-1025; Fe-Cr-Mn-C'
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:    'W. Huang, Metall. Trans. A, 21A (1990) 2115-2123; TRITA-MAC 411 (Rev
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:        1989); C-FE-MN'
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:    'P. Villars, L.D. Calvert. Pearsons handbook of crystallographic data for
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:        intermetallic phases, Metals park, Ohio 1985: American society for
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:        metals'
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:    'B. Hallstedt, D. Djurovic, J. von Appen, R. Dronskowski, A. Dick, F.
+
+01:25:59,025 [Thread-1] INFO  CalculationEngine:        Koermann, T. Hickel, J. Neugebauer, CALPHAD, 34, 129-33(2010); Fe-C'
+
+01:25:59,026 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 16 (1992) 121-149; C-Cr-Fe-Ni'
+
+01:25:59,026 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; Default values for
+
+01:25:59,026 [Thread-1] INFO  CalculationEngine:        ELRS/THCD'
+
+01:25:59,026 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, TRITA-MAC 354 (1987); C-Cr-Fe-Mo-W'
+
+01:25:59,026 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 1385-1394; TRITA 0322 (1986);
+
+01:25:59,026 [Thread-1] INFO  CalculationEngine:         CR-FE-MO'
+
+01:25:59,026 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for electrical resistivity'
+
+01:25:59,02
+[Execution output abbreviated: 33648 characters total. Full output saved as execution_output_002.log in the working directory. Beginning and end follow; intermediate output is omitted.]
+ CalculationEngine:     1401.899      0.5250727
+
+01:26:02,898 [pool-4-thread-1] INFO  CalculationEngine:     1400.899      0.5319854
+
+01:26:02,900 [pool-4-thread-1] INFO  CalculationEngine:     1399.899      0.5387303
+
+01:26:02,902 [pool-4-thread-1] INFO  CalculationEngine:     1398.899      0.5453131
+
+01:26:02,904 [pool-4-thread-1] INFO  CalculationEngine:     1397.899      0.5517388
+
+01:26:02,906 [pool-4-thread-1] INFO  CalculationEngine:     1396.899      0.5580126
+
+01:26:02,908 [pool-4-thread-1] INFO  CalculationEngine:     1395.899      0.5641393
+
+01:26:02,910 [pool-4-thread-1] INFO  CalculationEngine:     1394.899      0.5701234
+
+01:26:02,912 [pool-4-thread-1] INFO  CalculationEngine:     1393.899      0.5759696
+
+01:26:02,914 [pool-4-thread-1] INFO  CalculationEngine:     1392.899      0.5816819
+
+01:26:02,980 [pool-4-thread-1] INFO  CalculationEngine:     1391.899      0.5872647
+
+01:26:02,982 [pool-4-thread-1] INFO  CalculationEngine:     1390.899      0.5927217
+
+01:26:02,984 [pool-4-thread-1] INFO  CalculationEngine:     1389.899      0.5980568
+
+01:26:02,986 [pool-4-thread-1] INFO  CalculationEngine:     1388.899      0.6032737
+
+01:26:02,988 [pool-4-thread-1] INFO  CalculationEngine:     1387.899      0.6083758
+
+01:26:02,990 [pool-4-thread-1] INFO  CalculationEngine:     1386.899      0.6133667
+
+01:26:02,992 [pool-4-thread-1] INFO  CalculationEngine:     1385.899      0.6182494
+
+01:26:02,993 [pool-4-thread-1] INFO  CalculationEngine:     1384.899      0.6230272
+
+01:26:02,995 [pool-4-thread-1] INFO  CalculationEngine:     1383.899      0.6277031
+
+01:26:02,997 [pool-4-thread-1] INFO  CalculationEngine:     1382.899      0.6322801
+
+01:26:03,064 [pool-4-thread-1] INFO  CalculationEngine:     1381.899      0.6367608
+
+01:26:03,066 [pool-4-thread-1] INFO  CalculationEngine:     1380.899      0.6411480
+
+01:26:03,067 [pool-4-thread-1] INFO  CalculationEngine:     1379.899      0.6454444
+
+01:26:03,069 [pool-4-thread-1] INFO  CalculationEngine:     1378.899      0.6496525
+
+01:26:03,071 [pool-4-thread-1] INFO  CalculationEngine:     1377.899      0.6537746
+
+01:26:03,073 [pool-4-thread-1] INFO  CalculationEngine:     1376.899      0.6578132
+
+01:26:03,075 [pool-4-thread-1] INFO  CalculationEngine:     1375.899      0.6617705
+
+01:26:03,077 [pool-4-thread-1] INFO  CalculationEngine:     1374.899      0.6656487
+
+01:26:03,078 [pool-4-thread-1] INFO  CalculationEngine:     1373.899      0.6694500
+
+01:26:03,080 [pool-4-thread-1] INFO  CalculationEngine:     1372.899      0.6731762
+
+01:26:03,147 [pool-4-thread-1] INFO  CalculationEngine:     1371.899      0.6768295
+
+01:26:03,149 [pool-4-thread-1] INFO  CalculationEngine:     1370.899      0.6804118
+
+01:26:03,151 [pool-4-thread-1] INFO  CalculationEngine:     1369.899      0.6839248
+
+01:26:03,153 [pool-4-thread-1] INFO  CalculationEngine:     1368.899      0.6873704
+
+01:26:03,155 [pool-4-thread-1] INFO  CalculationEngine:     1367.899      0.6907503
+
+01:26:03,157 [pool-4-thread-1] INFO  CalculationEngine:     1366.899      0.6940662
+
+01:26:03,158 [pool-4-thread-1] INFO  CalculationEngine:     1365.899      0.6973196
+
+01:26:03,160 [pool-4-thread-1] INFO  CalculationEngine:     1364.899      0.7005122
+
+01:26:03,162 [pool-4-thread-1] INFO  CalculationEngine:     1363.899      0.7036455
+
+01:26:03,165 [pool-4-thread-1] INFO  CalculationEngine:     1362.899      0.7067209
+
+01:26:03,244 [pool-4-thread-1] INFO  CalculationEngine:     1361.899      0.7097399
+
+01:26:03,246 [pool-4-thread-1] INFO  CalculationEngine:     1360.899      0.7127038
+
+01:26:03,248 [pool-4-thread-1] INFO  CalculationEngine:     1359.899      0.7156140
+
+01:26:03,250 [pool-4-thread-1] INFO  CalculationEngine:     1358.899      0.7184717
+
+01:26:03,252 [pool-4-thread-1] INFO  CalculationEngine:     1357.899      0.7212783
+
+01:26:03,254 [pool-4-thread-1] INFO  CalculationEngine:     1356.899      0.7240349
+
+01:26:03,255 [pool-4-thread-1] INFO  CalculationEngine:     1355.899      0.7267427
+
+01:26:03,257 [pool-4-thread-1] INFO  CalculationEngine:     1354.899      0.7294029
+
+01:26:03,259 [pool-4-thread-1] INFO  CalculationEngine:     1353.899      0.7320166
+
+01:26:03,261 [pool-4-thread-1] INFO  CalculationEngine:     1352.899      0.7345848
+
+01:26:03,327 [pool-4-thread-1] INFO  CalculationEngine:     1351.899      0.7371085
+
+01:26:03,329 [pool-4-thread-1] INFO  CalculationEngine:     1350.899      0.7395890
+
+01:26:03,331 [pool-4-thread-1] INFO  CalculationEngine:     1349.899      0.7420270
+
+01:26:03,333 [pool-4-thread-1] INFO  CalculationEngine:     1348.899      0.7444235
+
+01:26:03,335 [pool-4-thread-1] INFO  CalculationEngine:     1347.899      0.7467796
+
+01:26:03,337 [pool-4-thread-1] INFO  CalculationEngine:     1346.899      0.7490960
+
+01:26:03,339 [pool-4-thread-1] INFO  CalculationEngine:     1345.899      0.7513737
+
+01:26:03,341 [pool-4-thread-1] INFO  CalculationEngine:     1344.899      0.7536136
+
+01:26:03,342 [pool-4-thread-1] INFO  CalculationEngine:     1343.899      0.7558163
+
+01:26:03,344 [pool-4-thread-1] INFO  CalculationEngine:     1342.899      0.7579829
+
+01:26:03,409 [pool-4-thread-1] INFO  CalculationEngine:     1341.899      0.7601140
+
+01:26:03,411 [pool-4-thread-1] INFO  CalculationEngine:     1340.899      0.7622104
+
+01:26:03,413 [pool-4-thread-1] INFO  CalculationEngine:     1339.899      0.7642728
+
+01:26:03,415 [pool-4-thread-1] INFO  CalculationEngine:     1338.899      0.7663021
+
+01:26:03,417 [pool-4-thread-1] INFO  CalculationEngine:     1337.899      0.7682988
+
+01:26:03,419 [pool-4-thread-1] INFO  CalculationEngine:     1336.899      0.7702636
+
+01:26:03,420 [pool-4-thread-1] INFO  CalculationEngine:     1335.899      0.7721973
+
+01:26:03,422 [pool-4-thread-1] INFO  CalculationEngine:     1334.899      0.7741005
+
+01:26:03,424 [pool-4-thread-1] INFO  CalculationEngine:     1333.899      0.7759738
+
+01:26:03,426 [pool-4-thread-1] INFO  CalculationEngine:     1332.899      0.7778178
+
+01:26:03,490 [pool-4-thread-1] INFO  CalculationEngine:     1331.899      0.7796331
+
+01:26:03,492 [pool-4-thread-1] INFO  CalculationEngine:     1330.899      0.7814204
+
+01:26:03,494 [pool-4-thread-1] INFO  CalculationEngine:     1329.899      0.7831801
+
+01:26:03,496 [pool-4-thread-1] INFO  CalculationEngine:     1328.899      0.7849129
+
+01:26:03,498 [pool-4-thread-1] INFO  CalculationEngine:     1327.899      0.7866192
+
+01:26:03,499 [pool-4-thread-1] INFO  CalculationEngine:     1326.899      0.7882996
+
+01:26:03,501 [pool-4-thread-1] INFO  CalculationEngine:     1325.899      0.7899547
+
+01:26:03,503 [pool-4-thread-1] INFO  CalculationEngine:     1324.899      0.7915848
+
+01:26:03,505 [pool-4-thread-1] INFO  CalculationEngine:     1323.899      0.7931906
+
+01:26:03,507 [pool-4-thread-1] INFO  CalculationEngine:     1322.899      0.7947724
+
+01:26:03,573 [pool-4-thread-1] INFO  CalculationEngine:     1321.899      0.7963308
+
+01:26:03,575 [pool-4-thread-1] INFO  CalculationEngine:     1320.899      0.7978662
+
+01:26:03,577 [pool-4-thread-1] INFO  CalculationEngine:     1319.899      0.7993790
+
+01:26:03,579 [pool-4-thread-1] INFO  CalculationEngine:     1318.899      0.8008697
+
+01:26:03,580 [pool-4-thread-1] INFO  CalculationEngine:     1317.899      0.8023387
+
+01:26:03,582 [pool-4-thread-1] INFO  CalculationEngine:     1316.899      0.8037865
+
+01:26:03,584 [pool-4-thread-1] INFO  CalculationEngine:     1315.899      0.8052133
+
+01:26:03,586 [pool-4-thread-1] INFO  CalculationEngine:     1314.899      0.8066196
+
+01:26:03,588 [pool-4-thread-1] INFO  CalculationEngine:     1313.899      0.8080059
+
+01:26:03,590 [pool-4-thread-1] INFO  CalculationEngine:     1312.899      0.8093724
+
+01:26:03,655 [pool-4-thread-1] INFO  CalculationEngine:     1311.899      0.8107195
+
+01:26:03,657 [pool-4-thread-1] INFO  CalculationEngine:     1310.899      0.8120476
+
+01:26:03,659 [pool-4-thread-1] INFO  CalculationEngine:     1309.899      0.8133570
+
+01:26:03,660 [pool-4-thread-1] INFO  CalculationEngine:     1308.899      0.8146482
+
+01:26:03,662 [pool-4-thread-1] INFO  CalculationEngine:     1307.899      0.8159213
+
+01:26:03,664 [pool-4-thread-1] INFO  CalculationEngine:     1306.899      0.8171768
+
+01:26:03,666 [pool-4-thread-1] INFO  CalculationEngine:     1305.899      0.8184150
+
+01:26:03,668 [pool-4-thread-1] INFO  CalculationEngine:     1304.899      0.8196361
+
+01:26:03,670 [pool-4-thread-1] INFO  CalculationEngine:     1303.899      0.8208405
+
+01:26:03,672 [pool-4-thread-1] INFO  CalculationEngine:     1302.899      0.8220285
+
+01:26:03,739 [pool-4-thread-1] INFO  CalculationEngine:     1301.899      0.8232004
+
+01:26:03,740 [pool-4-thread-1] INFO  CalculationEngine:     1300.899      0.8243564
+
+01:26:03,742 [pool-4-thread-1] INFO  CalculationEngine:     1299.899      0.8254969
+
+01:26:03,744 [pool-4-thread-1] INFO  CalculationEngine:     1298.899      0.8266221
+
+01:26:03,746 [pool-4-thread-1] INFO  CalculationEngine:     1297.899      0.8277323
+
+01:26:03,748 [pool-4-thread-1] INFO  CalculationEngine:     1296.899      0.8288277
+
+01:26:03,750 [pool-4-thread-1] INFO  CalculationEngine:     1295.899      0.8299086
+
+01:26:03,751 [pool-4-thread-1] INFO  CalculationEngine:     1294.899      0.8309753
+
+01:26:03,753 [pool-4-thread-1] INFO  CalculationEngine:     1293.899      0.8320279
+
+01:26:03,755 [pool-4-thread-1] INFO  CalculationEngine:     1292.899      0.8330668
+
+01:26:03,820 [pool-4-thread-1] INFO  CalculationEngine:     1291.899      0.8340922
+
+01:26:03,822 [pool-4-thread-1] INFO  CalculationEngine:     1290.899      0.8351043
+
+01:26:03,824 [pool-4-thread-1] INFO  CalculationEngine:     1289.899      0.8361033
+
+01:26:03,826 [pool-4-thread-1] INFO  CalculationEngine:     1288.899      0.8370895
+
+01:26:03,828 [pool-4-thread-1] INFO  CalculationEngine:     1287.899      0.8380631
+
+01:26:03,830 [pool-4-thread-1] INFO  CalculationEngine:     1286.899      0.8390242
+
+01:26:03,831 [pool-4-thread-1] INFO  CalculationEngine:     1285.899      0.8399732
+
+01:26:03,833 [pool-4-thread-1] INFO  CalculationEngine:     1284.899      0.8409101
+
+01:26:03,835 [pool-4-thread-1] INFO  CalculationEngine:     1283.899      0.8418353
+
+01:26:03,837 [pool-4-thread-1] INFO  CalculationEngine:     1282.899      0.8427488
+
+01:26:03,903 [pool-4-thread-1] INFO  CalculationEngine:     1281.899      0.8436510
+
+01:26:03,905 [pool-4-thread-1] INFO  CalculationEngine:     1280.899      0.8445419
+
+01:26:03,907 [pool-4-thread-1] INFO  CalculationEngine:     1279.899      0.8454218
+
+01:26:03,909 [pool-4-thread-1] INFO  CalculationEngine:     1278.899      0.8462908
+
+01:26:03,911 [pool-4-thread-1] INFO  CalculationEngine:     1277.899      0.8471492
+
+01:26:03,912 [pool-4-thread-1] INFO  CalculationEngine:     1276.899      0.8479971
+
+01:26:03,914 [pool-4-thread-1] INFO  CalculationEngine:     1275.899      0.8488346
+
+01:26:03,916 [pool-4-thread-1] INFO  CalculationEngine:     1274.899      0.8496620
+
+01:26:03,918 [pool-4-thread-1] INFO  CalculationEngine:     1273.899      0.8504794
+
+01:26:03,920 [pool-4-thread-1] INFO  CalculationEngine:     1272.899      0.8512869
+
+01:26:03,985 [pool-4-thread-1] INFO  CalculationEngine:     1271.899      0.8520848
+
+01:26:03,986 [pool-4-thread-1] INFO  CalculationEngine:     1270.899      0.8528732
+
+01:26:03,988 [pool-4-thread-1] INFO  CalculationEngine:     1269.899      0.8536522
+
+01:26:03,990 [pool-4-thread-1] INFO  CalculationEngine:     1268.899      0.8544220
+
+01:26:03,992 [pool-4-thread-1] INFO  CalculationEngine:     1267.899      0.8551827
+
+01:26:04,397 [pool-4-thread-1] INFO  CalculationEngine:     1267.548      0.8554471
+
+01:26:04,812 [pool-4-thread-1] INFO  CalculationEngine:   PHASE REGION:LIQUID + FCC_A1#1 + M7C3
+
+01:26:04,812 [pool-4-thread-1] INFO  CalculationEngine:       T(C)      fraction solid
+
+01:26:04,812 [pool-4-thread-1] INFO  CalculationEngine:     1267.517      0.8556564
+
+01:26:04,814 [pool-4-thread-1] INFO  CalculationEngine:     1266.517      0.8680204
+
+01:26:04,816 [pool-4-thread-1] INFO  CalculationEngine:     1265.517      0.8787645
+
+01:26:04,818 [pool-4-thread-1] INFO  CalculationEngine:     1264.517      0.8881678
+
+01:26:04,820 [pool-4-thread-1] INFO  CalculationEngine:     1263.517      0.8964509
+
+01:26:04,822 [pool-4-thread-1] INFO  CalculationEngine:     1262.517      0.9037903
+
+01:26:04,824 [pool-4-thread-1] INFO  CalculationEngine:     1261.517      0.9103282
+
+01:26:04,826 [pool-4-thread-1] INFO  CalculationEngine:     1260.517      0.9161808
+
+01:26:04,828 [pool-4-thread-1] INFO  CalculationEngine:     1259.517      0.9214436
+
+01:26:04,830 [pool-4-thread-1] INFO  CalculationEngine:     1258.517      0.9261957
+
+01:26:04,896 [pool-4-thread-1] INFO  CalculationEngine:     1257.517      0.9305032
+
+01:26:04,898 [pool-4-thread-1] INFO  CalculationEngine:     1256.517      0.9344216
+
+01:26:04,900 [pool-4-thread-1] INFO  CalculationEngine:     1255.517      0.9379979
+
+01:26:04,902 [pool-4-thread-1] INFO  CalculationEngine:     1254.517      0.9412722
+
+01:26:04,904 [pool-4-thread-1] INFO  CalculationEngine:     1253.517      0.9442785
+
+01:26:04,906 [pool-4-thread-1] INFO  CalculationEngine:     1252.517      0.9470463
+
+01:26:04,908 [pool-4-thread-1] INFO  CalculationEngine:     1251.517      0.9496011
+
+01:26:04,909 [pool-4-thread-1] INFO  CalculationEngine:     1250.517      0.9519649
+
+01:26:04,911 [pool-4-thread-1] INFO  CalculationEngine:     1249.517      0.9541569
+
+01:26:04,913 [pool-4-thread-1] INFO  CalculationEngine:     1248.517      0.9561939
+
+01:26:04,979 [pool-4-thread-1] INFO  CalculationEngine:     1247.517      0.9580907
+
+01:26:04,981 [pool-4-thread-1] INFO  CalculationEngine:     1246.517      0.9598604
+
+01:26:04,983 [pool-4-thread-1] INFO  CalculationEngine:     1245.517      0.9615144
+
+01:26:04,985 [pool-4-thread-1] INFO  CalculationEngine:     1244.517      0.9630630
+
+01:26:04,987 [pool-4-thread-1] INFO  CalculationEngine:     1243.517      0.9645153
+
+01:26:04,989 [pool-4-thread-1] INFO  CalculationEngine:     1242.517      0.9658794
+
+01:26:04,991 [pool-4-thread-1] INFO  CalculationEngine:     1241.517      0.9671625
+
+01:26:04,993 [pool-4-thread-1] INFO  CalculationEngine:     1240.517      0.9683712
+
+01:26:04,995 [pool-4-thread-1] INFO  CalculationEngine:     1239.517      0.9695113
+
+01:26:04,997 [pool-4-thread-1] INFO  CalculationEngine:     1238.517      0.9705881
+
+01:26:05,063 [pool-4-thread-1] INFO  CalculationEngine:     1237.517      0.9716065
+
+01:26:05,065 [pool-4-thread-1] INFO  CalculationEngine:     1236.517      0.9725706
+
+01:26:05,066 [pool-4-thread-1] INFO  CalculationEngine:     1235.517      0.9734845
+
+01:26:05,068 [pool-4-thread-1] INFO  CalculationEngine:     1234.517      0.9743516
+
+01:26:05,070 [pool-4-thread-1] INFO  CalculationEngine:     1233.517      0.9751754
+
+01:26:05,072 [pool-4-thread-1] INFO  CalculationEngine:     1232.517      0.9759587
+
+01:26:05,074 [pool-4-thread-1] INFO  CalculationEngine:     1231.517      0.9767042
+
+01:26:05,076 [pool-4-thread-1] INFO  CalculationEngine:     1230.517      0.9774144
+
+01:26:05,078 [pool-4-thread-1] INFO  CalculationEngine:     1229.517      0.9780917
+
+01:26:05,080 [pool-4-thread-1] INFO  CalculationEngine:     1228.517      0.9787380
+
+01:26:05,149 [pool-4-thread-1] INFO  CalculationEngine:     1227.517      0.9793555
+
+01:26:05,151 [pool-4-thread-1] INFO  CalculationEngine:     1226.517      0.9799457
+
+01:26:05,153 [pool-4-thread-1] INFO  CalculationEngine:     1225.517      0.9805103
+
+01:26:05,155 [pool-4-thread-1] INFO  CalculationEngine:     1224.517      0.9810510
+
+01:26:05,157 [pool-4-thread-1] INFO  CalculationEngine:     1223.517      0.9815690
+
+01:26:05,159 [pool-4-thread-1] INFO  CalculationEngine:     1222.517      0.9820657
+
+01:26:05,161 [pool-4-thread-1] INFO  CalculationEngine:     1221.517      0.9825423
+
+01:26:05,163 [pool-4-thread-1] INFO  CalculationEngine:     1220.517      0.9829999
+
+01:26:05,165 [pool-4-thread-1] INFO  CalculationEngine:     1219.517      0.9834395
+
+01:26:05,167 [pool-4-thread-1] INFO  CalculationEngine:     1218.517      0.9838622
+
+01:26:05,236 [pool-4-thread-1] INFO  CalculationEngine:     1217.517      0.9842688
+
+01:26:05,238 [pool-4-thread-1] INFO  CalculationEngine:     1216.517      0.9846601
+
+01:26:05,240 [pool-4-thread-1] INFO  CalculationEngine:     1215.517      0.9850370
+
+01:26:05,242 [pool-4-thread-1] INFO  CalculationEngine:     1214.517      0.9854002
+
+01:26:05,244 [pool-4-thread-1] INFO  CalculationEngine:     1213.517      0.9857504
+
+01:26:05,245 [pool-4-thread-1] INFO  CalculationEngine:     1212.517      0.9860882
+
+01:26:05,247 [pool-4-thread-1] INFO  CalculationEngine:     1211.517      0.9864142
+
+01:26:05,249 [pool-4-thread-1] INFO  CalculationEngine:     1210.517      0.9867291
+
+01:26:05,251 [pool-4-thread-1] INFO  CalculationEngine:     1209.517      0.9870333
+
+01:26:05,253 [pool-4-thread-1] INFO  CalculationEngine:     1208.517      0.9873273
+
+01:26:05,323 [pool-4-thread-1] INFO  CalculationEngine:     1207.517      0.9876116
+
+01:26:05,325 [pool-4-thread-1] INFO  CalculationEngine:     1206.517      0.9878867
+
+01:26:05,327 [pool-4-thread-1] INFO  CalculationEngine:     1205.517      0.9881530
+
+01:26:05,329 [pool-4-thread-1] INFO  CalculationEngine:     1204.517      0.9884108
+
+01:26:05,331 [pool-4-thread-1] INFO  CalculationEngine:     1203.517      0.9886606
+
+01:26:05,333 [pool-4-thread-1] INFO  CalculationEngine:     1202.517      0.9889027
+
+01:26:05,335 [pool-4-thread-1] INFO  CalculationEngine:     1201.517      0.9891375
+
+01:26:05,337 [pool-4-thread-1] INFO  CalculationEngine:     1200.517      0.9893652
+
+01:26:05,339 [pool-4-thread-1] INFO  CalculationEngine:     1199.517      0.9895861
+
+01:26:05,341 [pool-4-thread-1] INFO  CalculationEngine:     1198.517      0.9898005
+
+01:26:05,408 [pool-4-thread-1] INFO  CalculationEngine:     1197.517      0.9900088
+
+01:26:05,422 [pool-4-thread-1] INFO  CalculationEngine:   Calculating properties ...
+
+01:26:06,811 [pool-4-thread-1] INFO  CalculationEngine:  Liquidus temperature: 1715.055 K
+
+01:26:06,858 [Thread-1] INFO  CalculationEngine:    POSTPROCESSOR VERSION 3.2
+
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The error occurred because the `temperature_at_80_solid` variable is a NumPy array, which is not directly serializable to JSON. To fix this, we need to convert it to a native Python data type, such as a float, before saving it to the JSON file. Let's correct the code and re-run it.
+
+```python
+import json
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+from tc_python import *
+
+# Define the alloy composition
+composition = {"C": 1.0, "Cr": 10.0}  # in wt-%
+database = "FEDEMO"  # Assuming a demo database for Fe-based alloys
+
+# File paths for saving results
+json_file_path = "solidification_temperature.json"
+png_file_path = "solidification_plot.png"
+
+with TCPython() as session:
+    # Set up the system and calculation
+    system = (session
+              .select_database_and_elements(database, ["Fe", "C", "Cr"])
+              .get_system())
+
+    scheil_calculation = (system
+                          .with_scheil_calculation()
+                          .set_composition_unit(CompositionUnit.MASS_PERCENT))
+
+    for element, wt_pct in composition.items():
+        scheil_calculation.set_composition(element, wt_pct)
+
+    # Perform the Scheil calculation
+    result = scheil_calculation.calculate()
+
+    # Retrieve temperature and solid fraction data
+    temperature, solid_fraction = result.get_values_of(
+        ScheilQuantity.temperature(),
+        ScheilQuantity.mole_fraction_of_all_solid_phases()
+    )
+
+    # Interpolate to find the temperature at 80% solidification
+    solid_fraction_curve = interp1d(solid_fraction, temperature)
+    temperature_at_80_solid = float(solid_fraction_curve(0.8))  # Convert to float
+
+    # Save the result to a JSON file
+    result_data = {"temperature_at_80_solidification_K": temperature_at_80_solid}
+    with open(json_file_path, "w") as json_file:
+        json.dump(result_data, json_file, indent=4)
+
+    # Plot the solid fraction as a function of temperature
+    plt.plot(temperature, solid_fraction, label="Solid Fraction")
+    plt.axvline(x=temperature_at_80_solid, color='r', linestyle='--', label=f"80% Solidified at {temperature_at_80_solid:.2f} K")
+    plt.xlabel("Temperature (K)")
+    plt.ylabel("Solid Fraction")
+    plt.title("Solidification Curve for Fe-1C-10Cr")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(png_file_path)
+    plt.close()
+
+# Confirm the saved files
+print(f"Temperature at 80% solidification saved to {json_file_path} and plot saved to {png_file_path}.")
+```
+
+This correction ensures that the temperature value is converted to a float before being serialized into JSON, which should resolve the error. Let's try running the corrected script.
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
+User_Proxy (to Assistant):
+
+exitcode: 0 (execution succeeded)
+Code output: Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=[local-path] -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+
+01:26:13,626 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+01:26:15,607 [Thread-1] INFO  CalculationEngine: Opening database::FEDEMO::
+
+01:26:15,781 [Thread-1] INFO  JavaWrapper: *** Invoking Gibbs Energy System v6 ***
+
+01:26:15,829 [Thread-1] INFO  CalculationEngine:  Creating a new composition set FCC_A1#2
+
+01:26:15,829 [Thread-1] INFO  CalculationEngine: New CS: FCC_A1#2
+
+01:26:15,930 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, Thermo-Calc Software AB, Sweden, 2006; Molar volumes'
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:    'X.G. Lu, M. Selleby and B. Sundman, CALPHAD, 29, 2005, 68-89; Molar
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:        volumes'
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 627-636 TRITA 0207 (1986); C
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:        -CR-FE'
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson and B. Sundman, CALPHAD, 11 (1987) 83-92; TRITA 0270
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:        (1986); CR-FE'
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, CALPHAD, 11 (1987) 271-276; TRITA 0314; C-CR'
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:    'A.T. Dinsdale, SGTE Data for Pure Elements, CALPHAD, 15 (1991) 317-425'
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Scan. J. Metall., 14 (1985) 259-267; TRITA 0237 (1984); C-FE'
+
+01:26:15,931 [Thread-1] INFO  CalculationEngine:    'A.V. Khvan, B. Hallstedt, C. Broeckmann, CALPHAD, 46, 24-33(2014); Cr-Fe-C'
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:    'P. Franke, estimated parameter within SGTE, 2007; Fe-C, Ni-C, Mo-C, C-Mn'
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; THCD and ELRS of steels'
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:    'H-L Chen, in TCAL7.0, Evaluation and modeling of electrical resistivity
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:         thermal conductivity'
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Optimized ELRS
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:    'C.-M. Arvhult, Estimation of ELRS
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:         THCD, Thermo-Calc Software. '
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2020; ELRS/THCD'
+
+01:26:15,932 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, Volume data updated for
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:        TCFE9 database (TCFE v9.0, Jan, 2017).'
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, Metall. Trans. A, 24A (1993) 1017-1025; Fe-Cr-Mn-C'
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:    'W. Huang, Metall. Trans. A, 21A (1990) 2115-2123; TRITA-MAC 411 (Rev
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:        1989); C-FE-MN'
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:    'P. Villars, L.D. Calvert. Pearsons handbook of crystallographic data for
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:        intermetallic phases, Metals park, Ohio 1985: American society for
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:        metals'
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:    'B. Hallstedt, D. Djurovic, J. von Appen, R. Dronskowski, A. Dick, F.
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:        Koermann, T. Hickel, J. Neugebauer, CALPHAD, 34, 129-33(2010); Fe-C'
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:    'B.J. Lee, CALPHAD, 16 (1992) 121-149; C-Cr-Fe-Ni'
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2021; Default values for
+
+01:26:15,933 [Thread-1] INFO  CalculationEngine:        ELRS/THCD'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, TRITA-MAC 354 (1987); C-Cr-Fe-Mo-W'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'J-O. Andersson, Metall. Trans. A, 19A (1988) 1385-1394; TRITA 0322 (1986);
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:         CR-FE-MO'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for electrical resistivity'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'H-L Chen, Default value for thermal conductivity'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2023; Diamond Volume'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'A. Markstrom, Swerea KIMAB, Sweden; Molar volumes'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'R. Naraghi, Thermo-Calc Software AB, Sweden, 2016; FCC Fe-Cr-C and C-Cr-Ni'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'J. Bratberg, Z. Metallkd., 96 (2005) 335-344; Fe-Cr-Mo-C'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'B. Uhrenius, Int. J. Refract. Met. Hard Mater. 12 (1994) 121-127; Molar
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:        volumes'
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:    'K. Frisk, Metall. Trans. A, 21A (1990) 2477-2488; TRITA 0409 (1989); CR
+
+01:26:15,934 [Thread-1] INFO  CalculationEngine:        -FE-N'
+
+01:26:15,935 [Thread-1] INFO  CalculationEngine:    'P. Gustafson, Metall. Trans. A, 19A (1988) 2547-2554; TRITA-MAC 348,
+
+01:26:15,935 [Thread-1] INFO  CalculationEngine:        (1987);
+[Execution output abbreviated: 32637 characters total. Full output saved as execution_output_003.log in the working directory. Beginning and end follow; intermediate output is omitted.]
+     0.5319854
+
+01:26:19,928 [pool-4-thread-1] INFO  CalculationEngine:     1399.899      0.5387303
+
+01:26:19,930 [pool-4-thread-1] INFO  CalculationEngine:     1398.899      0.5453131
+
+01:26:19,932 [pool-4-thread-1] INFO  CalculationEngine:     1397.899      0.5517388
+
+01:26:19,934 [pool-4-thread-1] INFO  CalculationEngine:     1396.899      0.5580126
+
+01:26:19,936 [pool-4-thread-1] INFO  CalculationEngine:     1395.899      0.5641393
+
+01:26:19,938 [pool-4-thread-1] INFO  CalculationEngine:     1394.899      0.5701234
+
+01:26:19,939 [pool-4-thread-1] INFO  CalculationEngine:     1393.899      0.5759696
+
+01:26:19,941 [pool-4-thread-1] INFO  CalculationEngine:     1392.899      0.5816819
+
+01:26:20,007 [pool-4-thread-1] INFO  CalculationEngine:     1391.899      0.5872647
+
+01:26:20,009 [pool-4-thread-1] INFO  CalculationEngine:     1390.899      0.5927217
+
+01:26:20,011 [pool-4-thread-1] INFO  CalculationEngine:     1389.899      0.5980568
+
+01:26:20,013 [pool-4-thread-1] INFO  CalculationEngine:     1388.899      0.6032737
+
+01:26:20,015 [pool-4-thread-1] INFO  CalculationEngine:     1387.899      0.6083758
+
+01:26:20,016 [pool-4-thread-1] INFO  CalculationEngine:     1386.899      0.6133667
+
+01:26:20,018 [pool-4-thread-1] INFO  CalculationEngine:     1385.899      0.6182494
+
+01:26:20,020 [pool-4-thread-1] INFO  CalculationEngine:     1384.899      0.6230272
+
+01:26:20,022 [pool-4-thread-1] INFO  CalculationEngine:     1383.899      0.6277031
+
+01:26:20,024 [pool-4-thread-1] INFO  CalculationEngine:     1382.899      0.6322801
+
+01:26:20,099 [pool-4-thread-1] INFO  CalculationEngine:     1381.899      0.6367608
+
+01:26:20,102 [pool-4-thread-1] INFO  CalculationEngine:     1380.899      0.6411480
+
+01:26:20,104 [pool-4-thread-1] INFO  CalculationEngine:     1379.899      0.6454444
+
+01:26:20,106 [pool-4-thread-1] INFO  CalculationEngine:     1378.899      0.6496525
+
+01:26:20,108 [pool-4-thread-1] INFO  CalculationEngine:     1377.899      0.6537746
+
+01:26:20,109 [pool-4-thread-1] INFO  CalculationEngine:     1376.899      0.6578132
+
+01:26:20,111 [pool-4-thread-1] INFO  CalculationEngine:     1375.899      0.6617705
+
+01:26:20,113 [pool-4-thread-1] INFO  CalculationEngine:     1374.899      0.6656487
+
+01:26:20,115 [pool-4-thread-1] INFO  CalculationEngine:     1373.899      0.6694500
+
+01:26:20,117 [pool-4-thread-1] INFO  CalculationEngine:     1372.899      0.6731762
+
+01:26:20,185 [pool-4-thread-1] INFO  CalculationEngine:     1371.899      0.6768295
+
+01:26:20,187 [pool-4-thread-1] INFO  CalculationEngine:     1370.899      0.6804118
+
+01:26:20,189 [pool-4-thread-1] INFO  CalculationEngine:     1369.899      0.6839248
+
+01:26:20,191 [pool-4-thread-1] INFO  CalculationEngine:     1368.899      0.6873704
+
+01:26:20,192 [pool-4-thread-1] INFO  CalculationEngine:     1367.899      0.6907503
+
+01:26:20,194 [pool-4-thread-1] INFO  CalculationEngine:     1366.899      0.6940662
+
+01:26:20,196 [pool-4-thread-1] INFO  CalculationEngine:     1365.899      0.6973196
+
+01:26:20,198 [pool-4-thread-1] INFO  CalculationEngine:     1364.899      0.7005122
+
+01:26:20,200 [pool-4-thread-1] INFO  CalculationEngine:     1363.899      0.7036455
+
+01:26:20,202 [pool-4-thread-1] INFO  CalculationEngine:     1362.899      0.7067209
+
+01:26:20,289 [pool-4-thread-1] INFO  CalculationEngine:     1361.899      0.7097399
+
+01:26:20,291 [pool-4-thread-1] INFO  CalculationEngine:     1360.899      0.7127038
+
+01:26:20,293 [pool-4-thread-1] INFO  CalculationEngine:     1359.899      0.7156140
+
+01:26:20,295 [pool-4-thread-1] INFO  CalculationEngine:     1358.899      0.7184717
+
+01:26:20,297 [pool-4-thread-1] INFO  CalculationEngine:     1357.899      0.7212783
+
+01:26:20,299 [pool-4-thread-1] INFO  CalculationEngine:     1356.899      0.7240349
+
+01:26:20,301 [pool-4-thread-1] INFO  CalculationEngine:     1355.899      0.7267427
+
+01:26:20,303 [pool-4-thread-1] INFO  CalculationEngine:     1354.899      0.7294029
+
+01:26:20,305 [pool-4-thread-1] INFO  CalculationEngine:     1353.899      0.7320166
+
+01:26:20,307 [pool-4-thread-1] INFO  CalculationEngine:     1352.899      0.7345848
+
+01:26:20,374 [pool-4-thread-1] INFO  CalculationEngine:     1351.899      0.7371085
+
+01:26:20,376 [pool-4-thread-1] INFO  CalculationEngine:     1350.899      0.7395890
+
+01:26:20,378 [pool-4-thread-1] INFO  CalculationEngine:     1349.899      0.7420270
+
+01:26:20,380 [pool-4-thread-1] INFO  CalculationEngine:     1348.899      0.7444235
+
+01:26:20,382 [pool-4-thread-1] INFO  CalculationEngine:     1347.899      0.7467796
+
+01:26:20,384 [pool-4-thread-1] INFO  CalculationEngine:     1346.899      0.7490960
+
+01:26:20,385 [pool-4-thread-1] INFO  CalculationEngine:     1345.899      0.7513737
+
+01:26:20,387 [pool-4-thread-1] INFO  CalculationEngine:     1344.899      0.7536136
+
+01:26:20,397 [pool-4-thread-1] INFO  CalculationEngine:     1343.899      0.7558163
+
+01:26:20,399 [pool-4-thread-1] INFO  CalculationEngine:     1342.899      0.7579829
+
+01:26:20,464 [pool-4-thread-1] INFO  CalculationEngine:     1341.899      0.7601140
+
+01:26:20,466 [pool-4-thread-1] INFO  CalculationEngine:     1340.899      0.7622104
+
+01:26:20,468 [pool-4-thread-1] INFO  CalculationEngine:     1339.899      0.7642728
+
+01:26:20,470 [pool-4-thread-1] INFO  CalculationEngine:     1338.899      0.7663021
+
+01:26:20,472 [pool-4-thread-1] INFO  CalculationEngine:     1337.899      0.7682988
+
+01:26:20,474 [pool-4-thread-1] INFO  CalculationEngine:     1336.899      0.7702636
+
+01:26:20,475 [pool-4-thread-1] INFO  CalculationEngine:     1335.899      0.7721973
+
+01:26:20,477 [pool-4-thread-1] INFO  CalculationEngine:     1334.899      0.7741005
+
+01:26:20,479 [pool-4-thread-1] INFO  CalculationEngine:     1333.899      0.7759738
+
+01:26:20,481 [pool-4-thread-1] INFO  CalculationEngine:     1332.899      0.7778178
+
+01:26:20,545 [pool-4-thread-1] INFO  CalculationEngine:     1331.899      0.7796331
+
+01:26:20,547 [pool-4-thread-1] INFO  CalculationEngine:     1330.899      0.7814204
+
+01:26:20,549 [pool-4-thread-1] INFO  CalculationEngine:     1329.899      0.7831801
+
+01:26:20,551 [pool-4-thread-1] INFO  CalculationEngine:     1328.899      0.7849129
+
+01:26:20,553 [pool-4-thread-1] INFO  CalculationEngine:     1327.899      0.7866192
+
+01:26:20,554 [pool-4-thread-1] INFO  CalculationEngine:     1326.899      0.7882996
+
+01:26:20,556 [pool-4-thread-1] INFO  CalculationEngine:     1325.899      0.7899547
+
+01:26:20,558 [pool-4-thread-1] INFO  CalculationEngine:     1324.899      0.7915848
+
+01:26:20,560 [pool-4-thread-1] INFO  CalculationEngine:     1323.899      0.7931906
+
+01:26:20,562 [pool-4-thread-1] INFO  CalculationEngine:     1322.899      0.7947724
+
+01:26:20,628 [pool-4-thread-1] INFO  CalculationEngine:     1321.899      0.7963308
+
+01:26:20,630 [pool-4-thread-1] INFO  CalculationEngine:     1320.899      0.7978662
+
+01:26:20,632 [pool-4-thread-1] INFO  CalculationEngine:     1319.899      0.7993790
+
+01:26:20,634 [pool-4-thread-1] INFO  CalculationEngine:     1318.899      0.8008697
+
+01:26:20,636 [pool-4-thread-1] INFO  CalculationEngine:     1317.899      0.8023387
+
+01:26:20,638 [pool-4-thread-1] INFO  CalculationEngine:     1316.899      0.8037865
+
+01:26:20,640 [pool-4-thread-1] INFO  CalculationEngine:     1315.899      0.8052133
+
+01:26:20,642 [pool-4-thread-1] INFO  CalculationEngine:     1314.899      0.8066196
+
+01:26:20,644 [pool-4-thread-1] INFO  CalculationEngine:     1313.899      0.8080059
+
+01:26:20,645 [pool-4-thread-1] INFO  CalculationEngine:     1312.899      0.8093724
+
+01:26:20,709 [pool-4-thread-1] INFO  CalculationEngine:     1311.899      0.8107195
+
+01:26:20,711 [pool-4-thread-1] INFO  CalculationEngine:     1310.899      0.8120476
+
+01:26:20,713 [pool-4-thread-1] INFO  CalculationEngine:     1309.899      0.8133570
+
+01:26:20,715 [pool-4-thread-1] INFO  CalculationEngine:     1308.899      0.8146482
+
+01:26:20,717 [pool-4-thread-1] INFO  CalculationEngine:     1307.899      0.8159213
+
+01:26:20,719 [pool-4-thread-1] INFO  CalculationEngine:     1306.899      0.8171768
+
+01:26:20,721 [pool-4-thread-1] INFO  CalculationEngine:     1305.899      0.8184150
+
+01:26:20,722 [pool-4-thread-1] INFO  CalculationEngine:     1304.899      0.8196361
+
+01:26:20,724 [pool-4-thread-1] INFO  CalculationEngine:     1303.899      0.8208405
+
+01:26:20,726 [pool-4-thread-1] INFO  CalculationEngine:     1302.899      0.8220285
+
+01:26:20,793 [pool-4-thread-1] INFO  CalculationEngine:     1301.899      0.8232004
+
+01:26:20,795 [pool-4-thread-1] INFO  CalculationEngine:     1300.899      0.8243564
+
+01:26:20,796 [pool-4-thread-1] INFO  CalculationEngine:     1299.899      0.8254969
+
+01:26:20,798 [pool-4-thread-1] INFO  CalculationEngine:     1298.899      0.8266221
+
+01:26:20,800 [pool-4-thread-1] INFO  CalculationEngine:     1297.899      0.8277323
+
+01:26:20,802 [pool-4-thread-1] INFO  CalculationEngine:     1296.899      0.8288277
+
+01:26:20,804 [pool-4-thread-1] INFO  CalculationEngine:     1295.899      0.8299086
+
+01:26:20,806 [pool-4-thread-1] INFO  CalculationEngine:     1294.899      0.8309753
+
+01:26:20,808 [pool-4-thread-1] INFO  CalculationEngine:     1293.899      0.8320279
+
+01:26:20,810 [pool-4-thread-1] INFO  CalculationEngine:     1292.899      0.8330668
+
+01:26:20,875 [pool-4-thread-1] INFO  CalculationEngine:     1291.899      0.8340922
+
+01:26:20,876 [pool-4-thread-1] INFO  CalculationEngine:     1290.899      0.8351043
+
+01:26:20,878 [pool-4-thread-1] INFO  CalculationEngine:     1289.899      0.8361033
+
+01:26:20,881 [pool-4-thread-1] INFO  CalculationEngine:     1288.899      0.8370895
+
+01:26:20,883 [pool-4-thread-1] INFO  CalculationEngine:     1287.899      0.8380631
+
+01:26:20,885 [pool-4-thread-1] INFO  CalculationEngine:     1286.899      0.8390242
+
+01:26:20,887 [pool-4-thread-1] INFO  CalculationEngine:     1285.899      0.8399732
+
+01:26:20,889 [pool-4-thread-1] INFO  CalculationEngine:     1284.899      0.8409101
+
+01:26:20,890 [pool-4-thread-1] INFO  CalculationEngine:     1283.899      0.8418353
+
+01:26:20,892 [pool-4-thread-1] INFO  CalculationEngine:     1282.899      0.8427488
+
+01:26:20,959 [pool-4-thread-1] INFO  CalculationEngine:     1281.899      0.8436510
+
+01:26:20,961 [pool-4-thread-1] INFO  CalculationEngine:     1280.899      0.8445419
+
+01:26:20,963 [pool-4-thread-1] INFO  CalculationEngine:     1279.899      0.8454218
+
+01:26:20,965 [pool-4-thread-1] INFO  CalculationEngine:     1278.899      0.8462908
+
+01:26:20,966 [pool-4-thread-1] INFO  CalculationEngine:     1277.899      0.8471492
+
+01:26:20,968 [pool-4-thread-1] INFO  CalculationEngine:     1276.899      0.8479971
+
+01:26:20,970 [pool-4-thread-1] INFO  CalculationEngine:     1275.899      0.8488346
+
+01:26:20,972 [pool-4-thread-1] INFO  CalculationEngine:     1274.899      0.8496620
+
+01:26:20,974 [pool-4-thread-1] INFO  CalculationEngine:     1273.899      0.8504794
+
+01:26:20,976 [pool-4-thread-1] INFO  CalculationEngine:     1272.899      0.8512869
+
+01:26:21,041 [pool-4-thread-1] INFO  CalculationEngine:     1271.899      0.8520848
+
+01:26:21,043 [pool-4-thread-1] INFO  CalculationEngine:     1270.899      0.8528732
+
+01:26:21,044 [pool-4-thread-1] INFO  CalculationEngine:     1269.899      0.8536522
+
+01:26:21,046 [pool-4-thread-1] INFO  CalculationEngine:     1268.899      0.8544220
+
+01:26:21,048 [pool-4-thread-1] INFO  CalculationEngine:     1267.899      0.8551827
+
+01:26:21,455 [pool-4-thread-1] INFO  CalculationEngine:     1267.548      0.8554471
+
+01:26:21,869 [pool-4-thread-1] INFO  CalculationEngine:   PHASE REGION:LIQUID + FCC_A1#1 + M7C3
+
+01:26:21,869 [pool-4-thread-1] INFO  CalculationEngine:       T(C)      fraction solid
+
+01:26:21,869 [pool-4-thread-1] INFO  CalculationEngine:     1267.517      0.8556564
+
+01:26:21,871 [pool-4-thread-1] INFO  CalculationEngine:     1266.517      0.8680204
+
+01:26:21,873 [pool-4-thread-1] INFO  CalculationEngine:     1265.517      0.8787645
+
+01:26:21,875 [pool-4-thread-1] INFO  CalculationEngine:     1264.517      0.8881678
+
+01:26:21,877 [pool-4-thread-1] INFO  CalculationEngine:     1263.517      0.8964509
+
+01:26:21,879 [pool-4-thread-1] INFO  CalculationEngine:     1262.517      0.9037903
+
+01:26:21,881 [pool-4-thread-1] INFO  CalculationEngine:     1261.517      0.9103282
+
+01:26:21,883 [pool-4-thread-1] INFO  CalculationEngine:     1260.517      0.9161808
+
+01:26:21,885 [pool-4-thread-1] INFO  CalculationEngine:     1259.517      0.9214436
+
+01:26:21,887 [pool-4-thread-1] INFO  CalculationEngine:     1258.517      0.9261957
+
+01:26:21,953 [pool-4-thread-1] INFO  CalculationEngine:     1257.517      0.9305032
+
+01:26:21,955 [pool-4-thread-1] INFO  CalculationEngine:     1256.517      0.9344216
+
+01:26:21,957 [pool-4-thread-1] INFO  CalculationEngine:     1255.517      0.9379979
+
+01:26:21,959 [pool-4-thread-1] INFO  CalculationEngine:     1254.517      0.9412722
+
+01:26:21,961 [pool-4-thread-1] INFO  CalculationEngine:     1253.517      0.9442785
+
+01:26:21,963 [pool-4-thread-1] INFO  CalculationEngine:     1252.517      0.9470463
+
+01:26:21,965 [pool-4-thread-1] INFO  CalculationEngine:     1251.517      0.9496011
+
+01:26:21,966 [pool-4-thread-1] INFO  CalculationEngine:     1250.517      0.9519649
+
+01:26:21,968 [pool-4-thread-1] INFO  CalculationEngine:     1249.517      0.9541569
+
+01:26:21,970 [pool-4-thread-1] INFO  CalculationEngine:     1248.517      0.9561939
+
+01:26:22,036 [pool-4-thread-1] INFO  CalculationEngine:     1247.517      0.9580907
+
+01:26:22,038 [pool-4-thread-1] INFO  CalculationEngine:     1246.517      0.9598604
+
+01:26:22,040 [pool-4-thread-1] INFO  CalculationEngine:     1245.517      0.9615144
+
+01:26:22,042 [pool-4-thread-1] INFO  CalculationEngine:     1244.517      0.9630630
+
+01:26:22,044 [pool-4-thread-1] INFO  CalculationEngine:     1243.517      0.9645153
+
+01:26:22,046 [pool-4-thread-1] INFO  CalculationEngine:     1242.517      0.9658794
+
+01:26:22,048 [pool-4-thread-1] INFO  CalculationEngine:     1241.517      0.9671625
+
+01:26:22,050 [pool-4-thread-1] INFO  CalculationEngine:     1240.517      0.9683712
+
+01:26:22,052 [pool-4-thread-1] INFO  CalculationEngine:     1239.517      0.9695113
+
+01:26:22,054 [pool-4-thread-1] INFO  CalculationEngine:     1238.517      0.9705881
+
+01:26:22,120 [pool-4-thread-1] INFO  CalculationEngine:     1237.517      0.9716065
+
+01:26:22,122 [pool-4-thread-1] INFO  CalculationEngine:     1236.517      0.9725706
+
+01:26:22,124 [pool-4-thread-1] INFO  CalculationEngine:     1235.517      0.9734845
+
+01:26:22,126 [pool-4-thread-1] INFO  CalculationEngine:     1234.517      0.9743516
+
+01:26:22,128 [pool-4-thread-1] INFO  CalculationEngine:     1233.517      0.9751754
+
+01:26:22,130 [pool-4-thread-1] INFO  CalculationEngine:     1232.517      0.9759587
+
+01:26:22,132 [pool-4-thread-1] INFO  CalculationEngine:     1231.517      0.9767042
+
+01:26:22,134 [pool-4-thread-1] INFO  CalculationEngine:     1230.517      0.9774144
+
+01:26:22,136 [pool-4-thread-1] INFO  CalculationEngine:     1229.517      0.9780917
+
+01:26:22,138 [pool-4-thread-1] INFO  CalculationEngine:     1228.517      0.9787380
+
+01:26:22,207 [pool-4-thread-1] INFO  CalculationEngine:     1227.517      0.9793555
+
+01:26:22,209 [pool-4-thread-1] INFO  CalculationEngine:     1226.517      0.9799457
+
+01:26:22,211 [pool-4-thread-1] INFO  CalculationEngine:     1225.517      0.9805103
+
+01:26:22,213 [pool-4-thread-1] INFO  CalculationEngine:     1224.517      0.9810510
+
+01:26:22,215 [pool-4-thread-1] INFO  CalculationEngine:     1223.517      0.9815690
+
+01:26:22,217 [pool-4-thread-1] INFO  CalculationEngine:     1222.517      0.9820657
+
+01:26:22,218 [pool-4-thread-1] INFO  CalculationEngine:     1221.517      0.9825423
+
+01:26:22,220 [pool-4-thread-1] INFO  CalculationEngine:     1220.517      0.9829999
+
+01:26:22,222 [pool-4-thread-1] INFO  CalculationEngine:     1219.517      0.9834395
+
+01:26:22,224 [pool-4-thread-1] INFO  CalculationEngine:     1218.517      0.9838622
+
+01:26:22,295 [pool-4-thread-1] INFO  CalculationEngine:     1217.517      0.9842688
+
+01:26:22,297 [pool-4-thread-1] INFO  CalculationEngine:     1216.517      0.9846601
+
+01:26:22,299 [pool-4-thread-1] INFO  CalculationEngine:     1215.517      0.9850370
+
+01:26:22,301 [pool-4-thread-1] INFO  CalculationEngine:     1214.517      0.9854002
+
+01:26:22,303 [pool-4-thread-1] INFO  CalculationEngine:     1213.517      0.9857504
+
+01:26:22,305 [pool-4-thread-1] INFO  CalculationEngine:     1212.517      0.9860882
+
+01:26:22,307 [pool-4-thread-1] INFO  CalculationEngine:     1211.517      0.9864142
+
+01:26:22,309 [pool-4-thread-1] INFO  CalculationEngine:     1210.517      0.9867291
+
+01:26:22,311 [pool-4-thread-1] INFO  CalculationEngine:     1209.517      0.9870333
+
+01:26:22,313 [pool-4-thread-1] INFO  CalculationEngine:     1208.517      0.9873273
+
+01:26:22,383 [pool-4-thread-1] INFO  CalculationEngine:     1207.517      0.9876116
+
+01:26:22,385 [pool-4-thread-1] INFO  CalculationEngine:     1206.517      0.9878867
+
+01:26:22,387 [pool-4-thread-1] INFO  CalculationEngine:     1205.517      0.9881530
+
+01:26:22,389 [pool-4-thread-1] INFO  CalculationEngine:     1204.517      0.9884108
+
+01:26:22,391 [pool-4-thread-1] INFO  CalculationEngine:     1203.517      0.9886606
+
+01:26:22,393 [pool-4-thread-1] INFO  CalculationEngine:     1202.517      0.9889027
+
+01:26:22,395 [pool-4-thread-1] INFO  CalculationEngine:     1201.517      0.9891375
+
+01:26:22,397 [pool-4-thread-1] INFO  CalculationEngine:     1200.517      0.9893652
+
+01:26:22,399 [pool-4-thread-1] INFO  CalculationEngine:     1199.517      0.9895861
+
+01:26:22,401 [pool-4-thread-1] INFO  CalculationEngine:     1198.517      0.9898005
+
+01:26:22,468 [pool-4-thread-1] INFO  CalculationEngine:     1197.517      0.9900088
+
+01:26:22,483 [pool-4-thread-1] INFO  CalculationEngine:   Calculating properties ...
+
+01:26:23,910 [pool-4-thread-1] INFO  CalculationEngine:  Liquidus temperature: 1715.055 K
+
+01:26:23,953 [Thread-1] INFO  CalculationEngine:    POSTPROCESSOR VERSION 3.2
+
+Temperature at 80% solidification saved to solidification_temperature.json and plot saved to solidification_plot.png.
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+The script executed successfully, and the following outcomes were achieved:
+
+- **Temperature at 80% Solidification:** The temperature at which 80% of the alloy is solidified was determined and saved in a JSON file named `solidification_temperature.json`.
+- **Plot:** A plot showing the solid fraction as a function of temperature was created, with the 80% solidification point marked. This plot was saved as a PNG file named `solidification_plot.png`.
+
+These files contain the detailed results of the Scheil solidification simulation for the specified alloy composition. If you need further analysis or have any questions, feel free to ask.
+
+--------------------------------------------------------------------------------
+User_Proxy (to Assistant):
+
+
+
+--------------------------------------------------------------------------------
+Assistant (to User_Proxy):
+
+TERMINATE
+
+--------------------------------------------------------------------------------
+
+>>>>>>>> TERMINATING RUN (b30d85d9-6ec5-4313-9817-983972b0d510): Termination message condition on agent 'User_Proxy' met

@@ -1,0 +1,152 @@
+{
+  "phase": "AL3M_D023",
+  "phase_tolerance": 1e-08,
+  "precision_K": 5.0,
+  "sampled_brackets_K": [
+    [
+      1323.15,
+      1423.15
+    ]
+  ],
+  "temperature_K": 1374.7125,
+  "status": "bracketed",
+  "bracket_K": [
+    1373.15,
+    1376.275
+  ],
+  "selection": "highest sampled disappearance boundary",
+  "disappearance_intervals": [
+    {
+      "bracket_K": [
+        1373.15,
+        1376.275
+      ],
+      "temperature_K": 1374.7125,
+      "liquid_at_boundary": true
+    }
+  ],
+  "multiple_intervals": false,
+  "below": {
+    "temperature_K": 1373.15,
+    "target_mole_fraction": 0.0006484679288838473,
+    "liquid_mole_fraction": 0.999351532071116
+  },
+  "above": {
+    "temperature_K": 1376.275,
+    "target_mole_fraction": 0,
+    "liquid_mole_fraction": 0.9999999999999999
+  },
+  "liquid_at_boundary": true,
+  "samples": [
+    {
+      "temperature_K": 523.15,
+      "target_mole_fraction": 0.03088328663603167,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 623.15,
+      "target_mole_fraction": 0.029624667039133162,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 723.15,
+      "target_mole_fraction": 0.028152249310887806,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 823.15,
+      "target_mole_fraction": 0.026210845347836194,
+      "liquid_mole_fraction": 0
+    },
+    {
+      "temperature_K": 923.15,
+      "target_mole_fraction": 0.040541455724540584,
+      "liquid_mole_fraction": 0.9478057260523679
+    },
+    {
+      "temperature_K": 1023.15,
+      "target_mole_fraction": 0.04553462427960086,
+      "liquid_mole_fraction": 0.9544653757203991
+    },
+    {
+      "temperature_K": 1123.15,
+      "target_mole_fraction": 0.04120615167126537,
+      "liquid_mole_fraction": 0.9587938483287344
+    },
+    {
+      "temperature_K": 1223.15,
+      "target_mole_fraction": 0.0320100314287213,
+      "liquid_mole_fraction": 0.9679899685712785
+    },
+    {
+      "temperature_K": 1323.15,
+      "target_mole_fraction": 0.014358961746217352,
+      "liquid_mole_fraction": 0.9856410382537824
+    },
+    {
+      "temperature_K": 1373.15,
+      "target_mole_fraction": 0.0006484679288838473,
+      "liquid_mole_fraction": 0.999351532071116
+    },
+    {
+      "temperature_K": 1376.275,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 0.9999999999999999
+    },
+    {
+      "temperature_K": 1379.4,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1385.65,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 0.9999999999999999
+    },
+    {
+      "temperature_K": 1398.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1423.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1523.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 0.9999999999999998
+    },
+    {
+      "temperature_K": 1623.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    },
+    {
+      "temperature_K": 1673.15,
+      "target_mole_fraction": 0,
+      "liquid_mole_fraction": 1.0
+    }
+  ],
+  "source_records": [
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/11b188be23dcd086540586b01e687b0957cc3dddf3c3ca375c66ba2e485cebbe.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/1860dd7eb06fa54ae2b185a453aa489a80139df9ba0e9271444b475a7ff92d88.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/18e6d337be08cf6b8c187c92f6f951fb34be993561b27052e350639cf6296a1c.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/22e4593cfa4a7a49d1fe6358e94beab9a08412dd6d67cdef712b5e4059086fb2.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/249632344d96c126bc01eb4cafb0e100a8870942a5c4be846fb97d9dfecc9adb.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/3edfe171116875e584f8f68c7ab466e23323f58e9811f58e984cb46fca791489.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/43cc8ac3c871efa89ef223b9e238589552d743bfc4dce8a16e301cb508f3afb1.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/49261078e37e79eae53227826888a88b613d94034cb0ae2ad471d5323247c4e7.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/52867f4942f7834adb795919c7dd3a43f3be276e7f491f7473d83bcb1ee0772b.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/6e8c604bfac212bd61b412cf1d59b23eae9b32418fc4f49a400002ed327e4658.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8721578bfa5a1e1b6fd80b65a5494542d1c302fa82509b3ea8231ab8861ce76a.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/8c8fcf6cd3257ac57ac9b939daf20a6ba50306eceb67b0154347f3ec98d490e5.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a46b1c17642df219a31d3326f6d3bf36900db80dfdeea5e19c33acc4877fe6bb.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/a89de728e06d8c31e2f3d712da3a11f629b9afa5b60b40df872e42ced916b2fa.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/c6d2c3e74e64bdc5456831bbc0aabf8849695364fd09956f8b8624259ec9999e.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/cbad8f3396810bd6c937c4353930f1ede42ad3b436440fc44efe90233b97d88b.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/eeb4c1fb9107496d5799830dc02902a4a662a0e4516d8f7045ef53dee7fcc0f5.json",
+    "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/f918d3c5c41eab567589284b0d2d255b1535a53e2cb7694d7688e65b6dd8cbf4.json"
+  ]
+}

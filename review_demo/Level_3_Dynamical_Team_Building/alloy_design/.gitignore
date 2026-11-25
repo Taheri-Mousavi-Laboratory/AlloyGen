@@ -1,0 +1,7 @@
+# Local credentials and notebook/runtime files are not publication evidence.
+.env
+.env.local
+.env.*.local
+!*.example
+__pycache__/
+.ipynb_checkpoints/

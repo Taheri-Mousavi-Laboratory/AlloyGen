@@ -1,0 +1,103 @@
+{
+  "alias": "G54-SA-EQ-01",
+  "assessed_UTC": "2026-11-20T06:55:24.465467+00:00",
+  "raw_status": "returned_pending_scientific_assessment",
+  "model": "gpt-5.4-2026-03-05",
+  "minutes": 18.0075827,
+  "accounting_period": "revision_key_01_resumed_20261111",
+  "api_usage": {
+    "prompt_tokens": 288664,
+    "completion_tokens": 47224,
+    "total_tokens": 335888,
+    "provider_cached_input_tokens": 224256,
+    "estimated_cost_usd": 0.9254439999999999,
+    "undiscounted_cost_usd": 1.43002,
+    "completed_provider_calls": 9,
+    "failed_provider_calls": 0,
+    "missing_usage_responses": 0
+  },
+  "scientific_usage": {
+    "equilibrium_calls": 332,
+    "scheil_calls": 12,
+    "cache_hits": 705,
+    "paid_model_calls": 0
+  },
+  "scientific_calls": 35,
+  "distinct_search_compositions": 20,
+  "search_family_counts": {
+    "coarsening": 20,
+    "phase_stability": 16,
+    "solidification": 11
+  },
+  "batch_sizes": [
+    0,
+    0,
+    0,
+    3,
+    3,
+    3,
+    3,
+    2,
+    3,
+    3,
+    3,
+    1,
+    3,
+    3,
+    1,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    1,
+    3,
+    3,
+    3,
+    3,
+    3,
+    1
+  ],
+  "native_function_calls": {
+    "retrieve_content": 2
+  },
+  "code_execution_count": 5,
+  "code_failures": [
+    {
+      "index": 2,
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"[LOCAL_PATH]\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'L12_660C'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"[LOCAL_PATH]\", line 376, in <module>\n    phase_new_df[\"phase_feasible_660C\"] = phase_new_df[\"L12_660C\"].apply(lambda x: None if pd.isna(x) else (float(x) <= 1.05))\n                                          ~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 4107, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'L12_660C'\nLoaded previous outputs.\n  coarsening rows: 14\n  phase rows: 10\n  solidification rows: 7\n  merged rows: 14\nAfter record audit: feasible valid-J candidates = 0; infeasible valid-J candidates = 0; unknown-phase valid-J candidates = 14.\nNo feasible valid-J candidate yet after record audit; selecting follow-up points to bracket the 660 C L12 feasibility boundary on the lowest-J branches.\nChosen follow-up candidates (6): ['N2.00_E0.60_Z0.80', 'N1.50_E0.80_Z0.80', 'N2.00_E0.80_Z0.60', 'N2.00_E0.40_Z0.60', 'N1.50_E0.60_Z0.60', 'N2.00_E0.60_Z0.40']\nRunning follow-up coarsening.\nRunning follow-up phase stability.\n"
+    },
+    {
+      "index": 3,
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"[LOCAL_PATH]\", line 362, in <module>\n    phase_new_df[\"composition_id\"] = phase_new_df.apply(\n                                     ^^^^^^^^^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 10381, in apply\n    return op.apply().__finalize__(self, method=\"apply\")\n           ^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 916, in apply\n    return self.apply_standard()\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 1063, in apply_standard\n    results, res_index = self.apply_series_generator()\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 1081, in apply_series_generator\n    results[i] = self.func(v, *self.args, **self.kwargs)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 363, in <lambda>\n    lambda r: comp_id({\"Ni\": float(r[\"Ni\"]), \"Er\": float(r[\"Er\"]), \"Zr\": float(r[\"Zr\"])}),\n                             ^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\nLoaded previous outputs.\n  coarsening rows: 14\n  phase rows: 10\n  solidification rows: 7\n  merged rows: 14\nAfter record audit: feasible valid-J candidates = 0; infeasible valid-J candidates = 0; unknown-phase valid-J candidates = 14.\nNo feasible valid-J candidate yet after record audit; selecting follow-up points to bracket the 660 C L12 feasibility boundary on low-J branches.\nChosen follow-up candidates (6): ['N2.00_E0.60_Z0.80', 'N1.50_E0.80_Z0.80', 'N2.00_E0.80_Z0.60', 'N2.00_E0.40_Z0.60', 'N1.50_E0.60_Z0.60', 'N2.00_E0.60_Z0.40']\nRunning follow-up coarsening.\nRunning follow-up phase stability.\n"
+    },
+    {
+      "index": 4,
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"[LOCAL_PATH]\", line 490, in <module>\n    solid_new = solid_new[[\n                ^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 4113, in __getitem__\n    indexer = self.columns._get_indexer_strict(key, \"columns\")[1]\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[LOCAL_PATH]\", line 6212, in _get_indexer_strict\n    self._raise_if_missing(keyarr, indexer, axis_name)\n  File \"[LOCAL_PATH]\", line 6264, in _raise_if_missing\n    raise KeyError(f\"{not_found} not in index\")\nKeyError: \"['ternary_terminal_molpct', 'L12_terminal_molpct', 'Al3Ni_terminal_molpct', 'Al3Zr_terminal_molpct', 'terminal_solid_molpct', 'FR_start_phases'] not in index\"\nLoaded previous outputs.\n  coarsening rows: 14\n  phase rows: 10\n  solidification rows: 7\n  merged rows: 14\nAfter record audit: feasible valid-J candidates = 0; infeasible valid-J candidates = 0; unknown-phase valid-J candidates = 14.\nNo feasible valid-J candidate yet after record audit; selecting follow-up points to bracket the blocking 660 C phase limit on low-J branches.\nChosen follow-up candidates (6): ['N2.00_E0.60_Z0.80', 'N1.50_E0.80_Z0.80', 'N2.00_E0.80_Z0.60', 'N2.00_E0.40_Z0.60', 'N1.50_E0.60_Z0.60', 'N2.00_E0.60_Z0.40']\nRunning follow-up coarsening.\nRunning follow-up phase stability.\nRunning follow-up solidification on ['N2.00_E0.60_Z0.80', 'N1.50_E0.80_Z0.80', 'N2.00_E0.80_Z0.60', 'N2.00_E0.40_Z0.60']\n"
+    }
+  ],
+  "reference_max_absolute_difference": 0.0,
+  "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139",
+  "preservation": {
+    "physics_files": 8,
+    "preserved_sources": 43
+  },
+  "notebook_errors": [],
+  "raw_notebook_sha256": "1dd5abd18556f891af4afffa4653f71025e64b0ac96938dae55c92db58bf29db",
+  "raw_evidence_sha256": {
+    "run.json": "8c8251b5f3fb5ea92a2252303d6d2a4b37d51e2ad4e2349fbc9e759879b3d5ce",
+    "transcript.txt": "6e144e348fdbb35b1fb353bad21d8ee1d3d22cb2674e7e0f350a0e36b0e726ea",
+    "conversation.json": "5dbcbbcf73dbe630614a83aa02784ba0d96956aa0d5bbd74e21c48a6e47d1c09"
+  }
+}

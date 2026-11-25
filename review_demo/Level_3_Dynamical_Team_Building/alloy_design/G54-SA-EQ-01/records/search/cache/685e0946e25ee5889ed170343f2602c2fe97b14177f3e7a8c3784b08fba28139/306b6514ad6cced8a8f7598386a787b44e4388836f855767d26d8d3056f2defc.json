@@ -1,0 +1,72 @@
+{
+  "identity": {
+    "kind": "equilibrium",
+    "composition_percent": {
+      "Ni": 1.5,
+      "Er": 0.7,
+      "Zr": 0.5,
+      "Y": 0.0,
+      "Yb": 0.0
+    },
+    "basis": "atomic_percent",
+    "temperature_K": 1023.15,
+    "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+  },
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/design_single_agent_equilibrium_base_gpt54_20261120/outputs/G54_SA_EQ_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/306b6514ad6cced8a8f7598386a787b44e4388836f855767d26d8d3056f2defc.json",
+  "temperature_K": 1023.15,
+  "bulk_mole_fractions": {
+    "Al": 0.97299999999787,
+    "Ni": 0.01499999999996675,
+    "Er": 0.00699999999998841,
+    "Zr": 0.004999999999998602,
+    "Y": 9.820150800056648e-13,
+    "Yb": 1.194125487601332e-12
+  },
+  "input_condition_error": 1.194125487601332e-12,
+  "phases": [
+    {
+      "name": "AL3M_D023#1",
+      "mole_fraction": 0.007031366192162496,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.0,
+        "Er": 0.0,
+        "Zr": 0.25,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    },
+    {
+      "name": "AL3M_L12#1",
+      "mole_fraction": 0.017729717888676236,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.0001485815299254973,
+        "Er": 0.10215165857555161,
+        "Zr": 0.14769975988179493,
+        "Y": 3.82192436960967e-13,
+        "Yb": 1.2345744757843626e-11
+      }
+    },
+    {
+      "name": "LIQUID#1",
+      "mole_fraction": 0.975238915919161,
+      "composition_mole_fraction": {
+        "Al": 0.9786619169495436,
+        "Ni": 0.015378145238618489,
+        "Er": 0.005320624338183834,
+        "Zr": 0.0006393134716541768,
+        "Y": 1e-12,
+        "Yb": 1e-12
+      }
+    }
+  ],
+  "checks": {
+    "phase_sum_error": 2.220446049250313e-16,
+    "max_component_balance_error": 1.1102230246251565e-16,
+    "max_phase_composition_sum_error": 2.220446049250313e-16,
+    "input_condition_error": 1.194125487601332e-12
+  },
+  "seconds": 0.4624635949730873
+}

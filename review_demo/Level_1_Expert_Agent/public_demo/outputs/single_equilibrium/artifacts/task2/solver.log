@@ -1,0 +1,4 @@
+21:34:32,058 [Thread-1] INFO  CalculationEngine: Starting Thermo-Calc 2024a, Java-version: 21
+
+/vscode_remote/AlloyGEN_Revision/experiments/tool_using_demo_reproduction/runtime/0889e68b7cea -Duser.home=[local-path] -XX:-UsePerfData -XX:ErrorFile=[local-path] -XX:HeapDumpPath=[local-path]
+

@@ -1,0 +1,20 @@
+{
+  "tasks": [
+    {
+      "id": "task1",
+      "question": "\nTask:\nMake a Fe-C-Cr single equilibrium calculation with\nTemperature = 2000 K\nX(C) = 0.01\nX(Cr) = 0.1\nCalculate the Gibbs energy of the system.\n\nPlease solve the task, print the result and save it to a json file.\n\n"
+    },
+    {
+      "id": "task2",
+      "question": "\nTask:\nMake a Fe-C-Cr single equilibrium calculation with\nTemperature = 700 C\nX(C) = 0.01\nX(Cr) = 0.1\nwhere X(.) means mole fraction.\nObtain the volume fraction of phase M23C6.\n\n\nPlease solve the task, print the result and save it to a json file.\n"
+    },
+    {
+      "id": "task3",
+      "question": "\nTask:\n\nLoop over a range of alloy compositions and plot the phase fraction of M23C6\nand handle calculation failures (CalculationException):\n\nTemperature = 700 C\nCr = 5-25 wt-%\nC = 1 mol-%\n\n\nPlease solve the task, print the result and save it to a json file.\n"
+    },
+    {
+      "id": "task4",
+      "question": "\nTask:\n\nCalculate the distribution of the M7C3 volume-fraction in the given composition range,\nuse the function numpy.random.multivariate_normal (normal distributed independent samples)\n\nTemperature = 700 C\nCr = 5-25 wt-% (random)\nC = 0 - 1 wt-% (random)\n\n\nPlease solve the task, print the result and save it to a json file.\n"
+    }
+  ]
+}

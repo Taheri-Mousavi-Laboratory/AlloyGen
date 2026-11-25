@@ -1,0 +1,7 @@
+Ni,Er,Zr,status,Al3Zr_boundary_C,record,L12_250C_molpct,L12_660C_molpct,Al3Zr_250C_molpct,Al3Zr_660C_molpct,liquid_at_upper_boundary,lower_disappearance_intervals,composition_id,phase_feasible_660C
+2.0,0.6,0.8,complete,,,,,,,,,N2.00_E0.60_Z0.80,
+1.5,0.8,0.8,complete,,,,,,,,,N1.50_E0.80_Z0.80,
+2.0,0.8,0.6,complete,,,,,,,,,N2.00_E0.80_Z0.60,
+2.0,0.4,0.6,complete,,,,,,,,,N2.00_E0.40_Z0.60,
+1.5,0.6,0.6,complete,,,,,,,,,N1.50_E0.60_Z0.60,
+2.0,0.6,0.4,complete,,,,,,,,,N2.00_E0.60_Z0.40,

@@ -1,0 +1,22 @@
+{
+  "method_version": "design_indicators_v1_20261107",
+  "tc_python_version": "2025.2.30",
+  "database_sha256": "fbb339fb16b6f9113ae82793314ff8992cf5cb88b2e47719709124f9399940dc",
+  "elements": ["Al", "Ni", "Er", "Zr", "Y", "Yb"],
+  "pressure_Pa": 101325,
+  "temperatures_K": [523.15, 933.15],
+  "reference_mass_percent": {"Ni": 2.14, "Er": 1.35, "Zr": 1.15, "Y": 0.25, "Yb": 0.73},
+  "parameters": {
+    "temperature_K": 523.15,
+    "Diffusivity": {"Ni": 1.5e-18, "Er": 2.5e-17, "Zr": 5e-26, "Y": 2.25e-21, "Yb": 2.5e-17},
+    "latticep": {"Al": 4.072570758, "Ni": 3.916581, "Er": 4.225008, "Zr": 4.090182, "Y": 4.249242, "Yb": 4.21512}
+  },
+  "solvus": {"lower_K": 523.15, "upper_K": 1673.15, "step_K": 100.0, "precision_K": 5.0, "phase_tolerance": 1e-8},
+  "scheil": {"start_temperature_K": 1800.0, "temperature_step_K": 1.0, "termination_liquid_fraction": 0.005, "timeout_minutes": 5},
+  "FR_solid_cutoff": 0.02,
+  "CSC": {"solid_thresholds": [0.40, 0.90, 0.98], "interpolation_step": 0.001},
+  "HCS_divisor": 100,
+  "phase_selection": "all available phases; no manual suspension",
+  "equilibrium_timeout_minutes": 1,
+  "max_batch_size": 12
+}

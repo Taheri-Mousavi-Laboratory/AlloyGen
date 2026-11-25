@@ -1,0 +1,84 @@
+{
+  "identity": {
+    "kind": "equilibrium",
+    "composition_percent": {
+      "Ni": 1.5,
+      "Er": 0.4,
+      "Zr": 0.8,
+      "Y": 0.0,
+      "Yb": 0.0
+    },
+    "basis": "atomic_percent",
+    "temperature_K": 723.15,
+    "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139"
+  },
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/6e1fdbabc296482fab42f1476cbb4b6879a22d19e1e458817cae57f08a387821.json",
+  "temperature_K": 723.15,
+  "bulk_mole_fractions": {
+    "Al": 0.9729999999646494,
+    "Ni": 0.01499999999998808,
+    "Er": 0.003999999999999991,
+    "Zr": 0.007999999999996387,
+    "Y": 1.658152864090017e-11,
+    "Yb": 1.8784519477446737e-11
+  },
+  "input_condition_error": 1.8784519477446737e-11,
+  "phases": [
+    {
+      "name": "AL3M_D023#1",
+      "mole_fraction": 0.012145712020502773,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.0,
+        "Er": 0.0,
+        "Zr": 0.25,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    },
+    {
+      "name": "AL3M_L12#1",
+      "mole_fraction": 0.035498375965267503,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 6.0156970520226845e-05,
+        "Er": 0.1126812110624262,
+        "Zr": 0.13725863102112548,
+        "Y": 4.41934589531928e-10,
+        "Yb": 5.039935084723896e-10
+      }
+    },
+    {
+      "name": "AL3NI1#1",
+      "mole_fraction": 0.058787482374609304,
+      "composition_mole_fraction": {
+        "Al": 0.75,
+        "Ni": 0.25,
+        "Er": 0.0,
+        "Zr": 0.0,
+        "Y": 0.0,
+        "Yb": 0.0
+      }
+    },
+    {
+      "name": "FCC_A1#1",
+      "mole_fraction": 0.8935684296396201,
+      "composition_mole_fraction": {
+        "Al": 0.9995611892360458,
+        "Ni": 0.0003368448588774425,
+        "Er": 6.137556655260683e-12,
+        "Zr": 0.00010196589693930709,
+        "Y": 1e-12,
+        "Yb": 1e-12
+      }
+    }
+  ],
+  "checks": {
+    "phase_sum_error": 3.3306690738754696e-16,
+    "max_component_balance_error": 1.1102230246251565e-16,
+    "max_phase_composition_sum_error": 0.0,
+    "input_condition_error": 1.8784519477446737e-11
+  },
+  "seconds": 0.5326298661530018
+}

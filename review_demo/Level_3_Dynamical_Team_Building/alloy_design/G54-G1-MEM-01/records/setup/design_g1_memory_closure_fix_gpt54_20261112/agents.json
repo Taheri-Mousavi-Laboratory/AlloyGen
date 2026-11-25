@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Alloy_Design_Planner",
+    "description": "Translates the task into a workflow and informative experiments using specialist advice. In a pre-nomination review assesses further refinement or justified stopping; records the final nomination in execute mode after qualification. Owns sample selection; does not calculate physics.",
+    "system_message": "",
+    "agent_path": "design_g1_memory_closure_fix_gpt54_20261112/agents/Planner",
+    "model": "gpt-5.4-2026-03-05"
+  },
+  {
+    "name": "Coarsening_Specialist",
+    "description": "Interprets measured J trends, practical ties and coarsening tradeoffs before planning. In execution, calculates normalized L12 coarsening J at 250 C with evaluate_coarsening. Supports objective-driven sample selection.",
+    "system_message": "",
+    "agent_path": "design_g1_memory_closure_fix_gpt54_20261112/agents/Coarsening",
+    "model": "gpt-5.4-2026-03-05"
+  },
+  {
+    "name": "Phase_Stability_Specialist",
+    "description": "Interprets equilibrium phase constraints using matched composition pairs: identifies fixed/varied solutes, service-phase gain, constraint margin and competing-phase costs before planning. In execution calculates L12/Al3Zr at 250/660 C and upper disappearance boundaries with evaluate_phase_stability. Advises improvement of feasible designs using service/high-temperature phase balance and Er/Zr interactions.",
+    "system_message": "",
+    "agent_path": "design_g1_memory_closure_fix_gpt54_20261112/agents/PhaseStability",
+    "model": "gpt-5.4-2026-03-05"
+  },
+  {
+    "name": "Solidification_Specialist",
+    "description": "Interprets solidification effects of Er/Zr refinements and matched Ni comparisons. Calculates terminal Scheil phases and FR/CSC/HCS on assigned compositions; checks downstream costs of upstream coarsening/phase gains and gives focused evidence-linked advice. Does not choose samples.",
+    "system_message": "",
+    "agent_path": "design_g1_memory_closure_fix_gpt54_20261112/agents/Solidification",
+    "model": "gpt-5.4-2026-03-05"
+  },
+  {
+    "name": "Scientific_Critic",
+    "description": "Required focused reviewer. Checks the link between measured comparisons, proposed hypothesis and chosen calculation; reviews consequential numerical claims after execution. Requests specific corrections without choosing samples. Performs fresh verification of the nominated preferred candidate/reference and final scientific review. Separates correct scoped results from mission completion; checks primary-objective consistency, genuine composition refinement and branch-specific Ni support.",
+    "system_message": "",
+    "agent_path": "design_g1_memory_closure_fix_gpt54_20261112/agents/ScientificCritic",
+    "model": "gpt-5.4-2026-03-05"
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "tool": "evaluate_solidification",
+  "status": "complete",
+  "record": "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/610133e3fcd34283824f9c175a9a0467/result.json",
+  "started_UTC": "2026-11-12T22:45:50.423080+00:00",
+  "reference": {
+    "composition_percent": {
+      "Ni": 2.14,
+      "Er": 1.35,
+      "Zr": 1.15,
+      "Y": 0.25,
+      "Yb": 0.73
+    },
+    "basis": "mass_percent",
+    "status": "complete",
+    "terminal_temperature_C": 637.2288752000001,
+    "terminal_solid_mol_percent": 99.87708189840544,
+    "ternary_mol_percent": 1.0357840503607434,
+    "L12_mol_percent": 1.310962362629209,
+    "Al3Ni_mol_percent": 2.9896542755178457,
+    "Al3Zr_mol_percent": 1.2631515013883756,
+    "FR_K": 14.11562,
+    "CSC": 0.19238,
+    "HCS": 0.027155629755999996,
+    "max_phase_sum_error": 1.1102230246251565e-16,
+    "CSC_intervals": {
+      "relaxation": 0.45987522311756984,
+      "vulnerable": 0.08847292166883836
+    },
+    "records": [
+      "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/be312d12fa284a83121c194d7b31309c82af3ebc80bc42d52808e13f8c87343a.json"
+    ]
+  },
+  "results": [
+    {
+      "composition_percent": {
+        "Ni": 1.5,
+        "Er": 0.4,
+        "Zr": 0.4,
+        "Y": 0.0,
+        "Yb": 0.0
+      },
+      "basis": "atomic_percent",
+      "status": "complete",
+      "terminal_temperature_C": 638.8559912000001,
+      "terminal_solid_mol_percent": 99.99999999999304,
+      "ternary_mol_percent": 3.1551824611524517,
+      "L12_mol_percent": 0.15927458123159977,
+      "Al3Ni_mol_percent": 3.3170750587487516,
+      "Al3Zr_mol_percent": 1.4529790160225757,
+      "FR_K": 9.98812,
+      "CSC": 0.19185,
+      "HCS": 0.01916220822,
+      "max_phase_sum_error": 1.1102230246251565e-16,
+      "CSC_intervals": {
+        "relaxation": 0.4426384736907567,
+        "vulnerable": 0.08492150140904153
+      },
+      "records": [
+        "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/cache/685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139/3f92e3d9b09eba03453a6696fb743ce9570c21b721fecf213aabeabcdc025bdb.json"
+      ]
+    }
+  ],
+  "units": {
+    "candidate_compositions": "at.%; Al balance",
+    "reference_composition": "wt.%; Al balance",
+    "phase_amounts": "mol% of total system",
+    "temperatures": "degC",
+    "FR_K": "K",
+    "CSC": "dimensionless heat-derived time ratio",
+    "HCS": "CSC * FR_K / 100; source scaling"
+  },
+  "method_version": "design_indicators_v1_20261107",
+  "method_fingerprint": "685e0946e25ee5889ed170343f2602c2fe97b14177f3e7a8c3784b08fba28139",
+  "usage": {
+    "equilibrium_calls": 0,
+    "scheil_calls": 1,
+    "cache_hits": 1,
+    "paid_model_calls": 0
+  },
+  "provenance": "experiments/management_alloy_design/agent_development/runs/alloy_design_G1_memory_fresh_gpt54_20261112_01/search/calls/610133e3fcd34283824f9c175a9a0467/provenance.json",
+  "inputs_unchanged": true,
+  "seconds": 33.28321536630392
+}
